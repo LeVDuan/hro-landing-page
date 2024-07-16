@@ -93,8 +93,12 @@ const FrontMenu = (props: Props) => {
         href='/'
         className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
           'text-primary':
-            !intersections.features &&
-            !intersections.team &&
+            !intersections['about-us'] &&
+            !intersections.managers &&
+            !intersections.media &&
+            !intersections.players &&
+            !intersections.activities &&
+            !intersections.location &&
             !intersections.faq &&
             !intersections['contact-us'] &&
             pathname === '/'
@@ -105,9 +109,9 @@ const FrontMenu = (props: Props) => {
       </Typography>
       <Typography
         component={Link}
-        href='#features'
+        href='#about-us'
         className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
-          'text-primary': intersections.features
+          'text-primary': intersections['about-us']
         })}
         color='text.primary'
       >
@@ -115,29 +119,19 @@ const FrontMenu = (props: Props) => {
       </Typography>
       <Typography
         component={Link}
-        href='#team'
+        href='#managers'
         className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
-          'text-primary': intersections.team
+          'text-primary': intersections.managers
         })}
         color='text.primary'
       >
-        Leader
+        Managers
       </Typography>
       <Typography
         component={Link}
-        href='#team'
+        href='#media'
         className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
-          'text-primary': intersections.team
-        })}
-        color='text.primary'
-      >
-        Manager
-      </Typography>
-      <Typography
-        component={Link}
-        href='#team'
-        className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
-          'text-primary': intersections.team
+          'text-primary': intersections.media
         })}
         color='text.primary'
       >
@@ -145,24 +139,34 @@ const FrontMenu = (props: Props) => {
       </Typography>
       <Typography
         component={Link}
-        href='#team'
+        href='#players'
         className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
-          'text-primary': intersections.team
+          'text-primary': intersections.players
         })}
         color='text.primary'
       >
-        Player
+        Players
       </Typography>
       <Typography
         component={Link}
-        href='#team'
+        href='#activities'
         className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
-          'text-primary': intersections.team
+          'text-primary': intersections.activities
+        })}
+        color='text.primary'
+      >
+        Hoạt động
+      </Typography>
+      {/* <Typography
+        component={Link}
+        href='#location'
+        className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
+          'text-primary': intersections.location
         })}
         color='text.primary'
       >
         Địa chỉ
-      </Typography>
+      </Typography> */}
       <Typography
         component={Link}
         href='#faq'
@@ -171,7 +175,7 @@ const FrontMenu = (props: Props) => {
         })}
         color='text.primary'
       >
-        FAQ
+        Hỏi đáp
       </Typography>
       <Typography
         component={Link}

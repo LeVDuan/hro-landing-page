@@ -1,9 +1,6 @@
 // MUI Imports
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
-import Chip from '@mui/material/Chip'
-import TextField from '@mui/material/TextField'
 import IconButton from '@mui/material/IconButton'
 
 // Third-party Imports
@@ -11,7 +8,6 @@ import classnames from 'classnames'
 
 // Component Imports
 import Link from '@components/Link'
-import Logo from '@components/layout/shared/Logo'
 
 // Util Imports
 import { frontLayoutClasses } from '@layouts/utils/layoutClasses'
@@ -32,7 +28,7 @@ function Footer() {
         <div className={classnames('plb-12 text-white', frontCommonStyles.layoutSpacing)}>
           <Grid container rowSpacing={10} columnSpacing={12}>
             <Grid item xs={12} lg={5}>
-              <div className='flex flex-col items-start gap-6'>
+              <div className='flex flex-col items-start gap-4'>
                 <Link href='/'>
                   {/* <Logo color='var(--mui-palette-common-white)' /> */}
                   <div className='flex gap-4'>
@@ -40,115 +36,77 @@ function Footer() {
                       color='var(--mui-palette-common-white)'
                       src='/images/logos/Logo.png'
                       alt='apple store'
-                      className='bs-[65px]'
+                      className='bs-[45px]'
                     />
                     <Typography
                       color='white'
                       fontWeight={700}
-                      fontSize={40}
+                      fontSize={30}
                       className='lg:max-is-[500px] opacity-[0.98]'
                     >
                       HRO
                     </Typography>
                   </div>
+                  <Typography color='white' mt={5} fontWeight={700} className='lg:max-is-[390px] opacity-[0.98]'>
+                    HUST Red Owls Baseball team
+                  </Typography>
                 </Link>
-                <Typography color='white' fontWeight={700} className='lg:max-is-[390px] opacity-[0.98]'>
-                  HUST Red Owls Baseball team
-                </Typography>
-                <Typography color='white' className='lg:max-is-[390px] opacity-[0.78]'>
-                  CLB Bóng chày trực thuộc Ban Văn nghệ thể thao Đoàn Đại học Bách Khoa Hà Nội
-                </Typography>
-                {/* <div className='flex gap-4'>
-                  <TextField
-                    size='small'
-                    className={styles.inputBorder}
-                    label='Subscribe to newsletter'
-                    placeholder='Your email'
-                    sx={{
-                      ' & .MuiInputBase-root:hover:not(.Mui-focused) fieldset': {
-                        borderColor: 'rgb(var(--mui-mainColorChannels-dark) / 0.6) !important'
-                      },
-                      '& .MuiInputBase-root.Mui-focused fieldset': {
-                        borderColor: 'var(--mui-palette-primary-main)!important'
-                      },
-                      '& .MuiFormLabel-root.Mui-focused': {
-                        color: 'var(--mui-palette-primary-main) !important'
-                      }
-                    }}
-                  />
-                  <Button variant='contained' color='primary'>
-                    Subscribe
-                  </Button>
-                </div> */}
+                <div>
+                  <Typography color='white' className='lg:max-is-[390px] opacity-[0.78]'>
+                    CLB Bóng chày Đoàn Đại học Bách Khoa Hà Nội
+                  </Typography>
+                  <Typography color='white' mt={1} className='lg:max-is-[390px] opacity-[0.78]'>
+                    Số 1 Đại Cồ Việt, Quận Hai Bà Trưng, Hà Nội, Việt Nam
+                  </Typography>
+                  <Typography color='white' mt={1} className='lg:max-is-[390px] opacity-[0.78]'>
+                    hustredowlsbaseballteam@gmail.com
+                  </Typography>
+                </div>
               </div>
             </Grid>
             <Grid item xs={12} sm={3} lg={2}>
-              <Typography color='white' className='font-medium mbe-6 opacity-[0.92]'>
-                Trang
+              <Typography color='white' className='font-medium mbe-6 opacity-[1]'>
+                Lối tắt
               </Typography>
               <div className='flex flex-col gap-4'>
-                <Typography component={Link} href='' color='white' className='opacity-[0.78]'>
+                <Typography component={Link} href='/' color='white' className='opacity-[0.78]'>
                   Trang chủ
                 </Typography>
-                <Typography component={Link} href='/pricing' color='white' className='opacity-[0.78]'>
+                <Typography component={Link} href='#about-us' color='white' className='opacity-[0.78]'>
                   Về chúng tôi
                 </Typography>
-                <Link href='/payment' className='flex items-center gap-[10px]'>
+                <Link href='#activities' className='flex items-center gap-[10px]'>
                   <Typography color='white' className='opacity-[0.78]'>
-                    Địa chỉ
+                    Hoạt động
                   </Typography>
                   {/* <Chip label='New' color='primary' size='small' /> */}
                 </Link>
-                <Typography component={Link} href='/help-center' color='white' className='opacity-[0.78]'>
+                <Typography component={Link} href='#contact-us' color='white' className='opacity-[0.78]'>
                   Liên hệ
                 </Typography>
               </div>
             </Grid>
             <Grid item xs={12} sm={3} lg={2}>
-              <Typography color='white' className='font-medium mbe-6 opacity-[0.92]'>
-                Cơ cấu
+              <Typography color='white' className='font-medium mbe-6 opacity-[1]'>
+                Cơ cấu tổ chức
               </Typography>
               <div className='flex flex-col gap-4'>
-                <Typography
-                  component={Link}
-                  href='https://hdwallet.toolhub.app'
-                  target='_blank'
-                  color='white'
-                  className='opacity-[0.78]'
-                >
-                  Leader
+                <Typography component={Link} href='#leaders' color='white' className='opacity-[0.78]'>
+                  Leaders
                 </Typography>
-                <Typography
-                  component={Link}
-                  href='https://hdwallet.toolhub.app'
-                  target='_blank'
-                  color='white'
-                  className='opacity-[0.78]'
-                >
-                  Manager
+                <Typography component={Link} href='#managers' color='white' className='opacity-[0.78]'>
+                  Managers
                 </Typography>
-                <Typography
-                  component={Link}
-                  href='https://hdwallet.toolhub.app'
-                  target='_blank'
-                  color='white'
-                  className='opacity-[0.78]'
-                >
+                <Typography component={Link} href='#media' color='white' className='opacity-[0.78]'>
                   Media
                 </Typography>
-                <Typography
-                  component={Link}
-                  href='https://hdwallet.toolhub.app'
-                  target='_blank'
-                  color='white'
-                  className='opacity-[0.78]'
-                >
-                  Player
+                <Typography component={Link} href='players' color='white' className='opacity-[0.78]'>
+                  Players
                 </Typography>
               </div>
             </Grid>
             <Grid item xs={12} sm={6} lg={3}>
-              <Typography color='white' className='font-medium mbe-6 opacity-[0.92]'>
+              <Typography color='white' className='font-medium mbe-6 opacity-[1]'>
                 Mạng xã hội
               </Typography>
               <div className='flex flex-col gap-4'>

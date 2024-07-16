@@ -21,7 +21,7 @@ import { useImageVariant } from '@core/hooks/useImageVariant'
 import styles from './styles.module.css'
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 
-const HeroSection = ({ mode }: { mode: Mode }) => {
+const Location = ({ mode }: { mode: Mode }) => {
   // States
   const [dashboardPosition, setDashboardPosition] = useState({ x: 0, y: 0 })
   const [elementsPosition, setElementsPosition] = useState({ x: 0, y: 0 })
@@ -68,7 +68,7 @@ const HeroSection = ({ mode }: { mode: Mode }) => {
   }, [])
 
   return (
-    <section id='home' className='relative overflow-hidden pbs-[70px] -mbs-[70px] bg-backgroundPaper z-[1]'>
+    <section id='location' className='relative overflow-hidden pbs-[70px] -mbs-[70px] bg-backgroundPaper z-[1]'>
       <img src={heroSectionBg} alt='hero-bg' className={styles.heroSectionBg} />
       <div className={classnames('pbs-16 overflow-hidden', frontCommonStyles.layoutSpacing)}>
         <div className='md:max-is-[550px] mlb-0 mli-auto text-center'>
@@ -126,4 +126,4 @@ const HeroSection = ({ mode }: { mode: Mode }) => {
   )
 }
 
-export default HeroSection
+export default Location

@@ -29,30 +29,31 @@ type StatData = {
 // Data
 const statData: StatData[] = [
   {
-    title: 'Functional Pages',
-    value: 10,
-    icon: 'ri-layout-line',
+    title: 'Năm hoạt động',
+    value: 4,
+    icon: 'ri-time-line',
     color: 'primary',
     isHover: false
   },
   {
-    title: 'Working Hours',
-    value: 3300,
-    icon: 'ri-time-line',
-    color: 'success',
-    isHover: false
-  },
-  {
-    title: 'UI Components',
-    value: 67,
-    icon: 'ri-user-smile-line',
+    title: 'Thành viên',
+    value: 40,
+    icon: 'ri-user-line',
     color: 'warning',
     isHover: false
   },
   {
-    title: 'User per Tenant',
-    value: 100,
+    title: 'Giải đấu tham dự',
+    value: 3,
     icon: 'ri-award-line',
+    color: 'success',
+    isHover: false
+  },
+
+  {
+    title: 'Sự kiện',
+    value: 10,
+    icon: ' ri-calendar-event-line',
     color: 'info',
     isHover: false
   }
@@ -62,7 +63,12 @@ const ProductStat = () => {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null)
 
   return (
-    <section className='plb-[64px] bg-backgroundPaper'>
+    <section className='plb-[64px] relative'>
+      <img
+        src='/images/front-pages/landing-page/get-started-bg.png'
+        alt='background-image'
+        className='absolute is-full flex -z-1 pointer-events-none bs-full block-end-0'
+      />
       <div className={frontCommonStyles.layoutSpacing}>
         <Grid container spacing={6}>
           {statData.map((stat, index) => (

@@ -1,27 +1,17 @@
 // Next Imports
-import Link from 'next/link'
 
 // MUI Imports
 import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
 
 // Third-party Imports
 import classnames from 'classnames'
-
-// Component Imports
-import DirectionalIcon from '@components/DirectionalIcon'
 
 // Styles Imports
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 
 const GetStarted = () => {
   return (
-    <section className='relative'>
-      <img
-        src='/images/front-pages/landing-page/get-started-bg.png'
-        alt='background-image'
-        className='absolute is-full flex -z-1 pointer-events-none bs-full block-end-0'
-      />
+    <section className='flex flex-col gap-16 plb-[10px]'>
       <div
         className={classnames(
           'flex items-center flex-wrap justify-center lg:justify-between gap-y-4 gap-x-28',
@@ -30,38 +20,30 @@ const GetStarted = () => {
       >
         <div className='flex flex-col items-start gap-y-4 gap-x-4 pbs-9 lg:plb-9 z-[1]'>
           <div className='flex flex-col gap-1'>
-            <Typography color='primary' className='font-bold text-[32px]'>
-              Ready to Get Started?
-            </Typography>
-            <Typography className='font-medium' color='text.secondary'>
-              Start your project with a 14-day free trial
+            <Typography variant='h4' className='font-bold'>
+              Thời gian đầu đầy khó khăn
             </Typography>
           </div>
-          <Button
-            component={Link}
-            href='/payment'
-            variant='contained'
-            endIcon={<DirectionalIcon ltrIconClass='ri-arrow-right-line' rtlIconClass='ri-arrow-left-line' />}
-            color='info'
-          >
-            Process to payment
-          </Button>
-          or
-          <Button
-            component={Link}
-            href='https://hdwallet.toolhub.app'
-            target='_blank'
-            variant='contained'
-            endIcon={<DirectionalIcon ltrIconClass='ri-arrow-right-line' rtlIconClass='ri-arrow-left-line' />}
-          >
-            Get Started Free
-          </Button>
+          <div>
+            <Typography className='font-medium' color='text.secondary'>
+              Với sự thiếu thốn cả về cơ sở vật chất, dụng cụ tập luyện.
+            </Typography>
+            <Typography className='font-medium' color='text.secondary'>
+              Mọi người đều phải chắt chiu, dùng chung găng, chày.
+            </Typography>
+            <Typography className='font-medium' color='text.secondary'>
+              Tuy vậy, HRO đã vượt qua với tình yêu, đam mê với bóng chày
+            </Typography>
+            <Typography className='font-medium' color='text.secondary'>
+              Để sau đó là một cột mốc đáng nhớ của HRO.
+            </Typography>
+          </div>
         </div>
         <div className='flex pbs-4 lg:pbs-[60px] md:pie-4 z-[1]'>
           <img
-            src='/images/front-pages/landing-page/crm-dashboard.png'
-            alt='dashboard-image'
-            className='max-is-[600px] is-full'
+            src='/images/front-pages/landing-page/early-stage.jpg'
+            alt='early-stage-image'
+            className='max-is-[550px] is-full rounded-xl'
           />
         </div>
       </div>

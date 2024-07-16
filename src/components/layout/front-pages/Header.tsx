@@ -70,19 +70,20 @@ const Header = ({ mode }: { mode: Mode }) => {
             <ModeDropdown />
             {isBelowLgScreen ? (
               <CustomIconButton component={Link} variant='contained' href='/pricing' color='primary' target='_blank'>
-                <i className='ri-bug-line text-xl' />
+                <i className='ri-facebook-circle-fill text-xl' />
               </CustomIconButton>
             ) : (
               <Button
                 component={Link}
                 variant='contained'
-                href='/'
-                startIcon={<i className='ri-bug-line text-xl' />}
+                href='https://www.facebook.com/HUSTRedOwlsBaseballTeam'
+                target='_blank'
+                startIcon={<i className='ri-facebook-circle-fill text-xl' />}
                 className='whitespace-nowrap'
 
                 // target='_blank'
               >
-                Báo lỗi
+                Theo dõi
               </Button>
             )}
           </div>

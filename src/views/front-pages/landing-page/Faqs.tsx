@@ -20,6 +20,7 @@ import Lines from '@assets/svg/front-pages/landing-page/Lines'
 
 // Styles Imports
 import frontCommonStyles from '@views/front-pages/styles.module.css'
+import FaqIcon from '@/assets/svg/front-pages/landing-page/FaqIcon'
 
 type FaqsDataTypes = {
   id: string
@@ -92,7 +93,8 @@ const Faqs = () => {
         <div className='flex is-full justify-center items-center relative'>
           <ElementOne className='absolute inline-end-0' />
           <div className='flex items-center justify-center mbe-6 gap-3'>
-            <Lines />
+            {/* <Lines /> */}
+            <FaqIcon />
             <Typography color='text.primary' className='font-medium uppercase'>
               Faq
             </Typography>
