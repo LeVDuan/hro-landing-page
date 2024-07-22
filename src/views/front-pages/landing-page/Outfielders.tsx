@@ -21,176 +21,62 @@ import AppKeenSlider from '@/libs/styles/AppKeenSlider'
 // Styles Imports
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 import type { ThemeColor } from '@/@core/types'
-import FielderIcon from '@/assets/svg/front-pages/landing-page/FieldIcon'
+import OFIcon from '@/assets/svg/front-pages/landing-page/OFIcon'
 
 // Data
 const fielders = [
   {
-    image: '/images/front-pages/landing-page/thaiBaoP.png',
-    name: 'Nguyễn Thái Bảo',
-    position: 'Ném tay trái',
-    des: 'Gen 1',
+    image: '/images/front-pages/landing-page/theBach.png',
+    name: 'Nguyễn Văn Thế Bách',
+    gen: 'Gen 2',
+    position: 'Vị trí: OF/B3',
+    num: 'Số áo: #8',
+    des: 'Ném/Đánh: Phải/Phải',
     color: 'var(--mui-palette-info-mainOpacity)'
   },
   {
-    image: '/images/front-pages/landing-page/linhP.png',
-    name: 'Trần Mỹ Linh',
-    position: 'Ném tay phải',
-    des: 'Gen 2',
+    image: '/images/front-pages/landing-page/nhatMinh.png',
+    name: 'Trần Nhật Minh',
+    gen: 'Gen 3',
+    position: 'Vị trí: OF/B2',
+    num: 'Số áo: #2',
+    des: 'Ném/Đánh: Trái/Trái',
     color: 'var(--mui-palette-info-mainOpacity)'
   },
   {
-    image: '/images/front-pages/landing-page/datP.png',
-    name: 'Trần Tiến Đạt',
-    position: 'Ném tay trái',
-    des: 'Gen 2',
+    image: '/images/front-pages/landing-page/phucAnh.png',
+    name: 'Nguyễn Phúc Anh',
+    gen: 'Gen 3',
+    position: 'Vị trí: OF/SS',
+    num: 'Số áo: #25',
+    des: 'Ném/Đánh: Phải/Phải',
     color: 'var(--mui-palette-info-mainOpacity)'
   },
   {
-    image: '/images/front-pages/landing-page/thaiP.png',
-    name: 'Trương Quang Thái',
-    position: 'Ném tay phải',
-    des: 'Gen 3',
+    image: '/images/front-pages/landing-page/caoKhoa.png',
+    name: 'Cao Hữu Hà Khoa',
+    gen: 'Gen 3',
+    position: 'Vị trí: OF/B2',
+    num: 'Số áo: #63',
+    des: 'Ném/Đánh: Phải/Phải',
     color: 'var(--mui-palette-info-mainOpacity)'
   },
   {
-    image: '/images/front-pages/landing-page/khanhLinh.png',
-    name: 'Lê Khánh Linh',
-    position: 'Ném tay phải',
-    des: 'Gen 4',
+    image: '/images/front-pages/landing-page/leHieu.png',
+    name: 'Lê Minh Hiếu',
+    gen: 'Gen 3',
+    position: 'Vị trí: OF/SS',
+    num: 'Số áo: #32',
+    des: 'Ném/Đánh: Phải/Phải',
     color: 'var(--mui-palette-info-mainOpacity)'
   },
   {
-    image: '/images/front-pages/landing-page/thaiBaoP.png',
-    name: 'Nguyễn Thái Bảo',
-    position: 'Ném tay trái',
-    des: 'Gen 1',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/linhP.png',
-    name: 'Trần Mỹ Linh',
-    position: 'Ném tay phải',
-    des: 'Gen 2',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/datP.png',
-    name: 'Trần Tiến Đạt',
-    position: 'Ném tay trái',
-    des: 'Gen 2',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/thaiP.png',
-    name: 'Trương Quang Thái',
-    position: 'Ném tay phải',
-    des: 'Gen 3',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/khanhLinh.png',
-    name: 'Lê Khánh Linh',
-    position: 'Ném tay phải',
-    des: 'Gen 4',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/thaiBaoP.png',
-    name: 'Nguyễn Thái Bảo',
-    position: 'Ném tay trái',
-    des: 'Gen 1',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/linhP.png',
-    name: 'Trần Mỹ Linh',
-    position: 'Ném tay phải',
-    des: 'Gen 2',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/datP.png',
-    name: 'Trần Tiến Đạt',
-    position: 'Ném tay trái',
-    des: 'Gen 2',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/thaiP.png',
-    name: 'Trương Quang Thái',
-    position: 'Ném tay phải',
-    des: 'Gen 3',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/khanhLinh.png',
-    name: 'Lê Khánh Linh',
-    position: 'Ném tay phải',
-    des: 'Gen 4',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/thaiBaoP.png',
-    name: 'Nguyễn Thái Bảo',
-    position: 'Ném tay trái',
-    des: 'Gen 1',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/linhP.png',
-    name: 'Trần Mỹ Linh',
-    position: 'Ném tay phải',
-    des: 'Gen 2',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/datP.png',
-    name: 'Trần Tiến Đạt',
-    position: 'Ném tay trái',
-    des: 'Gen 2',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/thaiP.png',
-    name: 'Trương Quang Thái',
-    position: 'Ném tay phải',
-    des: 'Gen 3',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/khanhLinh.png',
-    name: 'Lê Khánh Linh',
-    position: 'Ném tay phải',
-    des: 'Gen 4',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/thaiBaoP.png',
-    name: 'Nguyễn Thái Bảo',
-    position: 'Ném tay trái',
-    des: 'Gen 1',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/linhP.png',
-    name: 'Trần Mỹ Linh',
-    position: 'Ném tay phải',
-    des: 'Gen 2',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/datP.png',
-    name: 'Trần Tiến Đạt',
-    position: 'Ném tay trái',
-    des: 'Gen 2',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/thaiP.png',
-    name: 'Trương Quang Thái',
-    position: 'Ném tay phải',
-    des: 'Gen 3',
+    image: '/images/front-pages/landing-page/hoangViet.png',
+    name: 'Lê Hoàng Việt',
+    gen: 'Gen 4',
+    position: 'Vị trí: OF/B3',
+    num: 'Số áo: #45',
+    des: 'Ném/Đánh: Trái/Trái',
     color: 'var(--mui-palette-info-mainOpacity)'
   }
 ]
@@ -211,7 +97,7 @@ const Card = styled(MuiCard)`
   }
 `
 
-const Fielders = () => {
+const Outfielders = () => {
   // States
   const [loaded, setLoaded] = useState<boolean>(false)
   const [currentSlide, setCurrentSlide] = useState<number>(0)
@@ -288,12 +174,12 @@ const Fielders = () => {
   }
 
   return (
-    <section id='fielders' className={classnames('plb-[100px]')}>
+    <div id='outfielder' className='plb-[50px]'>
       <div className={classnames('flex flex-col items-center justify-center', frontCommonStyles.layoutSpacing)}>
         <div className='flex items-center justify-center mbe-6 gap-3'>
-          <FielderIcon />
+          <OFIcon />
           <Typography color='text.primary' className='font-medium uppercase'>
-            Fielders
+            Outfielder
           </Typography>
         </div>
       </div>
@@ -323,8 +209,10 @@ const Fielders = () => {
                         <div className='flex flex-col gap-3 p-5 is-full'>
                           <div className='text-center'>
                             <Typography variant='h5'>{member.name}</Typography>
-                            <Typography color='text.secondary'>{member.des}</Typography>
+                            <Typography color='text.secondary'>{member.gen}</Typography>
+                            <Typography color='text.secondary'>{member.num}</Typography>
                             <Typography color='text.secondary'>{member.position}</Typography>
+                            <Typography color='text.secondary'>{member.des}</Typography>
                           </div>
                         </div>
                       </CardContent>
@@ -351,8 +239,8 @@ const Fielders = () => {
           )}
         </>
       </AppKeenSlider>
-    </section>
+    </div>
   )
 }
 
-export default Fielders
+export default Outfielders

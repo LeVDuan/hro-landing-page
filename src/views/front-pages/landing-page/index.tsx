@@ -26,12 +26,10 @@ import AboutUs from './AboutUs'
 import Managers from './Managers'
 import Media from './Media'
 import Players from './Players'
-import Location from './Location'
 import Official from './Official'
 
 // import Predecessors from './Predecessors-slide'
 import Predecessors from './Predecessors-static'
-import Fielders from './Fielders'
 
 const LandingPageWrapper = ({ mode }: { mode: Mode }) => {
   // Hooks
@@ -58,12 +56,11 @@ const LandingPageWrapper = ({ mode }: { mode: Mode }) => {
       <Managers />
       <Media />
       <Players />
-      <Fielders />
+
       {/* <DemoVideo mode={mode} />
       <OurTeam />
        */}
       <Activities />
-      <Location mode={mode} />
       <Faqs />
       <ContactUs />
     </>

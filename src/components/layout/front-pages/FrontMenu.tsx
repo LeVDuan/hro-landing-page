@@ -72,7 +72,7 @@ const Wrapper = (props: WrapperProps) => {
 
 const FrontMenu = (props: Props) => {
   // Props
-  const { isDrawerOpen, setIsDrawerOpen, mode } = props
+  const { isDrawerOpen, setIsDrawerOpen } = props
 
   // Hooks
   const pathname = usePathname()

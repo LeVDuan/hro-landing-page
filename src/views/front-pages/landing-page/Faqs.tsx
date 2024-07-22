@@ -16,7 +16,8 @@ import { useIntersection } from '@/hooks/useIntersection'
 
 // SVG Imports
 import ElementOne from '@/assets/svg/front-pages/landing-page/ElementOne'
-import Lines from '@assets/svg/front-pages/landing-page/Lines'
+
+// import Lines from '@assets/svg/front-pages/landing-page/Lines'
 
 // Styles Imports
 import frontCommonStyles from '@views/front-pages/styles.module.css'

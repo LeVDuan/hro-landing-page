@@ -100,7 +100,7 @@ function Footer() {
                 <Typography component={Link} href='#media' color='white' className='opacity-[0.78]'>
                   Media
                 </Typography>
-                <Typography component={Link} href='players' color='white' className='opacity-[0.78]'>
+                <Typography component={Link} href='#players' color='white' className='opacity-[0.78]'>
                   Players
                 </Typography>
               </div>
@@ -133,7 +133,7 @@ function Footer() {
                   className='bg-[#211B2C] bs-[56px] is-[211px] rounded'
                 >
                   <div className='flex items-center pli-5 plb-[7px] gap-6'>
-                    <img src='/images/front-pages/ins_logo.png' alt='Google play' className='bs-[34px]' />
+                    <img src='/images/front-pages/ins_logo.png' alt='Instagram' className='bs-[34px]' />
                     <div className='flex flex-col items-start'>
                       <Typography variant='body2' color='white' className='opacity-[0.82]'>
                         Theo dõi trên
