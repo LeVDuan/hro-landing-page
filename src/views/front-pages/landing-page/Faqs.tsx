@@ -33,28 +33,28 @@ type FaqsDataTypes = {
 const FaqsData: FaqsDataTypes[] = [
   {
     id: 'panel1',
-    question: 'Do you charge for each upgrade?',
+    question: 'HRO có phải câu lạc bộ sinh viên không?',
     answer:
-      'No, we do not charge for each upgrade. Our upgrade process is designed to be seamless and cost-effective, providing users with enhanced features and capabilities without additional fees for each upgrade. Instead, users can enjoy a range of subscription plans that include access to all updates and new features as they are released.'
+      'Đúng, chúng tôi là câu lạc bộ bóng chày trực thuộc Ban Văn nghệ thể thao Đoàn Đại học Bách Khoa Hà Nội. Phần lớn thành viên của HRO là sinh viên Bách Khoa và được điều hành và tổ chức bởi các bạn sinh viên.'
   },
   {
     id: 'panel2',
-    question: 'What is basic plan?',
+    question: 'Làm thế nào để tôi có thể tham gia HRO?',
     active: true,
     answer:
-      'The basic plan of our financial management website is free and includes access to insights dashboards, user management, and invoice management. It supports up to 2 users per tenant, allows for managing up to 3 projects, and includes up to 5 categories per project.'
+      'Chúng tôi thường tổ chức tuyển thành viên vào khoảng tháng 10. Đối tượng không phân biệt tuổi tác, giới tính, nghề nghiệp, đã từng chơi bóng chày hay chưa,... Tuy nhiên, nếu bạn là sinh viên Đại học Bách Khoa Hà Nội sẽ là điểm chung rất lớn với chúng mình. Chúng mình thường sẽ tuyển thành viên sau 3 vòng: vòng đơn, vòng phỏng vấn và vòng tryout, với 3 vị trí ứng tuyển: Manager, Media và Player. Nếu bạn yêu thích, muốn tìm hiểu, thỏa mãn đam mê với bóng chày, hãy đến với HRO!'
   },
   {
     id: 'panel3',
-    question: 'What is business plan?',
+    question: 'Tôi có cần chuẩn bị trang thiết bị như găng, chày khi tham gia HRO không?',
     answer:
-      'The business plan of our financial management website is $49 per month. It includes everything in the business plan plus some advanced features: Custom permissions, project management & support for up to 100 users per tenant, customizable options, and over-expense alerts and notifications.'
+      'HRO đã chuẩn bị những đồ tập chung cho cả CLB như găng, chày, bóng, ... Nếu bạn đã có sẵn những trang thiết bị sẽ là rất tiện lợi cho bạn đó. Nếu bạn tham gia buổi tryout thì nhớ mang nhé!'
   },
   {
     id: 'panel4',
-    question: 'How can I start using the service?',
+    question: 'Tôi có thể tham gia buổi tập của HRO không?',
     answer:
-      'You can start using the service by signing up at our website. Simply visit https://hdwallet.toolhub.app, create a new account or sign up using Google, start the free trials and choose the plan that best suits your needs.'
+      'Có, nếu bạn muốn tham gia cùng chúng tôi hãy liên hệ trước với chúng mình qua trang fanpage Facebook hoặc liên hệ trực tiếp các bạn leaders nhé.'
   }
 ]
 
@@ -94,21 +94,20 @@ const Faqs = () => {
         <div className='flex is-full justify-center items-center relative'>
           <ElementOne className='absolute inline-end-0' />
           <div className='flex items-center justify-center mbe-6 gap-3'>
-            {/* <Lines /> */}
             <FaqIcon />
             <Typography color='text.primary' className='font-medium uppercase'>
-              Faq
+              Hỏi đáp
             </Typography>
           </div>
         </div>
         <div className='flex items-center flex-wrap justify-center gap-x-2 mbe-1'>
-          <Typography variant='h5'>Frequently asked</Typography>
           <Typography variant='h4' className='font-bold'>
-            questions
+            Các câu hỏi
           </Typography>
+          <Typography variant='h5'>thường gặp</Typography>
         </div>
         <Typography color='text.secondary' className='font-medium text-center'>
-          Browse through these FAQs to find answers to commonly asked questions.
+          Hãy xem qua các câu hỏi thường gặp để tìm câu trả lời cho những thắc mắc phổ biến
         </Typography>
       </div>
       <div>
@@ -116,7 +115,7 @@ const Faqs = () => {
           <Grid item xs={12} lg={5} className='text-center'>
             <img
               src='/images/front-pages/landing-page/sitting-girl-with-laptop.png'
-              alt='girl with laptop'
+              alt='HRO Hoo with baseball'
               className='is-[80%] max-is-[320px]'
             />
           </Grid>

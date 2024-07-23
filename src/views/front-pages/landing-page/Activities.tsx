@@ -12,12 +12,12 @@ import classnames from 'classnames'
 
 // SVG Imports
 // import Lines from '@assets/svg/front-pages/landing-page/Lines'
-import LaptopCharging from '@assets/svg/front-pages/landing-page/LaptopCharging'
-import TransitionUp from '@assets/svg/front-pages/landing-page/TransitionUp'
-import Edit from '@assets/svg/front-pages/landing-page/Edit'
-import Cube from '@assets/svg/front-pages/landing-page/Cube'
-import LifeBuoy from '@assets/svg/front-pages/landing-page/Lifebuoy'
-import Document from '@assets/svg/front-pages/landing-page/Document'
+
+import RunnerIcon from '@assets/svg/front-pages/landing-page/RunnerIcon'
+import LeagueIcon from '@assets/svg/front-pages/landing-page/LeagueIcon'
+import PitcherActIcon from '@/assets/svg/front-pages/landing-page/PitcherActIcon'
+import BatterActIcon from '@/assets/svg/front-pages/landing-page/BatterActIcon'
+import HomeplateIcon from '@/assets/svg/front-pages/landing-page/HomeplateIcon'
 
 import { useIntersection } from '@/hooks/useIntersection'
 
@@ -25,42 +25,43 @@ import { useIntersection } from '@/hooks/useIntersection'
 import styles from './styles.module.css'
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 import ActivityIcon from '@/assets/svg/front-pages/landing-page/ActivityIcon'
+import BallIcon from '@/assets/svg/front-pages/landing-page/BallIcon'
 
 // Data
-const feature = [
+const activity = [
   {
-    icon: <LaptopCharging />,
-    title: 'Spend Less Time',
-    description: 'Automate tedious and repetitive tasks and speed up manual processes'
+    icon: <BallIcon />,
+    title: 'Luyện tập hàng tuần',
+    description: 'Cùng nhau luyện tập kĩ năng, chiến thuật, tận hưởng bóng chày'
   },
   {
-    icon: <TransitionUp />,
-    title: 'More Visibility',
-    description: 'Find out more about your Financial usage and discover Uncategorized Invoices'
+    icon: <HomeplateIcon />,
+    title: 'Thi đấu nội bộ',
+    description: 'Luyện tập khả năng thực chiến, bài kiểm tra trình độ thi đấu thông qua trận đấu nội chiến nảy lửa'
   },
   {
-    icon: <Edit />,
-    title: 'Reduce Costs',
-    description: 'Optimize your Project spending and uncover falsy datas'
+    icon: <LeagueIcon />,
+    title: 'Tham gia giải đấu',
+    description: 'Tham gia các giải đấu bóng chày được tổ chức tại Hà Nội, toàn quốc'
   },
   {
-    icon: <Cube />,
-    title: 'Manage People',
-    description: 'Onboard newcomers and safely assign role for them'
+    icon: <RunnerIcon />,
+    title: 'Thi đấu giao hữu',
+    description: 'Tham gia các trận đấu đầy thú vị, giao lưu cùng các CLB khác ở Hà Nội'
   },
   {
-    icon: <LifeBuoy />,
-    title: 'Excellent Support',
-    description: 'An easy-to-follow doc with lots of references and code examples.'
+    icon: <PitcherActIcon />,
+    title: 'Tuyển thành viên',
+    description: 'Tìm kiếm những đồng đội mới cho thế hệ tiếp theo mỗi năm một lần'
   },
   {
-    icon: <Document />,
-    title: 'Well Documented',
-    description: 'An easy-to-follow doc with lots of references and code examples.'
+    icon: <BatterActIcon />,
+    title: 'Trải nghiệm bóng chày',
+    description: 'Giao lưu cùng HRO tại các sự kiện được tổ chức tại Đại học Bách Khoa Hà Nội'
   }
 ]
 
-const UsefulFeature = () => {
+const Activities = () => {
   // Refs
   const skipIntersection = useRef(true)
   const ref = useRef<null | HTMLDivElement>(null)
@@ -91,25 +92,21 @@ const UsefulFeature = () => {
       <div className={classnames('flex flex-col gap-12 plb-[100px]', frontCommonStyles.layoutSpacing)}>
         <div className='flex flex-col items-center justify-center'>
           <div className='flex items-center justify-center mbe-6 gap-3'>
-            {/* <Lines /> */}
             <ActivityIcon />
             <Typography color='text.primary' className='font-medium uppercase'>
-              Activities
+              Hoạt động
             </Typography>
           </div>
           <div className='flex items-center justify-center flex-wrap gap-2 mbe-2 sm:mbe-1'>
             <Typography variant='h4' className='font-bold'>
-              Everything you need
+              Tận hưởng bóng chày
             </Typography>
-            <Typography variant='h5'>to manage your next project</Typography>
+            <Typography variant='h5'>cùng các hoạt động của HRO</Typography>
           </div>
-          <Typography className='font-medium text-center'>
-            Not just a set of tools, the app includes innovative solutions for highly effective IT teams.
-          </Typography>
         </div>
         <div>
           <Grid container columnSpacing={6} rowSpacing={12}>
-            {feature.map((item, index) => (
+            {activity.map((item, index) => (
               <Grid item xs={12} sm={6} lg={4} key={index}>
                 <div className='flex flex-col gap-2 justify-center items-center'>
                   <div className={classnames('mbe-2', styles.featureIcon)}>
@@ -127,4 +124,4 @@ const UsefulFeature = () => {
   )
 }
 
-export default UsefulFeature
+export default Activities

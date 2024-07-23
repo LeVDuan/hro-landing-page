@@ -13,11 +13,11 @@ import classnames from 'classnames'
 // SVG Imports
 import Lines from '@assets/svg/front-pages/landing-page/Lines'
 import LaptopCharging from '@assets/svg/front-pages/landing-page/LaptopCharging'
-import TransitionUp from '@assets/svg/front-pages/landing-page/TransitionUp'
-import Edit from '@assets/svg/front-pages/landing-page/Edit'
-import Cube from '@assets/svg/front-pages/landing-page/Cube'
-import LifeBuoy from '@assets/svg/front-pages/landing-page/Lifebuoy'
-import Document from '@assets/svg/front-pages/landing-page/Document'
+import RunnerIcon from '@assets/svg/front-pages/landing-page/TransitionUp'
+import LeagueIcon from '@assets/svg/front-pages/landing-page/Edit'
+import PitcherActIcon from '@/assets/svg/front-pages/landing-page/PitcherActIcon'
+import BatterActIcon from '@/assets/svg/front-pages/landing-page/BatterActIcon'
+import HomeplateIcon from '@/assets/svg/front-pages/landing-page/HomeplateIcon'
 
 import { useIntersection } from '@/hooks/useIntersection'
 
@@ -33,27 +33,27 @@ const feature = [
     description: 'Automate tedious and repetitive tasks and speed up manual processes'
   },
   {
-    icon: <TransitionUp />,
+    icon: <RunnerIcon />,
     title: 'More Visibility',
     description: 'Find out more about your Financial usage and discover Uncategorized Invoices'
   },
   {
-    icon: <Edit />,
+    icon: <LeagueIcon />,
     title: 'Reduce Costs',
     description: 'Optimize your Project spending and uncover falsy datas'
   },
   {
-    icon: <Cube />,
+    icon: <PitcherActIcon />,
     title: 'Manage People',
     description: 'Onboard newcomers and safely assign role for them'
   },
   {
-    icon: <LifeBuoy />,
+    icon: <BatterActIcon />,
     title: 'Excellent Support',
     description: 'An easy-to-follow doc with lots of references and code examples.'
   },
   {
-    icon: <Document />,
+    icon: <HomeplateIcon />,
     title: 'Well Documented',
     description: 'An easy-to-follow doc with lots of references and code examples.'
   }

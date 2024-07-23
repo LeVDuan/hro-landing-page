@@ -23,7 +23,7 @@ import LaptopCharging from '@/assets/svg/front-pages/landing-page/LaptopCharging
 import ElementOne from '@/assets/svg/front-pages/landing-page/ElementOne'
 import ElementTwo from '@/assets/svg/front-pages/landing-page/ElementTwo'
 import Curve from '@/assets/svg/front-pages/landing-page/Curve'
-import Cube from '@/assets/svg/front-pages/landing-page/Cube'
+import PitcherActIcon from '@/assets/svg/front-pages/landing-page/PitcherActIcon'
 
 // Styles Imports
 import frontCommonStyles from '@views/front-pages/styles.module.css'
@@ -32,7 +32,7 @@ import frontCommonStyles from '@views/front-pages/styles.module.css'
 const data = [
   {
     desc: 'If you are a startup or a small business, using the Basic package is fine. In case there are too many projects, you can just hide the old projects.',
-    svg: <Cube color='#2882C3' />,
+    svg: <PitcherActIcon color='#2882C3' />,
     rating: 5,
     name: 'Duong Nguyen',
     position: 'Founder of Cashbook'
@@ -67,7 +67,7 @@ const data = [
   },
   {
     desc: "As an outsourced accountant, using the above way you will independently manage each customer's information, without mixing up data.",
-    svg: <Cube color='#2882C3' />,
+    svg: <PitcherActIcon color='#2882C3' />,
     rating: 5,
     name: 'Duong Nguyen',
     position: 'CTO of Cashbook',
@@ -221,7 +221,7 @@ const CustomerReviews = () => {
         <LaptopCharging color='var(--mui-palette-text-secondary)' />
         <ElementOne color='var(--mui-palette-text-secondary)' />
         <ElementTwo color='var(--mui-palette-text-secondary)' />
-        <Cube color='var(--mui-palette-text-secondary)' />
+        <PitcherActIcon color='var(--mui-palette-text-secondary)' />
         <Curve color='var(--mui-palette-text-secondary)' />
       </div>
     </section>

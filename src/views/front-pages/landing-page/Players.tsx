@@ -41,7 +41,7 @@ const Players = () => {
   }, [])
 
   return (
-    <section id='players' className={classnames('flex flex-col gap-0')} ref={ref}>
+    <section id='players' ref={ref} className={classnames('flex flex-col gap-0')}>
       <div className='relative pbs-[100px]'>
         <img
           src='/images/front-pages/landing-page/get-started-bg.png'
