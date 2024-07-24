@@ -328,3 +328,55 @@ export const pitchers = [
     color: 'var(--mui-palette-info-mainOpacity)'
   }
 ]
+export const SubLeadersInfo = [
+  {
+    name: 'Trần Tiến Đạt',
+    position: 'Phó chủ nhiệm',
+    gen: 'Gen 2 - K66 HUST',
+    num: 'Số áo: #18',
+    image: '/images/front-pages/landing-page/dat.png',
+    color: 'var(--mui-palette-info-mainOpacity)'
+  },
+  {
+    name: 'Đặng Hải Anh',
+    position: 'Đội phó/Phó chủ nhiệm',
+    gen: 'Gen 2 - K67 HUST',
+    num: 'Số áo: #11',
+    image: '/images/front-pages/landing-page/haiANh.png',
+    color: 'var(--mui-palette-info-mainOpacity)'
+  },
+  {
+    name: 'Nguyễn Linh Chi',
+    position: 'Trưởng Ban truyền thông',
+    gen: 'Gen 3 - VNU',
+    num: 'Số áo: #66',
+    image: '/images/front-pages/landing-page/chi.png',
+    color: 'var(--mui-palette-info-mainOpacity)'
+  },
+  {
+    name: 'Lê Hoàng Minh',
+    position: 'Trưởng manager',
+    gen: 'Gen 2 - K65 HUST',
+    num: 'Số áo: #9',
+    image: '/images/front-pages/landing-page/minhLe.png',
+    color: 'var(--mui-palette-info-mainOpacity)'
+  }
+]
+export const LeadersInfo = [
+  {
+    name: 'Lê Tiến Dũng',
+    position: 'Đội trưởng',
+    gen: 'Gen 2 - K66 HUST',
+    num: 'Số áo: #22',
+    image: '/images/front-pages/landing-page/captain.png',
+    color: 'var(--mui-palette-info-mainOpacity)'
+  },
+  {
+    name: 'Nguyễn Thị Phương Thảo',
+    position: 'Chủ nhiệm',
+    gen: 'Gen 2 - K66 HUST',
+    num: 'Số áo: #89',
+    image: '/images/front-pages/landing-page/chairman.png',
+    color: 'var(--mui-palette-info-mainOpacity)'
+  }
+]
