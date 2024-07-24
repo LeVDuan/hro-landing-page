@@ -27,6 +27,10 @@ import Managers from './Managers'
 import Media from './Media'
 import Players from './Players'
 import Official from './Official'
+import Catchers from './Catchers'
+import Outfielders from './Outfielders'
+import Infielders from './Infielders'
+import Pitchers from './Pitchers'
 
 // import Predecessors from './Predecessors-slide'
 import Predecessors from './Predecessors-static'
@@ -56,7 +60,10 @@ const LandingPageWrapper = ({ mode }: { mode: Mode }) => {
       <Managers />
       <Media />
       <Players />
-
+      <Pitchers />
+      <Catchers />
+      <Infielders />
+      <Outfielders />
       {/* <DemoVideo mode={mode} />
       <OurTeam />
        */}

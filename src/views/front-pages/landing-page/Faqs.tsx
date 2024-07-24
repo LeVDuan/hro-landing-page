@@ -22,41 +22,7 @@ import ElementOne from '@/assets/svg/front-pages/landing-page/ElementOne'
 // Styles Imports
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 import FaqIcon from '@/assets/svg/front-pages/landing-page/FaqIcon'
-
-type FaqsDataTypes = {
-  id: string
-  question: string
-  active?: boolean
-  answer: string
-}
-
-const FaqsData: FaqsDataTypes[] = [
-  {
-    id: 'panel1',
-    question: 'HRO có phải câu lạc bộ sinh viên không?',
-    answer:
-      'Đúng, chúng tôi là câu lạc bộ bóng chày trực thuộc Ban Văn nghệ thể thao Đoàn Đại học Bách Khoa Hà Nội. Phần lớn thành viên của HRO là sinh viên Bách Khoa và được điều hành và tổ chức bởi các bạn sinh viên.'
-  },
-  {
-    id: 'panel2',
-    question: 'Làm thế nào để tôi có thể tham gia HRO?',
-    active: true,
-    answer:
-      'Chúng tôi thường tổ chức tuyển thành viên vào khoảng tháng 10. Đối tượng không phân biệt tuổi tác, giới tính, nghề nghiệp, đã từng chơi bóng chày hay chưa,... Tuy nhiên, nếu bạn là sinh viên Đại học Bách Khoa Hà Nội sẽ là điểm chung rất lớn với chúng mình. Chúng mình thường sẽ tuyển thành viên sau 3 vòng: vòng đơn, vòng phỏng vấn và vòng tryout, với 3 vị trí ứng tuyển: Manager, Media và Player. Nếu bạn yêu thích, muốn tìm hiểu, thỏa mãn đam mê với bóng chày, hãy đến với HRO!'
-  },
-  {
-    id: 'panel3',
-    question: 'Tôi có cần chuẩn bị trang thiết bị như găng, chày khi tham gia HRO không?',
-    answer:
-      'HRO đã chuẩn bị những đồ tập chung cho cả CLB như găng, chày, bóng, ... Nếu bạn đã có sẵn những trang thiết bị sẽ là rất tiện lợi cho bạn đó. Nếu bạn tham gia buổi tryout thì nhớ mang nhé!'
-  },
-  {
-    id: 'panel4',
-    question: 'Tôi có thể tham gia buổi tập của HRO không?',
-    answer:
-      'Có, nếu bạn muốn tham gia cùng chúng tôi hãy liên hệ trước với chúng mình qua trang fanpage Facebook hoặc liên hệ trực tiếp các bạn leaders nhé.'
-  }
-]
+import { FaqsData } from '@/fake-db/data'
 
 const Faqs = () => {
   // Refs

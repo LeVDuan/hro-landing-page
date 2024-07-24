@@ -35,7 +35,7 @@ function Footer() {
                     <img
                       color='var(--mui-palette-common-white)'
                       src='/images/logos/Logo.png'
-                      alt='apple store'
+                      alt='HRO logo'
                       className='bs-[45px]'
                     />
                     <Typography
@@ -66,23 +66,40 @@ function Footer() {
             </Grid>
             <Grid item xs={12} sm={3} lg={2}>
               <Typography color='white' className='font-medium mbe-6 opacity-[1]'>
-                Lối tắt
+                Liên kết
               </Typography>
               <div className='flex flex-col gap-4'>
-                <Typography component={Link} href='/' color='white' className='opacity-[0.78]'>
-                  Trang chủ
+                <Typography
+                  component={Link}
+                  href='https://hust.edu.vn/vi/'
+                  target='_blank'
+                  color='white'
+                  className='opacity-[0.78]'
+                >
+                  HUST
                 </Typography>
-                <Typography component={Link} href='#about-us' color='white' className='opacity-[0.78]'>
-                  Về chúng tôi
+                <Typography
+                  component={Link}
+                  href='https://www.facebook.com/bvnttbkhn'
+                  target='_blank'
+                  color='white'
+                  className='opacity-[0.78]'
+                >
+                  Ban VNTT
                 </Typography>
-                <Link href='#activities' className='flex items-center gap-[10px]'>
+                <Link href='https://vbsfvietnam.com/' target='_blank' className='flex items-center gap-[10px]'>
                   <Typography color='white' className='opacity-[0.78]'>
-                    Hoạt động
+                    VBFS Việt Nam
                   </Typography>
-                  {/* <Chip label='New' color='primary' size='small' /> */}
                 </Link>
-                <Typography component={Link} href='#contact-us' color='white' className='opacity-[0.78]'>
-                  Liên hệ
+                <Typography
+                  component={Link}
+                  href='https://www.facebook.com/vbms.baseball'
+                  target='_blank'
+                  color='white'
+                  className='opacity-[0.78]'
+                >
+                  SBMS
                 </Typography>
               </div>
             </Grid>

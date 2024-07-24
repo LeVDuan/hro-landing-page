@@ -9,10 +9,6 @@ import { Typography } from '@mui/material'
 import { useIntersection } from '@/hooks/useIntersection'
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 import PlayerIcon from '@/assets/svg/front-pages/landing-page/PlayerIcon'
-import Catchers from './Catchers'
-import Outfielders from './Outfielders'
-import Infielders from './Infielders'
-import Pitchers from './Pitchers'
 
 const Players = () => {
   // Refs
@@ -65,11 +61,6 @@ const Players = () => {
           </div>
         </div>
       </div>
-
-      <Pitchers />
-      <Catchers />
-      <Infielders />
-      <Outfielders />
     </section>
   )
 }

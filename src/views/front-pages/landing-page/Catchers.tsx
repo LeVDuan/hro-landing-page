@@ -14,34 +14,9 @@ import frontCommonStyles from '@views/front-pages/styles.module.css'
 // import ElementTwo from '@/assets/svg/front-pages/landing-page/ElementTwo'
 import type { ThemeColor } from '@/@core/types'
 import CatcherIcon from '@/assets/svg/front-pages/landing-page/CatcherIcon'
+import { catchers } from '@/fake-db/data'
 
 // Data
-const data = [
-  {
-    image: '/images/front-pages/landing-page/C_duanLe.png',
-    name: 'Lê Văn Duẩn',
-    position: 'Gen 1',
-    num: 'Số áo: #3',
-    des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/C_vuGiap.png',
-    name: 'Vũ Trọng Giáp',
-    position: 'Gen 4',
-    num: 'Số áo: #88',
-    des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/vuNguyen.png',
-    name: 'Vũ Anh Nguyên',
-    position: 'Gen 4',
-    num: 'Số áo: #35',
-    des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  }
-]
 
 const Catchers = () => {
   return (
@@ -59,7 +34,7 @@ const Catchers = () => {
           </div>
         </div>
         <Grid container rowSpacing={16} columnSpacing={6} className='mbe-8 pbs-[70px] flex justify-center items-center'>
-          {data.map((member, index) => (
+          {catchers.map((member, index) => (
             <Grid item xs={12} md={6} lg={3} key={index}>
               <Card className='shadow-none border overflow-visible' color={member.color as ThemeColor}>
                 <CardContent className='flex flex-col items-center justify-center p-0'>

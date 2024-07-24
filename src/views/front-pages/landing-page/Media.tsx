@@ -19,26 +19,7 @@ import type { ThemeColor } from '@/@core/types'
 import MediaIcon from '@/assets/svg/front-pages/landing-page/MediaIcon'
 
 // Data
-const data = [
-  {
-    image: '/images/front-pages/landing-page/xuanDuc.png',
-    name: 'Nguyễn Xuân Đức',
-    position: 'HRO gen 3',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/chiMed.png',
-    name: 'Nguyễn Linh Chi',
-    position: 'Trưởng team Media-HRO gen 3',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/thu.png',
-    name: 'Đào Thị Minh Thu',
-    position: 'HRO gen 4',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  }
-]
+import { mediaTeam } from '@/fake-db/data'
 
 const Media = () => {
   // Refs
@@ -90,7 +71,7 @@ const Media = () => {
           columnSpacing={6}
           className='mbe-8 pbs-[100px] flex justify-center items-center'
         >
-          {data.map((member, index) => (
+          {mediaTeam.map((member, index) => (
             <Grid item xs={12} md={6} lg={3} key={index}>
               <Card className='shadow-none border overflow-visible' color={member.color as ThemeColor}>
                 <CardContent className='flex flex-col items-center justify-center p-0'>

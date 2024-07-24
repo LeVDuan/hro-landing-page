@@ -23,25 +23,29 @@ const data = [
   {
     image: '/images/front-pages/landing-page/datMana.png',
     name: 'Trần Tiến Đạt',
-    position: 'Phó chủ nhiệm K66-HUST',
+    gen: 'Gen 2 - K66 HUST',
+    num: 'Số áo: #18',
     color: 'var(--mui-palette-info-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/thaoMana.png',
     name: 'Nguyễn Thị Phương Thảo',
-    position: 'Chủ nhiệm K66-HUST',
+    gen: 'Gen 2 - K66 HUST',
+    num: 'Số áo: #89',
     color: 'var(--mui-palette-info-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/minhLeMana.png',
     name: 'Lê Hoàng Minh',
-    position: 'Trưởng manager K65-HUST',
+    gen: 'Trưởng manager - K65 HUST',
+    num: 'Số áo: #22',
     color: 'var(--mui-palette-info-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/yenAnh.png',
     name: 'Lê Nguyễn Yến Anh',
-    position: 'K63-NEU',
+    gen: 'Gen 2 - NEU',
+    num: 'Số áo: #15',
     color: 'var(--mui-palette-info-mainOpacity)'
   }
 ]
@@ -110,7 +114,8 @@ const Managers = () => {
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
-                      <Typography color='text.secondary'>{member.position}</Typography>
+                      <Typography color='text.secondary'>{member.num}</Typography>
+                      <Typography color='text.secondary'>{member.gen}</Typography>
                     </div>
                   </div>
                 </CardContent>

@@ -19,24 +19,32 @@ const data = [
   {
     image: '/images/front-pages/landing-page/minhHa.png',
     name: 'Nguyễn Thị Minh Hà',
+    gen: 'Gen 1 - K62 HUST',
+    num: 'Số áo: #19',
     position: 'Đội trưởng/Chủ nhiệm Gen 1',
     color: 'var(--mui-palette-info-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/duanLe.png',
     name: 'Lê Văn Duẩn',
+    gen: 'Gen 1 - K64 HUST',
+    num: 'Số áo: #3',
     position: 'Đội trưởng/Chủ nhiệm Gen 2,3',
     color: 'var(--mui-palette-info-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/qTuan.png',
     name: 'Đinh Quốc Tuấn',
+    gen: 'Gen 1 - HUCE',
+    num: 'Số áo: #22',
     position: 'Đội phó Gen 1',
     color: 'var(--mui-palette-info-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/thaiBao.png',
     name: 'Nguyễn Thái Bảo',
+    gen: 'Gen 1 - K64 HUST',
+    num: 'Số áo: #30',
     position: 'Đội phó Gen 2, 3',
     color: 'var(--mui-palette-info-mainOpacity)'
   }
@@ -83,6 +91,8 @@ const PredecessorsStatic = () => {
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
+                      <Typography color='text.secondary'>{member.num}</Typography>
+                      <Typography color='text.secondary'>{member.gen}</Typography>
                       <Typography color='text.secondary'>{member.position}</Typography>
                     </div>
                   </div>

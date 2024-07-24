@@ -18,27 +18,10 @@ import { useIntersection } from '@/hooks/useIntersection'
 // SVG Imports
 import ElementOne from '@/assets/svg/front-pages/landing-page/ElementOne'
 
-// import Lines from '@assets/svg/front-pages/landing-page/Lines'
-
 // Styles Imports
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 import AboutUsIcon from '@/assets/svg/front-pages/landing-page/AboutUsIcon'
-
-// Data
-const team = [
-  {
-    name: 'Nguyễn Thị Minh Hà',
-    position: 'Người sáng lập HRO',
-    image: '/images/front-pages/landing-page/co-found-Ha.jpg',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    name: 'Trần Thị Minh Châu',
-    position: 'Người sáng lập HRO',
-    image: '/images/front-pages/landing-page/co-found-Chau.jpg',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  }
-]
+import { founders } from '@/fake-db/data'
 
 const Card = styled(MuiCard)`
   &:hover {
@@ -120,7 +103,7 @@ const AboutUs = () => {
           columnSpacing={6}
           className='mbe-8 pbs-[100px] flex justify-center items-center'
         >
-          {team.map((member, index) => (
+          {founders.map((member, index) => (
             <Grid item xs={12} md={6} lg={3} key={index}>
               <Card className='shadow-none border overflow-visible' color={member.color as ThemeColor}>
                 <CardContent className='flex flex-col items-center justify-center p-0'>

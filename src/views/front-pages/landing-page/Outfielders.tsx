@@ -24,62 +24,7 @@ import type { ThemeColor } from '@/@core/types'
 import OFIcon from '@/assets/svg/front-pages/landing-page/OFIcon'
 
 // Data
-const fielders = [
-  {
-    image: '/images/front-pages/landing-page/theBach.png',
-    name: 'Nguyễn Văn Thế Bách',
-    gen: 'Gen 2',
-    position: 'Vị trí: OF/B3',
-    num: 'Số áo: #8',
-    des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/nhatMinh.png',
-    name: 'Trần Nhật Minh',
-    gen: 'Gen 3',
-    position: 'Vị trí: OF/B2',
-    num: 'Số áo: #2',
-    des: 'Ném/Đánh: Trái/Trái',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/phucAnh.png',
-    name: 'Nguyễn Phúc Anh',
-    gen: 'Gen 3',
-    position: 'Vị trí: OF/SS',
-    num: 'Số áo: #25',
-    des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/caoKhoa.png',
-    name: 'Cao Hữu Hà Khoa',
-    gen: 'Gen 3',
-    position: 'Vị trí: OF/B2',
-    num: 'Số áo: #63',
-    des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/leHieu.png',
-    name: 'Lê Minh Hiếu',
-    gen: 'Gen 3',
-    position: 'Vị trí: OF/SS',
-    num: 'Số áo: #32',
-    des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/hoangViet.png',
-    name: 'Lê Hoàng Việt',
-    gen: 'Gen 4',
-    position: 'Vị trí: OF/B3',
-    num: 'Số áo: #45',
-    des: 'Ném/Đánh: Trái/Trái',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  }
-]
+import { outfielders } from '@/fake-db/data'
 
 const Card = styled(MuiCard)`
   &:hover {
@@ -186,7 +131,7 @@ const Outfielders = () => {
       <AppKeenSlider>
         <>
           <div ref={sliderRef} className='keen-slider mbe-6'>
-            {fielders.map((member, index) => (
+            {outfielders.map((member, index) => (
               <div key={index} className='keen-slider__slide p-6 sm:p-4'>
                 <Grid style={scaleStyle(index)} item xs={12} md={6} lg={3}>
                   <div className='pt-20'>

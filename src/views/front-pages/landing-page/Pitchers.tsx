@@ -24,48 +24,7 @@ import type { ThemeColor } from '@/@core/types'
 import PitcherIcon from '@/assets/svg/front-pages/landing-page/PitcherIcon'
 
 // Data
-const pitchers = [
-  {
-    image: '/images/front-pages/landing-page/thaiBaoP.png',
-    name: 'Nguyễn Thái Bảo',
-    position: 'Gen 1',
-    num: 'Số áo: #30',
-    des: 'Ném/Đánh: Trái/Trái',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/linhP.png',
-    name: 'Trần Mỹ Linh',
-    position: 'Gen 2',
-    num: 'Số áo: #91',
-    des: 'Ném/Đánh: Phải/Trái',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/datP.png',
-    name: 'Trần Tiến Đạt',
-    position: 'Gen 2',
-    num: 'Số áo: #18',
-    des: 'Ném/Đánh: Trái/Trái',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/thaiP.png',
-    name: 'Trương Quang Thái',
-    position: 'Gen 3',
-    num: 'Số áo: #86',
-    des: 'Ném/Đánh: Trái/Trái',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/khanhLinh.png',
-    name: 'Lê Khánh Linh',
-    position: 'Gen 4',
-    num: 'Số áo: #71',
-    des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  }
-]
+import { pitchers } from '@/fake-db/data'
 
 const Card = styled(MuiCard)`
   &:hover {
