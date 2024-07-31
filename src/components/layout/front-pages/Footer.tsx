@@ -89,7 +89,7 @@ function Footer() {
                 </Typography>
                 <Link href='https://vbsfvietnam.com/' target='_blank' className='flex items-center gap-[10px]'>
                   <Typography color='white' className='opacity-[0.78]'>
-                    VBFS Việt Nam
+                    VBSF Việt Nam
                   </Typography>
                 </Link>
                 <Typography

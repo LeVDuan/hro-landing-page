@@ -133,7 +133,7 @@ export const infielders = [
     name: 'Nguyễn Nam Khánh',
     gen: 'Gen 4',
     position: 'Vị trí: B2/Pitcher',
-    num: 'Số áo: #??',
+    num: 'Số áo: #28',
     des: 'Ném/Đánh: Phải/Phải',
     color: 'var(--mui-palette-info-mainOpacity)'
   },
@@ -214,19 +214,22 @@ export const mediaTeam = [
   {
     image: '/images/front-pages/landing-page/xuanDuc.png',
     name: 'Nguyễn Xuân Đức',
-    position: 'HRO gen 3',
+    gen: 'Gen 3 - FTU',
+    num: 'Số áo: #69',
     color: 'var(--mui-palette-info-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/chiMed.png',
     name: 'Nguyễn Linh Chi',
-    position: 'Trưởng team Media-HRO gen 3',
+    gen: 'Trưởng Media - Gen 2 - VNU',
+    num: 'Số áo: #66',
     color: 'var(--mui-palette-info-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/thu.png',
     name: 'Đào Thị Minh Thu',
-    position: 'HRO gen 4',
+    gen: 'Gen 4 - VNU',
+    num: 'Số áo: #77',
     color: 'var(--mui-palette-info-mainOpacity)'
   }
 ]
@@ -316,7 +319,7 @@ export const pitchers = [
     name: 'Trương Quang Thái',
     position: 'Gen 3',
     num: 'Số áo: #86',
-    des: 'Ném/Đánh: Trái/Trái',
+    des: 'Ném/Đánh: Phải/Phải',
     color: 'var(--mui-palette-info-mainOpacity)'
   },
   {

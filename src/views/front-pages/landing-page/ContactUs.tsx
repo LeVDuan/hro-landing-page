@@ -85,7 +85,7 @@ const ContactUs = () => {
                   <img src='/images/front-pages/landing-page/chat.png' alt='chat' className='is-full' />
                   <Typography className='text-white'>
                     Bạn đang tìm kiếm nơi thỏa mãn đam mê bóng chày? Bạn thắc mắc về luật bóng chày, về HRO? Đừng lo
-                    lắng, Chúng tôi sẽ giúp bạn.
+                    lắng, chúng tôi sẽ giúp bạn.
                   </Typography>
                 </CardContent>
               </Card>

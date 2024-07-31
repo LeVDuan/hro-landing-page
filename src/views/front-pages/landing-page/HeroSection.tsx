@@ -82,10 +82,10 @@ const HeroSection = ({ mode }: { mode: Mode }) => {
             Bạn đam mê bóng chày?
           </Typography>
           <Typography className='font-medium' color='text.primary'>
-            Bạn muốn rèn luyện sức khỏe và chơi bóng chày cùng những người bạn mới?
+            Bạn muốn rèn luyện sức khỏe và chơi bóng cùng những người bạn mới?
           </Typography>
           <Typography className='font-medium' color='text.primary'>
-            Cùng nhau tập luyện, tham gia giải bóng chày tại Hà Nội hay toàn quốc?
+            Cùng nhau tham gia giải bóng chày tại Hà Nội hay toàn quốc?
           </Typography>
           <Typography className='font-medium' color='text.primary'>
             HRO chính là nơi dành cho bạn!

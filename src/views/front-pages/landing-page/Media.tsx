@@ -84,7 +84,8 @@ const Media = () => {
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
-                      <Typography color='text.secondary'>{member.position}</Typography>
+                      <Typography color='text.secondary'>{member.num}</Typography>
+                      <Typography color='text.secondary'>{member.gen}</Typography>
                     </div>
                   </div>
                 </CardContent>
