@@ -15,40 +15,7 @@ import type { ThemeColor } from '@/@core/types'
 import PreIcon from '@/assets/svg/front-pages/landing-page/PreIcon'
 
 // Data
-const data = [
-  {
-    image: '/images/front-pages/landing-page/minhHa.png',
-    name: 'Nguyễn Thị Minh Hà',
-    gen: 'Gen 1 - K62 HUST',
-    num: 'Số áo: #19',
-    position: 'Đội trưởng/Chủ nhiệm Gen 1',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/duanLe.png',
-    name: 'Lê Văn Duẩn',
-    gen: 'Gen 1 - K64 HUST',
-    num: 'Số áo: #3',
-    position: 'Đội trưởng/Chủ nhiệm Gen 2,3',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/qTuan.png',
-    name: 'Đinh Quốc Tuấn',
-    gen: 'Gen 1 - HUCE',
-    num: 'Số áo: #22',
-    position: 'Đội phó Gen 1',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/thaiBao.png',
-    name: 'Nguyễn Thái Bảo',
-    gen: 'Gen 1 - K64 HUST',
-    num: 'Số áo: #30',
-    position: 'Đội phó Gen 2, 3',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  }
-]
+import { predecessors } from '@/fake-db/data'
 
 const PredecessorsStatic = () => {
   // States
@@ -78,7 +45,7 @@ const PredecessorsStatic = () => {
           columnSpacing={6}
           className='mbe-8 pbs-[100px] flex justify-center items-center'
         >
-          {data.map((member, index) => (
+          {predecessors.map((member, index) => (
             <Grid item xs={12} md={6} lg={3} key={index}>
               <Card className='shadow-none border overflow-visible' color={member.color as ThemeColor}>
                 <CardContent className='flex flex-col items-center justify-center p-0'>

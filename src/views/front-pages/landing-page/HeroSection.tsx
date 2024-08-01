@@ -71,7 +71,7 @@ const HeroSection = ({ mode }: { mode: Mode }) => {
     <section id='home' className='relative overflow-hidden pbs-[70px] -mbs-[80px] bg-backgroundPaper z-[1]'>
       <img src={heroSectionBg} alt='hero-bg' className={styles.heroSectionBg} />
       <div className={classnames('pbs-16 overflow-hidden', frontCommonStyles.layoutSpacing)}>
-        <div className='md:max-is-[550px] mlb-0 mli-auto text-center'>
+        <div className='md:max-is-[700px] mlb-0 mli-auto text-center'>
           <Typography className='font-extrabold text-primary sm:text-[38px] text-3xl mbe-4 leading-[44px]'>
             HUST RED OWLS
           </Typography>
@@ -79,16 +79,19 @@ const HeroSection = ({ mode }: { mode: Mode }) => {
             #WEAREHRO
           </Typography>
           <Typography className='font-medium' color='text.primary'>
-            Bạn đam mê bóng chày?
+            Bạn có niềm đam mê với bóng chày?
           </Typography>
           <Typography className='font-medium' color='text.primary'>
-            Bạn muốn rèn luyện sức khỏe và chơi bóng cùng những người bạn mới?
+            Bạn muốn tìm một sân chơi để thể hiện đam mê?
           </Typography>
           <Typography className='font-medium' color='text.primary'>
-            Cùng nhau tham gia giải bóng chày tại Hà Nội hay toàn quốc?
+            Bạn muốn rèn luyện sức khỏe, nâng cao kỹ năng và có những trải nghiệm khó quên trên sân cỏ?
           </Typography>
           <Typography className='font-medium' color='text.primary'>
-            HRO chính là nơi dành cho bạn!
+            Bạn muốn biết cảm giác thi đấu cùng những người bạn đồng hành như thế nào?
+          </Typography>
+          <Typography className='font-medium' color='text.primary'>
+            Vậy thì HRO chính là nơi dành cho bạn!
           </Typography>
           <div className='mbs-8'>
             <Button

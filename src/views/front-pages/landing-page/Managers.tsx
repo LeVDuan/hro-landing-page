@@ -19,36 +19,7 @@ import type { ThemeColor } from '@/@core/types'
 import ManaIcon from '@/assets/svg/front-pages/landing-page/ManagerIcon'
 
 // Data
-const data = [
-  {
-    image: '/images/front-pages/landing-page/datMana.png',
-    name: 'Trần Tiến Đạt',
-    gen: 'Gen 2 - K66 HUST',
-    num: 'Số áo: #18',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/thaoMana.png',
-    name: 'Nguyễn Thị Phương Thảo',
-    gen: 'Gen 2 - K66 HUST',
-    num: 'Số áo: #89',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/minhLeMana.png',
-    name: 'Lê Hoàng Minh',
-    gen: 'Trưởng manager - K65 HUST',
-    num: 'Số áo: #22',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  },
-  {
-    image: '/images/front-pages/landing-page/yenAnh.png',
-    name: 'Lê Nguyễn Yến Anh',
-    gen: 'Gen 2 - NEU',
-    num: 'Số áo: #15',
-    color: 'var(--mui-palette-info-mainOpacity)'
-  }
-]
+import { managers } from '@/fake-db/data'
 
 const Managers = () => {
   // Refs
@@ -101,7 +72,7 @@ const Managers = () => {
           columnSpacing={6}
           className='mbe-8 pbs-[100px] flex justify-center items-center'
         >
-          {data.map((member, index) => (
+          {managers.map((member, index) => (
             <Grid item xs={12} md={6} lg={3} key={index}>
               <Card className='shadow-none border overflow-visible' color={member.color as ThemeColor}>
                 <CardContent className='flex flex-col items-center justify-center p-0'>

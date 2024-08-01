@@ -28,24 +28,16 @@ const Official = () => {
         <div className='flex flex-col items-start gap-y-4 gap-x-0 pbs-9 lg:plb-9 z-[1]'>
           <div className='flex flex-col gap-1'>
             <Typography variant='h4' className='font-bold'>
-              Trở thành CLB chính thức
+              CHÍNH THỨC ĐƯỢC CÔNG NHẬN
             </Typography>
           </div>
-          <div>
+          <div className='md:max-is-[535px]'>
             <Typography className='font-medium' color='text.secondary'>
-              Tháng 3/2021, HRO đã có bước tiến đầu tiên khi trở thành
+              Tháng 3/2021, một trang mới đã được mở ra trong lịch sử của HRO khi chúng mình chính thức trở thành CLB
+              của Đoàn Đại học Bách Khoa Hà Nội, trực thuộc Ban văn nghệ thể thao.
             </Typography>
             <Typography className='font-medium' color='text.secondary'>
-              CLB chính thức của Đoàn Đại học Bách Khoa, trực thuộc
-            </Typography>
-            <Typography className='font-medium' color='text.secondary'>
-              Ban văn nghệ thể thao.
-            </Typography>
-            <Typography className='font-medium' color='text.secondary'>
-              Sau thời gian hoạt động, cùng rất nhiều nỗ lực làm việc
-            </Typography>
-            <Typography className='font-medium' color='text.secondary'>
-              với Ban Văn nghệ thể thao, Đại học Bách Khoa Hà Nội.
+              Đây là một bước tiến lớn đánh dấu sự trưởng thành của CLB.
             </Typography>
           </div>
         </div>

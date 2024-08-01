@@ -86,32 +86,39 @@ const AboutUs = () => {
             <Typography variant='h5'> của HRO</Typography>
           </div>
           <Typography color='text.secondary' className='font-medium text-center'>
-            Xuất phát từ đam mê bóng chày trong suốt quá trình tham gia CLB Hanoi Amsterdam Phoenix (HAP).
+            Từ những ngày còn là thành viên của CLB Hanoi Amsterdam Phoenix (HAP),
           </Typography>
           <Typography color='text.secondary' className='font-medium text-center'>
-            Sau nhiều năm chơi bóng và học hỏi, Minh Hà và Minh Châu đã quyết định thực hiện ước mơ bằng cách thành lập
-            HRO vào ngày 21/10/2020.
+            Minh Hà và Minh Châu đã ấp ủ giấc mơ mang bóng chày đến gần hơn với mọi người.
           </Typography>
           <Typography color='text.secondary' className='font-medium text-center'>
-            Xuất phát chỉ là nhóm các bạn yêu đam mê bóng chày với các thành viên chủ yếu là các bạn sinh viên Đại Học
-            Bách Khoa.
+            Và rồi, sau nhiều năm miệt mài rèn luyện và học hỏi,
+          </Typography>
+          <Typography color='text.secondary' className='font-medium text-center'>
+            hai bạn đã quyết định biến giấc mơ thành hiện thực bằng cách thành lập HRO vào 21/10/2020.
+          </Typography>
+          <Typography color='text.secondary' className='font-medium text-center'>
+            Ngọn lửa đam mê bóng chày đã thắp sáng những ngày đầu thành lập HRO,
+          </Typography>
+          <Typography color='text.secondary' className='font-medium text-center'>
+            nơi tụ họp của những trái tim yêu bóng chày, chủ yếu là các bạn sinh viên Bách Khoa.
           </Typography>
         </div>
         <Grid
           container
           rowSpacing={16}
           columnSpacing={6}
-          className='mbe-8 pbs-[100px] flex justify-center items-center'
+          className='mbe-8 pbs-[100px] flex justify-center items-center gap-10'
         >
           {founders.map((member, index) => (
             <Grid item xs={12} md={6} lg={3} key={index}>
               <Card className='shadow-none border overflow-visible' color={member.color as ThemeColor}>
                 <CardContent className='flex flex-col items-center justify-center p-0'>
                   <div
-                    className='flex justify-center is-full mli-auto text-center bs-[189px] relative overflow-visible rounded-ss-md rounded-se-md'
+                    className='flex justify-center is-full mli-auto text-center bs-[250px] relative overflow-visible rounded-ss-md rounded-se-md'
                     style={{ backgroundColor: member.color }}
                   >
-                    <img src={member.image} alt={member.name} className='bs-[240px] absolute block-start-[-50px]' />
+                    <img src={member.image} alt={member.name} className='bs-[300px] absolute block-start-[-50px]' />
                   </div>
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>

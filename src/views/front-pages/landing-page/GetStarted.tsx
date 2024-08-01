@@ -14,28 +14,29 @@ const GetStarted = () => {
     <section className='flex flex-col gap-16 plb-[10px]'>
       <div
         className={classnames(
-          'flex items-center flex-wrap justify-center lg:justify-between gap-y-4 gap-x-28',
+          'flex items-center flex-wrap justify-center lg:justify-between gap-y-4 gap-x-10',
           frontCommonStyles.layoutSpacing
         )}
       >
         <div className='flex flex-col items-start gap-y-4 gap-x-4 pbs-9 lg:plb-9 z-[1]'>
           <div className='flex flex-col gap-1'>
             <Typography variant='h4' className='font-bold'>
-              Thời gian đầu đầy khó khăn
+              THỜI GIAN ĐẦU KHÓ KHĂN
             </Typography>
           </div>
-          <div>
+          <div className='md:max-is-[485px]'>
             <Typography className='font-medium' color='text.secondary'>
-              Với sự thiếu thốn cả về cơ sở vật chất, dụng cụ tập luyện.
+              Những ngày đầu, HRO đối mặt với vô vàn khó khăn. Thiếu thốn về cơ sở vật chất, dụng cụ tập luyện là điều
+              không thể tránh khỏi.
             </Typography>
             <Typography className='font-medium' color='text.secondary'>
-              Mọi người đều phải chắt chiu, dùng chung găng, chày.
+              Những ngày đầu, sân tập của chúng tôi chỉ là một khoảng đất trống với vài chiếc găng cũ kỹ. Mỗi thành viên
+              đều phải tự trang bị và cùng nhau chia sẻ. Thế nhưng, chính những khó khăn đó đã tôi luyện ý chí và gắn
+              kết mọi người lại với nhau.
             </Typography>
             <Typography className='font-medium' color='text.secondary'>
-              Tuy vậy, HRO đã vượt qua với tình yêu, đam mê với bóng chày
-            </Typography>
-            <Typography className='font-medium' color='text.secondary'>
-              Để sau đó là một cột mốc đáng nhớ của HRO.
+              Dù bắt đầu với hai bàn tay trắng, nhưng với tình yêu bóng chày cháy bỏng, HRO đã chứng minh rằng: khi có
+              niềm tin và sự đoàn kết, mọi khó khăn đều có thể vượt qua.
             </Typography>
           </div>
         </div>
