@@ -34,6 +34,9 @@ import Pitchers from './Pitchers'
 
 // import Predecessors from './Predecessors-slide'
 import Predecessors from './Predecessors-static'
+import NationalCup2023 from './NationalCup2023'
+import HBMS2023 from './HBMS2023'
+import NationalCup2024 from './NationalCup2024'
 
 const LandingPageWrapper = ({ mode }: { mode: Mode }) => {
   // Hooks
@@ -54,6 +57,10 @@ const LandingPageWrapper = ({ mode }: { mode: Mode }) => {
       {/* <CustomerReviews /> */}
       <GetStarted />
       <Official />
+      <NationalCup2023 />
+      <HBMS2023 />
+      <NationalCup2024 />
+
       <ProductStat />
       <Leaders />
       <Predecessors />
