@@ -1,0 +1,34 @@
+{
+  "header": {
+    "Home": "Trang chủ",
+    "About us": "Về chúng tôi",
+    "Managers": "Managers",
+    "Media": "Media",
+    "Players": "Players",
+    "Activities": "Hoạt động",
+    "FAQ": "Hỏi đáp",
+    "Contact us": "Liên hệ",
+    "Follow": "Theo dõi"
+  },
+  "footer": {
+    "No 1 Dai Co Viet, Hai Ba Trung District, Hanoi, Vietnam": "Số 1 Đại Cồ Việt, Quận Hai Bà Trưng, Hà Nội, Việt Nam",
+    "Links": "Liên kết",
+    "VNTT committee": "Ban VNTT",
+    "VBSF Vietnam": "VBSF Việt Nam",
+    "Club Structure": "Tổ chức",
+    "Social network": "Mạng xã hội",
+    "Follow on": "Theo dõi trên"
+  },
+  "dropMenu": {
+    "Change mode": "Đổi nền",
+    "Light": "Sáng",
+    "Dark": "Tối",
+    "System": "Hệ thống",
+    "Change language": "Đổi ngôn ngữ",
+    "Vietnamese": "Tiếng Việt",
+    "English": "Tiếng Anh"
+  },
+  "heroSection": {
+    "Bạn có niềm đam mê với bóng chày?": "Bạn có niềm đam mê với bóng chày?"
+  }
+}

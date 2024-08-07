@@ -3,9 +3,10 @@
 // React Imports
 import { useRef, useState } from 'react'
 
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 
 // MUI Imports
+
 import Tooltip from '@mui/material/Tooltip'
 import IconButton from '@mui/material/IconButton'
 import Popper from '@mui/material/Popper'
@@ -15,23 +16,28 @@ import ClickAwayListener from '@mui/material/ClickAwayListener'
 import MenuList from '@mui/material/MenuList'
 import MenuItem from '@mui/material/MenuItem'
 
-// Type Imports
-import type { Mode } from '@core/types'
+import type { Locale } from '@/configs/localeConfig'
+
+import { setUserLocale } from '@/services/locale'
 
 // Hook Imports
 import { useSettings } from '@core/hooks/useSettings'
 
-const ModeDropdown = () => {
+const LocaleDropdown = () => {
   // States
   const [open, setOpen] = useState(false)
   const [tooltipOpen, setTooltipOpen] = useState(false)
+
+  const currLocale = useLocale()
   const t = useTranslations('dropMenu')
+
+  // console.log('currlocale: ', currLocale)
 
   // Refs
   const anchorRef = useRef<HTMLButtonElement>(null)
 
   // Hooks
-  const { settings, updateSettings } = useSettings()
+  const { settings } = useSettings()
 
   const handleClose = () => {
     setOpen(false)
@@ -42,35 +48,27 @@ const ModeDropdown = () => {
     setOpen(prevOpen => !prevOpen)
   }
 
-  const handleModeSwitch = (mode: Mode) => {
+  const handleLocaleSwitch = async (value: string) => {
+    // const locale = value as Locale
+    // console.log('selected locale: ', value)
     handleClose()
 
-    if (settings.mode !== mode) {
-      updateSettings({ mode: mode })
-    }
-  }
-
-  const getModeIcon = () => {
-    if (settings.mode === 'system') {
-      return 'ri-computer-line'
-    } else if (settings.mode === 'dark') {
-      return 'ri-moon-clear-line'
-    } else {
-      return 'ri-sun-line'
+    if (currLocale !== value) {
+      setUserLocale(value as Locale)
     }
   }
 
   return (
     <>
       <Tooltip
-        title={t('Change mode')}
+        title={t('Change language')}
         onOpen={() => setTooltipOpen(true)}
         onClose={() => setTooltipOpen(false)}
         open={open ? false : tooltipOpen ? true : false}
         PopperProps={{ className: 'capitalize' }}
       >
         <IconButton ref={anchorRef} onClick={handleToggle} className='!text-textPrimary'>
-          <i className={getModeIcon()} />
+          <i className='ri-translate-2' />
         </IconButton>
       </Tooltip>
       <Popper
@@ -89,29 +87,11 @@ const ModeDropdown = () => {
             <Paper className={settings.skin === 'bordered' ? 'border shadow-none' : 'shadow-lg'}>
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList onKeyDown={handleClose}>
-                  <MenuItem
-                    className='gap-3'
-                    onClick={() => handleModeSwitch('light')}
-                    selected={settings.mode === 'light'}
-                  >
-                    <i className='ri-sun-line' />
-                    {t('Light')}
+                  <MenuItem className='gap-3' onClick={() => handleLocaleSwitch('vi')} selected={currLocale === 'vi'}>
+                    {t('Vietnamese')}
                   </MenuItem>
-                  <MenuItem
-                    className='gap-3'
-                    onClick={() => handleModeSwitch('dark')}
-                    selected={settings.mode === 'dark'}
-                  >
-                    <i className='ri-moon-clear-line' />
-                    {t('Dark')}
-                  </MenuItem>
-                  <MenuItem
-                    className='gap-3'
-                    onClick={() => handleModeSwitch('system')}
-                    selected={settings.mode === 'system'}
-                  >
-                    <i className='ri-computer-line' />
-                    {t('System')}
+                  <MenuItem className='gap-3' onClick={() => handleLocaleSwitch('en')} selected={currLocale === 'en'}>
+                    {t('English')}
                   </MenuItem>
                 </MenuList>
               </ClickAwayListener>
@@ -123,4 +103,4 @@ const ModeDropdown = () => {
   )
 }
 
-export default ModeDropdown
+export default LocaleDropdown

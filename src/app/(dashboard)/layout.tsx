@@ -1,5 +1,7 @@
 // Third-party Imports
 import 'react-perfect-scrollbar/dist/css/styles.css'
+import { NextIntlClientProvider } from 'next-intl'
+import { getLocale, getMessages } from 'next-intl/server'
 
 // Type Imports
 import FrontLayout from '@components/layout/front-pages'
@@ -28,20 +30,25 @@ export const metadata = {
     'HRO - CLB bóng chày Đoàn Đại học Bách Khoa Hà Nội - Trực thuộc Ban Văn nghệ thể thao Đoàn Đại học Bách Khoa Hà Nội'
 }
 
-const Layout = ({ children }: ChildrenType) => {
+const Layout = async ({ children }: ChildrenType) => {
   // Vars
+  const direction = 'ltr'
   const systemMode = getSystemMode()
+  const locale = await getLocale()
+  const messages = await getMessages()
 
   return (
-    <html id='__next'>
+    <html id='__next' lang={locale} dir={direction}>
       <body className='flex is-full min-bs-full flex-auto flex-col'>
-        <Providers direction='ltr'>
-          <BlankLayout systemMode={systemMode}>
-            <IntersectionProvider>
-              <FrontLayout>{children}</FrontLayout>
-            </IntersectionProvider>
-          </BlankLayout>
-        </Providers>
+        <NextIntlClientProvider messages={messages}>
+          <Providers direction='ltr'>
+            <BlankLayout systemMode={systemMode}>
+              <IntersectionProvider>
+                <FrontLayout>{children}</FrontLayout>
+              </IntersectionProvider>
+            </BlankLayout>
+          </Providers>
+        </NextIntlClientProvider>
       </body>
     </html>
   )

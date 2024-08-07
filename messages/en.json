@@ -1,0 +1,34 @@
+{
+  "header": {
+    "Home": "Home",
+    "About us": "About us",
+    "Managers": "Managers",
+    "Media": "Media",
+    "Players": "Players",
+    "Activities": "Activities",
+    "FAQ": "FAQ",
+    "Contact us": "Contact us",
+    "Follow": "Follow"
+  },
+  "footer": {
+    "No 1 Dai Co Viet, Hai Ba Trung District, Hanoi, Vietnam": "No. 1 Dai Co Viet, Hai Ba Trung District, Hanoi, Vietnam",
+    "Links": "Links",
+    "VNTT committee": "VNTT committee",
+    "VBSF Vietnam": "VBSF Vietnam",
+    "Club Structure": "Club Structure",
+    "Social network": "Social network",
+    "Follow on": "Follow on"
+  },
+  "dropMenu": {
+    "Change mode": "Change mode",
+    "Light": "Light",
+    "Dark": "Dark",
+    "System": "System",
+    "Change language": "Change language",
+    "Vietnamese": "Vietnamese",
+    "English": "English"
+  },
+  "heroSection": {
+    "Bạn có niềm đam mê với bóng chày?": "Do you like baseball?"
+  }
+}

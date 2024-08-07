@@ -7,6 +7,8 @@ import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
+import { useTranslations } from 'next-intl'
+
 // MUI Imports
 import Typography from '@mui/material/Typography'
 import Drawer from '@mui/material/Drawer'
@@ -78,6 +80,7 @@ const FrontMenu = (props: Props) => {
   const pathname = usePathname()
   const isBelowLgScreen = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'))
   const { intersections } = useIntersection()
+  const t = useTranslations('header')
 
   useEffect(() => {
     if (!isBelowLgScreen && isDrawerOpen) {
@@ -105,7 +108,7 @@ const FrontMenu = (props: Props) => {
         })}
         color='text.primary'
       >
-        Trang chủ
+        {t('Home')}
       </Typography>
       <Typography
         component={Link}
@@ -115,7 +118,7 @@ const FrontMenu = (props: Props) => {
         })}
         color='text.primary'
       >
-        Về chúng tôi
+        {t('About us')}
       </Typography>
       <Typography
         component={Link}
@@ -125,7 +128,7 @@ const FrontMenu = (props: Props) => {
         })}
         color='text.primary'
       >
-        Managers
+        {t('Managers')}
       </Typography>
       <Typography
         component={Link}
@@ -135,7 +138,7 @@ const FrontMenu = (props: Props) => {
         })}
         color='text.primary'
       >
-        Media
+        {t('Media')}
       </Typography>
       <Typography
         component={Link}
@@ -145,7 +148,7 @@ const FrontMenu = (props: Props) => {
         })}
         color='text.primary'
       >
-        Players
+        {t('Players')}
       </Typography>
       <Typography
         component={Link}
@@ -155,18 +158,8 @@ const FrontMenu = (props: Props) => {
         })}
         color='text.primary'
       >
-        Hoạt động
+        {t('Activities')}
       </Typography>
-      {/* <Typography
-        component={Link}
-        href='#location'
-        className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
-          'text-primary': intersections.location
-        })}
-        color='text.primary'
-      >
-        Địa chỉ
-      </Typography> */}
       <Typography
         component={Link}
         href='#faq'
@@ -175,7 +168,7 @@ const FrontMenu = (props: Props) => {
         })}
         color='text.primary'
       >
-        Hỏi đáp
+        {t('FAQ')}
       </Typography>
       <Typography
         component={Link}
@@ -185,7 +178,7 @@ const FrontMenu = (props: Props) => {
         })}
         color='text.primary'
       >
-        Liên hệ
+        {t('Contact us')}
       </Typography>
     </Wrapper>
   )

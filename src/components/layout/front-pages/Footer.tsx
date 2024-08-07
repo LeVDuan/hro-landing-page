@@ -2,6 +2,7 @@
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import IconButton from '@mui/material/IconButton'
+import { useTranslations } from 'next-intl'
 
 // Third-party Imports
 import classnames from 'classnames'
@@ -17,6 +18,8 @@ import { frontLayoutClasses } from '@layouts/utils/layoutClasses'
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 
 function Footer() {
+  const t = useTranslations('footer')
+
   return (
     <footer className={frontLayoutClasses.footer}>
       <div className='relative'>
@@ -56,7 +59,7 @@ function Footer() {
                     CLB Bóng chày Đoàn Đại học Bách Khoa Hà Nội
                   </Typography>
                   <Typography color='white' mt={1} className='lg:max-is-[390px] opacity-[0.78]'>
-                    Số 1 Đại Cồ Việt, Quận Hai Bà Trưng, Hà Nội, Việt Nam
+                    {t('No 1 Dai Co Viet, Hai Ba Trung District, Hanoi, Vietnam')}
                   </Typography>
                   <Typography color='white' mt={1} className='lg:max-is-[390px] opacity-[0.78]'>
                     hustredowlsbaseballteam@gmail.com
@@ -66,7 +69,7 @@ function Footer() {
             </Grid>
             <Grid item xs={12} sm={3} lg={2}>
               <Typography color='white' className='font-medium mbe-6 opacity-[1]'>
-                Liên kết
+                {t('Links')}
               </Typography>
               <div className='flex flex-col gap-4'>
                 <Typography
@@ -85,11 +88,11 @@ function Footer() {
                   color='white'
                   className='opacity-[0.78]'
                 >
-                  Ban VNTT
+                  {t('VNTT committee')}
                 </Typography>
                 <Link href='https://vbsfvietnam.com/' target='_blank' className='flex items-center gap-[10px]'>
                   <Typography color='white' className='opacity-[0.78]'>
-                    VBSF Việt Nam
+                    {t('VBSF Vietnam')}
                   </Typography>
                 </Link>
                 <Typography
@@ -99,13 +102,13 @@ function Footer() {
                   color='white'
                   className='opacity-[0.78]'
                 >
-                  SBMS
+                  VBMS
                 </Typography>
               </div>
             </Grid>
             <Grid item xs={12} sm={3} lg={2}>
               <Typography color='white' className='font-medium mbe-6 opacity-[1]'>
-                Cơ cấu tổ chức
+                {t('Club Structure')}
               </Typography>
               <div className='flex flex-col gap-4'>
                 <Typography component={Link} href='#leaders' color='white' className='opacity-[0.78]'>
@@ -124,7 +127,7 @@ function Footer() {
             </Grid>
             <Grid item xs={12} sm={6} lg={3}>
               <Typography color='white' className='font-medium mbe-6 opacity-[1]'>
-                Mạng xã hội
+                {t('Social network')}
               </Typography>
               <div className='flex flex-col gap-4'>
                 <Link
@@ -136,7 +139,7 @@ function Footer() {
                     <img src='/images/front-pages/f_logo.png' alt='apple store' className='bs-[34px]' />
                     <div className='flex flex-col items-start'>
                       <Typography variant='body2' color='white' className='capitalize opacity-[0.82]'>
-                        Theo dõi trên
+                        {t('Follow on')}
                       </Typography>
                       <Typography color='white' className='font-medium capitalize opacity-[0.92]'>
                         Facebook
@@ -153,7 +156,7 @@ function Footer() {
                     <img src='/images/front-pages/ins_logo.png' alt='Instagram' className='bs-[34px]' />
                     <div className='flex flex-col items-start'>
                       <Typography variant='body2' color='white' className='opacity-[0.82]'>
-                        Theo dõi trên
+                        {t('Follow on')}
                       </Typography>
                       <Typography color='white' className='font-medium opacity-[0.92]'>
                         Instagram

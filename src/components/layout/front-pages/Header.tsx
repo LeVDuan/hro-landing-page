@@ -3,8 +3,11 @@
 // React Imports
 import { useState } from 'react'
 
-// Next Imports
 import Link from 'next/link'
+
+import { useTranslations } from 'next-intl'
+
+// Next Imports
 
 // MUI Imports
 import Button from '@mui/material/Button'
@@ -30,10 +33,12 @@ import { frontLayoutClasses } from '@layouts/utils/layoutClasses'
 
 // Styles Imports
 import styles from './styles.module.css'
+import LocaleDropdown from '../shared/LocaleDropdown'
 
 const Header = ({ mode }: { mode: Mode }) => {
   // States
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const t = useTranslations('header')
 
   // Hooks
   const isBelowLgScreen = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'))
@@ -67,6 +72,7 @@ const Header = ({ mode }: { mode: Mode }) => {
             </div>
           )}
           <div className='flex items-center gap-2 sm:gap-4'>
+            <LocaleDropdown />
             <ModeDropdown />
             {isBelowLgScreen ? (
               <CustomIconButton component={Link} variant='contained' href='/pricing' color='primary' target='_blank'>
@@ -83,7 +89,7 @@ const Header = ({ mode }: { mode: Mode }) => {
 
                 // target='_blank'
               >
-                Theo dõi
+                {t('Follow')}
               </Button>
             )}
           </div>
