@@ -56,7 +56,7 @@ function Footer() {
                 </Link>
                 <div>
                   <Typography color='white' className='lg:max-is-[390px] opacity-[0.78]'>
-                    CLB Bóng chày Đoàn Đại học Bách Khoa Hà Nội
+                    CLB Bóng chày Đoàn Đại học Bách khoa Hà Nội
                   </Typography>
                   <Typography color='white' mt={1} className='lg:max-is-[390px] opacity-[0.78]'>
                     {t('No 1 Dai Co Viet, Hai Ba Trung District, Hanoi, Vietnam')}

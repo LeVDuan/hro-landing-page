@@ -15,7 +15,7 @@ import '@assets/iconify-icons/generated-icons.css'
 export const metadata = {
   title: 'HRO - HUST Red owls baseball team',
   description:
-    'HRO - CLB bóng chày Đoàn Đại học Bách Khoa Hà Nội - Trực thuộc Ban Văn nghệ thể thao Đoàn Đại học Bách Khoa Hà Nội'
+    'HRO - CLB bóng chày Đoàn Đại học Bách khoa Hà Nội - Trực thuộc Ban Văn nghệ thể thao Đoàn Đại học Bách khoa Hà Nội'
 }
 
 const RootLayout = async ({ children }: ChildrenType) => {

@@ -34,7 +34,7 @@ const Official = () => {
           <div className='md:max-is-[535px]'>
             <Typography className='font-medium' color='text.secondary'>
               Tháng 3/2021, một trang mới đã được mở ra trong lịch sử của HRO khi chúng mình chính thức trở thành CLB
-              của Đoàn Đại học Bách Khoa Hà Nội, trực thuộc Ban văn nghệ thể thao.
+              của Đoàn Đại học Bách khoa Hà Nội, trực thuộc Ban văn nghệ thể thao.
             </Typography>
             <Typography className='font-medium' color='text.secondary'>
               Đây là một bước tiến lớn đánh dấu sự trưởng thành của CLB.

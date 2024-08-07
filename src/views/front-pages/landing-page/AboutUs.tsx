@@ -98,10 +98,16 @@ const AboutUs = () => {
             hai bạn đã quyết định biến giấc mơ thành hiện thực bằng cách thành lập HRO vào 21/10/2020.
           </Typography>
           <Typography color='text.secondary' className='font-medium text-center'>
+            Nhận thấy vùng đất Bách khoa màu mỡ nhiều tiềm năng, tràn đầy những bạn trẻ đam mê thể thao,
+          </Typography>
+          <Typography color='text.secondary' className='font-medium text-center'>
+            các chị đã bắt đầu đi khai phá và gieo những hạt giống bóng chày tại đây.
+          </Typography>
+          <Typography color='text.secondary' className='font-medium text-center'>
             Ngọn lửa đam mê bóng chày đã thắp sáng những ngày đầu thành lập HRO,
           </Typography>
           <Typography color='text.secondary' className='font-medium text-center'>
-            nơi tụ họp của những trái tim yêu bóng chày, chủ yếu là các bạn sinh viên Bách Khoa.
+            nơi tụ họp của những trái tim yêu bóng chày, chủ yếu là các bạn sinh viên Bách khoa.
           </Typography>
         </div>
         <Grid

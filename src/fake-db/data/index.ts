@@ -427,10 +427,10 @@ type FaqsDataTypes = {
 export const FaqsData: FaqsDataTypes[] = [
   {
     id: 'panel1',
-    question: 'Không phải sinh viên Bách Khoa có thể tham gia HRO không?',
+    question: 'Không phải sinh viên Bách khoa có thể tham gia HRO không?',
     active: true,
     answer:
-      'Có thể. HRO không phân biệt tuổi tác, giới tính, nghề nghiệp, trường học, đã từng chơi bóng chày hay chưa,... Tuy nhiên, nếu bạn là sinh viên Đại học Bách Khoa Hà Nội sẽ là điểm chung rất lớn với chúng mình.'
+      'Có thể. HRO không phân biệt tuổi tác, giới tính, nghề nghiệp, trường học, đã từng chơi bóng chày hay chưa,... Tuy nhiên, nếu bạn là sinh viên Đại học Bách khoa Hà Nội sẽ là điểm chung rất lớn với chúng mình.'
   },
   {
     id: 'panel2',

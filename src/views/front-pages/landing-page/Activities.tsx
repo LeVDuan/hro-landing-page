@@ -57,7 +57,7 @@ const activity = [
   {
     icon: <BatterActIcon />,
     title: 'Trải nghiệm bóng chày',
-    description: 'Giao lưu cùng HRO tại các sự kiện được tổ chức tại Đại học Bách Khoa Hà Nội'
+    description: 'Giao lưu cùng HRO tại các sự kiện được tổ chức tại Đại học Bách khoa Hà Nội'
   }
 ]
 
