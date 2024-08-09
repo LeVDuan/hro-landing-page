@@ -13,6 +13,8 @@ import classnames from 'classnames'
 // SVG Imports
 // import Lines from '@assets/svg/front-pages/landing-page/Lines'
 
+import { useTranslations } from 'next-intl'
+
 import RunnerIcon from '@assets/svg/front-pages/landing-page/RunnerIcon'
 import LeagueIcon from '@assets/svg/front-pages/landing-page/LeagueIcon'
 import PitcherActIcon from '@/assets/svg/front-pages/landing-page/PitcherActIcon'
@@ -31,33 +33,33 @@ import BallIcon from '@/assets/svg/front-pages/landing-page/BallIcon'
 const activity = [
   {
     icon: <BallIcon />,
-    title: 'Luyện tập hàng tuần',
-    description: 'Cùng nhau luyện tập kĩ năng, chiến thuật, tận hưởng bóng chày'
+    title: 'Weekly Practice',
+    description: 'Weekly Practice des'
   },
   {
     icon: <HomeplateIcon />,
-    title: 'Thi đấu nội bộ',
-    description: 'Luyện tập khả năng thực chiến, bài kiểm tra trình độ thi đấu thông qua trận đấu nội chiến nảy lửa'
+    title: 'Internal Matches',
+    description: 'Internal Matches des'
   },
   {
     icon: <LeagueIcon />,
-    title: 'Tham gia giải đấu',
-    description: 'Tham gia các giải đấu bóng chày được tổ chức tại Hà Nội, toàn quốc'
+    title: 'Participate in Tournaments',
+    description: 'Participate in Tournaments des'
   },
   {
     icon: <RunnerIcon />,
-    title: 'Thi đấu giao hữu',
-    description: 'Tham gia các trận đấu đầy thú vị, giao lưu cùng các CLB khác ở Hà Nội'
+    title: 'Friendly Matches',
+    description: 'Friendly Matches des'
   },
   {
     icon: <PitcherActIcon />,
-    title: 'Tuyển thành viên',
-    description: 'Tìm kiếm những đồng đội mới cho thế hệ tiếp theo mỗi năm một lần'
+    title: 'Recruitment',
+    description: 'Recruitment des'
   },
   {
     icon: <BatterActIcon />,
-    title: 'Trải nghiệm bóng chày',
-    description: 'Giao lưu cùng HRO tại các sự kiện được tổ chức tại Đại học Bách khoa Hà Nội'
+    title: 'Baseball Experience',
+    description: 'Baseball Experience des'
   }
 ]
 
@@ -65,6 +67,7 @@ const Activities = () => {
   // Refs
   const skipIntersection = useRef(true)
   const ref = useRef<null | HTMLDivElement>(null)
+  const t = useTranslations('activity')
 
   // Hooks
   const { updateIntersections } = useIntersection()
@@ -94,14 +97,14 @@ const Activities = () => {
           <div className='flex items-center justify-center mbe-6 gap-3'>
             <ActivityIcon />
             <Typography color='text.primary' className='font-medium uppercase'>
-              Hoạt động
+              {t('activities')}
             </Typography>
           </div>
           <div className='flex items-center justify-center flex-wrap gap-2 mbe-2 sm:mbe-1'>
             <Typography variant='h4' className='font-bold'>
-              Tận hưởng bóng chày
+              {t('Experience baseball')}
             </Typography>
-            <Typography variant='h5'>cùng các hoạt động của HRO</Typography>
+            <Typography variant='h5'>{t('through HRO’s activities')}</Typography>
           </div>
         </div>
         <div>
@@ -112,8 +115,8 @@ const Activities = () => {
                   <div className={classnames('mbe-2', styles.featureIcon)}>
                     <div className='flex items-center border-2 rounded-full p-5 is-[82px] bs-[82px]'>{item.icon}</div>
                   </div>
-                  <Typography variant='h5'>{item.title}</Typography>
-                  <Typography className='max-is-[364px] text-center'>{item.description}</Typography>
+                  <Typography variant='h5'>{t(item.title)}</Typography>
+                  <Typography className='max-is-[364px] text-center'>{t(item.description)}</Typography>
                 </div>
               </Grid>
             ))}

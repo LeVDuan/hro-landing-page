@@ -12,6 +12,8 @@ import Grid from '@mui/material/Grid'
 import classnames from 'classnames'
 
 // Hook Imports
+import { useTranslations } from 'next-intl'
+
 import { useIntersection } from '@/hooks/useIntersection'
 
 // SVG Imports
@@ -28,6 +30,7 @@ const Faqs = () => {
   // Refs
   const skipIntersection = useRef(true)
   const ref = useRef<null | HTMLDivElement>(null)
+  const t = useTranslations('faq')
 
   // Hooks
   const { updateIntersections } = useIntersection()
@@ -62,18 +65,18 @@ const Faqs = () => {
           <div className='flex items-center justify-center mbe-6 gap-3'>
             <FaqIcon />
             <Typography color='text.primary' className='font-medium uppercase'>
-              Hỏi đáp
+              {t('FAQ')}
             </Typography>
           </div>
         </div>
         <div className='flex items-center flex-wrap justify-center gap-x-2 mbe-1'>
           <Typography variant='h4' className='font-bold'>
-            Các câu hỏi
+            {t('Frequently asked')}
           </Typography>
-          <Typography variant='h5'>thường gặp</Typography>
+          <Typography variant='h5'>{t('questions')}</Typography>
         </div>
         <Typography color='text.secondary' className='font-medium text-center'>
-          Hãy xem qua các câu hỏi thường gặp để tìm câu trả lời cho những thắc mắc phổ biến
+          {t('description')}
         </Typography>
       </div>
       <div>
@@ -91,9 +94,9 @@ const Faqs = () => {
                 return (
                   <Accordion key={index} defaultExpanded={data.active}>
                     <AccordionSummary aria-controls={data.id + '-content'} id={data.id + '-header'}>
-                      {data.question}
+                      {t(data.question)}
                     </AccordionSummary>
-                    <AccordionDetails>{data.answer}</AccordionDetails>
+                    <AccordionDetails>{t(data.answer)}</AccordionDetails>
                   </Accordion>
                 )
               })}

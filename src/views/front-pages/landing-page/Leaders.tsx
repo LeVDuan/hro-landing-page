@@ -7,7 +7,7 @@
 // MUI Imports
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
-import Card from '@mui/material/Card'
+import MuiCard from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 
 // import Slider from '@mui/material/Slider'
@@ -19,6 +19,10 @@ import CardContent from '@mui/material/CardContent'
 import classnames from 'classnames'
 
 // Styles Imports
+import { useTranslations } from 'next-intl'
+
+import { styled } from '@mui/material/styles'
+
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 
 // SVG Imports
@@ -30,8 +34,25 @@ import LeaderIcon from '@/assets/svg/front-pages/landing-page/LeaderIcon'
 import type { ThemeColor } from '@/@core/types'
 import { LeadersInfo, SubLeadersInfo } from '@/fake-db/data'
 
+const Card = styled(MuiCard)`
+  &:hover {
+    border-color: ${(props: { color: ThemeColor }) => props.color};
+
+    & i:nth-child(1) {
+      color: rgb(59, 89, 152) !important;
+    }
+    & i:nth-child(2) {
+      color: rgb(0, 172, 238) !important;
+    }
+    & i:nth-child(3) {
+      color: rgb(0, 119, 181) !important;
+    }
+  }
+`
+
 const Leaders = () => {
   // States
+  const t = useTranslations('structure')
 
   return (
     <section id='leaders' className={classnames('plb-[100px] bg-backgroundPaper')}>
@@ -49,9 +70,9 @@ const Leaders = () => {
           </div>
           <div className='flex items-center flex-wrap justify-center gap-x-2 mbe-1'>
             <Typography variant='h4' className='font-bold'>
-              Những người đứng đầu
+              {t('leader')}
             </Typography>
-            <Typography variant='h5'>của HRO</Typography>
+            <Typography variant='h5'>{t('of HRO')}</Typography>
           </div>
         </div>
         <Grid
@@ -73,9 +94,12 @@ const Leaders = () => {
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
-                      <Typography color='text.secondary'>{member.num}</Typography>
+                      <Typography color='text.secondary'>
+                        {t('Jersey numbers')}
+                        {member.num}
+                      </Typography>
                       <Typography color='text.secondary'>{member.gen}</Typography>
-                      <Typography color='text.secondary'>{member.position}</Typography>
+                      <Typography color='text.secondary'>{t(member.position)}</Typography>
                     </div>
                   </div>
                 </CardContent>
@@ -102,9 +126,12 @@ const Leaders = () => {
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
-                      <Typography color='text.secondary'>{member.num}</Typography>
+                      <Typography color='text.secondary'>
+                        {t('Jersey numbers')}
+                        {member.num}
+                      </Typography>
                       <Typography color='text.secondary'>{member.gen}</Typography>
-                      <Typography color='text.secondary'>{member.position}</Typography>
+                      <Typography color='text.secondary'>{t(member.position)}</Typography>
                     </div>
                   </div>
                 </CardContent>

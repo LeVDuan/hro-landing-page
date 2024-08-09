@@ -10,6 +10,8 @@ import { styled } from '@mui/material/styles'
 
 // Type Imports
 
+import { useTranslations } from 'next-intl'
+
 import type { ThemeColor } from '@core/types'
 
 // Hook Imports
@@ -43,6 +45,7 @@ const AboutUs = () => {
   // Refs
   const skipIntersection = useRef(true)
   const ref = useRef<null | HTMLDivElement>(null)
+  const t = useTranslations('aboutUs')
 
   // Hooks
   const { updateIntersections } = useIntersection()
@@ -75,39 +78,39 @@ const AboutUs = () => {
               {/* <Lines /> */}
               <AboutUsIcon />
               <Typography color='text.primary' className='font-medium uppercase'>
-                Về chúng tôi
+                {t('About us')}
               </Typography>
             </div>
           </div>
           <div className='flex items-center justify-center flex-wrap gap-2 mbe-3 sm:mbe-1'>
             <Typography variant='h4' className='font-bold'>
-              Khởi đầu
+              {t('The beginning')}
             </Typography>
-            <Typography variant='h5'> của HRO</Typography>
+            <Typography variant='h5'>{t('of HRO')}</Typography>
           </div>
           <Typography color='text.secondary' className='font-medium text-center'>
-            Từ những ngày còn là thành viên của CLB Hanoi Amsterdam Phoenix (HAP),
+            {t('text1')}
           </Typography>
           <Typography color='text.secondary' className='font-medium text-center'>
-            Minh Hà và Minh Châu đã ấp ủ giấc mơ mang bóng chày đến gần hơn với mọi người.
+            {t('text2')}
           </Typography>
           <Typography color='text.secondary' className='font-medium text-center'>
-            Và rồi, sau nhiều năm miệt mài rèn luyện và học hỏi,
+            {t('text3')}
           </Typography>
           <Typography color='text.secondary' className='font-medium text-center'>
-            hai bạn đã quyết định biến giấc mơ thành hiện thực bằng cách thành lập HRO vào 21/10/2020.
+            {t('text4')}
           </Typography>
           <Typography color='text.secondary' className='font-medium text-center'>
-            Nhận thấy vùng đất Bách khoa màu mỡ nhiều tiềm năng, tràn đầy những bạn trẻ đam mê thể thao,
+            {t('text5')}
           </Typography>
           <Typography color='text.secondary' className='font-medium text-center'>
-            các chị đã bắt đầu đi khai phá và gieo những hạt giống bóng chày tại đây.
+            {t('text6')}
           </Typography>
           <Typography color='text.secondary' className='font-medium text-center'>
-            Ngọn lửa đam mê bóng chày đã thắp sáng những ngày đầu thành lập HRO,
+            {t('text7')}
           </Typography>
           <Typography color='text.secondary' className='font-medium text-center'>
-            nơi tụ họp của những trái tim yêu bóng chày, chủ yếu là các bạn sinh viên Bách khoa.
+            {t('text8')}
           </Typography>
         </div>
         <Grid
@@ -129,7 +132,7 @@ const AboutUs = () => {
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
-                      <Typography color='text.secondary'>{member.position}</Typography>
+                      <Typography color='text.secondary'>{t(member.position)}</Typography>
                     </div>
                   </div>
                 </CardContent>

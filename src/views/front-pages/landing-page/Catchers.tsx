@@ -1,12 +1,17 @@
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
-import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 
 // Third-party Imports
 import classnames from 'classnames'
 
 // Hook Imports
+
+import MuiCard from '@mui/material/Card'
+
+import { styled } from '@mui/material/styles'
+
+import { useTranslations } from 'next-intl'
 
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 
@@ -18,7 +23,25 @@ import { catchers } from '@/fake-db/data'
 
 // Data
 
+const Card = styled(MuiCard)`
+  &:hover {
+    border-color: ${(props: { color: ThemeColor }) => props.color};
+
+    & i:nth-child(1) {
+      color: rgb(59, 89, 152) !important;
+    }
+    & i:nth-child(2) {
+      color: rgb(0, 172, 238) !important;
+    }
+    & i:nth-child(3) {
+      color: rgb(0, 119, 181) !important;
+    }
+  }
+`
+
 const Catchers = () => {
+  const t = useTranslations('structure')
+
   return (
     <div id='catchers' className={classnames('plb-[50px]')}>
       <div className={classnames('flex flex-col items-center justify-center', frontCommonStyles.layoutSpacing)}>
@@ -48,8 +71,11 @@ const Catchers = () => {
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
                       <Typography color='text.secondary'>{member.position}</Typography>
-                      <Typography color='text.secondary'>{member.num}</Typography>
-                      <Typography color='text.secondary'>{member.des}</Typography>
+                      <Typography color='text.secondary'>
+                        {t('Jersey numbers')}
+                        {member.num}
+                      </Typography>
+                      <Typography color='text.secondary'>{t(member.des)}</Typography>
                     </div>
                   </div>
                 </CardContent>

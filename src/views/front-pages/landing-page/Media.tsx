@@ -2,13 +2,18 @@ import { useEffect, useRef } from 'react'
 
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
-import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 
 // Third-party Imports
 import classnames from 'classnames'
 
 // Hook Imports
+import { useTranslations } from 'next-intl'
+
+import MuiCard from '@mui/material/Card'
+
+import { styled } from '@mui/material/styles'
+
 import { useIntersection } from '@/hooks/useIntersection'
 
 import frontCommonStyles from '@views/front-pages/styles.module.css'
@@ -21,10 +26,27 @@ import MediaIcon from '@/assets/svg/front-pages/landing-page/MediaIcon'
 // Data
 import { mediaTeam } from '@/fake-db/data'
 
+const Card = styled(MuiCard)`
+  &:hover {
+    border-color: ${(props: { color: ThemeColor }) => props.color};
+
+    & i:nth-child(1) {
+      color: rgb(59, 89, 152) !important;
+    }
+    & i:nth-child(2) {
+      color: rgb(0, 172, 238) !important;
+    }
+    & i:nth-child(3) {
+      color: rgb(0, 119, 181) !important;
+    }
+  }
+`
+
 const Media = () => {
   // Refs
   const skipIntersection = useRef(true)
   const ref = useRef<null | HTMLDivElement>(null)
+  const t = useTranslations('structure')
 
   // Hooks
   const { updateIntersections } = useIntersection()
@@ -62,7 +84,7 @@ const Media = () => {
             </div>
           </div>
           <div className='flex items-center flex-wrap justify-center gap-x-2 mbe-1'>
-            <Typography variant='h5'>Những người truyền thông đầy sáng tạo, năng động</Typography>
+            <Typography variant='h5'>{t('media')}</Typography>
           </div>
         </div>
         <Grid
@@ -84,8 +106,11 @@ const Media = () => {
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
-                      <Typography color='text.secondary'>{member.num}</Typography>
-                      <Typography color='text.secondary'>{member.gen}</Typography>
+                      <Typography color='text.secondary'>
+                        {t('Jersey numbers')}
+                        {member.num}
+                      </Typography>
+                      <Typography color='text.secondary'>{t(member.gen)}</Typography>
                     </div>
                   </div>
                 </CardContent>

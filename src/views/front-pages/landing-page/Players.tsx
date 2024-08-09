@@ -6,6 +6,8 @@ import classnames from 'classnames'
 // Hook Imports
 import { Typography } from '@mui/material'
 
+import { useTranslations } from 'next-intl'
+
 import { useIntersection } from '@/hooks/useIntersection'
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 import PlayerIcon from '@/assets/svg/front-pages/landing-page/PlayerIcon'
@@ -14,6 +16,7 @@ const Players = () => {
   // Refs
   const skipIntersection = useRef(true)
   const ref = useRef<null | HTMLDivElement>(null)
+  const t = useTranslations('structure')
 
   // Hooks
   const { updateIntersections } = useIntersection()
@@ -54,10 +57,7 @@ const Players = () => {
             </Typography>
           </div>
           <div className='flex items-center gap-2 mbe-1'>
-            <Typography variant='h4' className='font-bold'>
-              Các Vận động viên
-            </Typography>
-            <Typography variant='h5'>đầy tài năng, nhiệt huyết.</Typography>
+            <Typography variant='h5'>{t('player')}</Typography>
           </div>
         </div>
       </div>

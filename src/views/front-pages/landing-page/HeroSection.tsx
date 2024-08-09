@@ -12,6 +12,8 @@ import Button from '@mui/material/Button'
 import classnames from 'classnames'
 
 // Type Imports
+import { useTranslations } from 'next-intl'
+
 import type { Mode } from '@core/types'
 
 // Hook Imports
@@ -25,6 +27,7 @@ const HeroSection = ({ mode }: { mode: Mode }) => {
   // States
   const [dashboardPosition, setDashboardPosition] = useState({ x: 0, y: 0 })
   const [elementsPosition, setElementsPosition] = useState({ x: 0, y: 0 })
+  const t = useTranslations('heroSection')
 
   // Vars
   const dashboardImageLight = '/images/front-pages/landing-page/hero.jpg'
@@ -79,19 +82,19 @@ const HeroSection = ({ mode }: { mode: Mode }) => {
             #WEAREHRO
           </Typography>
           <Typography className='font-medium' color='text.primary'>
-            Bạn có niềm đam mê với bóng chày?
+            {t('text1')}
           </Typography>
           <Typography className='font-medium' color='text.primary'>
-            Bạn muốn tìm một sân chơi để thể hiện đam mê?
+            {t('text2')}
           </Typography>
           <Typography className='font-medium' color='text.primary'>
-            Bạn muốn rèn luyện sức khỏe, nâng cao kỹ năng và có những trải nghiệm khó quên trên sân cỏ?
+            {t('text3')}
           </Typography>
           <Typography className='font-medium' color='text.primary'>
-            Bạn muốn biết cảm giác thi đấu cùng những người bạn đồng hành như thế nào?
+            {t('text4')}
           </Typography>
           <Typography className='font-medium' color='text.primary'>
-            Vậy thì HRO chính là nơi dành cho bạn!
+            {t('text5')}
           </Typography>
           <div className='mbs-8'>
             <Button
@@ -103,7 +106,7 @@ const HeroSection = ({ mode }: { mode: Mode }) => {
               size='large'
               sx={{ mb: '2rem' }}
             >
-              Theo dõi chúng tôi
+              {t('Follow us')}
             </Button>
           </div>
         </div>

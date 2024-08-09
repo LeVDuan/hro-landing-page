@@ -13,6 +13,8 @@ import Button from '@mui/material/Button'
 import classnames from 'classnames'
 
 // Hook Imports
+import { useTranslations } from 'next-intl'
+
 import { useIntersection } from '@/hooks/useIntersection'
 
 // SVG Imports
@@ -26,6 +28,7 @@ const ContactUs = () => {
   // Refs
   const skipIntersection = useRef(true)
   const ref = useRef<null | HTMLDivElement>(null)
+  const t = useTranslations('contact')
 
   // Hooks
   const { updateIntersections } = useIntersection()
@@ -57,18 +60,18 @@ const ContactUs = () => {
             <div className='flex items-center justify-center mbe-6 gap-3'>
               <Lines />
               <Typography color='text.primary' className='font-medium uppercase'>
-                Liên hệ với chúng tôi
+                {t('Contact us')}
               </Typography>
             </div>
           </div>
           <div className='flex items-center flex-wrap justify-center gap-x-2 mbe-1'>
             <Typography variant='h4' className='font-bold'>
-              Chơi bóng chày
+              {t('Let’s play baseball')}
             </Typography>
-            <Typography variant='h5'>cùng nhau nào!</Typography>
+            <Typography variant='h5'>{t('together!')}</Typography>
           </div>
           <Typography color='text.secondary' className='font-medium text-center'>
-            Bạn có câu hỏi hoặc nhận xét? Chỉ cần gửi cho chúng tôi một tin nhắn
+            {t('description')}
           </Typography>
         </div>
         <div>
@@ -77,16 +80,13 @@ const ContactUs = () => {
               <Card className='bg-primary'>
                 <CardContent className='flex flex-col gap-4 pli-8 pbs-8 pbe-7'>
                   <div className='flex flex-col gap-[6px]'>
-                    <Typography className='font-medium text-white'>Hãy liên hệ với chúng tôi</Typography>
+                    <Typography className='font-medium text-white'>{t('Let’s contact with us')}</Typography>
                     <Typography variant='h4' className='text-white'>
-                      Chia sẻ ý tưởng hoặc yêu cầu của bạn với chúng tôi.
+                      {t('Please share your ideas or requests with us')}
                     </Typography>
                   </div>
                   <img src='/images/front-pages/landing-page/chat.png' alt='chat' className='is-full' />
-                  <Typography className='text-white'>
-                    Bạn đang tìm kiếm nơi thỏa mãn đam mê bóng chày? Bạn thắc mắc về luật bóng chày, về HRO? Đừng lo
-                    lắng, chúng tôi sẽ giúp bạn.
-                  </Typography>
+                  <Typography className='text-white'>{t('description2')}</Typography>
                 </CardContent>
               </Card>
             </Grid>
@@ -94,15 +94,15 @@ const ContactUs = () => {
               <Card>
                 <CardContent>
                   <Typography variant='h5' className='mbe-5'>
-                    Chia sẻ ý tưởng của bạn
+                    {t('Share your ideas')}
                   </Typography>
                   <form className='flex flex-col items-start gap-5'>
                     <div className='flex gap-5 is-full'>
-                      <TextField fullWidth label='Họ và tên' id='name-input' />
-                      <TextField fullWidth label='Địa chỉ email' id='email-input' type='email' />
+                      <TextField fullWidth label={t('Full name')} id='name-input' />
+                      <TextField fullWidth label={t('Email address')} id='email-input' type='email' />
                     </div>
-                    <TextField fullWidth multiline rows={6} label='Tin nhắn' id='message-input' />
-                    <Button variant='contained'>Gửi yêu cầu</Button>
+                    <TextField fullWidth multiline rows={6} label={t('Message')} id='message-input' />
+                    <Button variant='contained'>{t('Send Inquiry')}</Button>
                   </form>
                 </CardContent>
               </Card>

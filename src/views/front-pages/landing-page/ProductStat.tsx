@@ -9,6 +9,8 @@ import Grid from '@mui/material/Grid'
 import classnames from 'classnames'
 
 // Type Imports
+import { useTranslations } from 'next-intl'
+
 import type { ThemeColor } from '@/@core/types'
 
 // Component Imports
@@ -29,21 +31,21 @@ type StatData = {
 // Data
 const statData: StatData[] = [
   {
-    title: 'Năm hoạt động',
+    title: 'Years Active',
     value: 4,
     icon: 'ri-time-line',
     color: 'primary',
     isHover: false
   },
   {
-    title: 'Thành viên',
+    title: 'Members',
     value: 40,
     icon: 'ri-user-line',
     color: 'warning',
     isHover: false
   },
   {
-    title: 'Giải đấu tham dự',
+    title: 'Tournaments Participated',
     value: 3,
     icon: 'ri-award-line',
     color: 'success',
@@ -51,7 +53,7 @@ const statData: StatData[] = [
   },
 
   {
-    title: 'Sự kiện',
+    title: 'Events',
     value: 10,
     icon: ' ri-calendar-event-line',
     color: 'info',
@@ -61,6 +63,7 @@ const statData: StatData[] = [
 
 const ProductStat = () => {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null)
+  const t = useTranslations('stats')
 
   return (
     <section className='plb-[64px] relative'>
@@ -93,7 +96,7 @@ const ProductStat = () => {
                     {stat.value}+
                   </Typography>
                   <Typography className='font-medium' color='text.secondary'>
-                    {stat.title}
+                    {t(stat.title)}
                   </Typography>
                 </div>
               </div>

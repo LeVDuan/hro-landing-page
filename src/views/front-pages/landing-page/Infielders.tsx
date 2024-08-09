@@ -16,6 +16,8 @@ import { useKeenSlider } from 'keen-slider/react'
 import classnames from 'classnames'
 
 // Styled Component Imports
+import { useTranslations } from 'next-intl'
+
 import AppKeenSlider from '@/libs/styles/AppKeenSlider'
 
 // Styles Imports
@@ -47,6 +49,7 @@ const Infielders = () => {
   const [loaded, setLoaded] = useState<boolean>(false)
   const [currentSlide, setCurrentSlide] = useState<number>(0)
   const [details, setDetails] = useState<TrackDetails>()
+  const t = useTranslations('structure')
 
   // Hooks
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>(
@@ -155,9 +158,15 @@ const Infielders = () => {
                           <div className='text-center'>
                             <Typography variant='h5'>{member.name}</Typography>
                             <Typography color='text.secondary'>{member.gen}</Typography>
-                            <Typography color='text.secondary'>{member.num}</Typography>
-                            <Typography color='text.secondary'>{member.position}</Typography>
-                            <Typography color='text.secondary'>{member.des}</Typography>
+                            <Typography color='text.secondary'>
+                              {t('Jersey numbers')}
+                              {member.num}
+                            </Typography>
+                            <Typography color='text.secondary'>
+                              {t('position')}
+                              {member.position}
+                            </Typography>
+                            <Typography color='text.secondary'>{t(member.des)}</Typography>
                           </div>
                         </div>
                       </CardContent>
