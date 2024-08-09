@@ -4,6 +4,8 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
 
 // Type Imports
+import { Fab } from '@mui/material'
+
 import FrontLayout from '@components/layout/front-pages'
 
 import type { ChildrenType } from '@core/types'
@@ -23,6 +25,7 @@ import '@/app/globals.css'
 
 // Generated Icon CSS Imports
 import '@assets/iconify-icons/generated-icons.css'
+import ScrollToTop from '@/@core/components/scroll-to-top'
 
 export const metadata = {
   title: 'HRO - HUST Red owls baseball team',
@@ -46,6 +49,11 @@ const Layout = async ({ children }: ChildrenType) => {
               <IntersectionProvider>
                 <FrontLayout>{children}</FrontLayout>
               </IntersectionProvider>
+              <ScrollToTop className='mui-fixed'>
+                <Fab color='primary' size='small' aria-label='scroll back to top'>
+                  <i className='ri-arrow-up-line' />
+                </Fab>
+              </ScrollToTop>
             </BlankLayout>
           </Providers>
         </NextIntlClientProvider>

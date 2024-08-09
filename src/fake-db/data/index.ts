@@ -19,7 +19,7 @@ export const LeadersInfo = [
     gen: 'Gen 2 - K66 HUST',
     num: 'Số áo: #22',
     image: '/images/front-pages/landing-page/captain.png',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-error-mainOpacity)'
   },
   {
     name: 'Nguyễn Thị Phương Thảo',
@@ -27,7 +27,7 @@ export const LeadersInfo = [
     gen: 'Gen 2 - K66 HUST',
     num: 'Số áo: #89',
     image: '/images/front-pages/landing-page/chairman.png',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-error-mainOpacity)'
   }
 ]
 export const SubLeadersInfo = [
@@ -37,7 +37,7 @@ export const SubLeadersInfo = [
     gen: 'Gen 2 - K66 HUST',
     num: 'Số áo: #18',
     image: '/images/front-pages/landing-page/dat.png',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-warning-mainOpacity)'
   },
   {
     name: 'Đặng Hải Anh',
@@ -53,7 +53,7 @@ export const SubLeadersInfo = [
     gen: 'Gen 3 - VNU',
     num: 'Số áo: #66',
     image: '/images/front-pages/landing-page/chi.png',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-success-mainOpacity)'
   },
   {
     name: 'Lê Hoàng Minh',
@@ -61,7 +61,7 @@ export const SubLeadersInfo = [
     gen: 'Gen 2 - K65 HUST',
     num: 'Số áo: #9',
     image: '/images/front-pages/landing-page/minhLe.png',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-primary-mainOpacity)'
   }
 ]
 
@@ -72,7 +72,7 @@ export const predecessors = [
     gen: 'Gen 1 - K62 HUST',
     num: 'Số áo: #19',
     position: 'Đội trưởng/Chủ nhiệm Gen 1',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-primary-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/duanLe.png',
@@ -80,7 +80,7 @@ export const predecessors = [
     gen: 'Gen 1 - K64 HUST',
     num: 'Số áo: #3',
     position: 'Đội trưởng/Chủ nhiệm Gen 2,3',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-error-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/qTuan.png',
@@ -88,7 +88,7 @@ export const predecessors = [
     gen: 'Gen 1 - HUCE',
     num: 'Số áo: #22',
     position: 'Đội phó Gen 1',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-secondary-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/thaiBao(1).png',
@@ -96,7 +96,7 @@ export const predecessors = [
     gen: 'Gen 1 - K64 HUST',
     num: 'Số áo: #30',
     position: 'Đội phó Gen 2, 3',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-success-mainOpacity)'
   }
 ]
 
@@ -106,28 +106,28 @@ export const managers = [
     name: 'Trần Tiến Đạt',
     gen: 'Gen 2 - K66 HUST',
     num: 'Số áo: #18',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-primary-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/thaoMana.png',
     name: 'Nguyễn Thị Phương Thảo',
     gen: 'Gen 2 - K66 HUST',
     num: 'Số áo: #89',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-secondary-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/minhLeMana.png',
     name: 'Lê Hoàng Minh',
     gen: 'Trưởng ban Manager - Gen 2',
     num: 'Số áo: #22',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-error-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/yenAnh.png',
     name: 'Lê Nguyễn Yến Anh',
     gen: 'Gen 2 - NEU',
     num: 'Số áo: #15',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-warning-mainOpacity)'
   }
 ]
 
@@ -137,21 +137,21 @@ export const mediaTeam = [
     name: 'Nguyễn Xuân Đức',
     gen: 'Gen 3 - FTU',
     num: 'Số áo: #69',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-success-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/chi.png',
     name: 'Nguyễn Linh Chi',
     gen: 'Trưởng ban Media - Gen 2',
     num: 'Số áo: #66',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-error-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/thu.png',
     name: 'Đào Thị Minh Thu',
     gen: 'Gen 4 - VNU',
     num: 'Số áo: #77',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-primary-mainOpacity)'
   }
 ]
 
@@ -162,7 +162,7 @@ export const pitchers = [
     position: 'Gen 1',
     num: 'Số áo: #30',
     des: 'Ném/Đánh: Trái/Trái',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-primary-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/linhP.png',
@@ -170,7 +170,7 @@ export const pitchers = [
     position: 'Gen 2',
     num: 'Số áo: #91',
     des: 'Ném/Đánh: Phải/Trái',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-secondary-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/datP.png',
@@ -178,7 +178,7 @@ export const pitchers = [
     position: 'Gen 2',
     num: 'Số áo: #18',
     des: 'Ném/Đánh: Trái/Trái',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-error-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/thaiP.png',
@@ -186,7 +186,7 @@ export const pitchers = [
     position: 'Gen 3',
     num: 'Số áo: #86',
     des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-warning-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/khanhLinh.png',
@@ -204,7 +204,7 @@ export const catchers = [
     position: 'Gen 1',
     num: 'Số áo: #3',
     des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-error-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/C_vuGiap.png',
@@ -212,7 +212,7 @@ export const catchers = [
     position: 'Gen 4',
     num: 'Số áo: #88',
     des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-warning-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/vuNguyen.png',
@@ -231,7 +231,7 @@ export const infielders = [
     position: 'Vị trí: B1/Pitcher',
     num: 'Số áo: #99',
     des: 'Ném/Đánh: Trái/Trái',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-error-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/xuanViet.png',
@@ -240,7 +240,7 @@ export const infielders = [
     position: 'Vị trí: B1',
     num: 'Số áo: #12',
     des: 'Ném/Đánh: Trái/Trái',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-primary-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/minhHieu.png',
@@ -249,7 +249,7 @@ export const infielders = [
     position: 'Vị trí: B1/B2',
     num: 'Số áo: #6',
     des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-secondary-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/maiHuong.png',
@@ -258,7 +258,7 @@ export const infielders = [
     position: 'Vị trí: B1/Catcher',
     num: 'Số áo: #00',
     des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-warning-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/thaoMana.png',
@@ -276,7 +276,7 @@ export const infielders = [
     position: 'Vị trí: B2/SS',
     num: 'Số áo: #52',
     des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-success-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/namKhanh.png',
@@ -285,7 +285,7 @@ export const infielders = [
     position: 'Vị trí: B2/Pitcher',
     num: 'Số áo: #28',
     des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-primary-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/quocQuy.png',
@@ -294,7 +294,7 @@ export const infielders = [
     position: 'Vị trí: B3/OF',
     num: 'Số áo: #4',
     des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-secondary-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/duongQuan.png',
@@ -303,7 +303,7 @@ export const infielders = [
     position: 'Vị trí: B3/OF',
     num: 'Số áo: #5',
     des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-error-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/haiAnhB3.png',
@@ -312,7 +312,7 @@ export const infielders = [
     position: 'Vị trí: B3/OF',
     num: 'Số áo: #11',
     des: 'Ném/Đánh: Phải/Trái',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-warning-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/theKien.png',
@@ -330,7 +330,7 @@ export const infielders = [
     position: 'Vị trí: B3/Pitcher',
     num: 'Số áo: #23',
     des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-success-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/tienDung.png',
@@ -339,7 +339,7 @@ export const infielders = [
     position: 'Vị trí: SS/OF',
     num: 'Số áo: #22',
     des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-error-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/trinhHieu.png',
@@ -348,7 +348,7 @@ export const infielders = [
     position: 'Vị trí: SS/B2',
     num: 'Số áo: #36',
     des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-primary-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/thanhVinh.png',
@@ -357,7 +357,7 @@ export const infielders = [
     position: 'Vị trí: SS/B2',
     num: 'Số áo: #96',
     des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-secondary-mainOpacity)'
   }
 ]
 export const outfielders = [
@@ -368,7 +368,7 @@ export const outfielders = [
     position: 'Vị trí: OF/B3',
     num: 'Số áo: #8',
     des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-primary-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/nhatMinh.png',
@@ -377,7 +377,7 @@ export const outfielders = [
     position: 'Vị trí: OF/B2',
     num: 'Số áo: #2',
     des: 'Ném/Đánh: Trái/Trái',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-secondary-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/phucAnh.png',
@@ -386,7 +386,7 @@ export const outfielders = [
     position: 'Vị trí: OF/SS',
     num: 'Số áo: #25',
     des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-error-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/caoKhoa.png',
@@ -395,7 +395,7 @@ export const outfielders = [
     position: 'Vị trí: OF/B2',
     num: 'Số áo: #63',
     des: 'Ném/Đánh: Phải/Phải',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-warning-mainOpacity)'
   },
   {
     image: '/images/front-pages/landing-page/leHieu.png',
@@ -413,7 +413,7 @@ export const outfielders = [
     position: 'Vị trí: OF/B3',
     num: 'Số áo: #45',
     des: 'Ném/Đánh: Trái/Trái',
-    color: 'var(--mui-palette-info-mainOpacity)'
+    color: 'var(--mui-palette-success-mainOpacity)'
   }
 ]
 

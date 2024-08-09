@@ -18,7 +18,6 @@ import Leaders from './Leaders'
 import ProductStat from './ProductStat'
 import Faqs from './Faqs'
 
-import GetStarted from './GetStarted'
 import ContactUs from './ContactUs'
 import { useSettings } from '@core/hooks/useSettings'
 import Activities from './Activities'
@@ -26,7 +25,6 @@ import AboutUs from './AboutUs'
 import Managers from './Managers'
 import Media from './Media'
 import Players from './Players'
-import Official from './Official'
 import Catchers from './Catchers'
 import Outfielders from './Outfielders'
 import Infielders from './Infielders'
@@ -34,9 +32,7 @@ import Pitchers from './Pitchers'
 
 // import Predecessors from './Predecessors-slide'
 import Predecessors from './Predecessors-static'
-import NationalCup2023 from './NationalCup2023'
-import HBMS2023 from './HBMS2023'
-import NationalCup2024 from './NationalCup2024'
+import TimelineCenter from './Timeline'
 
 const LandingPageWrapper = ({ mode }: { mode: Mode }) => {
   // Hooks
@@ -52,15 +48,16 @@ const LandingPageWrapper = ({ mode }: { mode: Mode }) => {
 
   return (
     <>
+      {/* <DialogsCustomized /> */}
       <HeroSection mode={mode} />
       <AboutUs />
       {/* <CustomerReviews /> */}
-      <GetStarted />
+      {/* <GetStarted />
       <Official />
       <NationalCup2023 />
       <HBMS2023 />
-      <NationalCup2024 />
-
+      <NationalCup2024 /> */}
+      <TimelineCenter />
       <ProductStat />
       <Leaders />
       <Predecessors />

@@ -75,7 +75,13 @@ const Header = ({ mode }: { mode: Mode }) => {
             <LocaleDropdown />
             <ModeDropdown />
             {isBelowLgScreen ? (
-              <CustomIconButton component={Link} variant='contained' href='/pricing' color='primary' target='_blank'>
+              <CustomIconButton
+                component={Link}
+                variant='contained'
+                href='https://www.facebook.com/HUSTRedOwlsBaseballTeam'
+                color='primary'
+                target='_blank'
+              >
                 <i className='ri-facebook-circle-fill text-xl' />
               </CustomIconButton>
             ) : (
