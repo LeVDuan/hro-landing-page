@@ -23,7 +23,6 @@ import classnames from 'classnames'
 import type { Mode } from '@core/types'
 
 // Component Imports
-import Logo from '@components/layout/shared/Logo'
 import ModeDropdown from '@components/layout/shared/ModeDropdown'
 import FrontMenu from './FrontMenu'
 import CustomIconButton from '@core/components/mui/IconButton'
@@ -59,14 +58,14 @@ const Header = ({ mode }: { mode: Mode }) => {
                 <i className='ri-menu-line text-textPrimary' />
               </IconButton>
               <Link href='/'>
-                <Logo />
+                <img src='/logos/Logo.png' alt='HRO Logo' className='bs-[55px]' />
               </Link>
               <FrontMenu mode={mode} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
             </div>
           ) : (
             <div className='flex items-center gap-10'>
               <Link href='/'>
-                <img src='/images/logos/Logo.png' alt='apple store' className='bs-[55px]' />
+                <img src='/logos/Logo.png' alt='HRO Logo' className='bs-[55px]' />
               </Link>
               <FrontMenu mode={mode} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
             </div>

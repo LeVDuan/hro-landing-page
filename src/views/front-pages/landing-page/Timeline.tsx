@@ -22,7 +22,7 @@ import { useTranslations } from 'next-intl'
 
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 import ElementOne from '@/assets/svg/front-pages/landing-page/ElementOne'
-import Lines from '@/assets/svg/front-pages/landing-page/Lines'
+import MileStonesIcon from '@/assets/svg/front-pages/landing-page/MileStonesIcon'
 
 // Type Imports
 interface DataObj {
@@ -112,7 +112,7 @@ const TimelineCenter = () => {
         <div className='flex is-full justify-center relative mbe-8'>
           <ElementOne className='absolute inline-end-0' />
           <div className='flex items-center justify-center flex-wrap gap-2 mbe-3 sm:mbe-1'>
-            <Lines />
+            <MileStonesIcon />
             <Typography variant='h5'>{t('Club')}</Typography>
             <Typography variant='h4' className='font-bold'>
               {t('milestones')}
@@ -232,7 +232,7 @@ const TimelineCenter = () => {
                   <Typography variant='h5' className='mbe-4'>
                     {t(dataObj[3].title)}
                   </Typography>
-                  <Typography className='mbe-3'>{dataObj[3].description}</Typography>
+                  <Typography className='mbe-3'>{t(dataObj[3].description)}</Typography>
                   <Typography className='mbe-3'>
                     {t('Achievements')}: {t(dataObj[3].competitionResults)}
                   </Typography>
@@ -362,7 +362,7 @@ const TimelineCenter = () => {
                   </Typography>
                   <Typography className='mbe-3'>{t(dataObj[5].description)}</Typography>
                   <Typography className='mbe-3'>
-                    {t('Achievements')}: {dataObj[5].competitionResults}
+                    {t('Achievements')}: {t(dataObj[5].competitionResults)}
                   </Typography>
 
                   <Grid container rowSpacing={5} columnSpacing={5}>

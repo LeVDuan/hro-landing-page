@@ -39,19 +39,13 @@ function Footer() {
             <Grid item xs={12} lg={5}>
               <div className='flex flex-col items-start gap-4'>
                 <Link href='/'>
-                  {/* <Logo color='var(--mui-palette-common-white)' /> */}
-                  <div className='flex gap-4'>
-                    <img
-                      color='var(--mui-palette-common-white)'
-                      src='/images/logos/Logo.png'
-                      alt='HRO logo'
-                      className='bs-[45px]'
-                    />
+                  <div className='flex gap-4 align-middle'>
+                    <img src='/logos/Logo.png' alt='HRO Logo' className='bs-[55px]' />
                     <Typography
                       color='white'
                       fontWeight={700}
                       fontSize={30}
-                      className='lg:max-is-[500px] opacity-[0.98]'
+                      className='lg:max-is-[500px] opacity-[0.98] align-middle'
                     >
                       HRO
                     </Typography>
@@ -118,7 +112,7 @@ function Footer() {
               <div className='flex flex-col gap-4'>
                 <Link href={hroFbLink} target='_blank' className='bg-[#211B2C] bs-[56px] is-[211px] rounded'>
                   <div className='flex items-center pli-5 plb-[7px] gap-6'>
-                    <img src='/images/front-pages/f_logo.png' alt='Facebook Logo' className='bs-[34px]' />
+                    <img src='/logos/f_logo.png' alt='Facebook Logo' className='bs-[34px]' />
                     <div className='flex flex-col items-start'>
                       <Typography variant='body2' color='white' className='capitalize opacity-[0.82]'>
                         {t('Follow on')}
@@ -131,7 +125,7 @@ function Footer() {
                 </Link>
                 <Link href={hroInsLink} target='_blank' className='bg-[#211B2C] bs-[56px] is-[211px] rounded'>
                   <div className='flex items-center pli-5 plb-[7px] gap-6'>
-                    <img src='/images/front-pages/ins_logo.png' alt='Instagram' className='bs-[34px]' />
+                    <img src='/logos/ins_logo.png' alt='Instagram' className='bs-[34px]' />
                     <div className='flex flex-col items-start'>
                       <Typography variant='body2' color='white' className='opacity-[0.82]'>
                         {t('Follow on')}

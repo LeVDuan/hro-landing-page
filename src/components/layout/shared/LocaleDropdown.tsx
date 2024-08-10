@@ -3,7 +3,7 @@
 // React Imports
 import { useRef, useState } from 'react'
 
-import { useTranslations, useLocale } from 'next-intl'
+import { useLocale } from 'next-intl'
 
 // MUI Imports
 
@@ -29,7 +29,6 @@ const LocaleDropdown = () => {
   const [tooltipOpen, setTooltipOpen] = useState(false)
 
   const currLocale = useLocale()
-  const t = useTranslations('dropMenu')
 
   // console.log('currlocale: ', currLocale)
 
@@ -49,8 +48,6 @@ const LocaleDropdown = () => {
   }
 
   const handleLocaleSwitch = async (value: string) => {
-    // const locale = value as Locale
-    // console.log('selected locale: ', value)
     handleClose()
 
     if (currLocale !== value) {
@@ -61,7 +58,7 @@ const LocaleDropdown = () => {
   return (
     <>
       <Tooltip
-        title={t('Change language')}
+        title='Change language'
         onOpen={() => setTooltipOpen(true)}
         onClose={() => setTooltipOpen(false)}
         open={open ? false : tooltipOpen ? true : false}
@@ -88,10 +85,10 @@ const LocaleDropdown = () => {
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList onKeyDown={handleClose}>
                   <MenuItem className='gap-3' onClick={() => handleLocaleSwitch('vi')} selected={currLocale === 'vi'}>
-                    {t('Vietnamese')}
+                    Vietnamese
                   </MenuItem>
                   <MenuItem className='gap-3' onClick={() => handleLocaleSwitch('en')} selected={currLocale === 'en'}>
-                    {t('English')}
+                    English
                   </MenuItem>
                 </MenuList>
               </ClickAwayListener>

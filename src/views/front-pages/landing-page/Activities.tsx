@@ -17,7 +17,7 @@ import { useTranslations } from 'next-intl'
 
 import RunnerIcon from '@assets/svg/front-pages/landing-page/RunnerIcon'
 import LeagueIcon from '@assets/svg/front-pages/landing-page/LeagueIcon'
-import PitcherActIcon from '@/assets/svg/front-pages/landing-page/PitcherActIcon'
+import FielderActIcon from '@/assets/svg/front-pages/landing-page/FielderActIcon'
 import BatterActIcon from '@/assets/svg/front-pages/landing-page/BatterActIcon'
 import HomeplateIcon from '@/assets/svg/front-pages/landing-page/HomeplateIcon'
 
@@ -47,17 +47,17 @@ const activity = [
     description: 'Participate in Tournaments des'
   },
   {
-    icon: <RunnerIcon />,
+    icon: <BatterActIcon />,
     title: 'Friendly Matches',
     description: 'Friendly Matches des'
   },
   {
-    icon: <PitcherActIcon />,
+    icon: <FielderActIcon />,
     title: 'Recruitment',
     description: 'Recruitment des'
   },
   {
-    icon: <BatterActIcon />,
+    icon: <RunnerIcon />,
     title: 'Baseball Experience',
     description: 'Baseball Experience des'
   }
