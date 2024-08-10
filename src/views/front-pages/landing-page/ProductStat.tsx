@@ -68,7 +68,7 @@ const ProductStat = () => {
   return (
     <section className='plb-[64px] relative'>
       <img
-        src='/images/front-pages/landing-page/get-started-bg.png'
+        src='/landing-page/get-started-bg.png'
         alt='background-image'
         className='absolute is-full flex -z-1 pointer-events-none bs-full block-end-0'
       />

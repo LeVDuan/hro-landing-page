@@ -82,11 +82,7 @@ const Faqs = () => {
       <div>
         <Grid container>
           <Grid item xs={12} lg={5} className='text-center'>
-            <img
-              src='/images/front-pages/landing-page/sitting-girl-with-laptop.png'
-              alt='HRO Hoo with baseball'
-              className='is-[80%] max-is-[320px]'
-            />
+            <img src='/landing-page/Hoo-faqs.png' alt='HRO Hoo with baseball' className='is-[80%] max-is-[320px]' />
           </Grid>
           <Grid item xs={12} lg={7}>
             <div>

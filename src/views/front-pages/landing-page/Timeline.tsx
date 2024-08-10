@@ -40,19 +40,19 @@ interface DataObj {
 
 const dataObj: DataObj = {
   1: {
-    image: '/images/front-pages/landing-page/early-stage.jpg',
+    image: '/landing-page/early-stage.jpg',
     time: '21/10/2020',
     title: 'Early stage',
     description: 'Early stage description'
   },
   2: {
-    image: '/images/front-pages/landing-page/team-image.jpg',
+    image: '/landing-page/team-image.jpg',
     time: '3/2021',
     title: 'Official',
     description: 'Official description'
   },
   3: {
-    image: '/images/front-pages/landing-page/nationalCup2023.png',
+    image: '/landing-page/nationalCup2023.png',
     time: '7/2023',
     title: 'Cup2023',
     description: 'Cup2023 description',
@@ -62,7 +62,7 @@ const dataObj: DataObj = {
     competitionResults: 'Cup2023-3rd'
   },
   4: {
-    image: '/images/front-pages/landing-page/HBMS2023.png',
+    image: '/landing-page/HBMS2023.png',
     time: '10/2023',
     title: 'HBMS2023',
     description: 'HBMS2023 description',
@@ -72,7 +72,7 @@ const dataObj: DataObj = {
     competitionResults: 'HBMS2023-3rd'
   },
   5: {
-    image: '/images/front-pages/landing-page/nationalCup2024.png',
+    image: '/landing-page/nationalCup2024.png',
     time: '7/2024',
     title: 'Cup2024',
     description: 'Cup2024 description',

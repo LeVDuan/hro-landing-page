@@ -19,12 +19,18 @@ import frontCommonStyles from '@views/front-pages/styles.module.css'
 
 function Footer() {
   const t = useTranslations('footer')
+  const hustLink = 'https://hust.edu.vn/vi/'
+  const VNTTLink = 'https://www.facebook.com/bvnttbkhn'
+  const VBSFLink = 'https://vbsfvietnam.com/'
+  const VBMSLink = 'https://www.facebook.com/vbms.baseball'
+  const hroFbLink = 'https://www.facebook.com/HUSTRedOwlsBaseballTeam'
+  const hroInsLink = 'https://www.instagram.com/hustredowlsbaseballteam/'
 
   return (
     <footer className={frontLayoutClasses.footer}>
       <div className='relative'>
         <img
-          src='/images/front-pages/footer-bg.png'
+          src='/landing-page/footer-bg.png'
           alt='footer bg'
           className='absolute inset-0 is-full bs-full object-cover -z-[1]'
         />
@@ -72,36 +78,16 @@ function Footer() {
                 {t('Links')}
               </Typography>
               <div className='flex flex-col gap-4'>
-                <Typography
-                  component={Link}
-                  href='https://hust.edu.vn/vi/'
-                  target='_blank'
-                  color='white'
-                  className='opacity-[0.78]'
-                >
+                <Typography component={Link} href={hustLink} target='_blank' color='white' className='opacity-[0.78]'>
                   HUST
                 </Typography>
-                <Typography
-                  component={Link}
-                  href='https://www.facebook.com/bvnttbkhn'
-                  target='_blank'
-                  color='white'
-                  className='opacity-[0.78]'
-                >
+                <Typography component={Link} href={VNTTLink} target='_blank' color='white' className='opacity-[0.78]'>
                   {t('VNTT committee')}
                 </Typography>
-                <Link href='https://vbsfvietnam.com/' target='_blank' className='flex items-center gap-[10px]'>
-                  <Typography color='white' className='opacity-[0.78]'>
-                    {t('VBSF Vietnam')}
-                  </Typography>
-                </Link>
-                <Typography
-                  component={Link}
-                  href='https://www.facebook.com/vbms.baseball'
-                  target='_blank'
-                  color='white'
-                  className='opacity-[0.78]'
-                >
+                <Typography component={Link} href={VBSFLink} target='_blank' color='white' className='opacity-[0.78]'>
+                  {t('VBSF Vietnam')}
+                </Typography>
+                <Typography component={Link} href={VBMSLink} target='_blank' color='white' className='opacity-[0.78]'>
                   VBMS
                 </Typography>
               </div>
@@ -130,13 +116,9 @@ function Footer() {
                 {t('Social network')}
               </Typography>
               <div className='flex flex-col gap-4'>
-                <Link
-                  href='https://www.facebook.com/HUSTRedOwlsBaseballTeam'
-                  target='_blank'
-                  className='bg-[#211B2C] bs-[56px] is-[211px] rounded'
-                >
+                <Link href={hroFbLink} target='_blank' className='bg-[#211B2C] bs-[56px] is-[211px] rounded'>
                   <div className='flex items-center pli-5 plb-[7px] gap-6'>
-                    <img src='/images/front-pages/f_logo.png' alt='apple store' className='bs-[34px]' />
+                    <img src='/images/front-pages/f_logo.png' alt='Facebook Logo' className='bs-[34px]' />
                     <div className='flex flex-col items-start'>
                       <Typography variant='body2' color='white' className='capitalize opacity-[0.82]'>
                         {t('Follow on')}
@@ -147,11 +129,7 @@ function Footer() {
                     </div>
                   </div>
                 </Link>
-                <Link
-                  href='https://www.instagram.com/hustredowlsbaseballteam/'
-                  target='_blank'
-                  className='bg-[#211B2C] bs-[56px] is-[211px] rounded'
-                >
+                <Link href={hroInsLink} target='_blank' className='bg-[#211B2C] bs-[56px] is-[211px] rounded'>
                   <div className='flex items-center pli-5 plb-[7px] gap-6'>
                     <img src='/images/front-pages/ins_logo.png' alt='Instagram' className='bs-[34px]' />
                     <div className='flex flex-col items-start'>

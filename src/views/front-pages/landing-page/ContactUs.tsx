@@ -85,7 +85,7 @@ const ContactUs = () => {
                       {t('Please share your ideas or requests with us')}
                     </Typography>
                   </div>
-                  <img src='/images/front-pages/landing-page/chat.png' alt='chat' className='is-full' />
+                  <img src='/landing-page/chat.png' alt='Hoo Lau chat' className='is-full' />
                   <Typography className='text-white'>{t('description2')}</Typography>
                 </CardContent>
               </Card>

@@ -30,12 +30,13 @@ const HeroSection = ({ mode }: { mode: Mode }) => {
   const t = useTranslations('heroSection')
 
   // Vars
-  const dashboardImageLight = '/images/front-pages/landing-page/hero.jpg'
-  const dashboardImageDark = '/images/front-pages/landing-page/hero.jpg'
-  const elementsImageLight = '/images/front-pages/landing-page/hero-elements-light.png'
-  const elementsImageDark = '/images/front-pages/landing-page/hero-elements-light.png'
-  const heroSectionBgLight = '/images/front-pages/landing-page/hero-bg-light.png'
-  const heroSectionBgDark = '/images/front-pages/landing-page/hero-bg-dark.png'
+  const dashboardImageLight = '/landing-page/hero.jpg'
+  const dashboardImageDark = '/landing-page/hero.jpg'
+  const elementsImageLight = '/landing-page/hero-elements-light.png'
+  const elementsImageDark = '/landing-page/hero-elements-light.png'
+  const heroSectionBgLight = '/landing-page/hero-bg-light.png'
+  const heroSectionBgDark = '/landing-page/hero-bg-dark.png'
+  const hroFbLink = 'https://www.facebook.com/HUSTRedOwlsBaseballTeam'
 
   // Hooks
   const dashboardImage = useImageVariant(mode, dashboardImageLight, dashboardImageDark)
@@ -99,7 +100,7 @@ const HeroSection = ({ mode }: { mode: Mode }) => {
           <div className='mbs-8'>
             <Button
               component={Link}
-              href='https://www.facebook.com/HUSTRedOwlsBaseballTeam'
+              href={hroFbLink}
               target='_blank'
               variant='contained'
               color='primary'
@@ -117,13 +118,13 @@ const HeroSection = ({ mode }: { mode: Mode }) => {
       >
         <img
           src={dashboardImage}
-          alt='dashboard-image'
+          alt='HRO-image'
           className={classnames('mli-auto w-3/4 rounded-xl', styles.heroSecDashboard)}
         />
         <div className={classnames('absolute', styles.heroSectionElements)}>
           <img
             src={elementsImage}
-            alt='dashboard-elements'
+            alt='Hoo-Lauu-elements'
             style={{ transform: `translate(${elementsPosition.x}px, ${elementsPosition.y}px)` }}
           />
         </div>
