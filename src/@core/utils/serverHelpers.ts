@@ -56,6 +56,12 @@ export const getServerMode = () => {
   return mode === 'system' ? systemMode : mode
 }
 
+export const getUserLocaleFromCookies = () => {
+  const cookieStore = cookies()
+
+  return cookieStore.get('NEXT_LOCALE')?.value || 'vi'
+}
+
 export const getSkin = () => {
   const settingsCookie = getSettingsFromCookie()
 

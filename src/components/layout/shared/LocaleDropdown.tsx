@@ -90,6 +90,9 @@ const LocaleDropdown = () => {
                   <MenuItem className='gap-3' onClick={() => handleLocaleSwitch('en')} selected={currLocale === 'en'}>
                     English
                   </MenuItem>
+                  <MenuItem className='gap-3' onClick={() => handleLocaleSwitch('ja')} selected={currLocale === 'ja'}>
+                    日本語
+                  </MenuItem>
                 </MenuList>
               </ClickAwayListener>
             </Paper>

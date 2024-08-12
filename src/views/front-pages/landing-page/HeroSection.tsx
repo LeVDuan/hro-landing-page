@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react'
 // Next Imports
 import Link from 'next/link'
 
+import { styled } from '@mui/material/styles'
+
 // MUI Imports
-import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 
 // Third-party Imports
@@ -13,6 +14,8 @@ import classnames from 'classnames'
 
 // Type Imports
 import { useTranslations } from 'next-intl'
+
+import Typography from '@mui/material/Typography'
 
 import type { Mode } from '@core/types'
 
@@ -22,12 +25,22 @@ import { useImageVariant } from '@core/hooks/useImageVariant'
 // Styles Imports
 import styles from './styles.module.css'
 import frontCommonStyles from '@views/front-pages/styles.module.css'
+import { getFont } from '@/utils/getFont'
 
-const HeroSection = ({ mode }: { mode: Mode }) => {
+interface props {
+  mode: Mode
+  locale: string
+}
+
+const HeroSection = ({ mode, locale }: props) => {
   // States
   const [dashboardPosition, setDashboardPosition] = useState({ x: 0, y: 0 })
   const [elementsPosition, setElementsPosition] = useState({ x: 0, y: 0 })
   const t = useTranslations('heroSection')
+
+  const CustomTypography = styled(Typography)(() => ({
+    fontFamily: getFont(locale) // Thay thế bằng font-family bạn muốn
+  }))
 
   // Vars
   const dashboardImageLight = '/landing-page/hero.jpg'
@@ -82,21 +95,21 @@ const HeroSection = ({ mode }: { mode: Mode }) => {
           <Typography className='font-bold text-primary sm:text-[28px] text-3xl mbe-4 leading-[34px]'>
             #WEAREHRO
           </Typography>
-          <Typography className='font-medium' color='text.primary'>
+          <CustomTypography className='font-medium' color='text.primary'>
             {t('text1')}
-          </Typography>
-          <Typography className='font-medium' color='text.primary'>
+          </CustomTypography>
+          <CustomTypography className='font-medium' color='text.primary'>
             {t('text2')}
-          </Typography>
-          <Typography className='font-medium' color='text.primary'>
+          </CustomTypography>
+          <CustomTypography className='font-medium' color='text.primary'>
             {t('text3')}
-          </Typography>
-          <Typography className='font-medium' color='text.primary'>
+          </CustomTypography>
+          <CustomTypography className='font-medium' color='text.primary'>
             {t('text4')}
-          </Typography>
-          <Typography className='font-medium' color='text.primary'>
+          </CustomTypography>
+          <CustomTypography className='font-medium' color='text.primary'>
             {t('text5')}
-          </Typography>
+          </CustomTypography>
           <div className='mbs-8'>
             <Button
               component={Link}

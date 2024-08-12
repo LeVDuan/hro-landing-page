@@ -34,7 +34,12 @@ import Pitchers from './Pitchers'
 import Predecessors from './Predecessors-static'
 import TimelineCenter from './Timeline'
 
-const LandingPageWrapper = ({ mode }: { mode: Mode }) => {
+interface props {
+  mode: Mode
+  locale: string
+}
+
+const LandingPageWrapper = ({ mode, locale }: props) => {
   // Hooks
   const { updatePageSettings } = useSettings()
 
@@ -49,7 +54,7 @@ const LandingPageWrapper = ({ mode }: { mode: Mode }) => {
   return (
     <>
       {/* <DialogsCustomized /> */}
-      <HeroSection mode={mode} />
+      <HeroSection mode={mode} locale={locale} />
       <AboutUs />
       {/* <CustomerReviews /> */}
       {/* <GetStarted />
