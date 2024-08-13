@@ -27,6 +27,7 @@ import OFIcon from '@/assets/svg/front-pages/landing-page/OFIcon'
 
 // Data
 import { outfielders } from '@/fake-db/data'
+import { getFont } from '@/utils/getFont'
 
 const Card = styled(MuiCard)`
   &:hover {
@@ -44,7 +45,7 @@ const Card = styled(MuiCard)`
   }
 `
 
-const Outfielders = () => {
+const Outfielders = ({ locale }: { locale: string }) => {
   // States
   const [loaded, setLoaded] = useState<boolean>(false)
   const [currentSlide, setCurrentSlide] = useState<number>(0)
@@ -126,8 +127,8 @@ const Outfielders = () => {
       <div className={classnames('flex flex-col items-center justify-center', frontCommonStyles.layoutSpacing)}>
         <div className='flex items-center justify-center mbe-6 gap-3'>
           <OFIcon />
-          <Typography color='text.primary' className='font-medium uppercase'>
-            Outfielder
+          <Typography color='text.primary' className='font-medium' sx={{ fontFamily: `${getFont(locale)}` }}>
+            {t('Outfielder')}
           </Typography>
         </div>
       </div>
@@ -157,16 +158,20 @@ const Outfielders = () => {
                         <div className='flex flex-col gap-3 p-5 is-full'>
                           <div className='text-center'>
                             <Typography variant='h5'>{member.name}</Typography>
-                            <Typography color='text.secondary'>{member.gen}</Typography>
-                            <Typography color='text.secondary'>
+                            <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
+                              {member.gen}
+                            </Typography>
+                            <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
                               {t('Jersey numbers')}
                               {member.num}
                             </Typography>
-                            <Typography color='text.secondary'>
+                            <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
                               {t('position')}
                               {member.position}
                             </Typography>
-                            <Typography color='text.secondary'>{t(member.des)}</Typography>
+                            <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
+                              {t(member.des)}
+                            </Typography>
                           </div>
                         </div>
                       </CardContent>

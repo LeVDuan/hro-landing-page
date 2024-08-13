@@ -3,7 +3,9 @@
 // React Imports
 import { useRef, useState } from 'react'
 
-import { useLocale } from 'next-intl'
+import { Noto_Serif_JP } from 'next/font/google'
+
+import { useLocale, useTranslations } from 'next-intl'
 
 // MUI Imports
 
@@ -23,14 +25,18 @@ import { setUserLocale } from '@/services/locale'
 // Hook Imports
 import { useSettings } from '@core/hooks/useSettings'
 
+const notoSerifJP = Noto_Serif_JP({
+  subsets: ['latin'],
+  weight: ['200', '300', '400', '500', '600', '700', '900']
+})
+
 const LocaleDropdown = () => {
   // States
   const [open, setOpen] = useState(false)
   const [tooltipOpen, setTooltipOpen] = useState(false)
 
   const currLocale = useLocale()
-
-  // console.log('currlocale: ', currLocale)
+  const t = useTranslations('dropMenu')
 
   // Refs
   const anchorRef = useRef<HTMLButtonElement>(null)
@@ -58,7 +64,7 @@ const LocaleDropdown = () => {
   return (
     <>
       <Tooltip
-        title='Change language'
+        title={t('Change language')}
         onOpen={() => setTooltipOpen(true)}
         onClose={() => setTooltipOpen(false)}
         open={open ? false : tooltipOpen ? true : false}
@@ -85,12 +91,17 @@ const LocaleDropdown = () => {
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList onKeyDown={handleClose}>
                   <MenuItem className='gap-3' onClick={() => handleLocaleSwitch('vi')} selected={currLocale === 'vi'}>
-                    Vietnamese
+                    Tiếng Việt
                   </MenuItem>
                   <MenuItem className='gap-3' onClick={() => handleLocaleSwitch('en')} selected={currLocale === 'en'}>
                     English
                   </MenuItem>
-                  <MenuItem className='gap-3' onClick={() => handleLocaleSwitch('ja')} selected={currLocale === 'ja'}>
+                  <MenuItem
+                    className='gap-3'
+                    sx={{ fontFamily: `${notoSerifJP.style.fontFamily}` }}
+                    onClick={() => handleLocaleSwitch('ja')}
+                    selected={currLocale === 'ja'}
+                  >
                     日本語
                   </MenuItem>
                 </MenuList>

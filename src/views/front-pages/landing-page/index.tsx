@@ -4,6 +4,8 @@
 import { useEffect } from 'react'
 
 // Type Imports
+import { Divider } from '@mui/material'
+
 import type { Mode } from '@core/types'
 
 // Component Imports
@@ -55,30 +57,32 @@ const LandingPageWrapper = ({ mode, locale }: props) => {
     <>
       {/* <DialogsCustomized /> */}
       <HeroSection mode={mode} locale={locale} />
-      <AboutUs />
+      <AboutUs locale={locale} />
       {/* <CustomerReviews /> */}
       {/* <GetStarted />
       <Official />
       <NationalCup2023 />
       <HBMS2023 />
       <NationalCup2024 /> */}
-      <TimelineCenter />
-      <ProductStat />
-      <Leaders />
-      <Predecessors />
-      <Managers />
-      <Media />
-      <Players />
-      <Pitchers />
-      <Catchers />
-      <Infielders />
-      <Outfielders />
+      <TimelineCenter locale={locale} />
+      <Divider />
+      <ProductStat locale={locale} />
+      <Leaders locale={locale} />
+      <Predecessors locale={locale} />
+      <Managers locale={locale} />
+      <Media locale={locale} />
+      <Players locale={locale} />
+      <Divider />
+      <Pitchers locale={locale} />
+      <Catchers locale={locale} />
+      <Infielders locale={locale} />
+      <Outfielders locale={locale} />
       {/* <DemoVideo mode={mode} />
       <OurTeam />
        */}
-      <Activities />
-      <Faqs />
-      <ContactUs />
+      <Activities locale={locale} />
+      <Faqs locale={locale} />
+      <ContactUs locale={locale} />
     </>
   )
 }

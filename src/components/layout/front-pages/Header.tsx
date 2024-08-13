@@ -20,6 +20,7 @@ import type { Theme } from '@mui/material/styles'
 import classnames from 'classnames'
 
 // Type Imports
+
 import type { Mode } from '@core/types'
 
 // Component Imports
@@ -33,8 +34,14 @@ import { frontLayoutClasses } from '@layouts/utils/layoutClasses'
 // Styles Imports
 import styles from './styles.module.css'
 import LocaleDropdown from '../shared/LocaleDropdown'
+import { getFont } from '@/utils/getFont'
 
-const Header = ({ mode }: { mode: Mode }) => {
+interface props {
+  mode: Mode
+  locale: string
+}
+
+const Header = ({ mode, locale }: props) => {
   // States
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const t = useTranslations('header')
@@ -60,19 +67,19 @@ const Header = ({ mode }: { mode: Mode }) => {
               <Link href='/'>
                 <img src='/logos/Logo.png' alt='HRO Logo' className='bs-[55px]' />
               </Link>
-              <FrontMenu mode={mode} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
+              <FrontMenu mode={mode} locale={locale} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
             </div>
           ) : (
             <div className='flex items-center gap-10'>
               <Link href='/'>
                 <img src='/logos/Logo.png' alt='HRO Logo' className='bs-[55px]' />
               </Link>
-              <FrontMenu mode={mode} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
+              <FrontMenu mode={mode} locale={locale} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
             </div>
           )}
           <div className='flex items-center gap-2 sm:gap-4'>
             <LocaleDropdown />
-            <ModeDropdown />
+            <ModeDropdown locale={locale} />
             {isBelowLgScreen ? (
               <CustomIconButton
                 component={Link}
@@ -91,8 +98,7 @@ const Header = ({ mode }: { mode: Mode }) => {
                 target='_blank'
                 startIcon={<i className='ri-facebook-circle-fill text-xl' />}
                 className='whitespace-nowrap'
-
-                // target='_blank'
+                sx={{ fontFamily: `${getFont(locale)}` }}
               >
                 {t('Follow')}
               </Button>

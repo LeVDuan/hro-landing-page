@@ -36,3 +36,113 @@
     }
   }
 }
+
+.heroText {
+  background: linear-gradient(135deg, #fbb03b 0%, #ff3739 47.92%, #5a4aff 100%) repeat;
+  background-size: 200% 200%;
+  background-clip: text;
+  color: transparent;
+  font-size: 36px;
+  line-height: 1.16667;
+  font-weight: 800;
+  margin-block-end: 16px;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0);
+  animation: shine 2s ease-in-out infinite alternate;
+
+  @media (min-width: 600px) {
+    font-size: 42px;
+    line-height: 1.14286;
+  }
+}
+
+.gradientBg {
+  position: relative;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(135deg, #fbb13b5d 0%, #ff373a72 47.92%, #594aff6b 100%) repeat;
+  background-size: 200% 200%;
+  animation: shine 3s ease-in-out infinite alternate;
+  /* opacity: 0.5; */
+}
+
+.gradientBg2 {
+  position: relative;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(135deg, #3bd8fb5d 0%, #ff373a72 47.92%, #c34aff45 100%) repeat;
+  background-size: 200% 200%;
+  animation: shine 3s ease-in-out infinite alternate;
+  /* opacity: 0.5; */
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.teamCard {
+  border-start-start-radius: 90px;
+  border-start-end-radius: 20px;
+}
+
+.button,
+.buttonInner {
+  cursor: pointer;
+  vertical-align: middle;
+  appearance: none;
+  text-decoration: none;
+  line-height: 1.2;
+  font-size: 0.9375rem;
+  letter-spacing: 0.43px;
+  font-weight: 500;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.9);
+  min-inline-size: 50px;
+  text-transform: none;
+  padding-block: 0.625rem;
+  padding-inline: 1.25rem;
+  background: linear-gradient(-45deg, #fbb03b 0%, #ff3739 47.92%, #5a4aff);
+  background-size: 600%;
+  animation: anime 12s linear infinite;
+}
+
+.button {
+  position: relative;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+  .buttonInner {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    filter: blur(20px);
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+  }
+  &:not(:hover) .buttonInner {
+    opacity: 0.8;
+  }
+}
+
+@keyframes anime {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

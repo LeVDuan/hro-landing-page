@@ -16,8 +16,9 @@ import { frontLayoutClasses } from '@layouts/utils/layoutClasses'
 // Styles Imports
 // import styles from './styles.module.css'
 import frontCommonStyles from '@views/front-pages/styles.module.css'
+import { getFont } from '@/utils/getFont'
 
-function Footer() {
+function Footer({ locale }: { locale: string }) {
   const t = useTranslations('footer')
   const hustLink = 'https://hust.edu.vn/vi/'
   const VNTTLink = 'https://www.facebook.com/bvnttbkhn'
@@ -58,9 +59,11 @@ function Footer() {
                   <Typography color='white' className='lg:max-is-[390px] opacity-[0.78]'>
                     CLB Bóng chày Đoàn Đại học Bách khoa Hà Nội
                   </Typography>
-                  <Typography color='white' mt={1} className='lg:max-is-[390px] opacity-[0.78]'>
-                    {t('No 1 Dai Co Viet, Hai Ba Trung District, Hanoi, Vietnam')}
-                  </Typography>
+                  <Link href='https://maps.app.goo.gl/zquxuh2bkqrc2ips6'>
+                    <Typography color='white' mt={1} className='lg:max-is-[390px] opacity-[0.78] hover:text-primary'>
+                      {t('No 1 Dai Co Viet, Hai Ba Trung District, Hanoi, Vietnam')}
+                    </Typography>
+                  </Link>
                   <Typography color='white' mt={1} className='lg:max-is-[390px] opacity-[0.78]'>
                     hustredowlsbaseballteam@gmail.com
                   </Typography>
@@ -68,45 +71,97 @@ function Footer() {
               </div>
             </Grid>
             <Grid item xs={12} sm={3} lg={2}>
-              <Typography color='white' className='font-medium mbe-6 opacity-[1]'>
+              <Typography color='white' className='font-medium mbe-6 opacity-[1]' fontFamily={getFont(locale)}>
                 {t('Links')}
               </Typography>
               <div className='flex flex-col gap-4'>
-                <Typography component={Link} href={hustLink} target='_blank' color='white' className='opacity-[0.78]'>
+                <Typography
+                  component={Link}
+                  href={hustLink}
+                  target='_blank'
+                  color='white'
+                  className='opacity-[0.78]'
+                  fontFamily={getFont(locale)}
+                >
                   HUST
                 </Typography>
-                <Typography component={Link} href={VNTTLink} target='_blank' color='white' className='opacity-[0.78]'>
+                <Typography
+                  component={Link}
+                  href={VNTTLink}
+                  target='_blank'
+                  color='white'
+                  className='opacity-[0.78]'
+                  fontFamily={getFont(locale)}
+                >
                   {t('VNTT committee')}
                 </Typography>
-                <Typography component={Link} href={VBSFLink} target='_blank' color='white' className='opacity-[0.78]'>
+                <Typography
+                  component={Link}
+                  href={VBSFLink}
+                  target='_blank'
+                  color='white'
+                  className='opacity-[0.78]'
+                  fontFamily={getFont(locale)}
+                >
                   {t('VBSF Vietnam')}
                 </Typography>
-                <Typography component={Link} href={VBMSLink} target='_blank' color='white' className='opacity-[0.78]'>
+                <Typography
+                  component={Link}
+                  href={VBMSLink}
+                  target='_blank'
+                  color='white'
+                  className='opacity-[0.78]'
+                  fontFamily={getFont(locale)}
+                >
                   VBMS
                 </Typography>
               </div>
             </Grid>
             <Grid item xs={12} sm={3} lg={2}>
-              <Typography color='white' className='font-medium mbe-6 opacity-[1]'>
+              <Typography color='white' className='font-medium mbe-6 opacity-[1]' fontFamily={getFont(locale)}>
                 {t('Club Structure')}
               </Typography>
               <div className='flex flex-col gap-4'>
-                <Typography component={Link} href='#leaders' color='white' className='opacity-[0.78]'>
-                  Leaders
+                <Typography
+                  component={Link}
+                  href='#leaders'
+                  color='white'
+                  className='opacity-[0.78]'
+                  fontFamily={getFont(locale)}
+                >
+                  {t('Leaders')}
                 </Typography>
-                <Typography component={Link} href='#managers' color='white' className='opacity-[0.78]'>
-                  Managers
+                <Typography
+                  component={Link}
+                  href='#managers'
+                  color='white'
+                  className='opacity-[0.78]'
+                  fontFamily={getFont(locale)}
+                >
+                  {t('Managers')}
                 </Typography>
-                <Typography component={Link} href='#media' color='white' className='opacity-[0.78]'>
-                  Media
+                <Typography
+                  component={Link}
+                  href='#media'
+                  color='white'
+                  className='opacity-[0.78]'
+                  fontFamily={getFont(locale)}
+                >
+                  {t('Media')}
                 </Typography>
-                <Typography component={Link} href='#players' color='white' className='opacity-[0.78]'>
-                  Players
+                <Typography
+                  component={Link}
+                  href='#players'
+                  color='white'
+                  className='opacity-[0.78]'
+                  fontFamily={getFont(locale)}
+                >
+                  {t('Players')}
                 </Typography>
               </div>
             </Grid>
             <Grid item xs={12} sm={6} lg={3}>
-              <Typography color='white' className='font-medium mbe-6 opacity-[1]'>
+              <Typography color='white' className='font-medium mbe-6 opacity-[1]' fontFamily={getFont(locale)}>
                 {t('Social network')}
               </Typography>
               <div className='flex flex-col gap-4'>
@@ -114,7 +169,12 @@ function Footer() {
                   <div className='flex items-center pli-5 plb-[7px] gap-6'>
                     <img src='/logos/f_logo.png' alt='Facebook Logo' className='bs-[34px]' />
                     <div className='flex flex-col items-start'>
-                      <Typography variant='body2' color='white' className='capitalize opacity-[0.82]'>
+                      <Typography
+                        variant='body2'
+                        color='white'
+                        className='capitalize opacity-[0.82]'
+                        fontFamily={getFont(locale)}
+                      >
                         {t('Follow on')}
                       </Typography>
                       <Typography color='white' className='font-medium capitalize opacity-[0.92]'>
@@ -127,7 +187,7 @@ function Footer() {
                   <div className='flex items-center pli-5 plb-[7px] gap-6'>
                     <img src='/logos/ins_logo.png' alt='Instagram' className='bs-[34px]' />
                     <div className='flex flex-col items-start'>
-                      <Typography variant='body2' color='white' className='opacity-[0.82]'>
+                      <Typography variant='body2' color='white' className='opacity-[0.82]' fontFamily={getFont(locale)}>
                         {t('Follow on')}
                       </Typography>
                       <Typography color='white' className='font-medium opacity-[0.92]'>

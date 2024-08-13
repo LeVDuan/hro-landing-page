@@ -25,8 +25,9 @@ import ElementOne from '@/assets/svg/front-pages/landing-page/ElementOne'
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 import FaqIcon from '@/assets/svg/front-pages/landing-page/FaqIcon'
 import { FaqsData } from '@/fake-db/data'
+import { getFont } from '@/utils/getFont'
 
-const Faqs = () => {
+const Faqs = ({ locale }: { locale: string }) => {
   // Refs
   const skipIntersection = useRef(true)
   const ref = useRef<null | HTMLDivElement>(null)
@@ -70,12 +71,45 @@ const Faqs = () => {
           </div>
         </div>
         <div className='flex items-center flex-wrap justify-center gap-x-2 mbe-1'>
-          <Typography variant='h4' className='font-bold'>
-            {t('Frequently asked')}
-          </Typography>
-          <Typography variant='h5'>{t('questions')}</Typography>
+          {locale === 'vi' ? (
+            <>
+              <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
+                {t('Frequently asked')}{' '}
+              </Typography>
+              <Typography variant='h4' className='font-bold' sx={{ fontFamily: `${getFont(locale)}` }}>
+                <span className='relative z-[1] font-extrabold'>
+                  {t('questions')}
+                  <img
+                    src='/landing-page/bg-shape.png'
+                    alt='bg-shape'
+                    className='absolute block-end-0 z-[1] bs-[40%] is-[125%] sm:is-[132%] -inline-start-[13%] sm:inline-start-[-19%] block-start-[17px]'
+                  />
+                </span>
+              </Typography>
+            </>
+          ) : (
+            <>
+              <Typography variant='h4' className='font-bold' sx={{ fontFamily: `${getFont(locale)}` }}>
+                <span className='relative z-[1] font-extrabold'>
+                  {t('Frequently asked')}
+                  <img
+                    src='/landing-page/bg-shape.png'
+                    alt='bg-shape'
+                    className='absolute block-end-0 z-[1] bs-[40%] is-[125%] sm:is-[132%] -inline-start-[13%] sm:inline-start-[-19%] block-start-[17px]'
+                  />
+                </span>{' '}
+              </Typography>
+              <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
+                {t('questions')}
+              </Typography>
+            </>
+          )}
         </div>
-        <Typography color='text.secondary' className='font-medium text-center'>
+        <Typography
+          color='text.secondary'
+          className='font-medium text-center'
+          sx={{ fontFamily: `${getFont(locale)}` }}
+        >
           {t('description')}
         </Typography>
       </div>
@@ -89,10 +123,14 @@ const Faqs = () => {
               {FaqsData.map((data, index) => {
                 return (
                   <Accordion key={index} defaultExpanded={data.active}>
-                    <AccordionSummary aria-controls={data.id + '-content'} id={data.id + '-header'}>
+                    <AccordionSummary
+                      aria-controls={data.id + '-content'}
+                      id={data.id + '-header'}
+                      sx={{ fontFamily: `${getFont(locale)}` }}
+                    >
                       {t(data.question)}
                     </AccordionSummary>
-                    <AccordionDetails>{t(data.answer)}</AccordionDetails>
+                    <AccordionDetails sx={{ fontFamily: `${getFont(locale)}` }}>{t(data.answer)}</AccordionDetails>
                   </Accordion>
                 )
               })}

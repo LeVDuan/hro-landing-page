@@ -25,6 +25,7 @@ import ManaIcon from '@/assets/svg/front-pages/landing-page/ManagerIcon'
 
 // Data
 import { managers } from '@/fake-db/data'
+import { getFont } from '@/utils/getFont'
 
 const Card = styled(MuiCard)`
   &:hover {
@@ -42,7 +43,7 @@ const Card = styled(MuiCard)`
   }
 `
 
-const Managers = () => {
+const Managers = ({ locale }: { locale: string }) => {
   // Refs
   const skipIntersection = useRef(true)
   const ref = useRef<null | HTMLDivElement>(null)
@@ -79,13 +80,49 @@ const Managers = () => {
               {/* <Lines /> */}
               <ManaIcon />
 
-              <Typography color='text.primary' className='font-medium uppercase'>
-                Managers
+              <Typography
+                color='text.primary'
+                className='font-medium uppercase'
+                sx={{ fontFamily: `${getFont(locale)}` }}
+              >
+                {t('Managers')}
               </Typography>
             </div>
           </div>
           <div className='flex items-center flex-wrap justify-center gap-x-2 mbe-1'>
-            <Typography variant='h5'>{t('manager')}</Typography>
+            {locale === 'vi' ? (
+              <>
+                <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  {t('manager1')}{' '}
+                </Typography>
+                <Typography variant='h4' className='font-bold' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  <span className='relative z-[1] font-extrabold'>
+                    {t('manager2')}
+                    <img
+                      src='/landing-page/bg-shape.png'
+                      alt='bg-shape'
+                      className='absolute block-end-0 z-[1] bs-[40%] is-[125%] sm:is-[132%] -inline-start-[13%] sm:inline-start-[-19%] block-start-[17px]'
+                    />
+                  </span>
+                </Typography>
+              </>
+            ) : (
+              <>
+                <Typography variant='h4' className='font-bold' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  <span className='relative z-[1] font-extrabold'>
+                    {t('manager1')}
+                    <img
+                      src='/landing-page/bg-shape.png'
+                      alt='bg-shape'
+                      className='absolute block-end-0 z-[1] bs-[40%] is-[125%] sm:is-[132%] -inline-start-[13%] sm:inline-start-[-19%] block-start-[17px]'
+                    />
+                  </span>{' '}
+                </Typography>
+                <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  {t('manager2')}
+                </Typography>
+              </>
+            )}
           </div>
         </div>
         <Grid
@@ -107,11 +144,13 @@ const Managers = () => {
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
-                      <Typography color='text.secondary'>
+                      <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
                         {t('Jersey numbers')}
                         {member.num}
                       </Typography>
-                      <Typography color='text.secondary'>{t(member.gen)}</Typography>
+                      <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
+                        {t(member.gen)}
+                      </Typography>
                     </div>
                   </div>
                 </CardContent>

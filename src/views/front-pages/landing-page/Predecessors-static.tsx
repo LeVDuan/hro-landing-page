@@ -20,6 +20,7 @@ import PreIcon from '@/assets/svg/front-pages/landing-page/PreIcon'
 
 // Data
 import { predecessors } from '@/fake-db/data'
+import { getFont } from '@/utils/getFont'
 
 const Card = styled(MuiCard)`
   &:hover {
@@ -37,27 +38,63 @@ const Card = styled(MuiCard)`
   }
 `
 
-const PredecessorsStatic = () => {
+const PredecessorsStatic = ({ locale }: { locale: string }) => {
   // States
   const t = useTranslations('structure')
 
   return (
     <section id='predecessors' className={classnames('plb-[100px]')}>
-      <div className={classnames('flex flex-col items-center justify-center', frontCommonStyles.layoutSpacing)}>
-        <div className='flex flex-col items-center justify-center'>
+      <div className={classnames(frontCommonStyles.layoutSpacing)}>
+        <div className='flex flex-col items-center justify-center mbe-3'>
           <div className='flex is-full justify-center relative'>
             <ElementTwo className='absolute inline-end-80' />
             <div className='flex items-center justify-center mbe-6 gap-3 text-center'>
               {/* <Lines /> */}
               <PreIcon />
 
-              <Typography color='text.primary' className='font-medium uppercase'>
+              <Typography
+                color='text.primary'
+                className='font-medium uppercase'
+                sx={{ fontFamily: `${getFont(locale)}` }}
+              >
                 {t('predecessors')}
               </Typography>
             </div>
           </div>
           <div className='flex items-center flex-wrap justify-center gap-x-2 mbe-1'>
-            <Typography variant='h5'>{t('past')}</Typography>
+            {locale === 'vi' ? (
+              <>
+                <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  {t('our past')}{' '}
+                </Typography>
+                <Typography variant='h4' className='font-bold' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  <span className='relative z-[1] font-extrabold'>
+                    {t('leader past')}
+                    <img
+                      src='/landing-page/bg-shape.png'
+                      alt='bg-shape'
+                      className='absolute block-end-0 z-[1] bs-[40%] is-[125%] sm:is-[132%] -inline-start-[13%] sm:inline-start-[-19%] block-start-[17px]'
+                    />
+                  </span>
+                </Typography>
+              </>
+            ) : (
+              <>
+                <Typography variant='h4' className='font-bold' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  <span className='relative z-[1] font-extrabold'>
+                    {t('our past')}
+                    <img
+                      src='/landing-page/bg-shape.png'
+                      alt='bg-shape'
+                      className='absolute block-end-0 z-[1] bs-[40%] is-[125%] sm:is-[132%] -inline-start-[13%] sm:inline-start-[-19%] block-start-[17px]'
+                    />
+                  </span>{' '}
+                </Typography>
+                <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  {t('leader past')}
+                </Typography>
+              </>
+            )}
           </div>
         </div>
         <Grid
@@ -79,12 +116,14 @@ const PredecessorsStatic = () => {
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
-                      <Typography color='text.secondary'>
+                      <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
                         {t('Jersey numbers')}
                         {member.num}
                       </Typography>
                       <Typography color='text.secondary'>{member.gen}</Typography>
-                      <Typography color='text.secondary'>{t(member.position)}</Typography>
+                      <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
+                        {t(member.position)}
+                      </Typography>
                     </div>
                   </div>
                 </CardContent>

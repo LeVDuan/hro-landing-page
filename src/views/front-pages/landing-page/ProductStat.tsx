@@ -18,6 +18,7 @@ import CustomAvatar from '@core/components/mui/Avatar'
 
 // Styles Imports
 import frontCommonStyles from '@views/front-pages/styles.module.css'
+import { getFont } from '@/utils/getFont'
 
 // Type
 type StatData = {
@@ -61,17 +62,17 @@ const statData: StatData[] = [
   }
 ]
 
-const ProductStat = () => {
+const ProductStat = ({ locale }: { locale: string }) => {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null)
   const t = useTranslations('stats')
 
   return (
     <section className='plb-[64px] relative'>
-      <img
+      {/* <img
         src='/landing-page/get-started-bg.png'
         alt='background-image'
         className='absolute is-full flex -z-1 pointer-events-none bs-full block-end-0'
-      />
+      /> */}
       <div className={frontCommonStyles.layoutSpacing}>
         <Grid container spacing={6}>
           {statData.map((stat, index) => (
@@ -95,7 +96,7 @@ const ProductStat = () => {
                   <Typography color='text.primary' className='font-bold text-[34px]'>
                     {stat.value}+
                   </Typography>
-                  <Typography className='font-medium' color='text.secondary'>
+                  <Typography className='font-medium' color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t(stat.title)}
                   </Typography>
                 </div>

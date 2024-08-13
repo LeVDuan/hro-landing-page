@@ -23,6 +23,7 @@ import { useTranslations } from 'next-intl'
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 import ElementOne from '@/assets/svg/front-pages/landing-page/ElementOne'
 import MileStonesIcon from '@/assets/svg/front-pages/landing-page/MileStonesIcon'
+import { getFont } from '@/utils/getFont'
 
 // Type Imports
 interface DataObj {
@@ -100,7 +101,7 @@ const Timeline = styled(MuiTimeline)<TimelineProps>(({ theme }) => ({
   }
 }))
 
-const TimelineCenter = () => {
+const TimelineCenter = ({ locale }: { locale: string }) => {
   // Hooks
   const theme = useTheme()
   const isBelowMdScreen = useMediaQuery(theme.breakpoints.down('md'))
@@ -113,10 +114,40 @@ const TimelineCenter = () => {
           <ElementOne className='absolute inline-end-0' />
           <div className='flex items-center justify-center flex-wrap gap-2 mbe-3 sm:mbe-1'>
             <MileStonesIcon />
-            <Typography variant='h5'>{t('Club')}</Typography>
-            <Typography variant='h4' className='font-bold'>
-              {t('milestones')}
-            </Typography>
+            {locale === 'ja' ? (
+              <>
+                <Typography variant='h4' className='font-bold' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  <span className='relative z-[1] font-extrabold'>
+                    {t('Club')}
+                    <img
+                      src='/landing-page/bg-shape.png'
+                      alt='bg-shape'
+                      className='absolute block-end-0 z-[1] bs-[40%] is-[125%] sm:is-[132%] -inline-start-[13%] sm:inline-start-[-19%] block-start-[17px]'
+                    />
+                  </span>{' '}
+                </Typography>
+                <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  {t('milestones')}
+                </Typography>
+              </>
+            ) : (
+              <>
+                <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  {t('Club')}{' '}
+                </Typography>
+
+                <Typography variant='h4' className='font-bold' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  <span className='relative z-[1] font-extrabold'>
+                    {t('milestones')}
+                    <img
+                      src='/landing-page/bg-shape.png'
+                      alt='bg-shape'
+                      className='absolute block-end-0 z-[1] bs-[40%] is-[125%] sm:is-[132%] -inline-start-[13%] sm:inline-start-[-19%] block-start-[17px]'
+                    />
+                  </span>
+                </Typography>
+              </>
+            )}
           </div>
         </div>
         <Timeline position={isBelowMdScreen ? 'right' : 'alternate'}>
@@ -154,10 +185,12 @@ const TimelineCenter = () => {
               )}
               <Card>
                 <CardContent>
-                  <Typography variant='h5' className='mbe-4'>
+                  <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t(dataObj[1].title)}
                   </Typography>
-                  <Typography className='mbe-3'>{t(dataObj[1].description)}</Typography>
+                  <Typography className='mbe-3' sx={{ fontFamily: `${getFont(locale)}` }}>
+                    {t(dataObj[1].description)}
+                  </Typography>
                 </CardContent>
               </Card>
             </TimelineContent>
@@ -192,10 +225,12 @@ const TimelineCenter = () => {
               )}
               <Card>
                 <CardContent>
-                  <Typography variant='h5' className='mbe-4'>
+                  <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t(dataObj[2].title)}
                   </Typography>
-                  <Typography className='mbe-3'>{t(dataObj[2].description)}</Typography>
+                  <Typography className='mbe-3' sx={{ fontFamily: `${getFont(locale)}` }}>
+                    {t(dataObj[2].description)}
+                  </Typography>
                 </CardContent>
               </Card>
             </TimelineContent>
@@ -229,30 +264,32 @@ const TimelineCenter = () => {
               )}
               <Card>
                 <CardContent>
-                  <Typography variant='h5' className='mbe-4'>
+                  <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t(dataObj[3].title)}
                   </Typography>
-                  <Typography className='mbe-3'>{t(dataObj[3].description)}</Typography>
-                  <Typography className='mbe-3'>
+                  <Typography className='mbe-3' sx={{ fontFamily: `${getFont(locale)}` }}>
+                    {t(dataObj[3].description)}
+                  </Typography>
+                  <Typography className='mbe-3' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t('Achievements')}: {t(dataObj[3].competitionResults)}
                   </Typography>
 
                   <Grid container rowSpacing={5} columnSpacing={5}>
                     <Grid item xs={12} lg={4}>
                       <div className='flex flex-col items-start gap-0'>
-                        <Typography>{t('Matches')}</Typography>
+                        <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Matches')}</Typography>
                         <Typography>{dataObj[3].totalMatches}</Typography>
                       </div>
                     </Grid>
                     <Grid item xs={12} lg={4}>
                       <div className='flex flex-col items-start gap-0'>
-                        <Typography>{t('Win')}</Typography>
+                        <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Win')}</Typography>
                         <Typography>{dataObj[3].winMatches}</Typography>
                       </div>
                     </Grid>
                     <Grid item xs={12} lg={4}>
                       <div className='flex flex-col items-start gap-0'>
-                        <Typography>{t('Lose')}</Typography>
+                        <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Lose')}</Typography>
                         <Typography>{dataObj[3].loseMatches}</Typography>
                       </div>
                     </Grid>
@@ -293,30 +330,32 @@ const TimelineCenter = () => {
               )}
               <Card>
                 <CardContent>
-                  <Typography variant='h5' className='mbe-4'>
+                  <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t(dataObj[4].title)}
                   </Typography>
-                  <Typography className='mbe-3'>{t(dataObj[4].description)}</Typography>
-                  <Typography className='mbe-3'>
+                  <Typography className='mbe-3' sx={{ fontFamily: `${getFont(locale)}` }}>
+                    {t(dataObj[4].description)}
+                  </Typography>
+                  <Typography className='mbe-3' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t('Achievements')}: {t(dataObj[4].competitionResults)}
                   </Typography>
 
                   <Grid container rowSpacing={5} columnSpacing={5}>
                     <Grid item xs={12} lg={4}>
                       <div className='flex flex-col items-start gap-0'>
-                        <Typography>{t('Matches')}</Typography>
+                        <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Matches')}</Typography>
                         <Typography>{dataObj[4].totalMatches}</Typography>
                       </div>
                     </Grid>
                     <Grid item xs={12} lg={4}>
                       <div className='flex flex-col items-start gap-0'>
-                        <Typography>{t('Win')}</Typography>
+                        <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Win')}</Typography>
                         <Typography>{dataObj[4].winMatches}</Typography>
                       </div>
                     </Grid>
                     <Grid item xs={12} lg={4}>
                       <div className='flex flex-col items-start gap-0'>
-                        <Typography>{t('Lose')}</Typography>
+                        <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Lose')}</Typography>
                         <Typography>{dataObj[4].loseMatches}</Typography>
                       </div>
                     </Grid>
@@ -357,30 +396,32 @@ const TimelineCenter = () => {
               )}
               <Card>
                 <CardContent>
-                  <Typography variant='h5' className='mbe-4'>
+                  <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t(dataObj[5].title)}
                   </Typography>
-                  <Typography className='mbe-3'>{t(dataObj[5].description)}</Typography>
-                  <Typography className='mbe-3'>
+                  <Typography className='mbe-3' sx={{ fontFamily: `${getFont(locale)}` }}>
+                    {t(dataObj[5].description)}
+                  </Typography>
+                  <Typography className='mbe-3' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t('Achievements')}: {t(dataObj[5].competitionResults)}
                   </Typography>
 
                   <Grid container rowSpacing={5} columnSpacing={5}>
                     <Grid item xs={12} lg={4}>
                       <div className='flex flex-col items-start gap-0'>
-                        <Typography>{t('Matches')}</Typography>
+                        <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Matches')}</Typography>
                         <Typography>{dataObj[5].totalMatches}</Typography>
                       </div>
                     </Grid>
                     <Grid item xs={12} lg={4}>
                       <div className='flex flex-col items-start gap-0'>
-                        <Typography>{t('Win')}</Typography>
+                        <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Win')}</Typography>
                         <Typography>{dataObj[5].winMatches}</Typography>
                       </div>
                     </Grid>
                     <Grid item xs={12} lg={4}>
                       <div className='flex flex-col items-start gap-0'>
-                        <Typography>{t('Lose')}</Typography>
+                        <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Lose')}</Typography>
                         <Typography>{dataObj[5].loseMatches}</Typography>
                       </div>
                     </Grid>
@@ -400,7 +441,7 @@ const TimelineCenter = () => {
             {!isBelowMdScreen && (
               <TimelineOppositeContent color='text.disabled'>
                 <div className='flex flex-col items-start gap-4 mbe-10'>
-                  <Typography variant='h5' component='div'>
+                  <Typography variant='h5' component='div' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t('Now')}
                   </Typography>
                 </div>
@@ -413,7 +454,7 @@ const TimelineCenter = () => {
             <TimelineContent>
               {isBelowMdScreen && (
                 <>
-                  <Typography variant='h5' component='div'>
+                  <Typography variant='h5' component='div' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t('Now')}
                   </Typography>
                 </>

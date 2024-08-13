@@ -20,8 +20,9 @@ import type { Mode } from '@core/types'
 
 // Hook Imports
 import { useSettings } from '@core/hooks/useSettings'
+import { getFont } from '@/utils/getFont'
 
-const ModeDropdown = () => {
+const ModeDropdown = ({ locale }: { locale: string }) => {
   // States
   const [open, setOpen] = useState(false)
   const [tooltipOpen, setTooltipOpen] = useState(false)
@@ -93,6 +94,7 @@ const ModeDropdown = () => {
                     className='gap-3'
                     onClick={() => handleModeSwitch('light')}
                     selected={settings.mode === 'light'}
+                    sx={{ fontFamily: `${getFont(locale)}` }}
                   >
                     <i className='ri-sun-line' />
                     {t('Light')}
@@ -101,6 +103,7 @@ const ModeDropdown = () => {
                     className='gap-3'
                     onClick={() => handleModeSwitch('dark')}
                     selected={settings.mode === 'dark'}
+                    sx={{ fontFamily: `${getFont(locale)}` }}
                   >
                     <i className='ri-moon-clear-line' />
                     {t('Dark')}
@@ -109,6 +112,7 @@ const ModeDropdown = () => {
                     className='gap-3'
                     onClick={() => handleModeSwitch('system')}
                     selected={settings.mode === 'system'}
+                    sx={{ fontFamily: `${getFont(locale)}` }}
                   >
                     <i className='ri-computer-line' />
                     {t('System')}

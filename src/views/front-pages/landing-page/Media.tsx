@@ -25,6 +25,7 @@ import MediaIcon from '@/assets/svg/front-pages/landing-page/MediaIcon'
 
 // Data
 import { mediaTeam } from '@/fake-db/data'
+import { getFont } from '@/utils/getFont'
 
 const Card = styled(MuiCard)`
   &:hover {
@@ -42,7 +43,7 @@ const Card = styled(MuiCard)`
   }
 `
 
-const Media = () => {
+const Media = ({ locale }: { locale: string }) => {
   // Refs
   const skipIntersection = useRef(true)
   const ref = useRef<null | HTMLDivElement>(null)
@@ -78,13 +79,49 @@ const Media = () => {
             <div className='flex items-center justify-center mbe-6 gap-3 text-center'>
               <MediaIcon />
 
-              <Typography color='text.primary' className='font-medium uppercase'>
-                Media team
+              <Typography
+                color='text.primary'
+                className='font-medium uppercase'
+                sx={{ fontFamily: `${getFont(locale)}` }}
+              >
+                {t('Media')}
               </Typography>
             </div>
           </div>
           <div className='flex items-center flex-wrap justify-center gap-x-2 mbe-1'>
-            <Typography variant='h5'>{t('media')}</Typography>
+            {locale === 'vi' ? (
+              <>
+                <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  {t('media1')}{' '}
+                </Typography>
+                <Typography variant='h4' className='font-bold' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  <span className='relative z-[1] font-extrabold'>
+                    {t('media2')}
+                    <img
+                      src='/landing-page/bg-shape.png'
+                      alt='bg-shape'
+                      className='absolute block-end-0 z-[1] bs-[40%] is-[125%] sm:is-[132%] -inline-start-[13%] sm:inline-start-[-19%] block-start-[17px]'
+                    />
+                  </span>
+                </Typography>
+              </>
+            ) : (
+              <>
+                <Typography variant='h4' className='font-bold' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  <span className='relative z-[1] font-extrabold'>
+                    {t('media1')}
+                    <img
+                      src='/landing-page/bg-shape.png'
+                      alt='bg-shape'
+                      className='absolute block-end-0 z-[1] bs-[40%] is-[125%] sm:is-[132%] -inline-start-[13%] sm:inline-start-[-19%] block-start-[17px]'
+                    />
+                  </span>{' '}
+                </Typography>
+                <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  {t('media2')}
+                </Typography>
+              </>
+            )}
           </div>
         </div>
         <Grid
@@ -106,11 +143,13 @@ const Media = () => {
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
-                      <Typography color='text.secondary'>
+                      <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
                         {t('Jersey numbers')}
                         {member.num}
                       </Typography>
-                      <Typography color='text.secondary'>{t(member.gen)}</Typography>
+                      <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
+                        {t(member.gen)}
+                      </Typography>
                     </div>
                   </div>
                 </CardContent>

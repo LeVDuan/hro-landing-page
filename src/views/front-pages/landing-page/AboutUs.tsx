@@ -24,6 +24,7 @@ import ElementOne from '@/assets/svg/front-pages/landing-page/ElementOne'
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 import AboutUsIcon from '@/assets/svg/front-pages/landing-page/AboutUsIcon'
 import { founders } from '@/fake-db/data'
+import { getFont } from '@/utils/getFont'
 
 const Card = styled(MuiCard)`
   &:hover {
@@ -41,7 +42,7 @@ const Card = styled(MuiCard)`
   }
 `
 
-const AboutUs = () => {
+const AboutUs = ({ locale }: { locale: string }) => {
   // Refs
   const skipIntersection = useRef(true)
   const ref = useRef<null | HTMLDivElement>(null)
@@ -75,41 +76,105 @@ const AboutUs = () => {
           <div className='flex is-full justify-center relative'>
             <ElementOne className='absolute inline-end-0' />
             <div className='flex items-center justify-center mbe-6 gap-3'>
-              {/* <Lines /> */}
               <AboutUsIcon />
-              <Typography color='text.primary' className='font-medium uppercase'>
+              <Typography
+                color='text.primary'
+                className='font-medium uppercase'
+                sx={{ fontFamily: `${getFont(locale)}` }}
+              >
                 {t('About us')}
               </Typography>
             </div>
           </div>
           <div className='flex items-center justify-center flex-wrap gap-2 mbe-3 sm:mbe-1'>
-            <Typography variant='h4' className='font-bold'>
-              {t('The beginning')}
-            </Typography>
-            <Typography variant='h5'>{t('of HRO')}</Typography>
+            {locale === 'ja' ? (
+              <>
+                <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  {t('The beginning')}{' '}
+                </Typography>
+                <Typography variant='h4' className='font-bold' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  <span className='relative z-[1] font-extrabold'>
+                    {t('of HRO')}
+                    <img
+                      src='/landing-page/bg-shape.png'
+                      alt='bg-shape'
+                      className='absolute block-end-0 z-[1] bs-[40%] is-[125%] sm:is-[132%] -inline-start-[13%] sm:inline-start-[-19%] block-start-[17px]'
+                    />
+                  </span>
+                </Typography>
+              </>
+            ) : (
+              <>
+                <Typography variant='h4' className='font-bold' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  <span className='relative z-[1] font-extrabold'>
+                    {t('The beginning')}
+                    <img
+                      src='/landing-page/bg-shape.png'
+                      alt='bg-shape'
+                      className='absolute block-end-0 z-[1] bs-[40%] is-[125%] sm:is-[132%] -inline-start-[13%] sm:inline-start-[-19%] block-start-[17px]'
+                    />
+                  </span>{' '}
+                </Typography>
+                <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  {t('of HRO')}
+                </Typography>
+              </>
+            )}
           </div>
-          <Typography color='text.secondary' className='font-medium text-center'>
+          <Typography
+            color='text.secondary'
+            className='font-medium text-center'
+            sx={{ fontFamily: `${getFont(locale)}` }}
+          >
             {t('text1')}
           </Typography>
-          <Typography color='text.secondary' className='font-medium text-center'>
+          <Typography
+            color='text.secondary'
+            className='font-medium text-center'
+            sx={{ fontFamily: `${getFont(locale)}` }}
+          >
             {t('text2')}
           </Typography>
-          <Typography color='text.secondary' className='font-medium text-center'>
+          <Typography
+            color='text.secondary'
+            className='font-medium text-center'
+            sx={{ fontFamily: `${getFont(locale)}` }}
+          >
             {t('text3')}
           </Typography>
-          <Typography color='text.secondary' className='font-medium text-center'>
+          <Typography
+            color='text.secondary'
+            className='font-medium text-center'
+            sx={{ fontFamily: `${getFont(locale)}` }}
+          >
             {t('text4')}
           </Typography>
-          <Typography color='text.secondary' className='font-medium text-center'>
+          <Typography
+            color='text.secondary'
+            className='font-medium text-center'
+            sx={{ fontFamily: `${getFont(locale)}` }}
+          >
             {t('text5')}
           </Typography>
-          <Typography color='text.secondary' className='font-medium text-center'>
+          <Typography
+            color='text.secondary'
+            className='font-medium text-center'
+            sx={{ fontFamily: `${getFont(locale)}` }}
+          >
             {t('text6')}
           </Typography>
-          <Typography color='text.secondary' className='font-medium text-center'>
+          <Typography
+            color='text.secondary'
+            className='font-medium text-center'
+            sx={{ fontFamily: `${getFont(locale)}` }}
+          >
             {t('text7')}
           </Typography>
-          <Typography color='text.secondary' className='font-medium text-center'>
+          <Typography
+            color='text.secondary'
+            className='font-medium text-center'
+            sx={{ fontFamily: `${getFont(locale)}` }}
+          >
             {t('text8')}
           </Typography>
         </div>
@@ -132,7 +197,9 @@ const AboutUs = () => {
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
-                      <Typography color='text.secondary'>{t(member.position)}</Typography>
+                      <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
+                        {t(member.position)}
+                      </Typography>
                     </div>
                   </div>
                 </CardContent>

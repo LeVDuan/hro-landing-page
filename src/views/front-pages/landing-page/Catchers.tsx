@@ -20,6 +20,7 @@ import frontCommonStyles from '@views/front-pages/styles.module.css'
 import type { ThemeColor } from '@/@core/types'
 import CatcherIcon from '@/assets/svg/front-pages/landing-page/CatcherIcon'
 import { catchers } from '@/fake-db/data'
+import { getFont } from '@/utils/getFont'
 
 // Data
 
@@ -39,7 +40,7 @@ const Card = styled(MuiCard)`
   }
 `
 
-const Catchers = () => {
+const Catchers = ({ locale }: { locale: string }) => {
   const t = useTranslations('structure')
 
   return (
@@ -50,8 +51,8 @@ const Catchers = () => {
             {/* <ElementTwo className='absolute inline-start-0' /> */}
             <div className='flex items-center justify-center mbe-6 gap-3 text-center'>
               <CatcherIcon />
-              <Typography color='text.primary' className='font-medium uppercase'>
-                Catcher
+              <Typography color='text.primary' className='font-medium' sx={{ fontFamily: `${getFont(locale)}` }}>
+                {t('Catcher')}
               </Typography>
             </div>
           </div>
@@ -70,12 +71,16 @@ const Catchers = () => {
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
-                      <Typography color='text.secondary'>{member.position}</Typography>
-                      <Typography color='text.secondary'>
+                      <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
+                        {member.position}
+                      </Typography>
+                      <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
                         {t('Jersey numbers')}
                         {member.num}
                       </Typography>
-                      <Typography color='text.secondary'>{t(member.des)}</Typography>
+                      <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
+                        {t(member.des)}
+                      </Typography>
                     </div>
                   </div>
                 </CardContent>

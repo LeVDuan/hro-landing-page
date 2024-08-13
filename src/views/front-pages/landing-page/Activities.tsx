@@ -28,6 +28,7 @@ import styles from './styles.module.css'
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 import ActivityIcon from '@/assets/svg/front-pages/landing-page/ActivityIcon'
 import BallIcon from '@/assets/svg/front-pages/landing-page/BallIcon'
+import { getFont } from '@/utils/getFont'
 
 // Data
 const activity = [
@@ -63,7 +64,7 @@ const activity = [
   }
 ]
 
-const Activities = () => {
+const Activities = ({ locale }: { locale: string }) => {
   // Refs
   const skipIntersection = useRef(true)
   const ref = useRef<null | HTMLDivElement>(null)
@@ -96,15 +97,44 @@ const Activities = () => {
         <div className='flex flex-col items-center justify-center'>
           <div className='flex items-center justify-center mbe-6 gap-3'>
             <ActivityIcon />
-            <Typography color='text.primary' className='font-medium uppercase'>
+            <Typography color='text.primary' className='font-medium' sx={{ fontFamily: `${getFont(locale)}` }}>
               {t('activities')}
             </Typography>
           </div>
           <div className='flex items-center justify-center flex-wrap gap-2 mbe-2 sm:mbe-1'>
-            <Typography variant='h4' className='font-bold'>
-              {t('Experience baseball')}
-            </Typography>
-            <Typography variant='h5'>{t('through HRO’s activities')}</Typography>
+            {locale === 'ja' ? (
+              <>
+                <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  {t('Experience baseball')}{' '}
+                </Typography>
+                <Typography variant='h4' className='font-bold' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  <span className='relative z-[1] font-extrabold'>
+                    {t('through HRO’s activities')}
+                    <img
+                      src='/landing-page/bg-shape.png'
+                      alt='bg-shape'
+                      className='absolute block-end-0 z-[1] bs-[40%] is-[125%] sm:is-[132%] -inline-start-[13%] sm:inline-start-[-19%] block-start-[17px]'
+                    />
+                  </span>
+                </Typography>
+              </>
+            ) : (
+              <>
+                <Typography variant='h4' className='font-bold' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  <span className='relative z-[1] font-extrabold'>
+                    {t('Experience baseball')}
+                    <img
+                      src='/landing-page/bg-shape.png'
+                      alt='bg-shape'
+                      className='absolute block-end-0 z-[1] bs-[40%] is-[125%] sm:is-[132%] -inline-start-[13%] sm:inline-start-[-19%] block-start-[17px]'
+                    />
+                  </span>{' '}
+                </Typography>
+                <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  {t('through HRO’s activities')}
+                </Typography>
+              </>
+            )}
           </div>
         </div>
         <div>
@@ -115,8 +145,12 @@ const Activities = () => {
                   <div className={classnames('mbe-2', styles.featureIcon)}>
                     <div className='flex items-center border-2 rounded-full p-5 is-[82px] bs-[82px]'>{item.icon}</div>
                   </div>
-                  <Typography variant='h5'>{t(item.title)}</Typography>
-                  <Typography className='max-is-[364px] text-center'>{t(item.description)}</Typography>
+                  <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
+                    {t(item.title)}
+                  </Typography>
+                  <Typography className='max-is-[364px] text-center' sx={{ fontFamily: `${getFont(locale)}` }}>
+                    {t(item.description)}
+                  </Typography>
                 </div>
               </Grid>
             ))}

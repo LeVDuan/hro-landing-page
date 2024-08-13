@@ -39,7 +39,7 @@ const HeroSection = ({ mode, locale }: props) => {
   const t = useTranslations('heroSection')
 
   const CustomTypography = styled(Typography)(() => ({
-    fontFamily: getFont(locale) // Thay thế bằng font-family bạn muốn
+    fontFamily: getFont(locale)
   }))
 
   // Vars
@@ -89,10 +89,8 @@ const HeroSection = ({ mode, locale }: props) => {
       <img src={heroSectionBg} alt='hero-bg' className={styles.heroSectionBg} />
       <div className={classnames('pbs-16 overflow-hidden', frontCommonStyles.layoutSpacing)}>
         <div className='md:max-is-[700px] mlb-0 mli-auto text-center'>
-          <Typography className='font-extrabold text-primary sm:text-[38px] text-3xl mbe-4 leading-[44px]'>
-            HUST RED OWLS
-          </Typography>
-          <Typography className='font-bold text-primary sm:text-[28px] text-3xl mbe-4 leading-[34px]'>
+          <Typography className={styles.heroText}>HUST RED OWLS </Typography>
+          <Typography variant='h4' className='font-semibold mbe-4 leading-[34px]'>
             #WEAREHRO
           </Typography>
           <CustomTypography className='font-medium' color='text.primary'>
@@ -118,9 +116,11 @@ const HeroSection = ({ mode, locale }: props) => {
               variant='contained'
               color='primary'
               size='large'
-              sx={{ mb: '2rem' }}
+              sx={{ mb: '2rem', fontFamily: `${getFont(locale)}` }}
+              className={classnames(styles.button)}
             >
               {t('Follow us')}
+              <span className={styles.buttonInner} />
             </Button>
           </div>
         </div>

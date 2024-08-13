@@ -27,14 +27,13 @@ import {
 } from '@floating-ui/react'
 
 // Type Imports
-import type { Mode } from '@core/types'
+// import type { Mode } from '@core/types'
 
 // Component Imports
 import Link from '@components/Link'
 import CustomAvatar from '@core/components/mui/Avatar'
 
 type Props = {
-  mode: Mode
   isBelowLgScreen: boolean
   isDrawerOpen: boolean
   setIsDrawerOpen: (open: boolean) => void

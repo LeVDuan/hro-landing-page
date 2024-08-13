@@ -24,12 +24,16 @@ import type { Mode } from '@core/types'
 
 // Hook Imports
 import { useIntersection } from '@/hooks/useIntersection'
+import { getFont } from '@/utils/getFont'
+
+// import DropdownMenu from './DropdownMenu'
 
 // Component Imports
 // import DropdownMenu from './DropdownMenu'
 
 type Props = {
   mode: Mode
+  locale: string
   isDrawerOpen: boolean
   setIsDrawerOpen: (open: boolean) => void
 }
@@ -74,7 +78,7 @@ const Wrapper = (props: WrapperProps) => {
 
 const FrontMenu = (props: Props) => {
   // Props
-  const { isDrawerOpen, setIsDrawerOpen } = props
+  const { isDrawerOpen, setIsDrawerOpen, locale } = props
 
   // Hooks
   const pathname = usePathname()
@@ -107,6 +111,7 @@ const FrontMenu = (props: Props) => {
             pathname === '/'
         })}
         color='text.primary'
+        sx={{ fontFamily: `${getFont(locale)}` }}
       >
         {t('Home')}
       </Typography>
@@ -117,9 +122,11 @@ const FrontMenu = (props: Props) => {
           'text-primary': intersections['about-us']
         })}
         color='text.primary'
+        sx={{ fontFamily: `${getFont(locale)}` }}
       >
         {t('About us')}
       </Typography>
+      {/* <DropdownMenu isBelowLgScreen={isBelowLgScreen} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} /> */}
       <Typography
         component={Link}
         href='#managers'
@@ -127,6 +134,7 @@ const FrontMenu = (props: Props) => {
           'text-primary': intersections.managers
         })}
         color='text.primary'
+        sx={{ fontFamily: `${getFont(locale)}` }}
       >
         {t('Managers')}
       </Typography>
@@ -136,6 +144,7 @@ const FrontMenu = (props: Props) => {
         className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
           'text-primary': intersections.media
         })}
+        sx={{ fontFamily: `${getFont(locale)}` }}
         color='text.primary'
       >
         {t('Media')}
@@ -146,6 +155,7 @@ const FrontMenu = (props: Props) => {
         className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
           'text-primary': intersections.players
         })}
+        sx={{ fontFamily: `${getFont(locale)}` }}
         color='text.primary'
       >
         {t('Players')}
@@ -156,6 +166,7 @@ const FrontMenu = (props: Props) => {
         className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
           'text-primary': intersections.activities
         })}
+        sx={{ fontFamily: `${getFont(locale)}` }}
         color='text.primary'
       >
         {t('Activities')}
@@ -166,6 +177,7 @@ const FrontMenu = (props: Props) => {
         className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
           'text-primary': intersections.faq
         })}
+        sx={{ fontFamily: `${getFont(locale)}` }}
         color='text.primary'
       >
         {t('FAQ')}
@@ -176,6 +188,7 @@ const FrontMenu = (props: Props) => {
         className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
           'text-primary': intersections['contact-us']
         })}
+        sx={{ fontFamily: `${getFont(locale)}` }}
         color='text.primary'
       >
         {t('Contact us')}

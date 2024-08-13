@@ -33,8 +33,14 @@ import ElementTwo from '@/assets/svg/front-pages/landing-page/ElementTwo'
 import LeaderIcon from '@/assets/svg/front-pages/landing-page/LeaderIcon'
 import type { ThemeColor } from '@/@core/types'
 import { LeadersInfo, SubLeadersInfo } from '@/fake-db/data'
+import { getFont } from '@/utils/getFont'
+import styles from './styles.module.css'
 
 const Card = styled(MuiCard)`
+  border-start-start-radius: 90px;
+  border-start-end-radius: 20px;
+  border-end-start-radius: 6px;
+  border-end-end-radius: 6px;
   &:hover {
     border-color: ${(props: { color: ThemeColor }) => props.color};
 
@@ -50,7 +56,7 @@ const Card = styled(MuiCard)`
   }
 `
 
-const Leaders = () => {
+const Leaders = ({ locale }: { locale: string }) => {
   // States
   const t = useTranslations('structure')
 
@@ -61,18 +67,50 @@ const Leaders = () => {
           <div className='flex is-full justify-center relative'>
             <ElementTwo className='absolute inline-start-0' />
             <div className='flex items-center justify-center mbe-6 gap-3 text-center'>
-              {/* <Lines /> */}
               <LeaderIcon />
-              <Typography color='text.primary' className='font-medium uppercase'>
-                Leaders
+              <Typography
+                color='text.primary'
+                className='font-medium uppercase'
+                sx={{ fontFamily: `${getFont(locale)}` }}
+              >
+                {t('Leaders')}
               </Typography>
             </div>
           </div>
           <div className='flex items-center flex-wrap justify-center gap-x-2 mbe-1'>
-            <Typography variant='h4' className='font-bold'>
-              {t('leader')}
-            </Typography>
-            <Typography variant='h5'>{t('of HRO')}</Typography>
+            {locale === 'ja' ? (
+              <>
+                <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  {t('leader')}{' '}
+                </Typography>
+                <Typography variant='h4' className='font-bold' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  <span className='relative z-[1] font-extrabold'>
+                    {t('of HRO')}
+                    <img
+                      src='/landing-page/bg-shape.png'
+                      alt='bg-shape'
+                      className='absolute block-end-0 z-[1] bs-[40%] is-[125%] sm:is-[132%] -inline-start-[13%] sm:inline-start-[-19%] block-start-[17px]'
+                    />
+                  </span>
+                </Typography>
+              </>
+            ) : (
+              <>
+                <Typography variant='h4' className='font-bold' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  <span className='relative z-[1] font-extrabold'>
+                    {t('leader')}
+                    <img
+                      src='/landing-page/bg-shape.png'
+                      alt='bg-shape'
+                      className='absolute block-end-0 z-[1] bs-[40%] is-[125%] sm:is-[132%] -inline-start-[13%] sm:inline-start-[-19%] block-start-[17px]'
+                    />
+                  </span>{' '}
+                </Typography>
+                <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  {t('of HRO')}
+                </Typography>
+              </>
+            )}
           </div>
         </div>
         <Grid
@@ -84,25 +122,33 @@ const Leaders = () => {
           {LeadersInfo.map((member, index) => (
             <Grid item xs={12} md={6} lg={3} key={index}>
               <Card className='shadow-none border overflow-visible' color={member.color as ThemeColor}>
-                <CardContent className='flex flex-col items-center justify-center p-0'>
+                <div className={classnames('flex flex-col items-center justify-center p-0')}>
                   <div
-                    className='flex justify-center is-full mli-auto text-center bs-[189px] relative overflow-visible rounded-ss-md rounded-se-md'
-                    style={{ backgroundColor: member.color }}
+                    className={classnames(
+                      'flex justify-center is-full mli-auto text-center bs-[190px] relative overflow-visible',
+
+                      styles.teamCard,
+                      styles.gradientBg
+                    )}
+
+                    // style={{ backgroundColor: member.color }}
                   >
                     <img src={member.image} alt={member.name} className='bs-[240px] absolute block-start-[-50px]' />
                   </div>
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
-                      <Typography color='text.secondary'>
+                      <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
                         {t('Jersey numbers')}
                         {member.num}
                       </Typography>
                       <Typography color='text.secondary'>{member.gen}</Typography>
-                      <Typography color='text.secondary'>{t(member.position)}</Typography>
+                      <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
+                        {t(member.position)}
+                      </Typography>
                     </div>
                   </div>
-                </CardContent>
+                </div>
               </Card>
             </Grid>
           ))}
@@ -118,20 +164,26 @@ const Leaders = () => {
               <Card className='shadow-none border overflow-visible' color={member.color as ThemeColor}>
                 <CardContent className='flex flex-col items-center justify-center p-0'>
                   <div
-                    className='flex justify-center is-full mli-auto text-center bs-[189px] relative overflow-visible rounded-ss-md rounded-se-md'
-                    style={{ backgroundColor: member.color }}
+                    className={classnames(
+                      'flex justify-center is-full mli-auto text-center bs-[190px] relative overflow-visible',
+
+                      styles.teamCard,
+                      styles.gradientBg2
+                    )}
                   >
                     <img src={member.image} alt={member.name} className='bs-[240px] absolute block-start-[-50px]' />
                   </div>
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
-                      <Typography color='text.secondary'>
+                      <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
                         {t('Jersey numbers')}
                         {member.num}
                       </Typography>
                       <Typography color='text.secondary'>{member.gen}</Typography>
-                      <Typography color='text.secondary'>{t(member.position)}</Typography>
+                      <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
+                        {t(member.position)}
+                      </Typography>
                     </div>
                   </div>
                 </CardContent>
