@@ -65,14 +65,14 @@ const Header = ({ mode, locale }: props) => {
                 <i className='ri-menu-line text-textPrimary' />
               </IconButton>
               <Link href='/'>
-                <img src='/logos/Logo.png' alt='HRO Logo' className='bs-[55px]' />
+                <img src='/logos/Logo.png' alt='HRO Logo' className='bs-[45px]' />
               </Link>
               <FrontMenu mode={mode} locale={locale} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
             </div>
           ) : (
             <div className='flex items-center gap-10'>
               <Link href='/'>
-                <img src='/logos/Logo.png' alt='HRO Logo' className='bs-[55px]' />
+                <img src='/logos/Logo.png' alt='HRO Logo' className='bs-[45px]' />
               </Link>
               <FrontMenu mode={mode} locale={locale} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
             </div>
@@ -87,8 +87,10 @@ const Header = ({ mode, locale }: props) => {
                 href='https://www.facebook.com/HUSTRedOwlsBaseballTeam'
                 color='primary'
                 target='_blank'
+                className={classnames(styles.button)}
               >
                 <i className='ri-facebook-circle-fill text-xl' />
+                <span className={styles.buttonInner} />
               </CustomIconButton>
             ) : (
               <Button
@@ -97,10 +99,11 @@ const Header = ({ mode, locale }: props) => {
                 href='https://www.facebook.com/HUSTRedOwlsBaseballTeam'
                 target='_blank'
                 startIcon={<i className='ri-facebook-circle-fill text-xl' />}
-                className='whitespace-nowrap'
                 sx={{ fontFamily: `${getFont(locale)}` }}
+                className={classnames('whitespace-nowrap', styles.button)}
               >
                 {t('Follow')}
+                <span className={styles.buttonInner} />
               </Button>
             )}
           </div>

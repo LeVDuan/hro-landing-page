@@ -78,7 +78,7 @@ const Leaders = ({ locale }: { locale: string }) => {
             </div>
           </div>
           <div className='flex items-center flex-wrap justify-center gap-x-2 mbe-1'>
-            {locale === 'ja' ? (
+            {locale === 'ja' || locale === 'ko' ? (
               <>
                 <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
                   {t('leader')}{' '}

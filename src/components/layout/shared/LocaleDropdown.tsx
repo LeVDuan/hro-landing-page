@@ -3,7 +3,7 @@
 // React Imports
 import { useRef, useState } from 'react'
 
-import { Noto_Serif_JP } from 'next/font/google'
+import { Noto_Serif_JP, Noto_Serif_KR } from 'next/font/google'
 
 import { useLocale, useTranslations } from 'next-intl'
 
@@ -26,6 +26,11 @@ import { setUserLocale } from '@/services/locale'
 import { useSettings } from '@core/hooks/useSettings'
 
 const notoSerifJP = Noto_Serif_JP({
+  subsets: ['latin'],
+  weight: ['200', '300', '400', '500', '600', '700', '900']
+})
+
+const notoSerifKR = Noto_Serif_KR({
   subsets: ['latin'],
   weight: ['200', '300', '400', '500', '600', '700', '900']
 })
@@ -103,6 +108,14 @@ const LocaleDropdown = () => {
                     selected={currLocale === 'ja'}
                   >
                     日本語
+                  </MenuItem>
+                  <MenuItem
+                    className='gap-3'
+                    sx={{ fontFamily: `${notoSerifKR.style.fontFamily}` }}
+                    onClick={() => handleLocaleSwitch('ko')}
+                    selected={currLocale === 'ko'}
+                  >
+                    한국어
                   </MenuItem>
                 </MenuList>
               </ClickAwayListener>

@@ -61,3 +61,41 @@
     color: rgb(var(--mui-mainColorChannels-dark) / 0.9) !important;
   }
 }
+.button,
+.buttonInner {
+  background: linear-gradient(-45deg, #6945ee 0%, #ff373ac5 47.92%, #5a4aff);
+  background-size: 600%;
+  animation: anime 12s linear infinite;
+}
+.button {
+  position: relative;
+  z-index: 1;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+  .buttonInner {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    filter: blur(12px);
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+  }
+  &:not(:hover) .buttonInner {
+    opacity: 0.8;
+  }
+}
+
+@keyframes anime {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

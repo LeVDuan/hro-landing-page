@@ -59,8 +59,13 @@ function Footer({ locale }: { locale: string }) {
                   <Typography color='white' className='lg:max-is-[390px] opacity-[0.78]'>
                     CLB Bóng chày Đoàn Đại học Bách khoa Hà Nội
                   </Typography>
-                  <Link href='https://maps.app.goo.gl/zquxuh2bkqrc2ips6'>
-                    <Typography color='white' mt={1} className='lg:max-is-[390px] opacity-[0.78] hover:text-primary'>
+                  <Link href='https://maps.app.goo.gl/zquxuh2bkqrc2ips6' target='_blank'>
+                    <Typography
+                      color='white'
+                      mt={1}
+                      className='lg:max-is-[390px] opacity-[0.78] hover:text-primary'
+                      sx={{ fontFamily: `${getFont(locale)}` }}
+                    >
                       {t('No 1 Dai Co Viet, Hai Ba Trung District, Hanoi, Vietnam')}
                     </Typography>
                   </Link>

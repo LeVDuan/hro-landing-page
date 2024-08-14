@@ -117,10 +117,8 @@ const HeroSection = ({ mode, locale }: props) => {
               color='primary'
               size='large'
               sx={{ mb: '2rem', fontFamily: `${getFont(locale)}` }}
-              className={classnames(styles.button)}
             >
               {t('Follow us')}
-              <span className={styles.buttonInner} />
             </Button>
           </div>
         </div>

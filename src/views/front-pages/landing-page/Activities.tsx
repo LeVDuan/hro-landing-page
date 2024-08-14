@@ -102,7 +102,7 @@ const Activities = ({ locale }: { locale: string }) => {
             </Typography>
           </div>
           <div className='flex items-center justify-center flex-wrap gap-2 mbe-2 sm:mbe-1'>
-            {locale === 'ja' ? (
+            {locale === 'ja' || locale === 'ko' ? (
               <>
                 <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
                   {t('Experience baseball')}{' '}

@@ -114,7 +114,7 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
           <ElementOne className='absolute inline-end-0' />
           <div className='flex items-center justify-center flex-wrap gap-2 mbe-3 sm:mbe-1'>
             <MileStonesIcon />
-            {locale === 'ja' ? (
+            {locale === 'ja' || locale === 'ko' ? (
               <>
                 <Typography variant='h4' className='font-bold' sx={{ fontFamily: `${getFont(locale)}` }}>
                   <span className='relative z-[1] font-extrabold'>
@@ -183,7 +183,7 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
                   </div>
                 </>
               )}
-              <Card>
+              <Card className='shadow-none'>
                 <CardContent>
                   <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t(dataObj[1].title)}
@@ -223,7 +223,7 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
                   </div>
                 </>
               )}
-              <Card>
+              <Card className='shadow-none'>
                 <CardContent>
                   <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t(dataObj[2].title)}
@@ -262,7 +262,7 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
                   </div>
                 </>
               )}
-              <Card>
+              <Card className='shadow-none'>
                 <CardContent>
                   <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t(dataObj[3].title)}
@@ -328,7 +328,7 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
                   </div>
                 </>
               )}
-              <Card>
+              <Card className='shadow-none'>
                 <CardContent>
                   <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t(dataObj[4].title)}
@@ -394,7 +394,7 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
                   </div>
                 </>
               )}
-              <Card>
+              <Card className='shadow-none'>
                 <CardContent>
                   <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t(dataObj[5].title)}

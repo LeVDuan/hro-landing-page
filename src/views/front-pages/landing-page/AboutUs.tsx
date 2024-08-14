@@ -87,7 +87,7 @@ const AboutUs = ({ locale }: { locale: string }) => {
             </div>
           </div>
           <div className='flex items-center justify-center flex-wrap gap-2 mbe-3 sm:mbe-1'>
-            {locale === 'ja' ? (
+            {locale === 'ja' || locale === 'ko' ? (
               <>
                 <Typography variant='h5' sx={{ fontFamily: `${getFont(locale)}` }}>
                   {t('The beginning')}{' '}
