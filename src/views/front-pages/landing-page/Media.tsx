@@ -71,7 +71,7 @@ const Media = ({ locale }: { locale: string }) => {
   }, [])
 
   return (
-    <section id='media' className={classnames('plb-[100px]')} ref={ref}>
+    <section id='media' className={classnames('plb-[100px] bg-backgroundPaper')} ref={ref}>
       <div className={classnames('flex flex-col items-center justify-center', frontCommonStyles.layoutSpacing)}>
         <div className='flex flex-col items-center justify-center'>
           <div className='flex is-full justify-center relative'>

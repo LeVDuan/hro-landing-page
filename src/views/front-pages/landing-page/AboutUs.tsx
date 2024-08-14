@@ -189,10 +189,10 @@ const AboutUs = ({ locale }: { locale: string }) => {
               <Card className='shadow-none border overflow-visible' color={member.color as ThemeColor}>
                 <CardContent className='flex flex-col items-center justify-center p-0'>
                   <div
-                    className='flex justify-center is-full mli-auto text-center bs-[250px] relative overflow-visible rounded-ss-md rounded-se-md'
+                    className='flex justify-center border is-full mli-auto text-center bs-[250px] relative overflow-visible rounded-ss-md rounded-se-md'
                     style={{ backgroundColor: member.color }}
                   >
-                    <img src={member.image} alt={member.name} className='bs-[300px] absolute block-start-[-50px]' />
+                    <img src={member.image} alt={member.name} className='bs-[300px] absolute block-start-[-51px]' />
                   </div>
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>

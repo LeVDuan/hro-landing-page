@@ -123,7 +123,7 @@ const Outfielders = ({ locale }: { locale: string }) => {
   }
 
   return (
-    <div id='outfielder' className='plb-[50px]'>
+    <div id='outfielder' className='plb-[100px]'>
       <div className={classnames('flex flex-col items-center justify-center', frontCommonStyles.layoutSpacing)}>
         <div className='flex items-center justify-center mbe-6 gap-3'>
           <OFIcon />

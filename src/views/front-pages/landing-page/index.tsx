@@ -33,8 +33,10 @@ import Infielders from './Infielders'
 import Pitchers from './Pitchers'
 
 // import Predecessors from './Predecessors-slide'
-import Predecessors from './Predecessors-static'
+// import Predecessors from './Predecessors-static'
 import TimelineCenter from './Timeline'
+
+// import CustomerReviews from './CustomerReviews'
 
 interface props {
   mode: Mode
@@ -68,14 +70,17 @@ const LandingPageWrapper = ({ mode, locale }: props) => {
       <Divider />
       <ProductStat locale={locale} />
       <Leaders locale={locale} />
-      <Predecessors locale={locale} />
+      {/* <Predecessors locale={locale} /> */}
       <Managers locale={locale} />
       <Media locale={locale} />
       <Players locale={locale} />
       <Divider />
       <Pitchers locale={locale} />
+      <Divider />
       <Catchers locale={locale} />
+      <Divider />
       <Infielders locale={locale} />
+      <Divider />
       <Outfielders locale={locale} />
       {/* <DemoVideo mode={mode} />
       <OurTeam />

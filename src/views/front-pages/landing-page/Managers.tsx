@@ -71,7 +71,7 @@ const Managers = ({ locale }: { locale: string }) => {
   }, [])
 
   return (
-    <section id='managers' className={classnames('plb-[100px] bg-backgroundPaper')} ref={ref}>
+    <section id='managers' className={classnames('plb-[100px]')} ref={ref}>
       <div className={frontCommonStyles.layoutSpacing}>
         <div className='flex flex-col items-center justify-center'>
           <div className='flex is-full justify-center relative'>

@@ -44,7 +44,7 @@ const Catchers = ({ locale }: { locale: string }) => {
   const t = useTranslations('structure')
 
   return (
-    <div id='catchers' className={classnames('plb-[50px]')}>
+    <div id='catchers' className={classnames('plb-[100px]')}>
       <div className={classnames('flex flex-col items-center justify-center', frontCommonStyles.layoutSpacing)}>
         <div className='flex flex-col items-center justify-center'>
           <div className='flex is-full justify-center relative'>
