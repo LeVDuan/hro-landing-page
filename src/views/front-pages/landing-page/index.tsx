@@ -29,7 +29,7 @@ import Infielders from './Infielders'
 import Pitchers from './Pitchers'
 
 import TimelineCenter from './Timeline'
-import Recruitment from './Recruitment'
+import Recruitment from './RecruitmentDialog'
 
 interface props {
   mode: Mode
