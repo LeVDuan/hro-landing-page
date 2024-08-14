@@ -1,11 +1,20 @@
 // React Imports
 import { useState } from 'react'
 
+import Link from 'next/link'
+
 // MUI Imports
+
 import Dialog from '@mui/material/Dialog'
 
-const DialogsCustomized = () => {
+const Recruitment = () => {
   // States
+
+  const dashboardImage = '/landing-page/recruitment.png'
+
+  const recruimentLink =
+    'https://www.facebook.com/HUSTRedOwlsBaseballTeam/posts/pfbid02nYKu2gD9e1yL9YWv74FpKXFpzLs3SF4yaSNCvYXumcEgdUedF2qt8C8hqSRyGByZl'
+
   const [open, setOpen] = useState<boolean>(true)
 
   const handleClose = () => setOpen(false)
@@ -13,14 +22,12 @@ const DialogsCustomized = () => {
   return (
     <>
       <Dialog onClose={handleClose} aria-labelledby='customized-dialog-title' open={open}>
-        <img
-          src='/images/front-pages/landing-page/nationalCup2023.png'
-          alt='early-stage-image'
-          className='max-is-[550px] is-full rounded-xl'
-        />
+        <Link href={recruimentLink} target='_blank'>
+          <img src={dashboardImage} alt='Bottom Image' className='max-w-full max-h-[570px] ' />
+        </Link>
       </Dialog>
     </>
   )
 }
 
-export default DialogsCustomized
+export default Recruitment

@@ -11,10 +11,6 @@ import type { Mode } from '@core/types'
 // Component Imports
 import HeroSection from './HeroSection'
 
-// import UsefulFeature from './UsefulFeature'
-// import CustomerReviews from './CustomerReviews'
-// import DemoVideo from './DemoVideo'
-// import OurTeam from './OurTeam'
 import Leaders from './Leaders'
 
 import ProductStat from './ProductStat'
@@ -32,11 +28,8 @@ import Outfielders from './Outfielders'
 import Infielders from './Infielders'
 import Pitchers from './Pitchers'
 
-// import Predecessors from './Predecessors-slide'
-// import Predecessors from './Predecessors-static'
 import TimelineCenter from './Timeline'
-
-// import CustomerReviews from './CustomerReviews'
+import Recruitment from './Recruitment'
 
 interface props {
   mode: Mode
@@ -57,7 +50,7 @@ const LandingPageWrapper = ({ mode, locale }: props) => {
 
   return (
     <>
-      {/* <DialogsCustomized /> */}
+      <Recruitment />
       <HeroSection mode={mode} locale={locale} />
       <AboutUs locale={locale} />
       {/* <CustomerReviews /> */}

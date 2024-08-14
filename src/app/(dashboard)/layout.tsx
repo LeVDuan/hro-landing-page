@@ -26,6 +26,7 @@ import '@/app/globals.css'
 // Generated Icon CSS Imports
 import '@assets/iconify-icons/generated-icons.css'
 import ScrollToTop from '@/@core/components/scroll-to-top'
+import JoinNowButton from '@/components/john-now-button'
 
 export const metadata = {
   title: 'HRO - HUST Red owls baseball team',
@@ -47,13 +48,16 @@ const Layout = async ({ children }: ChildrenType) => {
           <Providers direction='ltr'>
             <BlankLayout systemMode={systemMode}>
               <IntersectionProvider>
-                <FrontLayout>{children}</FrontLayout>
+                <FrontLayout>
+                  {children}
+                  <JoinNowButton locale={locale} />
+                  <ScrollToTop className='mui-fixed'>
+                    <Fab color='primary' size='small' aria-label='scroll back to top'>
+                      <i className='ri-arrow-up-line' />
+                    </Fab>
+                  </ScrollToTop>
+                </FrontLayout>
               </IntersectionProvider>
-              <ScrollToTop className='mui-fixed'>
-                <Fab color='primary' size='small' aria-label='scroll back to top'>
-                  <i className='ri-arrow-up-line' />
-                </Fab>
-              </ScrollToTop>
             </BlankLayout>
           </Providers>
         </NextIntlClientProvider>

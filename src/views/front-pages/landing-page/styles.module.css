@@ -146,3 +146,10 @@
     background-position: 0% 50%;
   }
 }
+
+.bottomImage {
+  display: block;
+  inline-size: 80%; /* Đảm bảo ảnh dưới sử dụng toàn bộ chiều rộng */
+  block-size: auto; /* Tự động điều chỉnh chiều cao để giữ tỷ lệ */
+  background-color: transparent;
+}
