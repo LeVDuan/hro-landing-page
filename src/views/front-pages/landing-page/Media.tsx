@@ -79,11 +79,7 @@ const Media = ({ locale }: { locale: string }) => {
             <div className='flex items-center justify-center mbe-6 gap-3 text-center'>
               <MediaIcon />
 
-              <Typography
-                color='text.primary'
-                className='font-medium uppercase'
-                sx={{ fontFamily: `${getFont(locale)}` }}
-              >
+              <Typography color='text.primary' className='font-medium' sx={{ fontFamily: `${getFont(locale)}` }}>
                 {t('Media')}
               </Typography>
             </div>

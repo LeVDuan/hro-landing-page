@@ -80,11 +80,7 @@ const Managers = ({ locale }: { locale: string }) => {
               {/* <Lines /> */}
               <ManaIcon />
 
-              <Typography
-                color='text.primary'
-                className='font-medium uppercase'
-                sx={{ fontFamily: `${getFont(locale)}` }}
-              >
+              <Typography color='text.primary' className='font-medium' sx={{ fontFamily: `${getFont(locale)}` }}>
                 {t('Managers')}
               </Typography>
             </div>

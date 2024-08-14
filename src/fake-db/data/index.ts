@@ -91,6 +91,14 @@ export const predecessors = [
     color: 'var(--mui-palette-secondary-mainOpacity)'
   },
   {
+    image: '/avatars/huongGen1.png',
+    name: 'Nguyễn Thị Thu Hương',
+    gen: 'Gen 1 - HUST',
+    num: '#21',
+    position: 'Manager/Media Gen 1',
+    color: 'var(--mui-palette-secondary-mainOpacity)'
+  },
+  {
     image: '/avatars/thaiBao(1).png',
     name: 'Nguyễn Thái Bảo',
     gen: 'Gen 1 - K64 HUST',
