@@ -44,8 +44,9 @@ const Players = ({ locale }: { locale: string }) => {
   return (
     <section id='players' ref={ref} className='flex flex-col gap-0 relative pbs-[100px]'>
       <div className={classnames('flex flex-col items-center justify-center mbe-10', frontCommonStyles.layoutSpacing)}>
+        <ElementOne className='absolute inline-start-56' />
+
         <div className='flex items-center justify-center mbe-6 gap-3'>
-          <ElementOne className='absolute inline-start-96' />
           <PlayerIcon />
           <Typography color='text.primary' className='font-medium' sx={{ fontFamily: `${getFont(locale)}` }}>
             {t('Players')}

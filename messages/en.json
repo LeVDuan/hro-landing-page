@@ -168,6 +168,8 @@
     "Full name": "Full name",
     "Email address": "Email address",
     "Message": "Message",
-    "Send Inquiry": "Send Inquiry"
+    "Send Inquiry": "Send Inquiry",
+    "Successfully": "Inquiry sent successfully",
+    "Failed": "Failed to send inquiry"
   }
 }

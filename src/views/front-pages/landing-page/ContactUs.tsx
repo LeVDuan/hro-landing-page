@@ -1,5 +1,5 @@
 // React Imports
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 // MUI Imports
 import Typography from '@mui/material/Typography'
@@ -8,12 +8,16 @@ import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
+import { send } from '@emailjs/browser'
 
 // Third-party Imports
 import classnames from 'classnames'
 
 // Hook Imports
 import { useTranslations } from 'next-intl'
+
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import { useIntersection } from '@/hooks/useIntersection'
 
@@ -30,6 +34,9 @@ const ContactUs = ({ locale }: { locale: string }) => {
   const skipIntersection = useRef(true)
   const ref = useRef<null | HTMLDivElement>(null)
   const t = useTranslations('contact')
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
 
   // Hooks
   const { updateIntersections } = useIntersection()
@@ -51,6 +58,46 @@ const ContactUs = ({ locale }: { locale: string }) => {
     ref.current && observer.observe(ref.current)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    console.log('form: ', name, email, message)
+
+    // EmailJS configuration
+    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!
+    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!
+    const userID = process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
+
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      message: message
+    }
+
+    send(serviceID, templateID, templateParams, userID)
+      .then(response => {
+        console.log('Email sent successfully:', response.status, response.text)
+
+        // Reset form fields
+        setName('')
+        setEmail('')
+        setMessage('')
+
+        return toast.success(`${t('Successfully')}`, {
+          style: {
+            fontFamily: getFont(locale)
+          },
+          position: 'bottom-center'
+        })
+      })
+      .catch(error => {
+        console.error('Failed to send email:', error)
+
+        return toast.error(`${t('Failed')}`, {
+          position: 'bottom-center'
+        })
+      })
+  }
 
   return (
     <section id='contact-us' className='bg-backgroundPaper' ref={ref}>
@@ -134,13 +181,16 @@ const ContactUs = ({ locale }: { locale: string }) => {
                   <Typography variant='h5' className='mbe-5' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t('Share your ideas')}
                   </Typography>
-                  <form className='flex flex-col items-start gap-5'>
+                  <form className='flex flex-col items-start gap-5' onSubmit={handleSubmit}>
                     <div className='flex gap-5 is-full'>
                       <TextField
                         fullWidth
                         label={t('Full name')}
                         id='name-input'
                         sx={{ fontFamily: `${getFont(locale)}` }}
+                        onChange={e => setName(e.target.value)}
+                        required
+                        value={name}
                       />
                       <TextField
                         sx={{ fontFamily: `${getFont(locale)}` }}
@@ -148,6 +198,9 @@ const ContactUs = ({ locale }: { locale: string }) => {
                         label={t('Email address')}
                         id='email-input'
                         type='email'
+                        onChange={e => setEmail(e.target.value)}
+                        value={email}
+                        required
                       />
                     </div>
                     <TextField
@@ -157,8 +210,11 @@ const ContactUs = ({ locale }: { locale: string }) => {
                       label={t('Message')}
                       id='message-input'
                       sx={{ fontFamily: `${getFont(locale)}` }}
+                      onChange={e => setMessage(e.target.value)}
+                      value={message}
+                      required
                     />
-                    <Button variant='contained' sx={{ fontFamily: `${getFont(locale)}` }}>
+                    <Button variant='contained' type='submit' sx={{ fontFamily: `${getFont(locale)}` }}>
                       {t('Send Inquiry')}
                     </Button>
                   </form>
@@ -168,6 +224,7 @@ const ContactUs = ({ locale }: { locale: string }) => {
           </Grid>
         </div>
       </div>
+      <ToastContainer />
     </section>
   )
 }

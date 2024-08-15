@@ -167,6 +167,8 @@
     "Full name": "이름",
     "Email address": "이메일 주소",
     "Message": "메시지",
-    "Send Inquiry": "요청 보내기"
+    "Send Inquiry": "요청 보내기",
+    "Successfully": "성공적으로 전송되었습니다!",
+    "Failed": "전송에 실패했습니다."
   }
 }

@@ -168,6 +168,8 @@
     "Full name": "名前",
     "Email address": "メールアドレス",
     "Message": "メッセージ",
-    "Send Inquiry": "送信"
+    "Send Inquiry": "送信",
+    "Successfully": "正常に送信されました！",
+    "Failed": "送信に失敗しました。もう一度お試しください。"
   }
 }

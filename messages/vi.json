@@ -168,6 +168,8 @@
     "Full name": "Họ và tên",
     "Email address": "Địa chỉ email",
     "Message": "Tin nhắn",
-    "Send Inquiry": "Gửi yêu cầu"
+    "Send Inquiry": "Gửi yêu cầu",
+    "Successfully": "Gửi tin nhắn thành công!",
+    "Failed": "Gửi tin nhắn thất bại."
   }
 }
