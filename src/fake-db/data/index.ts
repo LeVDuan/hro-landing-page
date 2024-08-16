@@ -93,10 +93,10 @@ export const predecessors = [
   {
     image: '/avatars/huongGen1.png',
     name: 'Nguyễn Thị Thu Hương',
-    gen: 'Gen 1 - HUST',
+    gen: 'Gen 1 - K64 HUST',
     num: '#21',
     position: 'Manager/Media Gen 1',
-    color: 'var(--mui-palette-secondary-mainOpacity)'
+    color: 'var(--mui-palette-warning-mainOpacity)'
   },
   {
     image: '/avatars/thaiBao(1).png',
@@ -105,6 +105,39 @@ export const predecessors = [
     num: '#30',
     position: 'Vice captain Gen 2,3',
     color: 'var(--mui-palette-success-mainOpacity)'
+  },
+  {
+    image: '/avatars/minhPhuc.png',
+    name: 'Dương Minh Phúc',
+    gen: 'Gen 1 - HUST',
+    num: '#10',
+    position: 'Vice president Gen 1',
+    color: 'var(--mui-palette-primary-mainOpacity)'
+  },
+  {
+    image: '/avatars/hoangDat.png',
+    name: 'Hoàng Tiến Đạt',
+    gen: 'Gen 1 - K62 HUST',
+    num: '#~~',
+    position: 'Vice president Gen 2',
+    color: 'var(--mui-palette-info-mainOpacity)'
+  },
+  {
+    image: '/avatars/minhQuan.png',
+    name: 'Trần Minh Quân',
+    gen: 'Gen 1 - K64 HUST',
+    num: '#48',
+    position: 'Vice president Gen 2',
+    color: 'var(--mui-palette-secondary-mainOpacity)'
+  },
+
+  {
+    image: '/avatars/PCNquocQuy.png',
+    name: 'Trần Quốc Quý',
+    gen: 'Gen 2 - K66 HUST',
+    num: '#4',
+    position: 'Vice president Gen 2',
+    color: 'var(--mui-palette-warning-mainOpacity)'
   }
 ]
 
