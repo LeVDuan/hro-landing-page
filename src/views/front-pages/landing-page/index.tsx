@@ -29,7 +29,8 @@ import Infielders from './Infielders'
 import Pitchers from './Pitchers'
 
 import TimelineCenter from './Timeline'
-import Recruitment from './RecruitmentDialog'
+
+// import Recruitment from './RecruitmentDialog'
 
 interface props {
   mode: Mode
@@ -50,7 +51,7 @@ const LandingPageWrapper = ({ mode, locale }: props) => {
 
   return (
     <>
-      <Recruitment />
+      {/* <Recruitment /> */}
       <HeroSection mode={mode} locale={locale} />
       <AboutUs locale={locale} />
       {/* <CustomerReviews /> */}
