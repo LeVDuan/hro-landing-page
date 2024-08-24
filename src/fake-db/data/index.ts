@@ -143,6 +143,13 @@ export const predecessors = [
 
 export const managers = [
   {
+    image: '/avatars/minhLeMana.png',
+    name: 'Lê Hoàng Minh',
+    gen: 'Head of Manager - Gen 2',
+    num: '#22',
+    color: 'var(--mui-palette-error-mainOpacity)'
+  },
+  {
     image: '/avatars/datMana.png',
     name: 'Trần Tiến Đạt',
     gen: 'Gen 2 - K66 HUST',
@@ -156,13 +163,7 @@ export const managers = [
     num: '#89',
     color: 'var(--mui-palette-secondary-mainOpacity)'
   },
-  {
-    image: '/avatars/minhLeMana.png',
-    name: 'Lê Hoàng Minh',
-    gen: 'Head of Manager - Gen 2',
-    num: '#22',
-    color: 'var(--mui-palette-error-mainOpacity)'
-  },
+
   {
     image: '/avatars/yenAnh.png',
     name: 'Lê Nguyễn Yến Anh',
@@ -174,19 +175,20 @@ export const managers = [
 
 export const mediaTeam = [
   {
-    image: '/avatars/xuanDuc.png',
-    name: 'Nguyễn Xuân Đức',
-    gen: 'Gen 3 - FTU',
-    num: '#69',
-    color: 'var(--mui-palette-success-mainOpacity)'
-  },
-  {
     image: '/avatars/chi.png',
     name: 'Nguyễn Linh Chi',
     gen: 'Head of Media - Gen 2',
     num: '#66',
     color: 'var(--mui-palette-error-mainOpacity)'
   },
+  {
+    image: '/avatars/xuanDuc.png',
+    name: 'Nguyễn Xuân Đức',
+    gen: 'Gen 3 - FTU',
+    num: '#69',
+    color: 'var(--mui-palette-success-mainOpacity)'
+  },
+
   {
     image: '/avatars/thu.png',
     name: 'Đào Thị Minh Thu',
