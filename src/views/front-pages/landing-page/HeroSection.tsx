@@ -117,6 +117,7 @@ const HeroSection = ({ mode, locale }: props) => {
               color='primary'
               size='large'
               sx={{ mb: '2rem', fontFamily: `${getFont(locale)}` }}
+              className={classnames(styles.heroButton)}
             >
               {t('Follow us')}
             </Button>

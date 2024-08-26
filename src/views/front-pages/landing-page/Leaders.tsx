@@ -47,8 +47,10 @@ const Card = styled(MuiCard)`
   border-start-end-radius: 20px;
   border-end-start-radius: 6px;
   border-end-end-radius: 6px;
+  transition: transform 0.3s ease;
   &:hover {
     border-color: ${(props: { color: ThemeColor }) => props.color};
+    transform: translateY(-10px) scale(1.05);
 
     & i:nth-child(1) {
       color: rgb(59, 89, 152) !important;
@@ -319,10 +321,8 @@ const Leaders = ({ locale }: { locale: string }) => {
                           <CardContent className='flex flex-col items-center justify-center p-0'>
                             <div
                               className={classnames(
-                                'flex justify-center is-full mli-auto text-center bs-[189px] relative overflow-visible',
+                                'flex justify-center is-full mli-auto text-center bs-[190px] relative overflow-visible',
                                 styles.teamCard
-
-                                // styles.gradientBg2
                               )}
                               style={{ backgroundColor: member.color }}
                             >

@@ -28,9 +28,10 @@ import { mediaTeam } from '@/fake-db/data'
 import { getFont } from '@/utils/getFont'
 
 const Card = styled(MuiCard)`
+  transition: transform 0.3s ease;
   &:hover {
     border-color: ${(props: { color: ThemeColor }) => props.color};
-
+    transform: translateY(-10px) scale(1.05);
     & i:nth-child(1) {
       color: rgb(59, 89, 152) !important;
     }
@@ -131,7 +132,7 @@ const Media = ({ locale }: { locale: string }) => {
               <Card className='shadow-none border overflow-visible' color={member.color as ThemeColor}>
                 <CardContent className='flex flex-col items-center justify-center p-0'>
                   <div
-                    className='flex justify-center is-full mli-auto text-center bs-[189px] relative overflow-visible rounded-ss-md rounded-se-md'
+                    className='flex justify-center is-full mli-auto text-center bs-[190px] relative overflow-visible rounded-ss-md rounded-se-md'
                     style={{ backgroundColor: member.color }}
                   >
                     <img src={member.image} alt={member.name} className='bs-[240px] absolute block-start-[-50px]' />

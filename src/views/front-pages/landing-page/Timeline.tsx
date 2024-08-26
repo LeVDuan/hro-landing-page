@@ -20,6 +20,8 @@ import classnames from 'classnames'
 
 import { useTranslations } from 'next-intl'
 
+import styles from './styles.module.css'
+
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 import ElementOne from '@/assets/svg/front-pages/landing-page/ElementOne'
 import MileStonesIcon from '@/assets/svg/front-pages/landing-page/MileStonesIcon'
@@ -142,7 +144,7 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
                     <img
                       src='/landing-page/bg-shape.png'
                       alt='bg-shape'
-                      className='absolute block-end-0 z-[1] bs-[40%] is-[125%] sm:is-[132%] -inline-start-[13%] sm:inline-start-[-19%] block-start-[17px]'
+                      className='absolute block-end-0 z-[1] bs-[40%] is-[125%] sm:is-[132%] -inline-start-[13%] sm:inline-start-[-19%] block-start-[17px] '
                     />
                   </span>
                 </Typography>
@@ -164,7 +166,7 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
                   <Typography variant='h5' component='div'>
                     {dataObj[1].time}
                   </Typography>
-                  <img src={dataObj[1].image} alt='early-stage-image' className='max-is-[400px] is-full rounded-xl' />
+                  <img src={dataObj[1].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
                 </div>
               </TimelineOppositeContent>
             )}
@@ -179,11 +181,11 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
                     {dataObj[1].time}
                   </Typography>
                   <div className='flex pbs-2 pbe-5 lg:pbs-[60px] md:pie-4 z-[1]'>
-                    <img src={dataObj[1].image} alt='early-stage-image' className='max-is-[550px] is-full rounded-xl' />
+                    <img src={dataObj[1].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
                   </div>
                 </>
               )}
-              <Card className='shadow-none'>
+              <Card>
                 <CardContent>
                   <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t(dataObj[1].title)}
@@ -203,7 +205,7 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
                   <Typography variant='h5' component='div'>
                     {dataObj[2].time}
                   </Typography>
-                  <img src={dataObj[2].image} alt='early-stage-image' className='max-is-[400px] is-full rounded-xl' />
+                  <img src={dataObj[2].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
                 </div>
               </TimelineOppositeContent>
             )}
@@ -219,11 +221,11 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
                     {dataObj[2].time}
                   </Typography>
                   <div className='flex pbs-2 pbe-5 lg:pbs-[60px] md:pie-4 z-[1]'>
-                    <img src={dataObj[2].image} alt='early-stage-image' className='max-is-[550px] is-full rounded-xl' />
+                    <img src={dataObj[2].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
                   </div>
                 </>
               )}
-              <Card className='shadow-none'>
+              <Card>
                 <CardContent>
                   <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t(dataObj[2].title)}
@@ -243,7 +245,7 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
                   <Typography variant='h5' component='div'>
                     {dataObj[3].time}
                   </Typography>
-                  <img src={dataObj[3].image} alt='early-stage-image' className='max-is-[400px] is-full rounded-xl' />
+                  <img src={dataObj[3].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
                 </div>
               </TimelineOppositeContent>
             )}
@@ -258,11 +260,11 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
                     {dataObj[3].time}
                   </Typography>
                   <div className='flex pbs-2 pbe-5 lg:pbs-[60px] md:pie-4 z-[1]'>
-                    <img src={dataObj[3].image} alt='early-stage-image' className='max-is-[550px] is-full rounded-xl' />
+                    <img src={dataObj[3].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
                   </div>
                 </>
               )}
-              <Card className='shadow-none'>
+              <Card>
                 <CardContent>
                   <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t(dataObj[3].title)}
@@ -309,7 +311,7 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
                   <Typography variant='h5' component='div'>
                     {dataObj[4].time}
                   </Typography>
-                  <img src={dataObj[4].image} alt='early-stage-image' className='max-is-[400px] is-full rounded-xl' />
+                  <img src={dataObj[4].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
                 </div>
               </TimelineOppositeContent>
             )}
@@ -324,11 +326,11 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
                     {dataObj[4].time}
                   </Typography>
                   <div className='flex pbs-2 pbe-5 lg:pbs-[60px] md:pie-4 z-[1]'>
-                    <img src={dataObj[4].image} alt='early-stage-image' className='max-is-[550px] is-full rounded-xl' />
+                    <img src={dataObj[4].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
                   </div>
                 </>
               )}
-              <Card className='shadow-none'>
+              <Card>
                 <CardContent>
                   <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t(dataObj[4].title)}
@@ -375,7 +377,7 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
                   <Typography variant='h5' component='div'>
                     {dataObj[5].time}
                   </Typography>
-                  <img src={dataObj[5].image} alt='early-stage-image' className='max-is-[400px] is-full rounded-xl' />
+                  <img src={dataObj[5].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
                 </div>
               </TimelineOppositeContent>
             )}
@@ -390,11 +392,11 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
                     {dataObj[5].time}
                   </Typography>
                   <div className='flex pbs-2 pbe-5 lg:pbs-[60px] md:pie-4 z-[1]'>
-                    <img src={dataObj[5].image} alt='early-stage-image' className='max-is-[550px] is-full rounded-xl' />
+                    <img src={dataObj[5].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
                   </div>
                 </>
               )}
-              <Card className='shadow-none'>
+              <Card>
                 <CardContent>
                   <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t(dataObj[5].title)}

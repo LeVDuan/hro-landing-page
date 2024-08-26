@@ -27,8 +27,10 @@ import { founders } from '@/fake-db/data'
 import { getFont } from '@/utils/getFont'
 
 const Card = styled(MuiCard)`
+  transition: transform 0.3s ease;
   &:hover {
     border-color: ${(props: { color: ThemeColor }) => props.color};
+    transform: translateY(-10px) scale(1.05);
 
     & i:nth-child(1) {
       color: rgb(59, 89, 152) !important;
