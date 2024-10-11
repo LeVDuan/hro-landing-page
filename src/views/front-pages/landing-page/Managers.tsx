@@ -24,7 +24,7 @@ import type { ThemeColor } from '@/@core/types'
 import ManaIcon from '@/assets/svg/front-pages/landing-page/ManagerIcon'
 
 // Data
-import { managers } from '@/fake-db/data'
+import { managers, newManagers } from '@/fake-db/data'
 import { getFont } from '@/utils/getFont'
 
 const Card = styled(MuiCard)`
@@ -129,6 +129,39 @@ const Managers = ({ locale }: { locale: string }) => {
           className='mbe-8 pbs-[100px] flex justify-center items-center'
         >
           {managers.map((member, index) => (
+            <Grid item xs={12} md={6} lg={3} key={index}>
+              <Card className='shadow-none border overflow-visible' color={member.color as ThemeColor}>
+                <CardContent className='flex flex-col items-center justify-center p-0'>
+                  <div
+                    className='flex justify-center is-full mli-auto text-center bs-[190px] relative overflow-visible rounded-ss-md rounded-se-md'
+                    style={{ backgroundColor: member.color }}
+                  >
+                    <img src={member.image} alt={member.name} className='bs-[240px] absolute block-start-[-50px]' />
+                  </div>
+                  <div className='flex flex-col gap-3 p-5 is-full'>
+                    <div className='text-center'>
+                      <Typography variant='h5'>{member.name}</Typography>
+                      <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
+                        {t('Jersey numbers')}
+                        {member.num}
+                      </Typography>
+                      <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
+                        {t(member.gen)}
+                      </Typography>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+        <Grid
+          container
+          rowSpacing={16}
+          columnSpacing={6}
+          className='mbe-8 pbs-[100px] flex justify-center items-center'
+        >
+          {newManagers.map((member, index) => (
             <Grid item xs={12} md={6} lg={3} key={index}>
               <Card className='shadow-none border overflow-visible' color={member.color as ThemeColor}>
                 <CardContent className='flex flex-col items-center justify-center p-0'>
