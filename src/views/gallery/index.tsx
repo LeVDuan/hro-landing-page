@@ -6,6 +6,8 @@ import { useEffect } from 'react'
 import GalleryGrid from './GalleryGrid'
 import type { GalleryImage } from '@/types/imageTypes'
 
+// import './styles.module.css'
+
 // Component Imports
 import { useSettings } from '@core/hooks/useSettings'
 
