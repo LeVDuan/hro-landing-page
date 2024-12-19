@@ -9,23 +9,29 @@ interface Props {
 }
 
 const GalleryForImage = ({ image, onClick }: Props) => {
-  const aspectRatio = image.width / image.height
-  const url = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_${image.width}/${image.id}.${image.format}`
+  const url = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_800/${image.id}.${image.format}`
+  const logoUrl = '/logos/Logo.png' // Đường dẫn đến logo của CLB
 
   return (
-    <div
-      onClick={onClick}
-      className='relative after:content block w-full h-full cursor-pointer group overflow-hidden'
-      style={{ aspectRatio: `${aspectRatio}` }}
-    >
+    <div onClick={onClick} className='relative w-full rounded-lg h-full cursor-pointer group'>
       <Image
         src={url}
         alt=''
         fill
-        style={{ transform: 'translate3d(0, 0, 0)' }}
-        className='rounded-lg brightness-90 transition transform will-change-auto group-hover:brightness-110'
-        sizes={image.size === 'large' ? '(max-width: 768px) 100vw, 66vw' : '(max-width: 768px) 50vw, 33vw'}
+        className='object-cover transition-transform duration-300 group-hover:scale-110'
+        sizes='(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw'
       />
+
+      {/* Overlay với logo khi hover */}
+      <div className='absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300'>
+        <div className='absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+          <div className='relative w-20 h-20'>
+            {' '}
+            {/* Điều chỉnh kích thước logo tại đây */}
+            <Image src={logoUrl} alt='Club Logo' fill className='object-contain' />
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

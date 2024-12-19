@@ -4,41 +4,46 @@ import { v2 as cloudinary } from 'cloudinary'
 import Gallery from '@views/gallery/index'
 import type { GalleryImage } from '@/types/imageTypes'
 
-const getImages = async (): Promise<GalleryImage[]> => {
-  cloudinary.config({
-    cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET,
-    secure: true
-  })
+cloudinary.config({
+  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+  secure: true
+})
 
+const getImages = async (): Promise<GalleryImage[]> => {
   try {
-    const result = await cloudinary.search
+    const results = await cloudinary.search
       .expression(`folder:${process.env.CLOUDINARY_FOLDER}/*`)
       .sort_by('created_at', 'desc')
       .with_field('context')
       .max_results(200)
       .execute()
 
-    return result.resources.map((photo: any) => {
-      const aspectRatio = photo.width / photo.height
-      let size: 'small' | 'medium' | 'large' = 'medium'
+    const reducedResults: GalleryImage[] = []
 
-      if (aspectRatio > 1.5) {
-        size = 'large'
-      } else if (aspectRatio < 0.8) {
-        size = 'small'
-      }
+    let i: number = 0
 
-      return {
-        id: photo.public_id,
-        src: photo.secure_url,
-        width: photo.width,
-        height: photo.height,
-        format: photo.format,
-        size
-      }
+    for (const result of results.resources) {
+      reducedResults.push({
+        id: i,
+        height: result.height,
+        width: result.width,
+        public_id: result.public_id,
+        format: result.format
+      })
+      i++
+    }
+
+    const blurImagePromises = results.resources.map((image: GalleryImage) => {
+      return getBase64ImageUrl(image)
     })
+
+    const imagesWithBlurDataUrls = await Promise.all(blurImagePromises)
+
+    for (let i = 0; i < reducedResults.length; i++) {
+      reducedResults[i].blurDataUrl = imagesWithBlurDataUrls[i]
+    }
   } catch (error) {
     console.error('Error fetching images:', error)
 
