@@ -1,8 +1,8 @@
 export interface GalleryImage {
-  id: string
-  src: string
+  id: number
+  public_id: string
   width: number
   height: number
   format: string
-  size?: 'small' | 'medium' | 'large'
+  blurDataUrl?: string
 }
