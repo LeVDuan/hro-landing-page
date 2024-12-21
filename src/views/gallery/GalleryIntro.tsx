@@ -28,19 +28,19 @@ const GalleryIntro = ({ locale }: GalleryIntroProps) => {
 
       {/* Optional: Background Pattern */}
       <div className='absolute inset-0 opacity-10'>
-        <Image src='/logos/logo.png' alt='' fill priority sizes='bs-[250px]' className='object-cover' />
+        <Image src='/logos/Logo.png' alt='' fill priority sizes='bs-[250px]' className='object-cover' />
       </div>
 
       {/* Content */}
       <div className='relative h-full pt-6 pl-6 pr-6 pb-2 flex flex-col'>
         <div>
           {/* Logo */}
-          <div className='w-16 h-16 mb-6 mt-2'>
-            <Image src='/logos/logo.png' alt='Red Owls Logo' width={65} height={65} className='object-contain' />
+          <div className='mb-6 mt-2'>
+            <Image src='/logos/Logo.png' alt='Red Owls Logo' width={65} height={65} className='object-contain' />
           </div>
 
           {/* Text Content */}
-          <CustomTypography className='font-bold sm:mb-4 text-xl font-bold text-white mb-4'>
+          <CustomTypography className='sm:mb-4 text-xl font-bold text-white mb-4'>
             {t('gallery title')}
           </CustomTypography>
           <CustomTypography className='text-white/90 text-sm mb-4'>{t('gallery description')}</CustomTypography>
