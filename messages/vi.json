@@ -175,5 +175,11 @@
     "Send Inquiry": "Gửi yêu cầu",
     "Successfully": "Gửi tin nhắn thành công!",
     "Failed": "Gửi tin nhắn thất bại."
+  },
+  "gallery": {
+    "gallery title": "Thư viện ảnh HRO",
+    "gallery description": "Bộ sưu tập những khoảnh khắc đáng nhớ mỗi bức ảnh là một dấu ấn trong hành trình phát triển của chúng tôi.",
+    "Follow us": "Theo dõi",
+    "Home": "Trang chủ"
   }
 }

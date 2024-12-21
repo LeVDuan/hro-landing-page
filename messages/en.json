@@ -175,5 +175,11 @@
     "Send Inquiry": "Send Inquiry",
     "Successfully": "Inquiry sent successfully",
     "Failed": "Failed to send inquiry"
+  },
+  "gallery": {
+    "gallery title": "HRO Photo Gallery",
+    "gallery description": "A collection of memorable moments where each photo marks a milestone in our development journey.",
+    "Follow us": "Follow us",
+    "Home": "Home"
   }
 }

@@ -8,21 +8,22 @@ import GalleryIntro from './GalleryIntro'
 
 interface Props {
   images: GalleryImage[]
+  locale: string
 }
 
-const GalleryGrid = ({ images }: Props) => {
+const GalleryGrid = ({ images, locale }: Props) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
 
   return (
     <>
-      <div className='container mx-auto px-4'>
+      <div>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
           <div className='sm:row-span-2 sm:col-span-1'>
-            <GalleryIntro />
+            <GalleryIntro locale={locale} />
           </div>
-          {images.map((image, index) => (
+          {images.map(image => (
             <div key={image.id} className='aspect-[3/2] w-full overflow-hidden rounded-lg'>
-              <GalleryImageComponent image={image} onClick={() => setSelectedIndex(index)} />
+              <GalleryImageComponent image={image} onClick={() => setSelectedIndex(image.id)} />
             </div>
           ))}
         </div>

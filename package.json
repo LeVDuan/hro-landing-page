@@ -34,7 +34,8 @@
     "react-player": "^2.16.0",
     "react-toastify": "^10.0.5",
     "react-use": "^17.5.0",
-    "server-only": "^0.0.1"
+    "server-only": "^0.0.1",
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.218",

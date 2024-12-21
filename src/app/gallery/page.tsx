@@ -3,6 +3,8 @@ import { v2 as cloudinary } from 'cloudinary'
 
 import Gallery from '@views/gallery/index'
 import type { GalleryImage } from '@/types/imageTypes'
+import getBase64ImageUrl from '@/utils/generateBlurPlaceholder'
+import { getUserLocaleFromCookies } from '@core/utils/serverHelpers'
 
 cloudinary.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
@@ -44,6 +46,8 @@ const getImages = async (): Promise<GalleryImage[]> => {
     for (let i = 0; i < reducedResults.length; i++) {
       reducedResults[i].blurDataUrl = imagesWithBlurDataUrls[i]
     }
+
+    return reducedResults
   } catch (error) {
     console.error('Error fetching images:', error)
 
@@ -53,6 +57,7 @@ const getImages = async (): Promise<GalleryImage[]> => {
 
 export default async function GalleryPage() {
   const images = await getImages()
+  const locale = getUserLocaleFromCookies()
 
-  return <Gallery images={images} />
+  return <Gallery images={images} locale={locale} />
 }
