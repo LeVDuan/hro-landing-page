@@ -175,5 +175,11 @@
     "Send Inquiry": "送信",
     "Successfully": "正常に送信されました！",
     "Failed": "送信に失敗しました。もう一度お試しください。"
+  },
+  "gallery": {
+    "gallery title": "HROフォトギャラリー",
+    "gallery description": "私たちの発展の道のりを刻む、思い出の瞬間のコレクション。一枚一枚の写真が私たちの歴史を語ります。",
+    "Follow us": "フォローする",
+    "Home": "ホーム"
   }
 }

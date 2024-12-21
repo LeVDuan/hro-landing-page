@@ -174,5 +174,11 @@
     "Send Inquiry": "요청 보내기",
     "Successfully": "성공적으로 전송되었습니다!",
     "Failed": "전송에 실패했습니다."
+  },
+  "gallery": {
+    "gallery title": "HRO 포토 갤러리",
+    "gallery description": "우리의 발전 여정에서 각각의 사진이 의미 있는 순간을 담은 추억의 컬렉션입니다.",
+    "Follow us": "팔로우하기",
+    "Home": "홈"
   }
 }
