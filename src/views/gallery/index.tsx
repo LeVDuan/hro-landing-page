@@ -13,9 +13,10 @@ import { useSettings } from '@core/hooks/useSettings'
 
 interface GalleryWrapperProps {
   images: GalleryImage[]
+  locale: string
 }
 
-const GalleryWrapper = ({ images }: GalleryWrapperProps) => {
+const GalleryWrapper = ({ images, locale }: GalleryWrapperProps) => {
   // Hooks
   const { updatePageSettings } = useSettings()
 
@@ -29,7 +30,7 @@ const GalleryWrapper = ({ images }: GalleryWrapperProps) => {
 
   return (
     <div className='container mx-auto px-4 py-8'>
-      <GalleryGrid images={images} />
+      <GalleryGrid images={images} locale={locale} />
     </div>
   )
 }
