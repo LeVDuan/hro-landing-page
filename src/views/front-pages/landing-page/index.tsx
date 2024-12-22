@@ -37,10 +37,11 @@ import type { GalleryImage } from '@/types/imageTypes'
 interface props {
   mode: Mode
   locale: string
+  logoURL: string
   images: GalleryImage[]
 }
 
-const LandingPageWrapper = ({ mode, locale, images }: props) => {
+const LandingPageWrapper = ({ mode, locale, logoURL, images }: props) => {
   // Hooks
   const { updatePageSettings } = useSettings()
 
@@ -55,7 +56,7 @@ const LandingPageWrapper = ({ mode, locale, images }: props) => {
   return (
     <>
       {/* <Recruitment /> */}
-      <HeroSection mode={mode} locale={locale} />
+      <HeroSection mode={mode} locale={locale} logoURL={logoURL} />
       <AboutUs locale={locale} />
       <TimelineCenter locale={locale} />
       <Divider />
@@ -74,7 +75,7 @@ const LandingPageWrapper = ({ mode, locale, images }: props) => {
       <Outfielders locale={locale} />
       <Activities locale={locale} />
       {/* <Divider /> */}
-      <Gallery images={images} locale={locale} />
+      <Gallery images={images} locale={locale} logoURL={logoURL} />
       <Faqs locale={locale} />
       <ContactUs locale={locale} />
     </>

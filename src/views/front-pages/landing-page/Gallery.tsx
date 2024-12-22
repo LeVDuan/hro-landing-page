@@ -23,9 +23,10 @@ import Link from '@/components/Link'
 interface GalleryProps {
   locale: string
   images: GalleryImage[]
+  logoURL: string
 }
 
-const Gallery = ({ locale, images }: GalleryProps) => {
+const Gallery = ({ locale, images, logoURL }: GalleryProps) => {
   // Refs
   const skipIntersection = useRef(true)
   const ref = useRef<null | HTMLDivElement>(null)
@@ -67,7 +68,7 @@ const Gallery = ({ locale, images }: GalleryProps) => {
               sx={{ fontFamily: `${getFont(locale)}` }}
             >
               <span className='relative z-[1] font-extrabold'>
-                {t('Save memorable moments')}
+                👉{t('Save memorable moments')}👈
                 <img
                   src='/landing-page/bg-shape.png'
                   alt='bg-shape'
@@ -84,6 +85,7 @@ const Gallery = ({ locale, images }: GalleryProps) => {
                 <div className='aspect-[3/2] w-full overflow-hidden rounded-lg'>
                   <GalleryForImage
                     image={image}
+                    logoURL={logoURL}
                     onClick={() => {
                       router.push('/gallery')
                     }}

@@ -1,9 +1,12 @@
-// app/gallery/page.tsx
+import dynamic from 'next/dynamic'
+
+const Snowfall = dynamic(() => import('@views/front-pages/landing-page/Snowfall'), { ssr: false })
+
 import cloudinary from '@/utils/cloudinary'
 import Gallery from '@views/gallery/index'
 import type { GalleryImage } from '@/types/imageTypes'
 import getBase64ImageUrl from '@/utils/generateBlurPlaceholder'
-import { getUserLocaleFromCookies } from '@core/utils/serverHelpers'
+import { getEventImageUrl, getUserLocaleFromCookies } from '@core/utils/serverHelpers'
 
 const getImages = async (): Promise<GalleryImage[]> => {
   try {
@@ -50,6 +53,12 @@ const getImages = async (): Promise<GalleryImage[]> => {
 export default async function GalleryPage() {
   const images = await getImages()
   const locale = getUserLocaleFromCookies()
+  const logoURL = getEventImageUrl()
 
-  return <Gallery images={images} locale={locale} />
+  return (
+    <>
+      {logoURL === '/logos/LogoXmas.png' ? <Snowfall /> : null}
+      <Gallery images={images} locale={locale} logoURL={logoURL} />
+    </>
+  )
 }
