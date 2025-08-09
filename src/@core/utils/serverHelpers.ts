@@ -7,11 +7,11 @@ import { cookies, headers } from 'next/headers'
 import type { Settings } from '@core/contexts/settingsContext'
 import type { DemoName, SystemMode } from '@core/types'
 
-const { Lunar } = require('lunar-javascript')
-
 // Config Imports
 import themeConfig from '@configs/themeConfig'
 import demoConfigs from '@configs/demoConfigs'
+
+const { Lunar } = require('lunar-javascript')
 
 export const getDemoName = (): DemoName => {
   const headersList = headers()

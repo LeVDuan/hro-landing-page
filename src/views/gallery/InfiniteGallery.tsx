@@ -94,6 +94,7 @@ const InfiniteGallery = ({ initialImages, locale, logoURL }: Props) => {
     }
 
     window.addEventListener('scroll', handleScroll)
+
     return () => {
       window.removeEventListener('scroll', handleScroll)
       clearTimeout(timeoutId)
