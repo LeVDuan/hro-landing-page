@@ -1,118 +1,160 @@
-# Hướng dẫn Setup Google Sheets cho HRO Team Data
+# Hướng dẫn Setup Google Sheets cho HRO Team Data (Version 2.0)
 
 ## Tổng quan
-Hệ thống cho phép quản lý thông tin thành viên CLB thông qua Google Sheets, giúp dễ dàng cập nhật mà không cần sửa code.
 
-## Cấu trúc Google Sheets
+Hệ thống cho phép quản lý thông tin thành viên CLB thông qua 1 bảng Google Sheets duy nhất, giúp dễ dàng cập nhật mà không cần sửa code.
 
-### 1. Tạo Google Sheet mới
-Tạo một Google Sheet mới với 2 tabs:
+## Ưu điểm của phương pháp này
 
-#### Tab 1: Members (Thông tin cơ bản)
-| ID | Name | Jersey Number | Generation | Image | Color |
-|----|------|---------------|------------|-------|-------|
-| 1 | Lê Tiến Dũng | 22 | Gen 2 - K66 HUST | /avatars/tienDung.png | var(--mui-palette-error-mainOpacity) |
-| 2 | Trần Tiến Đạt | 18 | Gen 2 - K66 HUST | /avatars/dat.png | var(--mui-palette-warning-mainOpacity) |
+- ✅ **Đơn giản**: Chỉ cần 1 bảng duy nhất
+- ✅ **Dễ quản lý**: Mỗi thành viên 1 dòng, dễ nhìn và chỉnh sửa
+- ✅ **Linh hoạt**: Thành viên có thể có nhiều vai trò cùng lúc
+- ✅ **Hỗ trợ Table format**: Có thể dùng Format as Table trong Google Sheets
 
-**Lưu ý về các cột:**
-- **ID**: Số duy nhất cho mỗi thành viên
-- **Name**: Tên đầy đủ
-- **Jersey Number**: Số áo (chỉ số, không có dấu #)
-- **Generation**: Thế hệ và trường (ví dụ: Gen 2 - K66 HUST)
-- **Image**: Đường dẫn ảnh trong folder public (ví dụ: /avatars/tienDung.png)
-- **Color**: Màu hiển thị, có thể dùng:
-  - `var(--mui-palette-primary-mainOpacity)`
-  - `var(--mui-palette-secondary-mainOpacity)`
-  - `var(--mui-palette-error-mainOpacity)`
-  - `var(--mui-palette-warning-mainOpacity)`
-  - `var(--mui-palette-info-mainOpacity)`
-  - `var(--mui-palette-success-mainOpacity)`
+## Cấu trúc Google Sheet
 
-#### Tab 2: Roles (Chức vụ và vị trí)
-| Member ID | Role Type | Role | Position | Batting Throwing | Order | Active |
-|-----------|-----------|------|----------|------------------|-------|--------|
-| 1 | leadership | Captain | | | 1 | TRUE |
-| 2 | leadership | Vice president | | | 2 | TRUE |
-| 2 | management | | | | 1 | TRUE |
-| 2 | player | | Pitcher | L/L | 3 | TRUE |
+### Bước 1: Tạo Google Sheet mới
 
-**Lưu ý về các cột:**
-- **Member ID**: ID tương ứng với tab Members
-- **Role Type**: Loại vai trò
-  - `leadership`: Lãnh đạo (Captain, President, Vice president, Vice captain)
-  - `management`: Ban quản lý
-  - `player`: Cầu thủ
-  - `media`: Đội media
-  - `predecessor`: Lãnh đạo các thế hệ trước
-- **Role**: Chức vụ cụ thể (cho leadership và predecessor)
-- **Position**: Vị trí thi đấu (Pitcher, Catcher, B1, B2, B3, SS, OF)
-- **Batting Throwing**: B/T (L/L, R/R, L/R, R/L)
-- **Order**: Thứ tự hiển thị
-- **Active**: TRUE/FALSE - đang hoạt động hay không
+Tạo một Google Sheet với các cột sau (thứ tự không quan trọng):
+
+| Tên cột | Mô tả | Ví dụ | Bắt buộc |
+|---------|-------|-------|----------|
+| **ID** | Mã định danh duy nhất | 1, 2, 3... | ✅ |
+| **Name** | Tên đầy đủ | Lê Tiến Dũng | ✅ |
+| **Jersey** | Số áo (chỉ số) | 22 | ✅ |
+| **Generation** | Thế hệ và trường | Gen 2 - K66 HUST | ✅ |
+| **Image** | Đường dẫn ảnh | /avatars/tienDung.png | ✅ |
+| **Color** | Màu hiển thị | error, warning, success | |
+| **Captain** | Là đội trưởng? | TRUE/FALSE hoặc để trống | |
+| **President** | Là chủ tịch? | TRUE/FALSE hoặc để trống | |
+| **Vice_President** | Là phó chủ tịch? | TRUE/FALSE hoặc để trống | |
+| **Vice_Captain** | Là phó đội? | TRUE/FALSE hoặc để trống | |
+| **Manager** | Là quản lý? | TRUE/FALSE hoặc để trống | |
+| **Media** | Thuộc team media? | TRUE/FALSE hoặc để trống | |
+| **Media_Head** | Là trưởng media? | TRUE/FALSE hoặc để trống | |
+| **Pitcher** | Chơi vị trí Pitcher? | TRUE/FALSE hoặc để trống | |
+| **Catcher** | Chơi vị trí Catcher? | TRUE/FALSE hoặc để trống | |
+| **Infielder** | Chơi nội dã? | TRUE/FALSE hoặc để trống | |
+| **Outfielder** | Chơi ngoại dã? | TRUE/FALSE hoặc để trống | |
+| **Position_Detail** | Chi tiết vị trí | B1/B2, SS/OF | |
+| **Batting_Throwing** | B/T | L/L, R/R, L/R | |
+| **Former_Leader** | Là lãnh đạo cũ? | TRUE/FALSE hoặc để trống | |
+| **Former_Role** | Chức vụ cũ | Captain Gen 1, President Gen 2 | |
+| **Active** | Đang hoạt động? | TRUE/FALSE | ✅ |
+
+### Giá trị cho cột Color
+
+- `primary` - Màu chính (xanh dương)
+- `secondary` - Màu phụ (tím)
+- `error` - Màu đỏ
+- `warning` - Màu cam
+- `info` - Màu xanh da trời
+- `success` - Màu xanh lá
+
+### Giá trị TRUE/FALSE
+
+Có thể dùng bất kỳ format nào sau:
+- `TRUE` / `FALSE`
+- `1` / `0`
+- `Yes` / `No`
+- `X` / để trống
+- Hoặc chỉ để trống nếu là FALSE
+
+## Ví dụ thực tế
+
+### Thành viên có nhiều vai trò
+
+| ID | Name | Jersey | Generation | Captain | Vice_President | Manager | Pitcher | Position_Detail | Active |
+|----|------|--------|------------|---------|----------------|---------|---------|-----------------|--------|
+| 1 | Trần Tiến Đạt | 18 | Gen 2 - K66 HUST | | TRUE | TRUE | TRUE | Pitcher | TRUE |
+
+→ Đạt vừa là Vice President, vừa là Manager, vừa là Pitcher
+
+### Thành viên chơi nhiều vị trí
+
+| ID | Name | Infielder | Outfielder | Position_Detail | Batting_Throwing |
+|----|------|-----------|------------|-----------------|------------------|
+| 2 | Đặng Hải Anh | TRUE | TRUE | B3/OF | L/R |
+
+→ Hải Anh có thể chơi cả B3 và OF
+
+## Setup trong Google Sheets
+
+### 1. Format as Table (Tùy chọn)
+
+Bạn có thể format bảng để dễ nhìn hơn:
+1. Chọn toàn bộ data
+2. Format → Format as table
+3. Chọn style bạn thích
 
 ### 2. Chia sẻ Google Sheet
 
-1. Click nút "Share" ở góc trên bên phải
-2. Chọn "Anyone with the link"
-3. Đặt quyền là "Viewer"
+1. Click nút **Share** ở góc trên bên phải
+2. Click **"Change to anyone with the link"**
+3. Đặt quyền là **"Viewer"**
 4. Copy link
 
 ### 3. Lấy thông tin cấu hình
 
-#### Sheet ID:
+#### Sheet ID
 Từ URL: `https://docs.google.com/spreadsheets/d/1ABC123XYZ789/edit`
-Sheet ID là: `1ABC123XYZ789`
+→ Sheet ID là: `1ABC123XYZ789`
 
-#### GID cho mỗi tab:
-- Click vào tab Members → xem URL → `...edit#gid=0` → GID = 0
-- Click vào tab Roles → xem URL → `...edit#gid=123456` → GID = 123456
+#### GID (Tab ID)
+Click vào tab → xem URL → `...edit#gid=0`
+→ GID = `0` (thường là 0 cho tab đầu tiên)
 
-### 4. Cấu hình trong file .env
+## Cấu hình trong file .env
 
 ```env
+# Google Sheets Configuration (Single Table)
 NEXT_PUBLIC_GOOGLE_SHEET_ID="1ABC123XYZ789"
-NEXT_PUBLIC_MEMBERS_GID="0"
-NEXT_PUBLIC_ROLES_GID="123456"
+NEXT_PUBLIC_SHEET_GID="0"
 ```
 
-## Ví dụ thực tế
+## Tips và Lưu ý
 
-### Thành viên có nhiều vai trò:
-Trần Tiến Đạt (ID: 2):
-- Là Vice president (leadership)
-- Là Manager (management)  
-- Là Pitcher (player)
+### 1. Thứ tự cột không quan trọng
+Bạn có thể sắp xếp cột theo ý thích, hệ thống sẽ tự động nhận diện qua tên cột.
 
-Trong tab Roles sẽ có 3 dòng:
-```
-2 | leadership | Vice president | | | 2 | TRUE
-2 | management | | | | 1 | TRUE
-2 | player | | Pitcher | L/L | 3 | TRUE
-```
+### 2. Có thể thêm cột mới
+Nếu cần thêm thông tin khác (email, phone...), chỉ cần thêm cột mới. Hệ thống sẽ bỏ qua các cột không nhận diện được.
 
-### Thành viên chơi nhiều vị trí:
-Đặng Hải Anh có thể chơi B3 và OF:
-```
-3 | player | | B3 | L/R | 1 | TRUE
-3 | player | | OF | L/R | 2 | TRUE
-```
+### 3. Filter và Sort
+Bạn có thể dùng các tính năng Filter và Sort của Google Sheets để quản lý dễ dàng hơn.
+
+### 4. Data Validation
+Khuyến nghị setup Data Validation cho các cột TRUE/FALSE:
+1. Chọn cột
+2. Data → Data validation
+3. Criteria: Checkbox hoặc List of items (TRUE,FALSE)
+
+### 5. Conditional Formatting
+Có thể dùng Conditional Formatting để highlight:
+- Thành viên inactive (Active = FALSE)
+- Leaders (Captain/President = TRUE)
+- Etc.
 
 ## Troubleshooting
 
-### Dữ liệu không hiển thị:
-1. Kiểm tra Sheet đã được share public chưa
-2. Kiểm tra Sheet ID và GID đúng chưa
-3. Kiểm tra format dữ liệu trong sheet
-4. Xem console log để debug
+### Dữ liệu không hiển thị
+1. ✅ Kiểm tra Sheet đã được share public chưa
+2. ✅ Kiểm tra Sheet ID và GID đúng chưa
+3. ✅ Kiểm tra có dòng trống ở giữa không
+4. ✅ Kiểm tra cột Active = TRUE
 
-### Performance:
-- Data được cache 1 giờ ở server-side
-- Data được cache 5 phút ở client-side
-- Rebuild site để cập nhật ngay lập tức
+### Performance
+- Data được cache 1 giờ ở server
+- Rebuild/redeploy để cập nhật ngay lập tức
 
-## Tips
+### Debug
+Xem console log trong browser để debug nếu có lỗi
 
-1. **Backup data**: Luôn backup sheet trước khi thay đổi lớn
-2. **Test trước**: Test với ít data trước khi nhập toàn bộ
-3. **Đặt tên ảnh chuẩn**: Dùng convention: tênViếtLiền.png (camelCase)
-4. **Order field**: Dùng để sắp xếp thứ tự hiển thị
+## Template mẫu
+
+Bạn có thể copy template mẫu tại:
+[Link to template - sẽ được cung cấp sau]
+
+---
+
+Nếu cần hỗ trợ, liên hệ tech team qua Issues trên GitHub.

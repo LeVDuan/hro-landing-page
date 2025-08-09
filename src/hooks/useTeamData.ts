@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import { GoogleSheetsSingleTableService, transformSingleTableToLegacy } from '@/services/googleSheetsSimple'
-import type { MemberWithRoles } from '@/types/member'
+import type { ProcessedMember } from '@/types/memberSimple'
 
 let cachedData: ReturnType<typeof transformSingleTableToLegacy> | null = null
 let isInitialized = false
@@ -52,11 +52,11 @@ export function useTeamData() {
 }
 
 export function useTeamMembers(): {
-  members: MemberWithRoles[]
+  members: ProcessedMember[]
   loading: boolean
   error: string | null
 } {
-  const [members, setMembers] = useState<MemberWithRoles[]>([])
+  const [members, setMembers] = useState<ProcessedMember[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
