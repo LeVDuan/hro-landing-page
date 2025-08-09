@@ -1,4 +1,4 @@
-# HRO Landing Page
+# HRO - Trang Web CLB Bóng chày HUST Red Owls
 
 [![Next.js](https://img.shields.io/badge/Next.js-14.2.31-black?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue?logo=typescript)](https://www.typescriptlang.org/)
@@ -7,32 +7,37 @@
 
 *[English](README.md) | **Tiếng Việt***
 
-Giải pháp landing page cấp doanh nghiệp với hiệu suất cao, được xây dựng bằng công nghệ web hiện đại. Thiết kế tối ưu cho trải nghiệm người dùng, hiệu suất SEO và khả năng mở rộng.
+Trang web chính thức của CLB Bóng chày HUST Red Owls - Câu lạc bộ bóng chày đầu tiên và hàng đầu tại Đại học Bách khoa Hà Nội (HUST), Việt Nam.
 
-## 🚀 Tính Năng Chính
+## 🦉 Giới thiệu về HRO
 
-### Khả Năng Cốt Lõi
-- **Thiết Kế Responsive**: Bố cục thích ứng hoàn toàn cho desktop, tablet và thiết bị di động
-- **Đa Ngôn Ngữ**: Hỗ trợ đa ngôn ngữ với next-intl cho phạm vi toàn cầu
-- **Tối Ưu Hiệu Suất**: Tích hợp lazy loading, tối ưu hình ảnh và code splitting
-- **SEO Sẵn Sàng**: Server-side rendering với quản lý meta tags và structured data
-- **Tích Hợp Analytics**: Giám sát hiệu suất thời gian thực với Vercel Analytics
+HUST Red Owls (HRO) là câu lạc bộ bóng chày hàng đầu tại Đại học Bách khoa Hà Nội, được thành lập và hoạt động dưới sự quản lý của Ban Văn nghệ Thể thao - Đoàn Đại học Bách khoa Hà Nội. Chúng tôi tận tâm trong việc phát triển văn hóa bóng chày tại Việt Nam và xây dựng cộng đồng những người đam mê bộ môn thể thao này.
 
-### Điểm Nổi Bật Kỹ Thuật
-- **Type Safety**: Triển khai TypeScript hoàn toàn cho chất lượng code mạnh mẽ
-- **Styling Hiện Đại**: Components Material-UI với utility classes Tailwind CSS
-- **Tích Hợp Cloud**: Cloudinary cho việc phân phối và chuyển đổi hình ảnh tối ưu
-- **Dịch Vụ Email**: Tích hợp EmailJS cho chức năng form liên hệ
-- **Trải Nghiệm Developer**: Hot reload, ESLint, Prettier và công cụ toàn diện
+### Sứ mệnh của chúng tôi
+- Quảng bá bóng chày trong các trường đại học Việt Nam
+- Xây dựng cộng đồng mạnh mẽ của những người yêu bóng chày
+- Thi đấu ở cấp độ quốc gia và quốc tế
+- Phát triển tài năng trẻ trong bộ môn bóng chày
 
-## 📋 Yêu Cầu Hệ Thống
+## 🚀 Tính năng chính
 
-- **Node.js**: 18.17.0 trở lên (khuyến nghị LTS)
-- **npm**: 9.0.0 trở lên
-- **Hệ Điều Hành**: macOS, Windows (WSL2), hoặc Linux
-- **RAM**: Tối thiểu 4GB (khuyến nghị 8GB cho development)
+### Khả năng của Website
+- **Hỗ trợ Song ngữ**: Hỗ trợ đầy đủ tiếng Việt và tiếng Anh
+- **Giới thiệu Đội**: Hồ sơ chi tiết của cầu thủ, huấn luyện viên và ban quản lý
+- **Dòng thời gian Sự kiện**: Thành tích lịch sử và sự kiện sắp tới
+- **Thư viện Ảnh**: Thư viện ảnh động với tích hợp Cloudinary
+- **Hệ thống Liên hệ**: Form liên hệ trực tiếp với tích hợp EmailJS
+- **Thiết kế Responsive**: Tối ưu cho mọi thiết bị
+- **Chủ đề Theo mùa**: Hiệu ứng đặc biệt cho các ngày lễ (Giáng sinh, Tết Nguyên đán)
 
-## 🛠️ Công Nghệ Sử Dụng
+### Tính năng Kỹ thuật
+- **Tối ưu Hiệu suất**: Xây dựng với Next.js App Router cho tải trang tối ưu
+- **SEO Sẵn sàng**: Server-side rendering với tối ưu meta tags
+- **Tích hợp Analytics**: Theo dõi thời gian thực với Vercel Analytics
+- **Type Safety**: Triển khai TypeScript hoàn toàn
+- **UI Hiện đại**: Components Material-UI với utilities Tailwind CSS
+
+## 🛠️ Công nghệ sử dụng
 
 ### Framework Frontend
 - **Next.js 14.2.31** - React framework với App Router
@@ -44,260 +49,172 @@ Giải pháp landing page cấp doanh nghiệp với hiệu suất cao, được
 - **Tailwind CSS 3.4.17** - Framework CSS utility-first
 - **Emotion** - Giải pháp CSS-in-JS
 
-### Dịch Vụ & Công Cụ
+### Dịch vụ & Công cụ
 - **Cloudinary** - Quản lý hình ảnh và video
-- **EmailJS** - Tích hợp dịch vụ email
+- **EmailJS** - Dịch vụ email cho form liên hệ
 - **Vercel Analytics** - Giám sát hiệu suất
-- **next-intl 3.26.5** - Quốc tế hóa
+- **next-intl 3.26.5** - Đa ngôn ngữ
 
-## 📦 Cài Đặt
+## 📦 Cài đặt
 
-### Kiểm Tra Điều Kiện Tiên Quyết
+### Yêu cầu tiên quyết
 ```bash
 node --version  # Phải >= 18.17.0
 npm --version   # Phải >= 9.0.0
 ```
 
-### Clone Repository
+### Hướng dẫn cài đặt
 ```bash
-git clone https://github.com/your-org/hro-landing-page.git
-cd hro-landing-page
+# Clone repository
+git clone https://github.com/LeVDuan/HRO-landing-page.git
+cd HRO-landing-page
+
+# Cài đặt dependencies
+npm install
+
+# Thiết lập biến môi trường
+cp .env.example .env.local
+# Chỉnh sửa .env.local với thông tin của bạn
+
+# Chạy development server
+npm run dev
 ```
 
-### Cài Đặt Dependencies
-```bash
-npm ci  # Cài đặt chính xác theo lock file
-# hoặc
-npm install  # Cài đặt mới
-```
+### Cấu hình môi trường
 
-### Cấu Hình Môi Trường
-
-Tạo file `.env.local` trong thư mục gốc:
+Tạo file `.env.local` với:
 
 ```env
-# Bắt buộc: Cấu hình Cloudinary
+# Cấu hình Cloudinary
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
+CLOUDINARY_FOLDER=hro-gallery
 
-# Bắt buộc: Cấu hình EmailJS
+# Cấu hình EmailJS
 NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
 NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
 NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
 
-# Tùy chọn: Analytics (tự động cấu hình trên Vercel)
+# Tùy chọn: Analytics
 NEXT_PUBLIC_VERCEL_ANALYTICS_ID=your_analytics_id
-
-# Tùy chọn: Môi trường
-NODE_ENV=development
 ```
 
-## 🚀 Phát Triển
+## 🚀 Phát triển
 
-### Khởi Động Server Development
-```bash
-npm run dev
-```
-Ứng dụng sẽ chạy tại `http://localhost:3000`
-
-### Các Lệnh Có Sẵn
+### Các lệnh có sẵn
 
 | Lệnh | Mô tả |
 |------|-------|
-| `npm run dev` | Khởi động server development với hot reload |
-| `npm run build` | Tạo bản build production tối ưu |
-| `npm start` | Khởi động server production |
-| `npm run lint` | Chạy ESLint kiểm tra chất lượng code |
+| `npm run dev` | Khởi động development server (http://localhost:3000) |
+| `npm run build` | Tạo bản build production |
+| `npm start` | Khởi động production server |
+| `npm run lint` | Kiểm tra ESLint |
 | `npm run lint:fix` | Tự động sửa lỗi ESLint |
 | `npm run format` | Format code với Prettier |
-| `npm run build:icons` | Tạo bundle icon |
 
-## 📁 Kiến Trúc Dự Án
+## 📁 Cấu trúc dự án
 
 ```
-hro-landing-page/
-├── .github/                 # Cấu hình GitHub
-│   └── workflows/          # CI/CD pipelines
+HRO-landing-page/
 ├── public/                 # Tài nguyên tĩnh
-│   ├── fonts/             # Font tùy chỉnh
-│   ├── images/            # Hình ảnh tĩnh
-│   └── locales/           # File dịch thuật
+│   ├── avatars/           # Ảnh thành viên đội
+│   ├── landing-page/      # Hình ảnh landing page
+│   └── logos/             # Logo HRO (biến thể theo mùa)
 ├── src/
 │   ├── app/               # Next.js App Router
-│   │   ├── api/          # API routes
-│   │   ├── gallery/      # Trang gallery
-│   │   ├── layout.tsx    # Layout gốc
-│   │   └── page.tsx      # Trang chủ
-│   ├── assets/           # Tài nguyên ứng dụng
-│   │   └── iconify-icons/# Cấu hình icon
-│   ├── components/       # React components
-│   │   ├── common/       # Components dùng chung
-│   │   ├── sections/     # Sections của trang
-│   │   └── ui/           # UI components
-│   ├── config/           # Cấu hình ứng dụng
-│   ├── contexts/         # React Context providers
-│   ├── core/             # Core utilities
-│   ├── layouts/          # Layout components
-│   ├── messages/         # File i18n
-│   ├── theme/            # Cấu hình theme
-│   │   ├── colors.ts     # Bảng màu
-│   │   ├── components.ts # Component overrides
-│   │   └── index.ts      # Export theme
-│   └── utils/            # Hàm tiện ích
-├── .env.example           # Template biến môi trường
-├── .eslintrc.json        # Cấu hình ESLint
-├── .prettierrc           # Cấu hình Prettier
-├── next.config.mjs       # Cấu hình Next.js
-├── package.json          # Dependencies và scripts
-├── tailwind.config.ts    # Cấu hình Tailwind CSS
-└── tsconfig.json         # Cấu hình TypeScript
+│   │   ├── (front-page)/  # Trang landing chính
+│   │   ├── api/           # API routes
+│   │   └── gallery/       # Trang thư viện ảnh
+│   ├── components/        # React components
+│   │   ├── layout/        # Layout components
+│   │   └── dialogs/       # Dialog components
+│   ├── configs/           # File cấu hình
+│   ├── contexts/          # React contexts
+│   ├── fake-db/           # Dữ liệu thành viên đội
+│   ├── messages/          # Bản dịch i18n
+│   ├── theme/             # Cấu hình theme MUI
+│   ├── types/             # TypeScript types
+│   ├── utils/             # Hàm tiện ích
+│   └── views/             # Page view components
+│       ├── front-pages/   # Các section landing page
+│       └── gallery/       # Components thư viện ảnh
+├── .env.example           # Template môi trường
+├── next.config.mjs        # Cấu hình Next.js
+├── package.json           # Dependencies
+└── tsconfig.json          # Cấu hình TypeScript
 ```
 
-## 🏗️ Build & Triển Khai
+## 🏗️ Triển khai
 
-### Build Production
-```bash
-npm run build
-```
-
-Output build sẽ nằm trong thư mục `.next/`.
-
-### Xem Trước Production
-```bash
-npm run build && npm start
-```
-
-### Các Tùy Chọn Triển Khai
-
-#### Vercel (Khuyến Nghị)
-1. Push code lên GitHub/GitLab/Bitbucket
+### Vercel (Khuyến nghị)
+1. Push code lên GitHub
 2. Import dự án trên [Vercel](https://vercel.com)
 3. Cấu hình biến môi trường
-4. Deploy (tự động khi push vào main)
+4. Tự động deploy
 
-#### Triển Khai Docker
-```dockerfile
-# Ví dụ Dockerfile có sẵn trong repository
-docker build -t hro-landing-page .
-docker run -p 3000:3000 hro-landing-page
-```
-
-#### Hosting Truyền Thống
+### Triển khai thủ công
 ```bash
+# Build cho production
 npm run build
-npm start  # Yêu cầu Node.js trên server
+
+# Khởi động production server
+npm start
 ```
 
-## 🔧 Cấu Hình
+## 📊 Hiệu suất
 
-### Cấu Hình Next.js
-Xem `next.config.mjs` cho:
-- Cài đặt tối ưu hình ảnh
-- Routes đa ngôn ngữ
-- Security headers
-- Tùy chỉnh Webpack
+### Tính năng tối ưu
+- Tối ưu hình ảnh với Next.js Image component
+- Lazy loading cho ảnh trong thư viện
+- Code splitting theo route
+- Tối ưu font chữ
+- CSS purging với Tailwind
 
-### Cấu Hình TypeScript
-Xem `tsconfig.json` cho:
-- Path aliases
-- Compiler options
-- Module resolution
-
-## 🧪 Đảm Bảo Chất Lượng
-
-### Chất Lượng Code
-- ESLint cho code linting
-- Prettier cho code formatting
-- TypeScript cho type checking
-- Husky cho pre-commit hooks (nếu cấu hình)
-
-### Chỉ Số Hiệu Suất
+### Chỉ số
 - Điểm Lighthouse: 95+ (Performance)
 - First Contentful Paint: < 1.2s
 - Time to Interactive: < 3.5s
-- Cumulative Layout Shift: < 0.1
 
-## 📊 Giám Sát
+## 🤝 Đóng góp
 
-### Vercel Analytics
-Tự động tích hợp khi triển khai trên Vercel:
-- Real User Metrics (RUM)
-- Theo dõi Web Vitals
-- Theo dõi custom events
+Chúng tôi hoan nghênh đóng góp từ cộng đồng HRO!
 
-### Theo Dõi Lỗi
-Cấu hình dịch vụ theo dõi lỗi trong production:
-```javascript
-// Ví dụ: Tích hợp Sentry
-NEXT_PUBLIC_SENTRY_DSN=your_sentry_dsn
-```
-
-## 🔒 Bảo Mật
-
-### Best Practices
-- Biến môi trường cho dữ liệu nhạy cảm
-- Content Security Policy headers
-- Bắt buộc HTTPS
-- Cập nhật dependencies thường xuyên
-- Sanitization đầu vào
-
-### Security Headers
-Được cấu hình trong `next.config.mjs`:
-- X-Frame-Options
-- X-Content-Type-Options
-- Referrer-Policy
-- Permissions-Policy
-
-## 📖 Tài Liệu API
-
-### Gallery API
-```
-GET /api/gallery
-```
-Trả về hình ảnh gallery phân trang từ Cloudinary.
-
-Tham số Query:
-- `page` (number): Số trang
-- `limit` (number): Số item mỗi trang
-
-## 🤝 Đóng Góp
-
-Chúng tôi hoan nghênh mọi đóng góp! Vui lòng xem [Hướng dẫn đóng góp](CONTRIBUTING.md) để biết chi tiết.
-
-### Quy Trình Phát Triển
 1. Fork repository
-2. Tạo feature branch (`git checkout -b feature/TinhNangTuyetVoi`)
-3. Commit thay đổi (`git commit -m 'Thêm TinhNangTuyetVoi'`)
-4. Push lên branch (`git push origin feature/TinhNangTuyetVoi`)
+2. Tạo feature branch (`git checkout -b feature/TinhNangMoi`)
+3. Commit thay đổi (`git commit -m 'Thêm TinhNangMoi'`)
+4. Push lên branch (`git push origin feature/TinhNangMoi`)
 5. Mở Pull Request
 
-### Tiêu Chuẩn Code
-- Tuân theo cấu hình ESLint
-- Viết commit message có ý nghĩa
-- Thêm TypeScript types phù hợp
-- Cập nhật tài liệu khi cần
+## 📱 Kết nối với HRO
 
-## 📄 Giấy Phép
+- **Facebook**: [HUST Red Owls Baseball Team](https://www.facebook.com/HUSTRedOwlsBaseballTeam)
+- **Instagram**: [@hustredowlsbaseballteam](https://www.instagram.com/hustredowlsbaseballteam/)
+- **Email**: hustredowlsbaseballteam@gmail.com
+- **Địa điểm**: Đại học Bách khoa Hà Nội, Việt Nam
 
-Dự án này là phần mềm độc quyền. Mọi quyền được bảo lưu.
+## 🏆 Thành tích
 
-## 🆘 Hỗ Trợ
+- Tham gia Giải vô địch Bóng chày Quốc gia
+- Đại diện tại Hội thao Sinh viên các trường Đại học
+- Thành viên tích cực của Liên đoàn Bóng chày Việt Nam
+- Nhiều thành tích nổi bật trong các giải đấu khu vực
 
-Để được hỗ trợ kỹ thuật hoặc có câu hỏi:
-- Tạo issue trong repository
-- Liên hệ đội ngũ phát triển
-- Xem tài liệu tại [link tài liệu]
+## 📄 Giấy phép
 
-## 🙏 Lời Cảm Ơn
+Dự án này là phần mềm độc quyền của CLB Bóng chày HUST Red Owls. Mọi quyền được bảo lưu.
 
-- Đội ngũ Next.js cho framework tuyệt vời
-- Vercel cho hosting và analytics
-- Material-UI cho thư viện component
-- Tất cả contributors và maintainers
+## 🙏 Lời cảm ơn
+
+- Ban Văn nghệ Thể thao - Đoàn Đại học Bách khoa Hà Nội vì sự hỗ trợ liên tục
+- Tất cả thành viên, huấn luyện viên và người ủng hộ HRO
+- Liên đoàn Bóng chày Việt Nam
+- Các nhà tài trợ và đối tác của chúng tôi
 
 ---
 
-**Phiên bản:** 4.0.0  
+**Phiên bản:** 0.3.0  
 **Cập nhật lần cuối:** Tháng 12 2024  
 **Duy trì bởi:** Đội ngũ phát triển HRO
+
+⚾ **Play Ball!** ⚾
