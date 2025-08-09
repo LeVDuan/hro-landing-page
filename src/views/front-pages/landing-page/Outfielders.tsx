@@ -25,8 +25,6 @@ import frontCommonStyles from '@views/front-pages/styles.module.css'
 import type { ThemeColor } from '@/@core/types'
 import OFIcon from '@/assets/svg/front-pages/landing-page/OFIcon'
 
-// Data
-import { outfielders } from '@/fake-db/data'
 import { getFont } from '@/utils/getFont'
 
 const Card = styled(MuiCard)`
@@ -46,7 +44,12 @@ const Card = styled(MuiCard)`
   }
 `
 
-const Outfielders = ({ locale }: { locale: string }) => {
+interface OutfieldersProps {
+  locale: string
+  outfielders?: any[]
+}
+
+const Outfielders = ({ locale, outfielders = [] }: OutfieldersProps) => {
   // States
   const [loaded, setLoaded] = useState<boolean>(false)
   const [currentSlide, setCurrentSlide] = useState<number>(0)

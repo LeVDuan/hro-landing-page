@@ -25,8 +25,6 @@ import frontCommonStyles from '@views/front-pages/styles.module.css'
 import type { ThemeColor } from '@/@core/types'
 import PitcherIcon from '@/assets/svg/front-pages/landing-page/PitcherIcon'
 
-// Data
-import { pitchers } from '@/fake-db/data'
 import { getFont } from '@/utils/getFont'
 
 const Card = styled(MuiCard)`
@@ -46,7 +44,12 @@ const Card = styled(MuiCard)`
   }
 `
 
-const Pitchers = ({ locale }: { locale: string }) => {
+interface PitchersProps {
+  locale: string
+  pitchers?: any[]
+}
+
+const Pitchers = ({ locale, pitchers = [] }: PitchersProps) => {
   // States
   const [loaded, setLoaded] = useState<boolean>(false)
   const [currentSlide, setCurrentSlide] = useState<number>(0)

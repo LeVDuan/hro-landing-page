@@ -25,8 +25,6 @@ import frontCommonStyles from '@views/front-pages/styles.module.css'
 import type { ThemeColor } from '@/@core/types'
 import IFICon from '@/assets/svg/front-pages/landing-page/IFIcon'
 
-// Data
-import { infielders } from '@/fake-db/data'
 import { getFont } from '@/utils/getFont'
 
 const Card = styled(MuiCard)`
@@ -46,7 +44,12 @@ const Card = styled(MuiCard)`
   }
 `
 
-const Infielders = ({ locale }: { locale: string }) => {
+interface InfieldersProps {
+  locale: string
+  infielders?: any[]
+}
+
+const Infielders = ({ locale, infielders = [] }: InfieldersProps) => {
   // States
   const [loaded, setLoaded] = useState<boolean>(false)
   const [currentSlide, setCurrentSlide] = useState<number>(0)

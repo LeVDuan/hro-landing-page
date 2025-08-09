@@ -33,7 +33,6 @@ import frontCommonStyles from '@views/front-pages/styles.module.css'
 // import Curve from '@assets/svg/front-pages/landing-page/Curve'
 import AppKeenSlider from '@/libs/styles/AppKeenSlider'
 import CustomIconButton from '@core/components/mui/IconButton'
-import { predecessors, LeadersInfo, SubLeadersInfo } from '@/fake-db/data'
 
 // import Arrow from '@assets/svg/front-pages/landing-page/Arrow'
 import ElementTwo from '@/assets/svg/front-pages/landing-page/ElementTwo'
@@ -64,7 +63,14 @@ const Card = styled(MuiCard)`
   }
 `
 
-const Leaders = ({ locale }: { locale: string }) => {
+interface LeadersProps {
+  locale: string
+  LeadersInfo?: any[]
+  SubLeadersInfo?: any[]
+  predecessors?: any[]
+}
+
+const Leaders = ({ locale, LeadersInfo = [], SubLeadersInfo = [], predecessors = [] }: LeadersProps) => {
   // States
   const t = useTranslations('structure')
 

@@ -23,8 +23,6 @@ import ElementTwo from '@/assets/svg/front-pages/landing-page/ElementTwo'
 import type { ThemeColor } from '@/@core/types'
 import MediaIcon from '@/assets/svg/front-pages/landing-page/MediaIcon'
 
-// Data
-import { mediaTeam } from '@/fake-db/data'
 import { getFont } from '@/utils/getFont'
 
 const Card = styled(MuiCard)`
@@ -44,7 +42,12 @@ const Card = styled(MuiCard)`
   }
 `
 
-const Media = ({ locale }: { locale: string }) => {
+interface MediaProps {
+  locale: string
+  mediaTeam?: any[]
+}
+
+const Media = ({ locale, mediaTeam = [] }: MediaProps) => {
   // Refs
   const skipIntersection = useRef(true)
   const ref = useRef<null | HTMLDivElement>(null)

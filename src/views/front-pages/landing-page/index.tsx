@@ -42,6 +42,7 @@ interface props {
   logoURL: string
   images: GalleryImage[]
   showSnowfall?: boolean
+  teamData?: any
 }
 
 const Snowfall = dynamic(() => import('./Snowfall'), { 
@@ -49,7 +50,7 @@ const Snowfall = dynamic(() => import('./Snowfall'), {
   loading: () => null
 })
 
-const LandingPageWrapper = ({ mode, locale, logoURL, images, showSnowfall }: props) => {
+const LandingPageWrapper = ({ mode, locale, logoURL, images, showSnowfall, teamData }: props) => {
   // Hooks
   const { updatePageSettings } = useSettings()
 
@@ -70,18 +71,18 @@ const LandingPageWrapper = ({ mode, locale, logoURL, images, showSnowfall }: pro
       <TimelineCenter locale={locale} />
       <Divider />
       <ProductStat locale={locale} />
-      <Leaders locale={locale} />
-      <Managers locale={locale} />
-      <Media locale={locale} />
-      <Players locale={locale} />
+      <Leaders locale={locale} {...teamData} />
+      <Managers locale={locale} {...teamData} />
+      <Media locale={locale} {...teamData} />
+      <Players locale={locale} {...teamData} />
       <Divider />
-      <Pitchers locale={locale} />
+      <Pitchers locale={locale} {...teamData} />
       <Divider />
-      <Catchers locale={locale} />
+      <Catchers locale={locale} {...teamData} />
       <Divider />
-      <Infielders locale={locale} />
+      <Infielders locale={locale} {...teamData} />
       <Divider />
-      <Outfielders locale={locale} />
+      <Outfielders locale={locale} {...teamData} />
       <Activities locale={locale} />
       {/* <Divider /> */}
       <Gallery images={images} locale={locale} logoURL={logoURL} />

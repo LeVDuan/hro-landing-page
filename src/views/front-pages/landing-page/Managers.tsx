@@ -23,8 +23,6 @@ import ElementTwo from '@/assets/svg/front-pages/landing-page/ElementTwo'
 import type { ThemeColor } from '@/@core/types'
 import ManaIcon from '@/assets/svg/front-pages/landing-page/ManagerIcon'
 
-// Data
-import { managers, newManagers } from '@/fake-db/data'
 import { getFont } from '@/utils/getFont'
 
 const Card = styled(MuiCard)`
@@ -44,7 +42,13 @@ const Card = styled(MuiCard)`
   }
 `
 
-const Managers = ({ locale }: { locale: string }) => {
+interface ManagersProps {
+  locale: string
+  managers?: any[]
+  newManagers?: any[]
+}
+
+const Managers = ({ locale, managers = [], newManagers = [] }: ManagersProps) => {
   // Refs
   const skipIntersection = useRef(true)
   const ref = useRef<null | HTMLDivElement>(null)

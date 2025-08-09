@@ -19,7 +19,6 @@ import frontCommonStyles from '@views/front-pages/styles.module.css'
 // import ElementTwo from '@/assets/svg/front-pages/landing-page/ElementTwo'
 import type { ThemeColor } from '@/@core/types'
 import CatcherIcon from '@/assets/svg/front-pages/landing-page/CatcherIcon'
-import { catchers } from '@/fake-db/data'
 import { getFont } from '@/utils/getFont'
 
 // Data
@@ -42,7 +41,12 @@ const Card = styled(MuiCard)`
   }
 `
 
-const Catchers = ({ locale }: { locale: string }) => {
+interface CatchersProps {
+  locale: string
+  catchers?: any[]
+}
+
+const Catchers = ({ locale, catchers = [] }: CatchersProps) => {
   const t = useTranslations('structure')
 
   return (
