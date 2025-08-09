@@ -1,5 +1,5 @@
 export interface GalleryImage {
-  id: number
+  id: string | number
   public_id: string
   width: number
   height: number

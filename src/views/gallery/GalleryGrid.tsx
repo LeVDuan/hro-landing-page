@@ -24,7 +24,7 @@ const GalleryGrid = ({ images, locale, logoURL }: Props) => {
           </div>
           {images.map(image => (
             <div key={image.id} className='aspect-[3/2] w-full overflow-hidden rounded-lg'>
-              <GalleryImageComponent image={image} onClick={() => setSelectedIndex(image.id)} logoURL={logoURL} />
+              <GalleryImageComponent image={image} onClick={() => setSelectedIndex(image.id)} logoURL={logoURL} priority={false} />
             </div>
           ))}
         </div>

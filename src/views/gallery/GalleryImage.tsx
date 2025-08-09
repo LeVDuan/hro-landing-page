@@ -7,21 +7,23 @@ interface Props {
   image: GalleryImage
   logoURL: string
   onClick: () => void
+  priority?: boolean
 }
 
-const GalleryForImage = ({ image, logoURL, onClick }: Props) => {
-  const url = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_800/${image.public_id}.${image.format}`
+const GalleryForImage = ({ image, logoURL, onClick, priority = false }: Props) => {
+  const url = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_fill,w_800,h_533,f_auto,q_auto/${image.public_id}.${image.format}`
 
   return (
-    <div onClick={onClick} className='relative w-full rounded-lg h-full cursor-pointer group'>
+    <div onClick={onClick} className='relative w-full rounded-lg h-full cursor-pointer group bg-gray-100'>
       <Image
         src={url}
         alt=''
         placeholder='blur'
         blurDataURL={image.blurDataUrl}
         fill
-        priority
-        className='object-cover transition-transform duration-300 group-hover:scale-110'
+        priority={priority}
+        loading={priority ? 'eager' : 'lazy'}
+        className='object-cover transition-transform duration-300 group-hover:scale-110 rounded-lg'
         sizes='(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw'
       />
 

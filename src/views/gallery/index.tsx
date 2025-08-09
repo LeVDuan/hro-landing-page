@@ -3,7 +3,7 @@
 // React Imports
 import { useEffect } from 'react'
 
-import GalleryGrid from './GalleryGrid'
+import InfiniteGallery from './InfiniteGallery'
 import type { GalleryImage } from '@/types/imageTypes'
 
 // import './styles.module.css'
@@ -31,7 +31,7 @@ const GalleryWrapper = ({ images, locale, logoURL }: GalleryWrapperProps) => {
 
   return (
     <div className='container mx-auto px-4 py-8'>
-      <GalleryGrid images={images} locale={locale} logoURL={logoURL} />
+      <InfiniteGallery initialImages={images} locale={locale} logoURL={logoURL} />
     </div>
   )
 }
