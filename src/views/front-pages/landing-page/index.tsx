@@ -2,6 +2,7 @@
 
 // React Imports
 import { useEffect } from 'react'
+import dynamic from 'next/dynamic'
 
 // Type Imports
 import { Divider } from '@mui/material'
@@ -39,9 +40,15 @@ interface props {
   locale: string
   logoURL: string
   images: GalleryImage[]
+  showSnowfall?: boolean
 }
 
-const LandingPageWrapper = ({ mode, locale, logoURL, images }: props) => {
+const Snowfall = dynamic(() => import('./Snowfall'), { 
+  ssr: false,
+  loading: () => null
+})
+
+const LandingPageWrapper = ({ mode, locale, logoURL, images, showSnowfall }: props) => {
   // Hooks
   const { updatePageSettings } = useSettings()
 
@@ -55,6 +62,7 @@ const LandingPageWrapper = ({ mode, locale, logoURL, images }: props) => {
 
   return (
     <>
+      {showSnowfall && <Snowfall />}
       {/* <Recruitment /> */}
       <HeroSection mode={mode} locale={locale} logoURL={logoURL} />
       <AboutUs locale={locale} />

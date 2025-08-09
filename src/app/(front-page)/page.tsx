@@ -1,9 +1,5 @@
 // Component Imports
-import dynamic from 'next/dynamic'
-
 import LandingPageWrapper from '@views/front-pages/landing-page'
-
-const Snowfall = dynamic(() => import('@views/front-pages/landing-page/Snowfall'), { ssr: false })
 
 // Server Action Imports
 import { getServerMode, getUserLocaleFromCookies, getEventImageUrl } from '@core/utils/serverHelpers'
@@ -64,8 +60,7 @@ const LandingPage = async () => {
 
   return (
     <>
-      {logoURL === '/logos/LogoXmas.png' ? <Snowfall /> : null}
-      <LandingPageWrapper mode={mode} images={images} locale={locale} logoURL={logoURL} />
+      <LandingPageWrapper mode={mode} images={images} locale={locale} logoURL={logoURL} showSnowfall={logoURL === '/logos/LogoXmas.png'} />
     </>
   )
 }

@@ -1,7 +1,3 @@
-import dynamic from 'next/dynamic'
-
-const Snowfall = dynamic(() => import('@views/front-pages/landing-page/Snowfall'), { ssr: false })
-
 import cloudinary from '@/utils/cloudinary'
 import Gallery from '@views/gallery/index'
 import type { GalleryImage } from '@/types/imageTypes'
@@ -48,9 +44,6 @@ export default async function GalleryPage() {
   const logoURL = getEventImageUrl()
 
   return (
-    <>
-      {logoURL === '/logos/LogoXmas.png' ? <Snowfall /> : null}
-      <Gallery images={images} locale={locale} logoURL={logoURL} />
-    </>
+    <Gallery images={images} locale={locale} logoURL={logoURL} showSnowfall={logoURL === '/logos/LogoXmas.png'} />
   )
 }
