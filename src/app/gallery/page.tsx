@@ -5,41 +5,28 @@ const Snowfall = dynamic(() => import('@views/front-pages/landing-page/Snowfall'
 import cloudinary from '@/utils/cloudinary'
 import Gallery from '@views/gallery/index'
 import type { GalleryImage } from '@/types/imageTypes'
-import getBase64ImageUrl from '@/utils/generateBlurPlaceholder'
 import { getEventImageUrl, getUserLocaleFromCookies } from '@core/utils/serverHelpers'
 
-const getImages = async (): Promise<GalleryImage[]> => {
+const getImages = async (limit = 20): Promise<GalleryImage[]> => {
   try {
     const results = await cloudinary.search
       .expression(`folder:${process.env.CLOUDINARY_FOLDER}/*`)
       .sort_by('created_at', 'desc')
       .with_field('context')
-      .max_results(200)
+      .max_results(limit)
       .execute()
 
     const reducedResults: GalleryImage[] = []
 
-    let i: number = 0
-
     for (const result of results.resources) {
       reducedResults.push({
-        id: i,
+        id: result.public_id, // Use public_id as unique identifier
         height: result.height,
         width: result.width,
         public_id: result.public_id,
-        format: result.format
+        format: result.format,
+        blurDataUrl: generateSimpleBlurDataUrl()
       })
-      i++
-    }
-
-    const blurImagePromises = results.resources.map((image: GalleryImage) => {
-      return getBase64ImageUrl(image)
-    })
-
-    const imagesWithBlurDataUrls = await Promise.all(blurImagePromises)
-
-    for (let i = 0; i < reducedResults.length; i++) {
-      reducedResults[i].blurDataUrl = imagesWithBlurDataUrls[i]
     }
 
     return reducedResults
@@ -48,6 +35,11 @@ const getImages = async (): Promise<GalleryImage[]> => {
 
     return []
   }
+}
+
+const generateSimpleBlurDataUrl = (): string => {
+  // Light neutral blur that works well with photos
+  return 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAEAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyLDSBIhTyv/9k='
 }
 
 export default async function GalleryPage() {
