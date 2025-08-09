@@ -4,7 +4,7 @@ import 'server-only'
 import { cookies, headers } from 'next/headers'
 
 // Type Imports
-import * as LunarJS from 'lunar-javascript'
+const { Lunar } = require('lunar-javascript')
 
 import type { Settings } from '@core/contexts/settingsContext'
 import type { DemoName, SystemMode } from '@core/types'
@@ -134,7 +134,7 @@ const getTetLunarDate = (year: number): Date | null => {
 
         if (testDate.getFullYear() !== year) continue
 
-        const lunarDate = LunarJS.Lunar.fromDate(testDate)
+        const lunarDate = Lunar.fromDate(testDate)
 
         if (lunarDate.getMonth() === 1 && lunarDate.getDay() === 1) {
           return testDate
