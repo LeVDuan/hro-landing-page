@@ -57,19 +57,21 @@ const Modal = ({ images, currentImage, onClose, onNavigate, currentIndex }: Moda
     }
   }, [handleKeyDown])
 
-  const url = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_2048/${currentImage.public_id}.${currentImage.format}`
+  const url = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_limit,w_1920,f_auto,q_auto:good/${currentImage.public_id}.${currentImage.format}`
 
   return (
-    <div className='fixed inset-0 flex items-center justify-center'>
+    <div className='fixed inset-0 flex items-center justify-center z-[9999]'>
       {/* Background */}
-      <button className='absolute inset-0 z-30 cursor-default bg-black/90 backdrop-blur-xl' onClick={onClose}>
-        <Image
-          src={currentImage.blurDataUrl!}
-          className='pointer-events-none h-full w-full opacity-50'
-          alt='blurred background'
-          fill
-          priority={true}
-        />
+      <button className='absolute inset-0 z-30 cursor-default bg-black/40 backdrop-blur-xl' onClick={onClose}>
+        {currentImage.blurDataUrl && (
+          <Image
+            src={currentImage.blurDataUrl}
+            className='pointer-events-none h-full w-full opacity-70'
+            alt='blurred background'
+            fill
+            priority={true}
+          />
+        )}
       </button>
 
       {/* Content */}
@@ -77,7 +79,7 @@ const Modal = ({ images, currentImage, onClose, onNavigate, currentIndex }: Moda
         {/* Close button */}
         <button
           onClick={onClose}
-          className='absolute top-4 right-4 z-50 p-2 bg-black/50 hover:bg-black/70 rounded-full transition-colors'
+          className='absolute top-4 right-4 z-50 w-12 h-12 flex items-center justify-center bg-black/60 hover:bg-black/80 rounded-full transition-all duration-200 shadow-lg backdrop-blur-sm cursor-pointer'
         >
           <svg className='w-6 h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
             <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M6 18L18 6M6 6l12 12' />
@@ -94,10 +96,10 @@ const Modal = ({ images, currentImage, onClose, onNavigate, currentIndex }: Moda
                   e.stopPropagation()
                   onNavigate(currentIndex - 1)
                 }}
-                className='absolute left-2 md:left-4 z-50 p-2 md:p-3 bg-black/50 hover:bg-black/70 rounded-full transition-colors'
+                className='absolute left-2 md:left-4 z-50 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-black/60 hover:bg-black/80 rounded-full transition-all duration-200 shadow-lg backdrop-blur-sm cursor-pointer'
                 aria-label='Previous image'
               >
-                <svg className='w-6 h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                <svg className='w-6 h-6 md:w-7 md:h-7 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                   <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 19l-7-7 7-7' />
                 </svg>
               </button>
@@ -111,8 +113,52 @@ const Modal = ({ images, currentImage, onClose, onNavigate, currentIndex }: Moda
                 className='object-contain rounded-lg max-h-full'
                 fill
                 priority
+                placeholder='blur'
+                blurDataURL={currentImage.blurDataUrl}
                 sizes='(max-width: 768px) 100vw, 90vw'
               />
+            </div>
+            
+            {/* Cache adjacent images for better performance */}
+            <div className='hidden'>
+              {/* Cache previous 2 images */}
+              {currentIndex > 0 && (
+                <Image
+                  src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_limit,w_1920,f_auto,q_auto:good/${images[currentIndex - 1].public_id}.${images[currentIndex - 1].format}`}
+                  alt='cache prev'
+                  width={1}
+                  height={1}
+                  priority={false}
+                />
+              )}
+              {currentIndex > 1 && (
+                <Image
+                  src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_limit,w_1920,f_auto,q_auto:good/${images[currentIndex - 2].public_id}.${images[currentIndex - 2].format}`}
+                  alt='cache prev2'
+                  width={1}
+                  height={1}
+                  priority={false}
+                />
+              )}
+              {/* Cache next 2 images */}
+              {currentIndex < images.length - 1 && (
+                <Image
+                  src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_limit,w_1920,f_auto,q_auto:good/${images[currentIndex + 1].public_id}.${images[currentIndex + 1].format}`}
+                  alt='cache next'
+                  width={1}
+                  height={1}
+                  priority={false}
+                />
+              )}
+              {currentIndex < images.length - 2 && (
+                <Image
+                  src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_limit,w_1920,f_auto,q_auto:good/${images[currentIndex + 2].public_id}.${images[currentIndex + 2].format}`}
+                  alt='cache next2'
+                  width={1}
+                  height={1}
+                  priority={false}
+                />
+              )}
             </div>
 
             {currentIndex < images.length - 1 && (
@@ -121,10 +167,10 @@ const Modal = ({ images, currentImage, onClose, onNavigate, currentIndex }: Moda
                   e.stopPropagation()
                   onNavigate(currentIndex + 1)
                 }}
-                className='absolute right-2 md:right-4 z-50 p-2 md:p-3 bg-black/50 hover:bg-black/70 rounded-full transition-colors'
+                className='absolute right-2 md:right-4 z-50 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-black/60 hover:bg-black/80 rounded-full transition-all duration-200 shadow-lg backdrop-blur-sm cursor-pointer'
                 aria-label='Next image'
               >
-                <svg className='w-6 h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                <svg className='w-6 h-6 md:w-7 md:h-7 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                   <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
                 </svg>
               </button>
@@ -140,7 +186,7 @@ const Modal = ({ images, currentImage, onClose, onNavigate, currentIndex }: Moda
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {images.map((image, index) => {
-              const previewUrl = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_180/${image.public_id}.${image.format}`
+              const previewUrl = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_fill,w_120,h_80,f_auto,q_auto/${image.public_id}.${image.format}`
               const isSelected = index === currentIndex
 
               return (

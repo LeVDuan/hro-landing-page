@@ -5,6 +5,7 @@ const withNextIntl = createNextIntlPlugin('./src/configs/i18n.ts')
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   basePath: process.env.BASEPATH,
+  reactStrictMode: false,
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [

@@ -4,14 +4,14 @@ import 'server-only'
 import { cookies, headers } from 'next/headers'
 
 // Type Imports
-import Lunar from 'lunar-javascript'
-
 import type { Settings } from '@core/contexts/settingsContext'
 import type { DemoName, SystemMode } from '@core/types'
 
 // Config Imports
 import themeConfig from '@configs/themeConfig'
 import demoConfigs from '@configs/demoConfigs'
+
+const { Lunar } = require('lunar-javascript')
 
 export const getDemoName = (): DemoName => {
   const headersList = headers()
@@ -126,10 +126,23 @@ export const getEventImageUrl = (): string => {
 
 const getTetLunarDate = (year: number): Date | null => {
   try {
-    const lunarDate = Lunar.fromDate(new Date(year, 0, 1))
-    const tetDate = lunarDate.getTetDate()
+    // Find 1st day of 1st lunar month (Tet) for the given year
+    // Start from beginning of year and find when lunar date is 1/1
+    for (let month = 0; month < 3; month++) {
+      for (let day = 1; day <= 31; day++) {
+        const testDate = new Date(year, month, day)
 
-    return new Date(tetDate.getFullYear(), tetDate.getMonth() - 1, tetDate.getDate())
+        if (testDate.getFullYear() !== year) continue
+
+        const lunarDate = Lunar.fromDate(testDate)
+
+        if (lunarDate.getMonth() === 1 && lunarDate.getDay() === 1) {
+          return testDate
+        }
+      }
+    }
+
+    return null
   } catch (error) {
     console.error('Lunar new year error:', error)
 
