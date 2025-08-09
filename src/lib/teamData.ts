@@ -1,34 +1,33 @@
-import { GoogleSheetsPublicService } from '@/services/googleSheetsPublic'
-import { transformToMembersWithRoles } from '@/services/googleSheets'
-import { adaptToLegacyFormat } from '@/services/dataAdapter'
+import { GoogleSheetsSingleTableService, transformSingleTableToLegacy } from '@/services/googleSheetsSimple'
 import * as fallbackData from '@/fake-db/data'
 
 let cache: any = null
-let cacheTimestamp = 0
-const CACHE_DURATION = 60 * 60 * 1000 // 1 hour for server-side cache
+let isInitialized = false
 
 export async function getTeamData() {
-  const now = Date.now()
-  
-  if (cache && now - cacheTimestamp < CACHE_DURATION) {
+  // Only fetch once per server runtime - fresh on each deploy/restart
+  if (isInitialized && cache) {
     return cache
   }
 
   try {
-    const service = new GoogleSheetsPublicService()
-    const teamData = await service.fetchTeamData()
+    const service = new GoogleSheetsSingleTableService()
+    const rawMembers = await service.fetchMembers()
     
-    if (!teamData.members.length) {
+    if (!rawMembers.length) {
       console.log('No data from Google Sheets, using fallback')
       
-return fallbackData
+      return fallbackData
     }
     
-    const membersWithRoles = transformToMembersWithRoles(teamData)
-    const legacyData = adaptToLegacyFormat(membersWithRoles)
+    const processedMembers = service.processMemberData(rawMembers)
+    const legacyData = transformSingleTableToLegacy(processedMembers)
+    
+    // Add founders from fallback data (they're not in the members table)
+    legacyData.founders = fallbackData.founders
     
     cache = legacyData
-    cacheTimestamp = now
+    isInitialized = true
     
     return legacyData
   } catch (error) {

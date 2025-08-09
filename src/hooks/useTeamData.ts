@@ -1,13 +1,10 @@
 import { useState, useEffect } from 'react'
 
-import { GoogleSheetsPublicService } from '@/services/googleSheetsPublic'
-import { transformToMembersWithRoles } from '@/services/googleSheets'
-import { adaptToLegacyFormat } from '@/services/dataAdapter'
+import { GoogleSheetsSingleTableService, transformSingleTableToLegacy } from '@/services/googleSheetsSimple'
 import type { MemberWithRoles } from '@/types/member'
 
-let cachedData: ReturnType<typeof adaptToLegacyFormat> | null = null
-let cacheTimestamp: number = 0
-const CACHE_DURATION = 5 * 60 * 1000 // 5 minutes
+let cachedData: ReturnType<typeof transformSingleTableToLegacy> | null = null
+let isInitialized = false
 
 export function useTeamData() {
   const [data, setData] = useState(cachedData)
@@ -16,24 +13,23 @@ export function useTeamData() {
 
   useEffect(() => {
     async function fetchData() {
-      const now = Date.now()
-      
-      if (cachedData && now - cacheTimestamp < CACHE_DURATION) {
+      // Only fetch once per client session - fresh on page reload
+      if (isInitialized && cachedData) {
         setData(cachedData)
         setLoading(false)
         
-return
+        return
       }
 
       try {
         setLoading(true)
-        const service = new GoogleSheetsPublicService()
-        const teamData = await service.fetchTeamData()
-        const membersWithRoles = transformToMembersWithRoles(teamData)
-        const legacyData = adaptToLegacyFormat(membersWithRoles)
+        const service = new GoogleSheetsSingleTableService()
+        const rawMembers = await service.fetchMembers()
+        const processedMembers = service.processMemberData(rawMembers)
+        const legacyData = transformSingleTableToLegacy(processedMembers)
         
         cachedData = legacyData
-        cacheTimestamp = now
+        isInitialized = true
         setData(legacyData)
         setError(null)
       } catch (err) {
@@ -68,11 +64,11 @@ export function useTeamMembers(): {
     async function fetchData() {
       try {
         setLoading(true)
-        const service = new GoogleSheetsPublicService()
-        const teamData = await service.fetchTeamData()
-        const membersWithRoles = transformToMembersWithRoles(teamData)
+        const service = new GoogleSheetsSingleTableService()
+        const rawMembers = await service.fetchMembers()
+        const processedMembers = service.processMemberData(rawMembers)
         
-        setMembers(membersWithRoles)
+        setMembers(processedMembers)
         setError(null)
       } catch (err) {
         console.error('Error fetching team members:', err)
