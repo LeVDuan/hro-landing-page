@@ -22,9 +22,9 @@ const GalleryGrid = ({ images, locale, logoURL }: Props) => {
           <div className='sm:row-span-2 sm:col-span-1'>
             <GalleryIntro locale={locale} logoURL={logoURL} />
           </div>
-          {images.map(image => (
+          {images.map((image, index) => (
             <div key={image.id} className='aspect-[3/2] w-full overflow-hidden rounded-lg'>
-              <GalleryImageComponent image={image} onClick={() => setSelectedIndex(image.id)} logoURL={logoURL} priority={false} />
+              <GalleryImageComponent image={image} onClick={() => setSelectedIndex(index)} logoURL={logoURL} priority={false} />
             </div>
           ))}
         </div>
