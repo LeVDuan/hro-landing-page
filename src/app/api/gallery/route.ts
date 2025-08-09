@@ -1,4 +1,5 @@
-import { NextRequest } from 'next/server'
+import type { NextRequest } from 'next/server'
+
 import cloudinary from '@/utils/cloudinary'
 import type { GalleryImage } from '@/types/imageTypes'
 
@@ -10,7 +11,6 @@ const generateSimpleBlurDataUrl = (): string => {
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
-    const page = parseInt(searchParams.get('page') || '1')
     const limit = parseInt(searchParams.get('limit') || '20')
     const cursor = searchParams.get('cursor')
     
@@ -51,6 +51,7 @@ export async function GET(request: NextRequest) {
     })
   } catch (error) {
     console.error('Error fetching images:', error)
+
     return Response.json({ images: [], nextCursor: null, hasMore: false })
   }
 }

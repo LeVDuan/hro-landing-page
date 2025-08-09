@@ -5,10 +5,9 @@ const Snowfall = dynamic(() => import('@views/front-pages/landing-page/Snowfall'
 import cloudinary from '@/utils/cloudinary'
 import Gallery from '@views/gallery/index'
 import type { GalleryImage } from '@/types/imageTypes'
-import getBase64ImageUrl from '@/utils/generateBlurPlaceholder'
 import { getEventImageUrl, getUserLocaleFromCookies } from '@core/utils/serverHelpers'
 
-const getImages = async (page = 1, limit = 20): Promise<GalleryImage[]> => {
+const getImages = async (limit = 20): Promise<GalleryImage[]> => {
   try {
     const results = await cloudinary.search
       .expression(`folder:${process.env.CLOUDINARY_FOLDER}/*`)

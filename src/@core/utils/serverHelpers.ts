@@ -4,10 +4,10 @@ import 'server-only'
 import { cookies, headers } from 'next/headers'
 
 // Type Imports
-const { Lunar } = require('lunar-javascript')
-
 import type { Settings } from '@core/contexts/settingsContext'
 import type { DemoName, SystemMode } from '@core/types'
+
+const { Lunar } = require('lunar-javascript')
 
 // Config Imports
 import themeConfig from '@configs/themeConfig'

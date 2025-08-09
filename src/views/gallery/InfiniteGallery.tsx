@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+
 import type { GalleryImage } from '@/types/imageTypes'
 import GalleryImageComponent from './GalleryImage'
 import Modal from './GalleryModal'
@@ -59,12 +60,14 @@ const InfiniteGallery = ({ initialImages, locale, logoURL }: Props) => {
 
   const handleImageClick = useCallback((index: number) => {
     setSelectedIndex(index)
+
     // Hide body scroll and FAB when modal opens
     document.body.style.overflow = 'hidden'
   }, [])
 
   const handleModalClose = useCallback(() => {
     setSelectedIndex(null)
+
     // Restore body scroll when modal closes
     document.body.style.overflow = 'unset'
   }, [])
@@ -74,6 +77,7 @@ const InfiniteGallery = ({ initialImages, locale, logoURL }: Props) => {
     if (newIndex >= images.length - 5 && hasMore && !loading) {
       await loadMoreImages()
     }
+
     setSelectedIndex(newIndex)
   }, [images.length, hasMore, loading, loadMoreImages])
 
