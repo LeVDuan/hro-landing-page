@@ -3,6 +3,8 @@
 // React Imports
 import { useEffect } from 'react'
 
+import dynamic from 'next/dynamic'
+
 import InfiniteGallery from './InfiniteGallery'
 import type { GalleryImage } from '@/types/imageTypes'
 
@@ -15,9 +17,15 @@ interface GalleryWrapperProps {
   images: GalleryImage[]
   locale: string
   logoURL: string
+  showSnowfall?: boolean
 }
 
-const GalleryWrapper = ({ images, locale, logoURL }: GalleryWrapperProps) => {
+const Snowfall = dynamic(() => import('@views/front-pages/landing-page/Snowfall'), { 
+  ssr: false,
+  loading: () => null
+})
+
+const GalleryWrapper = ({ images, locale, logoURL, showSnowfall }: GalleryWrapperProps) => {
   // Hooks
   const { updatePageSettings } = useSettings()
 
@@ -30,9 +38,12 @@ const GalleryWrapper = ({ images, locale, logoURL }: GalleryWrapperProps) => {
   }, [])
 
   return (
-    <div className='container mx-auto px-4 py-8'>
-      <InfiniteGallery initialImages={images} locale={locale} logoURL={logoURL} />
-    </div>
+    <>
+      {showSnowfall && <Snowfall />}
+      <div className='container mx-auto px-4 py-8'>
+        <InfiniteGallery initialImages={images} locale={locale} logoURL={logoURL} />
+      </div>
+    </>
   )
 }
 
