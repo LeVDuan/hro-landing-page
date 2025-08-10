@@ -62,7 +62,6 @@ const Pitchers = ({ locale, pitchers = [] }: PitchersProps) => {
   // Function to get throwing hand from B/T notation
   const getThrowingHandPitcher = (battingThrowing: string) => {
     if (!battingThrowing) {
-
       return ''
     }
 
@@ -189,10 +188,10 @@ const Pitchers = ({ locale, pitchers = [] }: PitchersProps) => {
                           <div className='text-center'>
                             <Typography variant='h5'>{member.name}</Typography>
                             <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                              {getThrowingHandPitcher(member.des)}
+                              {t(member.gen)}
                             </Typography>
                             <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                              {t(member.position)}
+                              {getThrowingHandPitcher(member.des)}
                             </Typography>
                             <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
                               {t('Jersey number')}
