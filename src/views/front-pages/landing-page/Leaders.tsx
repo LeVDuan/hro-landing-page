@@ -3,6 +3,7 @@
 
 // Next Imports
 // import Link from 'next/link'
+import Image from 'next/image'
 
 // MUI Imports
 import Typography from '@mui/material/Typography'
@@ -202,7 +203,15 @@ const Leaders = ({ locale, LeadersInfo = [], SubLeadersInfo = [], predecessors =
 
                     // style={{ backgroundColor: member.color }}
                   >
-                    <img src={member.image} alt={member.name} className='bs-[240px] absolute block-start-[-50px]' />
+                    <Image 
+                      src={member.image} 
+                      alt={member.name} 
+                      width={240}
+                      height={240}
+                      className='bs-[240px] absolute block-start-[-50px]' 
+                      priority={true}
+                      sizes='(max-width: 768px) 120px, 240px'
+                    />
                   </div>
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>
@@ -240,7 +249,15 @@ const Leaders = ({ locale, LeadersInfo = [], SubLeadersInfo = [], predecessors =
                       styles.gradientBg2
                     )}
                   >
-                    <img src={member.image} alt={member.name} className='bs-[240px] absolute block-start-[-50px]' />
+                    <Image 
+                      src={member.image} 
+                      alt={member.name} 
+                      width={240}
+                      height={240}
+                      className='bs-[240px] absolute block-start-[-50px]' 
+                      priority={true}
+                      sizes='(max-width: 768px) 120px, 240px'
+                    />
                   </div>
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>

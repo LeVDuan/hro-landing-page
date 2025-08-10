@@ -85,12 +85,23 @@ return []
     return members
       .filter(m => m.id && m.name) // Filter out empty rows
       .map(member => {
+        // Auto-generate image path from ID
+        // Special handling for founder images (keep original names)
+        let imagePath = `/avatars/${member.id}.webp`
+        
+        // Special cases for founders - keep original filenames
+        if (member.id === '11') {
+          imagePath = '/avatars/co-found-Ha.webp'
+        } else if (member.id === '12') {
+          imagePath = '/avatars/co-found-Chau.webp'
+        }
+        
         const processed: ProcessedMember = {
           id: member.id,
           name: member.name,
           jerseyNumber: member.jersey || '',
           generation: member.generation || '',
-          image: member.image || '/avatars/default.png',
+          image: imagePath,
           color: member.color || 'var(--mui-palette-primary-mainOpacity)',
           roles: {
             leadership: [],

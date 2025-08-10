@@ -1,6 +1,9 @@
 // React Imports
 import { useState } from 'react'
 
+// Next Imports
+import Image from 'next/image'
+
 // MUI Imports
 import Typography from '@mui/material/Typography'
 import MuiCard from '@mui/material/Card'
@@ -153,10 +156,14 @@ const Infielders = ({ locale, infielders = [] }: InfieldersProps) => {
                           className='flex justify-center is-full mli-auto text-center bs-[190px] relative overflow-visible rounded-ss-md rounded-se-md'
                           style={{ backgroundColor: member.color }}
                         >
-                          <img
+                          <Image
                             src={member.image}
                             alt={member.name}
+                            width={240}
+                            height={240}
                             className='bs-[240px] absolute block-start-[-50px]'
+                            loading='lazy'
+                            sizes='(max-width: 768px) 120px, 240px'
                           />
                         </div>
                         <div className='flex flex-col gap-3 p-5 is-full'>

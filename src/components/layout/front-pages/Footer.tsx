@@ -69,7 +69,10 @@ function Footer({ locale, logoURL }: FooterProps) {
                       color='white'
                       mt={1}
                       className='lg:max-is-[390px] opacity-[0.78] hover:text-primary'
-                      sx={{ fontFamily: `${getFont(locale)}` }}
+                      sx={{ 
+                        fontFamily: `${getFont(locale)}`,
+                        fontSize: locale === 'vi' ? '0.9rem' : '1rem'
+                      }}
                     >
                       {t('No 1 Dai Co Viet, Hai Ba Trung District, Hanoi, Vietnam')}
                     </Typography>

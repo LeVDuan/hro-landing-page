@@ -23,7 +23,7 @@ Tạo một Google Sheet với các cột sau (thứ tự không quan trọng):
 | **Name** | Tên đầy đủ | Lê Tiến Dũng | ✅ |
 | **Jersey** | Số áo (chỉ số) | 22 | ✅ |
 | **Generation** | Thế hệ (đơn giản hóa) | Gen 1, Gen 2, Gen 3, Gen 4 | ✅ |
-| **Image** | Đường dẫn ảnh | /avatars/tienDung.png | ✅ |
+| ~~**Image**~~ | **Không cần nữa - Tự động dùng ID.webp** | ~~tienDung.png~~ | ❌ |
 | **Color** | Màu hiển thị | error, warning, success | |
 | **Captain** | Là đội trưởng? | TRUE/FALSE hoặc để trống | |
 | **President** | Là chủ tịch? | TRUE/FALSE hoặc để trống | |
