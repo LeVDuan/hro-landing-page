@@ -47,18 +47,20 @@ export class GoogleSheetsSingleTableService {
   async fetchMembers(): Promise<MemberData[]> {
     try {
       const response = await fetch(this.getSheetUrl(), {
-        // No auto-revalidation - fresh on each deploy/restart only
+        // Cache data - only refresh on deploy/restart
         cache: 'force-cache'
       })
       
       const text = await response.text()
       const rows = text.split('\n').filter(row => row.trim())
       
-      if (rows.length < 2) return []
+      if (rows.length < 2) {
+        return []
+      }
       
       const headers = this.parseCsvRow(rows[0]).map(h => this.toCamelCase(h))
       
-      return rows.slice(1).map(row => {
+      const members = rows.slice(1).map(row => {
         const values = this.parseCsvRow(row)
         const member: any = {}
         
@@ -70,6 +72,8 @@ export class GoogleSheetsSingleTableService {
         
         return member as MemberData
       })
+      
+      return members
     } catch (error) {
       console.error('Error fetching members from Google Sheets:', error)
       
@@ -201,24 +205,30 @@ export function transformSingleTableToLegacy(members: ProcessedMember[]) {
       )
 
       if (mainLeader) {
-        result.LeadersInfo.push({
+        const leader = {
           ...baseMember,
           position: mainLeader
-        })
+        }
+
+        result.LeadersInfo.push(leader)
       } else if (viceLeader) {
-        result.SubLeadersInfo.push({
+        const subLeader = {
           ...baseMember,
           position: viceLeader
-        })
+        }
+
+        result.SubLeadersInfo.push(subLeader)
       }
     }
 
     // Predecessors
     if (member.roles.predecessor) {
-      result.predecessors.push({
+      const predecessor = {
         ...baseMember,
         position: member.roles.predecessor.role
-      })
+      }
+
+      result.predecessors.push(predecessor)
     }
 
     // Managers
@@ -235,11 +245,13 @@ export function transformSingleTableToLegacy(members: ProcessedMember[]) {
 
     // Media Team
     if (member.roles.media) {
-      const mediaBase = { ...baseMember }
+      const mediaBase: any = { ...baseMember }
 
       if (member.roles.mediaHead) {
-        mediaBase.gen = `Head of Media - ${member.generation}`
+        mediaBase.position = 'Head of Media'
       }
+      
+      mediaBase.gen = member.generation
 
       result.mediaTeam.push(mediaBase)
     }

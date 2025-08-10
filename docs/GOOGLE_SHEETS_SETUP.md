@@ -1,4 +1,4 @@
-# Hướng dẫn Setup Google Sheets cho HRO Team Data (Version 2.0)
+# Hướng dẫn Setup Google Sheets cho HRO Team Data (Version 3.0) - Đã chuẩn hóa
 
 ## Tổng quan
 
@@ -22,7 +22,7 @@ Tạo một Google Sheet với các cột sau (thứ tự không quan trọng):
 | **ID** | Mã định danh duy nhất | 1, 2, 3... | ✅ |
 | **Name** | Tên đầy đủ | Lê Tiến Dũng | ✅ |
 | **Jersey** | Số áo (chỉ số) | 22 | ✅ |
-| **Generation** | Thế hệ và trường | Gen 2 - K66 HUST | ✅ |
+| **Generation** | Thế hệ (đơn giản hóa) | Gen 1, Gen 2, Gen 3, Gen 4 | ✅ |
 | **Image** | Đường dẫn ảnh | /avatars/tienDung.png | ✅ |
 | **Color** | Màu hiển thị | error, warning, success | |
 | **Captain** | Là đội trưởng? | TRUE/FALSE hoặc để trống | |
@@ -38,9 +38,9 @@ Tạo một Google Sheet với các cột sau (thứ tự không quan trọng):
 | **Outfielder** | Chơi ngoại dã? | TRUE/FALSE hoặc để trống | |
 | **Position_Detail** | Chi tiết vị trí | B1/B2, SS/OF | |
 | **Batting_Throwing** | B/T | L/L, R/R, L/R | |
-| **Former_Leader** | Là lãnh đạo cũ? | TRUE/FALSE hoặc để trống | |
-| **Former_Role** | Chức vụ cũ | Captain Gen 1, President Gen 2 | |
-| **Active** | Đang hoạt động? | TRUE/FALSE | ✅ |
+| **Former_Leader** | Là cựu lãnh đạo? | TRUE/FALSE hoặc để trống | |
+| **Former_Role** | Chức vụ cũ | Captain, President, Manager/Media, Captain/President | |
+| **Active** | Hiển thị trên website? | TRUE/FALSE | ✅ |
 
 ### Giá trị cho cột Color
 
@@ -60,13 +60,24 @@ Có thể dùng bất kỳ format nào sau:
 - `X` / để trống
 - Hoặc chỉ để trống nếu là FALSE
 
+### Logic cột Active (quan trọng!)
+
+- `Active: TRUE` = **Hiển thị** trên website  
+- `Active: FALSE` = **Ẩn** khỏi website
+
+**Khuyến nghị:**
+- **Thành viên hiện tại:** `TRUE` (hiển thị)
+- **Cựu thành viên:** `TRUE` (để tôn vinh) 
+- **Thành viên tạm nghỉ:** `FALSE` (tạm ẩn)
+- **Thông tin nhạy cảm:** `FALSE` (ẩn vĩnh viễn)
+
 ## Ví dụ thực tế
 
 ### Thành viên có nhiều vai trò
 
 | ID | Name | Jersey | Generation | Captain | Vice_President | Manager | Pitcher | Position_Detail | Active |
 |----|------|--------|------------|---------|----------------|---------|---------|-----------------|--------|
-| 1 | Trần Tiến Đạt | 18 | Gen 2 - K66 HUST | | TRUE | TRUE | TRUE | Pitcher | TRUE |
+| 1 | Trần Tiến Đạt | 18 | Gen 2 | | TRUE | TRUE | TRUE | Pitcher | TRUE |
 
 → Đạt vừa là Vice President, vừa là Manager, vừa là Pitcher
 
@@ -124,10 +135,24 @@ Nếu cần thêm thông tin khác (email, phone...), chỉ cần thêm cột m�
 Bạn có thể dùng các tính năng Filter và Sort của Google Sheets để quản lý dễ dàng hơn.
 
 ### 4. Data Validation
-Khuyến nghị setup Data Validation cho các cột TRUE/FALSE:
+Khuyến nghị setup Data Validation:
+
+#### Các cột TRUE/FALSE:
 1. Chọn cột
-2. Data → Data validation
+2. Data → Data validation  
 3. Criteria: Checkbox hoặc List of items (TRUE,FALSE)
+
+#### Cột Generation:
+1. Chọn cột Generation
+2. Data → Data validation
+3. Criteria: List of items
+4. Items: Gen 1,Gen 2,Gen 3,Gen 4
+
+#### Cột Former_Role:
+1. Chọn cột Former_Role
+2. Data → Data validation
+3. Criteria: List of items
+4. Items: Captain,President,Manager,Media,Captain/President,Manager/Media
 
 ### 5. Conditional Formatting
 Có thể dùng Conditional Formatting để highlight:
@@ -144,16 +169,51 @@ Có thể dùng Conditional Formatting để highlight:
 4. ✅ Kiểm tra cột Active = TRUE
 
 ### Performance
-- Data được cache 1 giờ ở server
-- Rebuild/redeploy để cập nhật ngay lập tức
+- Data không có auto-refresh cache
+- Chỉ cập nhật khi rebuild/redeploy
+- Workflow khuyến nghị: Sửa Sheet → Test local → Deploy production
 
 ### Debug
 Xem console log trong browser để debug nếu có lỗi
 
+## Các giá trị chuẩn của cột Position/Generation
+
+### Cột Generation (bắt buộc):
+- `Gen 1` - Thế hệ đầu tiên
+- `Gen 2` - Thế hệ thứ hai  
+- `Gen 3` - Thế hệ thứ ba
+- `Gen 4` - Thế hệ thứ tư
+
+### Các chức vụ hiện tại:
+- `Captain` - Đội trưởng
+- `President` - Chủ nhiệm
+- `Vice Captain` - Phó đội  
+- `Vice President` - Phó chủ nhiệm
+- `Head of Managers` - Trưởng ban Managers
+- `Head of Media` - Trưởng ban Media
+
+### Các chức vụ cũ (giá trị cho cột Former_Role):
+- `Captain` - Đội trưởng
+- `President` - Chủ nhiệm
+- `Manager` - Manager
+- `Media` - Media
+- `Captain/President` - Đội trưởng/Chủ nhiệm
+- `Manager/Media` - Manager/Media
+
 ## Template mẫu
 
-Bạn có thể copy template mẫu tại:
-[Link to template - sẽ được cung cấp sau]
+### Thành viên hiện tại:
+| ID | Name | Jersey | Generation | Captain | President | Manager | Pitcher | Active |
+|----|------|--------|------------|---------|-----------|---------|---------|--------|
+| 1 | Lê Tiến Dũng | 22 | Gen 3 | TRUE | | | TRUE | TRUE |
+| 2 | Nguyễn Thị Phương Thảo | 89 | Gen 3 | | TRUE | | | TRUE |
+
+### Cựu thành viên (để tôn vinh):
+
+| ID | Name | Jersey | Generation | Former_Leader | Former_Role | Active |
+|----|------|--------|------------|---------------|-------------|--------|
+| 100 | Trần Văn A | 10 | Gen 1 | TRUE | Captain/President | TRUE |
+| 101 | Nguyễn Thị B | 5 | Gen 1 | TRUE | Manager/Media | TRUE |
 
 ---
 

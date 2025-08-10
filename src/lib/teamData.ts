@@ -5,7 +5,6 @@ let cache: any = null
 let isInitialized = false
 
 export async function getTeamData() {
-  // Only fetch once per server runtime - fresh on each deploy/restart
   if (isInitialized && cache) {
     return cache
   }
@@ -15,8 +14,6 @@ export async function getTeamData() {
     const rawMembers = await service.fetchMembers()
     
     if (!rawMembers.length) {
-      console.log('No data from Google Sheets, using fallback')
-      
       return fallbackData
     }
     
@@ -25,6 +22,7 @@ export async function getTeamData() {
     
     // Add founders from fallback data (they're not in the members table)
     legacyData.founders = fallbackData.founders
+    
     
     cache = legacyData
     isInitialized = true
