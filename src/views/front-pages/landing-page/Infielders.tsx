@@ -1,6 +1,9 @@
 // React Imports
 import { useState } from 'react'
 
+// Next Imports
+import Image from 'next/image'
+
 // MUI Imports
 import Typography from '@mui/material/Typography'
 import MuiCard from '@mui/material/Card'
@@ -25,8 +28,6 @@ import frontCommonStyles from '@views/front-pages/styles.module.css'
 import type { ThemeColor } from '@/@core/types'
 import IFICon from '@/assets/svg/front-pages/landing-page/IFIcon'
 
-// Data
-import { infielders } from '@/fake-db/data'
 import { getFont } from '@/utils/getFont'
 
 const Card = styled(MuiCard)`
@@ -46,7 +47,17 @@ const Card = styled(MuiCard)`
   }
 `
 
-const Infielders = ({ locale }: { locale: string }) => {
+interface InfieldersProps {
+  locale: string
+  infielders?: any[]
+  catchers?: any[]
+}
+
+const Infielders = ({ locale, infielders = [], catchers = [] }: InfieldersProps) => {
+  
+  // Combine infielders and catchers
+  const allPlayers = [...infielders, ...catchers]
+
   // States
   const [loaded, setLoaded] = useState<boolean>(false)
   const [currentSlide, setCurrentSlide] = useState<number>(0)
@@ -136,7 +147,7 @@ const Infielders = ({ locale }: { locale: string }) => {
       <AppKeenSlider>
         <>
           <div ref={sliderRef} className='keen-slider mbe-6'>
-            {infielders.map((member, index) => (
+            {allPlayers.map((member, index) => (
               <div key={index} className='keen-slider__slide p-6 sm:p-4'>
                 <Grid style={scaleStyle(index)} item xs={12} md={6} lg={3}>
                   <div className='pt-20'>
@@ -150,10 +161,14 @@ const Infielders = ({ locale }: { locale: string }) => {
                           className='flex justify-center is-full mli-auto text-center bs-[190px] relative overflow-visible rounded-ss-md rounded-se-md'
                           style={{ backgroundColor: member.color }}
                         >
-                          <img
+                          <Image
                             src={member.image}
                             alt={member.name}
+                            width={240}
+                            height={240}
                             className='bs-[240px] absolute block-start-[-50px]'
+                            loading='lazy'
+                            sizes='(max-width: 768px) 120px, 240px'
                           />
                         </div>
                         <div className='flex flex-col gap-3 p-5 is-full'>
@@ -163,7 +178,7 @@ const Infielders = ({ locale }: { locale: string }) => {
                               {member.gen}
                             </Typography>
                             <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                              {t('Jersey numbers')}
+                              {t('Jersey number')}
                               {member.num}
                             </Typography>
                             <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
