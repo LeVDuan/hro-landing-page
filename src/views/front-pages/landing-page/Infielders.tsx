@@ -54,8 +54,10 @@ interface InfieldersProps {
 }
 
 const Infielders = ({ locale, infielders = [], catchers = [] }: InfieldersProps) => {
+  
   // Combine infielders and catchers
   const allPlayers = [...infielders, ...catchers]
+
   // States
   const [loaded, setLoaded] = useState<boolean>(false)
   const [currentSlide, setCurrentSlide] = useState<number>(0)

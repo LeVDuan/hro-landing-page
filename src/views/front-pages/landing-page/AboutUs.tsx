@@ -2,7 +2,6 @@
 import { useEffect, useRef } from 'react'
 
 // Next Imports
-import Image from 'next/image'
 
 // MUI Imports
 import Typography from '@mui/material/Typography'

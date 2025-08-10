@@ -61,13 +61,20 @@ const Pitchers = ({ locale, pitchers = [] }: PitchersProps) => {
 
   // Function to get throwing hand from B/T notation
   const getThrowingHandPitcher = (battingThrowing: string) => {
-    if (!battingThrowing) return ''
+    if (!battingThrowing) {
+
+      return ''
+    }
+
     // B/T format: "B/T: L/L" or "L/L"
     const parts = battingThrowing.replace('B/T:', '').trim().split('/')
+
     if (parts.length >= 2) {
       const throwingHand = parts[1].trim().toUpperCase()
+
       return throwingHand === 'L' ? t('Left hand Pitcher') : t('Right hand Pitcher')
     }
+
     return ''
   }
 
