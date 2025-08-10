@@ -217,7 +217,7 @@ const Leaders = ({ locale, LeadersInfo = [], SubLeadersInfo = [], predecessors =
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
                       <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                        {t('Jersey numbers')}
+                        {t('Jersey number')}
                         {member.num}
                       </Typography>
                       <Typography color='text.secondary'>{member.gen}</Typography>
@@ -263,7 +263,7 @@ const Leaders = ({ locale, LeadersInfo = [], SubLeadersInfo = [], predecessors =
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
                       <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                        {t('Jersey numbers')}
+                        {t('Jersey number')}
                         {member.num}
                       </Typography>
                       <Typography color='text.secondary'>{member.gen}</Typography>
@@ -359,7 +359,7 @@ const Leaders = ({ locale, LeadersInfo = [], SubLeadersInfo = [], predecessors =
                               <div className='text-center'>
                                 <Typography variant='h5'>{member.name}</Typography>
                                 <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                                  {t('Jersey numbers')}
+                                  {t('Jersey number')}
                                   {member.num}
                                 </Typography>
                                 <Typography color='text.secondary'>{member.gen}</Typography>

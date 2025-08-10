@@ -173,7 +173,7 @@ const Outfielders = ({ locale, outfielders = [] }: OutfieldersProps) => {
                               {member.gen}
                             </Typography>
                             <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                              {t('Jersey numbers')}
+                              {t('Jersey number')}
                               {member.num}
                             </Typography>
                             <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>

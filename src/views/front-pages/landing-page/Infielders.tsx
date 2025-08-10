@@ -50,9 +50,12 @@ const Card = styled(MuiCard)`
 interface InfieldersProps {
   locale: string
   infielders?: any[]
+  catchers?: any[]
 }
 
-const Infielders = ({ locale, infielders = [] }: InfieldersProps) => {
+const Infielders = ({ locale, infielders = [], catchers = [] }: InfieldersProps) => {
+  // Combine infielders and catchers
+  const allPlayers = [...infielders, ...catchers]
   // States
   const [loaded, setLoaded] = useState<boolean>(false)
   const [currentSlide, setCurrentSlide] = useState<number>(0)
@@ -142,7 +145,7 @@ const Infielders = ({ locale, infielders = [] }: InfieldersProps) => {
       <AppKeenSlider>
         <>
           <div ref={sliderRef} className='keen-slider mbe-6'>
-            {infielders.map((member, index) => (
+            {allPlayers.map((member, index) => (
               <div key={index} className='keen-slider__slide p-6 sm:p-4'>
                 <Grid style={scaleStyle(index)} item xs={12} md={6} lg={3}>
                   <div className='pt-20'>
@@ -173,7 +176,7 @@ const Infielders = ({ locale, infielders = [] }: InfieldersProps) => {
                               {member.gen}
                             </Typography>
                             <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                              {t('Jersey numbers')}
+                              {t('Jersey number')}
                               {member.num}
                             </Typography>
                             <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>

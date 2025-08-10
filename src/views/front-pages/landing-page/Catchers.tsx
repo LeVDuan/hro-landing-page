@@ -92,7 +92,7 @@ const Catchers = ({ locale, catchers = [] }: CatchersProps) => {
                         {member.position}
                       </Typography>
                       <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                        {t('Jersey numbers')}
+                        {t('Jersey number')}
                         {member.num}
                       </Typography>
                       <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>

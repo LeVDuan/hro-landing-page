@@ -155,11 +155,11 @@ const Media = ({ locale, mediaTeam = [] }: MediaProps) => {
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
                       <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                        {t('Jersey numbers')}
-                        {member.num}
+                        {t(member.gen)}
                       </Typography>
                       <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                        {t(member.gen)}
+                        {t('Jersey number')}
+                        {member.num}
                       </Typography>
                     </div>
                   </div>

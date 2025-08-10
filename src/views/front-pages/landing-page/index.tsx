@@ -25,7 +25,6 @@ import AboutUs from './AboutUs'
 import Managers from './Managers'
 import Media from './Media'
 import Players from './Players'
-import Catchers from './Catchers'
 import Outfielders from './Outfielders'
 import Infielders from './Infielders'
 import Pitchers from './Pitchers'
@@ -77,8 +76,6 @@ const LandingPageWrapper = ({ mode, locale, logoURL, images, showSnowfall, teamD
       <Players locale={locale} {...teamData} />
       <Divider />
       <Pitchers locale={locale} {...teamData} />
-      <Divider />
-      <Catchers locale={locale} {...teamData} />
       <Divider />
       <Infielders locale={locale} {...teamData} />
       <Divider />

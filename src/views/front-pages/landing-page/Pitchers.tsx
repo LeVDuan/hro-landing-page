@@ -59,6 +59,18 @@ const Pitchers = ({ locale, pitchers = [] }: PitchersProps) => {
   const [details, setDetails] = useState<TrackDetails>()
   const t = useTranslations('structure')
 
+  // Function to get throwing hand from B/T notation
+  const getThrowingHandPitcher = (battingThrowing: string) => {
+    if (!battingThrowing) return ''
+    // B/T format: "B/T: L/L" or "L/L"
+    const parts = battingThrowing.replace('B/T:', '').trim().split('/')
+    if (parts.length >= 2) {
+      const throwingHand = parts[1].trim().toUpperCase()
+      return throwingHand === 'L' ? t('Left hand Pitcher') : t('Right hand Pitcher')
+    }
+    return ''
+  }
+
   // Hooks
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>(
     {
@@ -170,14 +182,14 @@ const Pitchers = ({ locale, pitchers = [] }: PitchersProps) => {
                           <div className='text-center'>
                             <Typography variant='h5'>{member.name}</Typography>
                             <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                              {member.position}
+                              {getThrowingHandPitcher(member.des)}
                             </Typography>
                             <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                              {t('Jersey numbers')}
+                              {t(member.position)}
+                            </Typography>
+                            <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
+                              {t('Jersey number')}
                               {member.num}
-                            </Typography>
-                            <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                              {t(member.des)}
                             </Typography>
                           </div>
                         </div>
