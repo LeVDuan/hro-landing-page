@@ -6,7 +6,7 @@ import { getServerMode, getUserLocaleFromCookies, getEventImageUrl } from '@core
 import type { GalleryImage } from '@/types/imageTypes'
 import cloudinary from '@/utils/cloudinary'
 import getBase64ImageUrl from '@/utils/generateBlurPlaceholder'
-import { getTeamData } from '@/lib/teamData'
+import { getTeamData, getFaqData } from '@/lib/teamData'
 
 const getImages = async (): Promise<GalleryImage[]> => {
   try {
@@ -56,7 +56,11 @@ const LandingPage = async () => {
   const locale = getUserLocaleFromCookies()
   const images = await getImages()
   const logoURL = getEventImageUrl()
-  const teamData = await getTeamData()
+
+  const [teamData, faqData] = await Promise.all([
+    getTeamData(),
+    getFaqData()
+  ])
 
   // console.log('locale', locale)
 
@@ -68,7 +72,8 @@ const LandingPage = async () => {
         locale={locale} 
         logoURL={logoURL} 
         showSnowfall={logoURL === '/logos/LogoXmas.png'}
-        teamData={teamData} 
+        teamData={teamData}
+        faqData={faqData}
       />
     </>
   )

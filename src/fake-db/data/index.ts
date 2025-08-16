@@ -1,3 +1,6 @@
+import type { FaqsDataTypes } from '@/types/faqTypes'
+
+// Founders are static - not expected to change
 export const founders = [
   {
     name: 'Nguyễn Thị Minh Hà',
@@ -12,13 +15,6 @@ export const founders = [
     color: 'var(--mui-palette-info-mainOpacity)'
   }
 ]
-
-type FaqsDataTypes = {
-  id: string
-  question: string
-  active?: boolean
-  answer: string
-}
 
 export const FaqsData: FaqsDataTypes[] = [
   {

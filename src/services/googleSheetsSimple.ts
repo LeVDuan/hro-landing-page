@@ -1,11 +1,13 @@
 import type { MemberData, ProcessedMember } from '@/types/memberSimple'
+import type { FaqData, ProcessedFaq } from '@/types/faqTypes'
 
 const SHEET_ID = process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID || ''
 const SHEET_GID = process.env.NEXT_PUBLIC_SHEET_GID || '0'
+const FAQ_GID = process.env.NEXT_PUBLIC_FAQ_GID || '2'
 
 export class GoogleSheetsSingleTableService {
-  private getSheetUrl(): string {
-    return `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${SHEET_GID}`
+  private getSheetUrl(gid: string = SHEET_GID): string {
+    return `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${gid}`
   }
 
   private parseCsvRow(row: string): string[] {
@@ -36,6 +38,38 @@ export class GoogleSheetsSingleTableService {
     return values
   }
 
+  private parseFullCsv(csvText: string): string[][] {
+    const rows: string[][] = []
+    const lines = csvText.split('\n')
+    let currentRow = ''
+    let inQuotes = false
+    
+    for (const line of lines) {
+      currentRow += line
+      
+      // Count quotes to determine if we're inside a quoted field
+      const quoteCount = (line.match(/"/g) || []).length
+      
+      if (quoteCount % 2 === 1) {
+        inQuotes = !inQuotes
+      }
+      
+      if (!inQuotes) {
+        // Complete row found
+        if (currentRow.trim()) {
+          rows.push(this.parseCsvRow(currentRow))
+        }
+
+        currentRow = ''
+      } else {
+        // Continue with next line
+        currentRow += '\n'
+      }
+    }
+    
+    return rows
+  }
+
   private toCamelCase(str: string): string {
     return str
       .toLowerCase()
@@ -44,41 +78,52 @@ export class GoogleSheetsSingleTableService {
       .replace(/^(\w)/, (_, letter) => letter.toLowerCase())
   }
 
-  async fetchMembers(): Promise<MemberData[]> {
+  private async fetchGenericData<T>(gid: string): Promise<T[]> {
     try {
-      const response = await fetch(this.getSheetUrl(), {
-        // Cache data - only refresh on deploy/restart
-        cache: 'force-cache'
+      const response = await fetch(this.getSheetUrl(gid), {
+        cache: 'no-cache'
       })
       
-      const text = await response.text()
-      const rows = text.split('\n').filter(row => row.trim())
+      // Ensure proper UTF-8 decoding
+      const buffer = await response.arrayBuffer()
+      const text = new TextDecoder('utf-8').decode(buffer)
       
-      if (rows.length < 2) {
+      const allRows = this.parseFullCsv(text)
+      
+      if (allRows.length < 2) {
         return []
       }
       
-      const headers = this.parseCsvRow(rows[0]).map(h => this.toCamelCase(h))
+      const headers = allRows[0].map(h => this.toCamelCase(h))
       
-      const members = rows.slice(1).map(row => {
-        const values = this.parseCsvRow(row)
-        const member: any = {}
-        
-        headers.forEach((header, index) => {
-          const value = values[index]?.trim() || ''
+      const data = allRows.slice(1)
+        .filter(row => row.some(cell => cell.trim())) // Filter empty rows
+        .map(values => {
+          const item: any = {}
+          
+          headers.forEach((header, index) => {
+            const value = values[index]?.trim() || ''
 
-          member[header] = value
+            item[header] = value
+          })
+          
+          return item as T
         })
-        
-        return member as MemberData
-      })
       
-      return members
+      return data
     } catch (error) {
-      console.error('Error fetching members from Google Sheets:', error)
-      
-return []
+      console.error('Error fetching data from Google Sheets:', error)
+
+      return []
     }
+  }
+
+  async fetchMembers(): Promise<MemberData[]> {
+    return this.fetchGenericData<MemberData>(SHEET_GID)
+  }
+
+  async fetchFaqs(): Promise<FaqData[]> {
+    return this.fetchGenericData<FaqData>(FAQ_GID)
   }
 
   processMemberData(members: MemberData[]): ProcessedMember[] {
@@ -169,12 +214,33 @@ return []
       })
   }
 
+  processFaqData(faqs: FaqData[]): ProcessedFaq[] {
+    return faqs
+      .filter(f => f.id && (f.questionEn || f.questionVi || f.questionJa || f.questionKo))
+      .map(faq => ({
+        id: faq.id,
+        question: {
+          en: faq.questionEn || '',
+          vi: faq.questionVi || '',
+          ja: faq.questionJa || '',
+          ko: faq.questionKo || ''
+        },
+        answer: {
+          en: faq.answerEn || '',
+          vi: faq.answerVi || '',
+          ja: faq.answerJa || '',
+          ko: faq.answerKo || ''
+        },
+        active: this.isTrue(faq.active)
+      }))
+  }
+
   private isTrue(value?: string): boolean {
     if (!value) return false
+
     const v = value.toLowerCase().trim()
 
-    
-return v === 'true' || v === '1' || v === 'yes' || v === 'x'
+    return v === 'true' || v === '1' || v === 'yes' || v === 'x' || v === 'checked'
   }
 }
 
