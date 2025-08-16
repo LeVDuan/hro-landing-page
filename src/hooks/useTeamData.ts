@@ -35,11 +35,6 @@ export function useTeamData() {
       } catch (err) {
         console.error('Error fetching team data:', err)
         setError('Failed to load team data')
-        
-        // Fallback to existing data if available
-        if (cachedData) {
-          setData(cachedData)
-        }
       } finally {
         setLoading(false)
       }
