@@ -1,5 +1,5 @@
 import { GoogleSheetsSingleTableService, transformSingleTableToLegacy } from '@/services/googleSheetsSimple'
-import { founders } from '@/fake-db/data'
+import { founders } from '@/data/founders'
 import type { ProcessedFaq } from '@/types/faqTypes'
 
 let cache: any = null
