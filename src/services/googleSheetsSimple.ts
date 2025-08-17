@@ -1,9 +1,14 @@
 import type { MemberData, ProcessedMember } from '@/types/memberSimple'
 import type { FaqData, ProcessedFaq } from '@/types/faqTypes'
+import type { TimelineData, ProcessedTimeline } from '@/types/timelineTypes'
+import type { StatsData, ProcessedStats } from '@/types/statsTypes'
 
 const SHEET_ID = process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID || ''
 const SHEET_GID = process.env.NEXT_PUBLIC_SHEET_GID || '0'
 const FAQ_GID = process.env.NEXT_PUBLIC_FAQ_GID || '2'
+const TIMELINE_GID = process.env.NEXT_PUBLIC_TIMELINE_GID || '3'
+const STATS_GID = process.env.NEXT_PUBLIC_STATS_GID || '4'
+
 
 export class GoogleSheetsSingleTableService {
   private getSheetUrl(gid: string = SHEET_GID): string {
@@ -71,6 +76,11 @@ export class GoogleSheetsSingleTableService {
   }
 
   private toCamelCase(str: string): string {
+    // If already camelCase, keep as-is
+    if (/^[a-z][a-zA-Z0-9]*$/.test(str)) {
+      return str
+    }
+    
     return str
       .toLowerCase()
       .replace(/_([a-z])/g, (_, letter) => letter.toUpperCase())
@@ -124,6 +134,14 @@ export class GoogleSheetsSingleTableService {
 
   async fetchFaqs(): Promise<FaqData[]> {
     return this.fetchGenericData<FaqData>(FAQ_GID)
+  }
+
+  async fetchTimeline(): Promise<TimelineData[]> {
+    return this.fetchGenericData<TimelineData>(TIMELINE_GID)
+  }
+
+  async fetchStats(): Promise<StatsData[]> {
+    return this.fetchGenericData<StatsData>(STATS_GID)
   }
 
   processMemberData(members: MemberData[]): ProcessedMember[] {
@@ -232,6 +250,56 @@ export class GoogleSheetsSingleTableService {
           ko: faq.answerKo || ''
         },
         active: this.isTrue(faq.active)
+      }))
+  }
+
+  processTimelineData(timeline: TimelineData[]): ProcessedTimeline[] {
+    return timeline
+      .filter(t => t.id && (t.titleEn || t.titleVi || t.titleJa || t.titleKo))
+      .map(item => ({
+        id: item.id,
+        time: item.time || '',
+        image: item.image || '',
+        totalMatches: item.totalMatches ? parseInt(item.totalMatches) || undefined : undefined,
+        winMatches: item.winMatches ? parseInt(item.winMatches) || undefined : undefined,
+        loseMatches: item.loseMatches ? parseInt(item.loseMatches) || undefined : undefined,
+        competitionResults: {
+          en: item.competitionResultsEn || '',
+          vi: item.competitionResultsVi || '',
+          ja: item.competitionResultsJa || '',
+          ko: item.competitionResultsKo || ''
+        },
+        title: {
+          en: item.titleEn || '',
+          vi: item.titleVi || '',
+          ja: item.titleJa || '',
+          ko: item.titleKo || ''
+        },
+        description: {
+          en: item.descriptionEn || '',
+          vi: item.descriptionVi || '',
+          ja: item.descriptionJa || '',
+          ko: item.descriptionKo || ''
+        },
+        active: this.isTrue(item.active)
+      }))
+  }
+
+  processStatsData(stats: StatsData[]): ProcessedStats[] {
+    return stats
+      .filter(s => s.id && (s.titleEn || s.titleVi || s.titleJa || s.titleKo))
+      .map(item => ({
+        id: item.id,
+        icon: item.icon || '',
+        color: item.color || 'primary',
+        value: parseInt(item.value) || 0,
+        title: {
+          en: item.titleEn || '',
+          vi: item.titleVi || '',
+          ja: item.titleJa || '',
+          ko: item.titleKo || ''
+        },
+        active: this.isTrue(item.active)
       }))
   }
 

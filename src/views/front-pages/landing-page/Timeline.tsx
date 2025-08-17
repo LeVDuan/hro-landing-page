@@ -26,65 +26,8 @@ import frontCommonStyles from '@views/front-pages/styles.module.css'
 import ElementOne from '@/assets/svg/front-pages/landing-page/ElementOne'
 import MileStonesIcon from '@/assets/svg/front-pages/landing-page/MileStonesIcon'
 import { getFont } from '@/utils/getFont'
+import { useTimelineData } from '@/hooks/useTimelineData'
 
-// Type Imports
-interface DataObj {
-  [key: number]: {
-    image: string
-    time: string
-    title: string
-    description: string
-    totalMatches?: number
-    winMatches?: number
-    loseMatches?: number
-    competitionResults?: string
-  }
-}
-
-const dataObj: DataObj = {
-  1: {
-    image: '/landing-page/early-stage.jpg',
-    time: '21/10/2020',
-    title: 'Early stage',
-    description: 'Early stage description'
-  },
-  2: {
-    image: '/landing-page/team-image.jpg',
-    time: '3/2021',
-    title: 'Official',
-    description: 'Official description'
-  },
-  3: {
-    image: '/landing-page/nationalCup2023.png',
-    time: '7/2023',
-    title: 'Cup2023',
-    description: 'Cup2023 description',
-    totalMatches: 5,
-    winMatches: 3,
-    loseMatches: 2,
-    competitionResults: 'Cup2023-3rd'
-  },
-  4: {
-    image: '/landing-page/HBMS2023.png',
-    time: '10/2023',
-    title: 'HBMS2023',
-    description: 'HBMS2023 description',
-    totalMatches: 3,
-    winMatches: 1,
-    loseMatches: 2,
-    competitionResults: 'HBMS2023-3rd'
-  },
-  5: {
-    image: '/landing-page/nationalCup2024.png',
-    time: '7/2024',
-    title: 'Cup2024',
-    description: 'Cup2024 description',
-    totalMatches: 4,
-    winMatches: 1,
-    loseMatches: 3,
-    competitionResults: 'Group stage'
-  }
-}
 
 // Styled Timeline component
 const Timeline = styled(MuiTimeline)<TimelineProps>(({ theme }) => ({
@@ -104,10 +47,12 @@ const Timeline = styled(MuiTimeline)<TimelineProps>(({ theme }) => ({
 }))
 
 const TimelineCenter = ({ locale }: { locale: string }) => {
-  // Hooks
   const theme = useTheme()
   const isBelowMdScreen = useMediaQuery(theme.breakpoints.down('md'))
   const t = useTranslations('timeline')
+  const { timeline } = useTimelineData()
+  
+  const displayData = timeline.length > 0 ? timeline : null
 
   return (
     <section className='flex flex-col gap-16 plb-[100px]'>
@@ -153,296 +98,104 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
           </div>
         </div>
         <Timeline position={isBelowMdScreen ? 'right' : 'alternate'}>
-          <TimelineItem>
-            {/* We have used the following code twice because we want to show the data on the opposite side of the timeline on
-        large screens and on the right side of the timeline on small screens. You may create components for this and use
-        them instead.
-        <Typography variant='caption' component='div' className='mbs-3'>
-          2 months ago
-        </Typography> */}
-            {!isBelowMdScreen && (
-              <TimelineOppositeContent color='text.disabled'>
-                <div className='flex flex-col items-end gap-4 mbe-10'>
-                  <Typography variant='h5' component='div'>
-                    {dataObj[1].time}
-                  </Typography>
-                  <img src={dataObj[1].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
-                </div>
-              </TimelineOppositeContent>
-            )}
-            <TimelineSeparator>
-              <TimelineDot color='error' />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>
-              {isBelowMdScreen && (
-                <>
-                  <Typography variant='h5' component='div'>
-                    {dataObj[1].time}
-                  </Typography>
-                  <div className='flex pbs-2 pbe-5 lg:pbs-[60px] md:pie-4 z-[1]'>
-                    <img src={dataObj[1].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
-                  </div>
-                </>
-              )}
-              <Card>
-                <CardContent>
-                  <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
-                    {t(dataObj[1].title)}
-                  </Typography>
-                  <Typography className='mbe-3' sx={{ fontFamily: `${getFont(locale)}` }}>
-                    {t(dataObj[1].description)}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </TimelineContent>
-          </TimelineItem>
-
-          <TimelineItem>
-            {!isBelowMdScreen && (
-              <TimelineOppositeContent color='text.disabled'>
-                <div className='flex flex-col items-start gap-4 mbe-10'>
-                  <Typography variant='h5' component='div'>
-                    {dataObj[2].time}
-                  </Typography>
-                  <img src={dataObj[2].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
-                </div>
-              </TimelineOppositeContent>
-            )}
-
-            <TimelineSeparator>
-              <TimelineDot color='success' />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>
-              {isBelowMdScreen && (
-                <>
-                  <Typography variant='h5' component='div'>
-                    {dataObj[2].time}
-                  </Typography>
-                  <div className='flex pbs-2 pbe-5 lg:pbs-[60px] md:pie-4 z-[1]'>
-                    <img src={dataObj[2].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
-                  </div>
-                </>
-              )}
-              <Card>
-                <CardContent>
-                  <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
-                    {t(dataObj[2].title)}
-                  </Typography>
-                  <Typography className='mbe-3' sx={{ fontFamily: `${getFont(locale)}` }}>
-                    {t(dataObj[2].description)}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </TimelineContent>
-          </TimelineItem>
-
-          <TimelineItem>
-            {!isBelowMdScreen && (
-              <TimelineOppositeContent color='text.disabled'>
-                <div className='flex flex-col items-end gap-4 mbe-10'>
-                  <Typography variant='h5' component='div'>
-                    {dataObj[3].time}
-                  </Typography>
-                  <img src={dataObj[3].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
-                </div>
-              </TimelineOppositeContent>
-            )}
-            <TimelineSeparator>
-              <TimelineDot color='primary' />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>
-              {isBelowMdScreen && (
-                <>
-                  <Typography variant='h5' component='div'>
-                    {dataObj[3].time}
-                  </Typography>
-                  <div className='flex pbs-2 pbe-5 lg:pbs-[60px] md:pie-4 z-[1]'>
-                    <img src={dataObj[3].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
-                  </div>
-                </>
-              )}
-              <Card>
-                <CardContent>
-                  <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
-                    {t(dataObj[3].title)}
-                  </Typography>
-                  <Typography className='mbe-3' sx={{ fontFamily: `${getFont(locale)}` }}>
-                    {t(dataObj[3].description)}
-                  </Typography>
-                  <Typography className='mbe-3' sx={{ fontFamily: `${getFont(locale)}` }}>
-                    {t('Achievements')}: {t(dataObj[3].competitionResults)}
-                  </Typography>
-
-                  <Grid container rowSpacing={5} columnSpacing={5}>
-                    <Grid item xs={12} lg={4}>
-                      <div className='flex flex-col items-start gap-0'>
-                        <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Matches')}</Typography>
-                        <Typography>{dataObj[3].totalMatches}</Typography>
+          {displayData ? 
+            displayData.map((item, index) => {
+              // Map locale to supported languages
+              const currentLocale = (['en', 'vi', 'ja', 'ko'].includes(locale as any)) ? locale as 'en' | 'vi' | 'ja' | 'ko' : 'en'
+              
+              // Get title and description with fallback to English if current locale is empty
+              const title = item.title[currentLocale] || item.title.en || ''
+              const description = item.description[currentLocale] || item.description.en || ''
+              
+              // Skip if both title and description are empty
+              if (!title && !description) return null
+              
+              // Auto-assign colors based on index
+              const colors = ['error', 'success', 'primary', 'warning', 'info'] as const
+              const dotColor = colors[index % colors.length]
+              
+              return (
+                <TimelineItem key={item.id}>
+                  {!isBelowMdScreen && (
+                    <TimelineOppositeContent color='text.disabled'>
+                      <div className={`flex flex-col ${index % 2 === 0 ? 'items-end' : 'items-start'} gap-4 mbe-10`}>
+                        <Typography variant='h5' component='div'>
+                          {item.time}
+                        </Typography>
+                        <img src={item.image} alt={`${title}-image`} className={classnames(styles.timelineImg)} />
                       </div>
-                    </Grid>
-                    <Grid item xs={12} lg={4}>
-                      <div className='flex flex-col items-start gap-0'>
-                        <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Win')}</Typography>
-                        <Typography>{dataObj[3].winMatches}</Typography>
-                      </div>
-                    </Grid>
-                    <Grid item xs={12} lg={4}>
-                      <div className='flex flex-col items-start gap-0'>
-                        <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Lose')}</Typography>
-                        <Typography>{dataObj[3].loseMatches}</Typography>
-                      </div>
-                    </Grid>
-                  </Grid>
-                  {/* <div className='items-end'>
-                <i className='ri-arrow-right-double-line' />
-              </div> */}
-                </CardContent>
-              </Card>
-            </TimelineContent>
-          </TimelineItem>
+                    </TimelineOppositeContent>
+                  )}
+                  <TimelineSeparator>
+                    <TimelineDot color={dotColor} />
+                    <TimelineConnector />
+                  </TimelineSeparator>
+                  <TimelineContent>
+                    {isBelowMdScreen && (
+                      <>
+                        <Typography variant='h5' component='div'>
+                          {item.time}
+                        </Typography>
+                        <div className='flex pbs-2 pbe-5 lg:pbs-[60px] md:pie-4 z-[1]'>
+                          <img src={item.image} alt={`${title}-image`} className={classnames(styles.timelineImg)} />
+                        </div>
+                      </>
+                    )}
+                    <Card>
+                      <CardContent>
+                        <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
+                          {title}
+                        </Typography>
+                        <Typography className='mbe-3' sx={{ fontFamily: `${getFont(locale)}` }}>
+                          {description}
+                        </Typography>
+                        {item.competitionResults && (item.competitionResults[currentLocale] || item.competitionResults.en) && (
+                          <Typography className='mbe-3' sx={{ fontFamily: `${getFont(locale)}` }}>
+                            {t('Achievements')}: {item.competitionResults[currentLocale] || item.competitionResults.en}
+                          </Typography>
+                        )}
+                        
+                        {(item.totalMatches || item.winMatches || item.loseMatches) && (
+                          <Grid container rowSpacing={5} columnSpacing={5}>
+                            {item.totalMatches && (
+                              <Grid item xs={12} lg={4}>
+                                <div className='flex flex-col items-start gap-0'>
+                                  <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Matches')}</Typography>
+                                  <Typography>{item.totalMatches}</Typography>
+                                </div>
+                              </Grid>
+                            )}
+                            {item.winMatches && (
+                              <Grid item xs={12} lg={4}>
+                                <div className='flex flex-col items-start gap-0'>
+                                  <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Win')}</Typography>
+                                  <Typography>{item.winMatches}</Typography>
+                                </div>
+                              </Grid>
+                            )}
+                            {item.loseMatches && (
+                              <Grid item xs={12} lg={4}>
+                                <div className='flex flex-col items-start gap-0'>
+                                  <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Lose')}</Typography>
+                                  <Typography>{item.loseMatches}</Typography>
+                                </div>
+                              </Grid>
+                            )}
+                          </Grid>
+                        )}
+                      </CardContent>
+                    </Card>
+                  </TimelineContent>
+                </TimelineItem>
+              )
+            }) : null
+          }
 
+          {/* Now timeline item */}
           <TimelineItem>
             {!isBelowMdScreen && (
               <TimelineOppositeContent color='text.disabled'>
-                <div className='flex flex-col items-start gap-4 mbe-10'>
-                  <Typography variant='h5' component='div'>
-                    {dataObj[4].time}
-                  </Typography>
-                  <img src={dataObj[4].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
-                </div>
-              </TimelineOppositeContent>
-            )}
-            <TimelineSeparator>
-              <TimelineDot color='warning' />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>
-              {isBelowMdScreen && (
-                <>
-                  <Typography variant='h5' component='div'>
-                    {dataObj[4].time}
-                  </Typography>
-                  <div className='flex pbs-2 pbe-5 lg:pbs-[60px] md:pie-4 z-[1]'>
-                    <img src={dataObj[4].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
-                  </div>
-                </>
-              )}
-              <Card>
-                <CardContent>
-                  <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
-                    {t(dataObj[4].title)}
-                  </Typography>
-                  <Typography className='mbe-3' sx={{ fontFamily: `${getFont(locale)}` }}>
-                    {t(dataObj[4].description)}
-                  </Typography>
-                  <Typography className='mbe-3' sx={{ fontFamily: `${getFont(locale)}` }}>
-                    {t('Achievements')}: {t(dataObj[4].competitionResults)}
-                  </Typography>
-
-                  <Grid container rowSpacing={5} columnSpacing={5}>
-                    <Grid item xs={12} lg={4}>
-                      <div className='flex flex-col items-start gap-0'>
-                        <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Matches')}</Typography>
-                        <Typography>{dataObj[4].totalMatches}</Typography>
-                      </div>
-                    </Grid>
-                    <Grid item xs={12} lg={4}>
-                      <div className='flex flex-col items-start gap-0'>
-                        <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Win')}</Typography>
-                        <Typography>{dataObj[4].winMatches}</Typography>
-                      </div>
-                    </Grid>
-                    <Grid item xs={12} lg={4}>
-                      <div className='flex flex-col items-start gap-0'>
-                        <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Lose')}</Typography>
-                        <Typography>{dataObj[4].loseMatches}</Typography>
-                      </div>
-                    </Grid>
-                  </Grid>
-                  {/* <div className='items-end'>
-                <i className='ri-arrow-right-double-line' />
-              </div> */}
-                </CardContent>
-              </Card>
-            </TimelineContent>
-          </TimelineItem>
-
-          <TimelineItem>
-            {!isBelowMdScreen && (
-              <TimelineOppositeContent color='text.disabled'>
-                <div className='flex flex-col items-end gap-4 mbe-10'>
-                  <Typography variant='h5' component='div'>
-                    {dataObj[5].time}
-                  </Typography>
-                  <img src={dataObj[5].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
-                </div>
-              </TimelineOppositeContent>
-            )}
-            <TimelineSeparator>
-              <TimelineDot color='info' />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>
-              {isBelowMdScreen && (
-                <>
-                  <Typography variant='h5' component='div'>
-                    {dataObj[5].time}
-                  </Typography>
-                  <div className='flex pbs-2 pbe-5 lg:pbs-[60px] md:pie-4 z-[1]'>
-                    <img src={dataObj[5].image} alt='early-stage-image' className={classnames(styles.timelineImg)} />
-                  </div>
-                </>
-              )}
-              <Card>
-                <CardContent>
-                  <Typography variant='h5' className='mbe-4' sx={{ fontFamily: `${getFont(locale)}` }}>
-                    {t(dataObj[5].title)}
-                  </Typography>
-                  <Typography className='mbe-3' sx={{ fontFamily: `${getFont(locale)}` }}>
-                    {t(dataObj[5].description)}
-                  </Typography>
-                  <Typography className='mbe-3' sx={{ fontFamily: `${getFont(locale)}` }}>
-                    {t('Achievements')}: {t(dataObj[5].competitionResults)}
-                  </Typography>
-
-                  <Grid container rowSpacing={5} columnSpacing={5}>
-                    <Grid item xs={12} lg={4}>
-                      <div className='flex flex-col items-start gap-0'>
-                        <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Matches')}</Typography>
-                        <Typography>{dataObj[5].totalMatches}</Typography>
-                      </div>
-                    </Grid>
-                    <Grid item xs={12} lg={4}>
-                      <div className='flex flex-col items-start gap-0'>
-                        <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Win')}</Typography>
-                        <Typography>{dataObj[5].winMatches}</Typography>
-                      </div>
-                    </Grid>
-                    <Grid item xs={12} lg={4}>
-                      <div className='flex flex-col items-start gap-0'>
-                        <Typography sx={{ fontFamily: `${getFont(locale)}` }}>{t('Lose')}</Typography>
-                        <Typography>{dataObj[5].loseMatches}</Typography>
-                      </div>
-                    </Grid>
-                  </Grid>
-                  {/* <div className='flex flex-col items-end'>
-                    <Typography className='items-baseline'>
-                      <>Xem thêm</>
-                      <i className='ri-arrow-right-line' />
-                    </Typography>
-                  </div> */}
-                </CardContent>
-              </Card>
-            </TimelineContent>
-          </TimelineItem>
-
-          <TimelineItem>
-            {!isBelowMdScreen && (
-              <TimelineOppositeContent color='text.disabled'>
-                <div className='flex flex-col items-start gap-4 mbe-10'>
+                <div className={`flex flex-col ${displayData && displayData.length % 2 === 0 ? 'items-end' : 'items-start'} gap-4 mbe-10`}>
                   <Typography variant='h5' component='div' sx={{ fontFamily: `${getFont(locale)}` }}>
                     {t('Now')}
                   </Typography>
@@ -451,15 +204,12 @@ const TimelineCenter = ({ locale }: { locale: string }) => {
             )}
             <TimelineSeparator>
               <TimelineDot color='success' />
-              {/* <TimelineConnector /> */}
             </TimelineSeparator>
             <TimelineContent>
               {isBelowMdScreen && (
-                <>
-                  <Typography variant='h5' component='div' sx={{ fontFamily: `${getFont(locale)}` }}>
-                    {t('Now')}
-                  </Typography>
-                </>
+                <Typography variant='h5' component='div' sx={{ fontFamily: `${getFont(locale)}` }}>
+                  {t('Now')}
+                </Typography>
               )}
             </TimelineContent>
           </TimelineItem>
