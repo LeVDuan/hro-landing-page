@@ -20,6 +20,7 @@ export function useTimelineData(): {
       if (isTimelineInitialized && cachedTimelineData) {
         setTimeline(cachedTimelineData)
         setLoading(false)
+
         return
       }
 

@@ -20,6 +20,7 @@ export function useStatsData(): {
       if (isStatsInitialized && cachedStatsData) {
         setStats(cachedStatsData)
         setLoading(false)
+
         return
       }
 
