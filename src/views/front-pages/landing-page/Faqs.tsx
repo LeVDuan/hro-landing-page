@@ -24,14 +24,23 @@ import ElementOne from '@/assets/svg/front-pages/landing-page/ElementOne'
 // Styles Imports
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 import FaqIcon from '@/assets/svg/front-pages/landing-page/FaqIcon'
-import { FaqsData } from '@/fake-db/data'
 import { getFont } from '@/utils/getFont'
+import type { ProcessedFaq } from '@/types/faqTypes'
 
-const Faqs = ({ locale }: { locale: string }) => {
+interface FaqsProps {
+  locale: string
+  faqData?: ProcessedFaq[]
+}
+
+const Faqs = ({ locale, faqData }: FaqsProps) => {
   // Refs
   const skipIntersection = useRef(true)
   const ref = useRef<null | HTMLDivElement>(null)
   const t = useTranslations('faq')
+  
+  // Use data from Google Sheets only
+  const displayData = faqData
+  
 
   // Hooks
   const { updateIntersections } = useIntersection()
@@ -120,17 +129,29 @@ const Faqs = ({ locale }: { locale: string }) => {
           </Grid>
           <Grid item xs={12} lg={7}>
             <div>
-              {FaqsData.map((data, index) => {
+              {displayData && displayData.map((data) => {
+                // Map locale to supported languages
+                const currentLocale = (['en', 'vi', 'ja', 'ko'].includes(locale as any)) ? locale as 'en' | 'vi' | 'ja' | 'ko' : 'en'
+                
+                // Get question and answer with fallback to English if current locale is empty
+                const question = data.question[currentLocale] || data.question.en || ''
+                const answer = data.answer[currentLocale] || data.answer.en || ''
+                
+                // Skip if both question and answer are empty
+                if (!question && !answer) return null
+
                 return (
-                  <Accordion key={index} defaultExpanded={data.active}>
+                  <Accordion key={data.id} defaultExpanded={data.active}>
                     <AccordionSummary
                       aria-controls={data.id + '-content'}
                       id={data.id + '-header'}
                       sx={{ fontFamily: `${getFont(locale)}` }}
                     >
-                      {t(data.question)}
+                      {question}
                     </AccordionSummary>
-                    <AccordionDetails sx={{ fontFamily: `${getFont(locale)}` }}>{t(data.answer)}</AccordionDetails>
+                    <AccordionDetails sx={{ fontFamily: `${getFont(locale)}` }}>
+                      {answer}
+                    </AccordionDetails>
                   </Accordion>
                 )
               })}

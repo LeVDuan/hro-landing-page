@@ -26,7 +26,7 @@ import ElementOne from '@/assets/svg/front-pages/landing-page/ElementOne'
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 import AboutUsIcon from '@/assets/svg/front-pages/landing-page/AboutUsIcon'
 import { getFont } from '@/utils/getFont'
-import { founders } from '@/fake-db/data' // Keep fallback for AboutUs
+import { founders } from '@/data/founders' // Static founders data
 
 const Card = styled(MuiCard)`
   transition: transform 0.3s ease;
