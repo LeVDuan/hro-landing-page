@@ -3,6 +3,7 @@
 
 // Next Imports
 // import Link from 'next/link'
+import Image from 'next/image'
 
 // MUI Imports
 import Typography from '@mui/material/Typography'
@@ -33,7 +34,6 @@ import frontCommonStyles from '@views/front-pages/styles.module.css'
 // import Curve from '@assets/svg/front-pages/landing-page/Curve'
 import AppKeenSlider from '@/libs/styles/AppKeenSlider'
 import CustomIconButton from '@core/components/mui/IconButton'
-import { predecessors, LeadersInfo, SubLeadersInfo } from '@/fake-db/data'
 
 // import Arrow from '@assets/svg/front-pages/landing-page/Arrow'
 import ElementTwo from '@/assets/svg/front-pages/landing-page/ElementTwo'
@@ -64,7 +64,14 @@ const Card = styled(MuiCard)`
   }
 `
 
-const Leaders = ({ locale }: { locale: string }) => {
+interface LeadersProps {
+  locale: string
+  LeadersInfo?: any[]
+  SubLeadersInfo?: any[]
+  predecessors?: any[]
+}
+
+const Leaders = ({ locale, LeadersInfo = [], SubLeadersInfo = [], predecessors = [] }: LeadersProps) => {
   // States
   const t = useTranslations('structure')
 
@@ -196,13 +203,21 @@ const Leaders = ({ locale }: { locale: string }) => {
 
                     // style={{ backgroundColor: member.color }}
                   >
-                    <img src={member.image} alt={member.name} className='bs-[240px] absolute block-start-[-50px]' />
+                    <Image 
+                      src={member.image} 
+                      alt={member.name} 
+                      width={240}
+                      height={240}
+                      className='bs-[240px] absolute block-start-[-50px]' 
+                      priority={true}
+                      sizes='(max-width: 768px) 120px, 240px'
+                    />
                   </div>
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
                       <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                        {t('Jersey numbers')}
+                        {t('Jersey number')}
                         {member.num}
                       </Typography>
                       <Typography color='text.secondary'>{member.gen}</Typography>
@@ -234,13 +249,21 @@ const Leaders = ({ locale }: { locale: string }) => {
                       styles.gradientBg2
                     )}
                   >
-                    <img src={member.image} alt={member.name} className='bs-[240px] absolute block-start-[-50px]' />
+                    <Image 
+                      src={member.image} 
+                      alt={member.name} 
+                      width={240}
+                      height={240}
+                      className='bs-[240px] absolute block-start-[-50px]' 
+                      priority={true}
+                      sizes='(max-width: 768px) 120px, 240px'
+                    />
                   </div>
                   <div className='flex flex-col gap-3 p-5 is-full'>
                     <div className='text-center'>
                       <Typography variant='h5'>{member.name}</Typography>
                       <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                        {t('Jersey numbers')}
+                        {t('Jersey number')}
                         {member.num}
                       </Typography>
                       <Typography color='text.secondary'>{member.gen}</Typography>
@@ -336,7 +359,7 @@ const Leaders = ({ locale }: { locale: string }) => {
                               <div className='text-center'>
                                 <Typography variant='h5'>{member.name}</Typography>
                                 <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                                  {t('Jersey numbers')}
+                                  {t('Jersey number')}
                                   {member.num}
                                 </Typography>
                                 <Typography color='text.secondary'>{member.gen}</Typography>

@@ -25,7 +25,6 @@ import AboutUs from './AboutUs'
 import Managers from './Managers'
 import Media from './Media'
 import Players from './Players'
-import Catchers from './Catchers'
 import Outfielders from './Outfielders'
 import Infielders from './Infielders'
 import Pitchers from './Pitchers'
@@ -33,6 +32,7 @@ import Pitchers from './Pitchers'
 import TimelineCenter from './Timeline'
 import Gallery from './Gallery'
 import type { GalleryImage } from '@/types/imageTypes'
+import type { ProcessedFaq } from '@/types/faqTypes'
 
 // import Recruitment from './RecruitmentDialog'
 
@@ -42,6 +42,8 @@ interface props {
   logoURL: string
   images: GalleryImage[]
   showSnowfall?: boolean
+  teamData?: any
+  faqData?: ProcessedFaq[]
 }
 
 const Snowfall = dynamic(() => import('./Snowfall'), { 
@@ -49,7 +51,7 @@ const Snowfall = dynamic(() => import('./Snowfall'), {
   loading: () => null
 })
 
-const LandingPageWrapper = ({ mode, locale, logoURL, images, showSnowfall }: props) => {
+const LandingPageWrapper = ({ mode, locale, logoURL, images, showSnowfall, teamData, faqData }: props) => {
   // Hooks
   const { updatePageSettings } = useSettings()
 
@@ -70,22 +72,20 @@ const LandingPageWrapper = ({ mode, locale, logoURL, images, showSnowfall }: pro
       <TimelineCenter locale={locale} />
       <Divider />
       <ProductStat locale={locale} />
-      <Leaders locale={locale} />
-      <Managers locale={locale} />
-      <Media locale={locale} />
-      <Players locale={locale} />
+      <Leaders locale={locale} {...teamData} />
+      <Managers locale={locale} {...teamData} />
+      <Media locale={locale} {...teamData} />
+      <Players locale={locale} {...teamData} />
       <Divider />
-      <Pitchers locale={locale} />
+      <Pitchers locale={locale} {...teamData} />
       <Divider />
-      <Catchers locale={locale} />
+      <Infielders locale={locale} {...teamData} />
       <Divider />
-      <Infielders locale={locale} />
-      <Divider />
-      <Outfielders locale={locale} />
+      <Outfielders locale={locale} {...teamData} />
       <Activities locale={locale} />
       {/* <Divider /> */}
       <Gallery images={images} locale={locale} logoURL={logoURL} />
-      <Faqs locale={locale} />
+      <Faqs locale={locale} faqData={faqData} />
       <ContactUs locale={locale} />
     </>
   )

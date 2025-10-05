@@ -98,7 +98,7 @@ const FrontMenu = (props: Props) => {
       <Typography
         component={Link}
         href='/'
-        className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
+        className={classnames('font-medium plb-3 hover:text-primary', {
           'text-primary':
             !intersections['about-us'] &&
             !intersections.managers &&
@@ -108,7 +108,9 @@ const FrontMenu = (props: Props) => {
             !intersections.location &&
             !intersections.faq &&
             !intersections['contact-us'] &&
-            pathname === '/'
+            pathname === '/',
+          'pli-1': locale === 'vi',
+          'pli-1.5': locale !== 'vi'
         })}
         color='text.primary'
         sx={{ fontFamily: `${getFont(locale)}` }}
@@ -118,8 +120,10 @@ const FrontMenu = (props: Props) => {
       <Typography
         component={Link}
         href='#about-us'
-        className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
-          'text-primary': intersections['about-us']
+        className={classnames('font-medium plb-3 hover:text-primary', {
+          'text-primary': intersections['about-us'],
+          'pli-1': locale === 'vi',
+          'pli-1.5': locale !== 'vi'
         })}
         color='text.primary'
         sx={{ fontFamily: `${getFont(locale)}` }}
@@ -130,8 +134,10 @@ const FrontMenu = (props: Props) => {
       <Typography
         component={Link}
         href='#managers'
-        className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
-          'text-primary': intersections.managers
+        className={classnames('font-medium plb-3 hover:text-primary', {
+          'text-primary': intersections.managers,
+          'pli-1': locale === 'vi',
+          'pli-1.5': locale !== 'vi'
         })}
         color='text.primary'
         sx={{ fontFamily: `${getFont(locale)}` }}
@@ -141,8 +147,10 @@ const FrontMenu = (props: Props) => {
       <Typography
         component={Link}
         href='#media'
-        className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
-          'text-primary': intersections.media
+        className={classnames('font-medium plb-3 hover:text-primary', {
+          'text-primary': intersections.media,
+          'pli-1': locale === 'vi',
+          'pli-1.5': locale !== 'vi'
         })}
         sx={{ fontFamily: `${getFont(locale)}` }}
         color='text.primary'
@@ -152,8 +160,10 @@ const FrontMenu = (props: Props) => {
       <Typography
         component={Link}
         href='#players'
-        className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
-          'text-primary': intersections.players
+        className={classnames('font-medium plb-3 hover:text-primary', {
+          'text-primary': intersections.players,
+          'pli-1': locale === 'vi',
+          'pli-1.5': locale !== 'vi'
         })}
         sx={{ fontFamily: `${getFont(locale)}` }}
         color='text.primary'
@@ -163,8 +173,10 @@ const FrontMenu = (props: Props) => {
       <Typography
         component={Link}
         href='#activities'
-        className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
-          'text-primary': intersections.activities
+        className={classnames('font-medium plb-3 hover:text-primary', {
+          'text-primary': intersections.activities,
+          'pli-1': locale === 'vi',
+          'pli-1.5': locale !== 'vi'
         })}
         sx={{ fontFamily: `${getFont(locale)}` }}
         color='text.primary'
@@ -174,8 +186,10 @@ const FrontMenu = (props: Props) => {
       <Typography
         component={Link}
         href='#faq'
-        className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
-          'text-primary': intersections.faq
+        className={classnames('font-medium plb-3 hover:text-primary', {
+          'text-primary': intersections.faq,
+          'pli-1': locale === 'vi',
+          'pli-1.5': locale !== 'vi'
         })}
         sx={{ fontFamily: `${getFont(locale)}` }}
         color='text.primary'
@@ -185,8 +199,10 @@ const FrontMenu = (props: Props) => {
       <Typography
         component={Link}
         href='#contact-us'
-        className={classnames('font-medium plb-3 pli-1.5 hover:text-primary', {
-          'text-primary': intersections['contact-us']
+        className={classnames('font-medium plb-3 hover:text-primary', {
+          'text-primary': intersections['contact-us'],
+          'pli-1': locale === 'vi',
+          'pli-1.5': locale !== 'vi'
         })}
         sx={{ fontFamily: `${getFont(locale)}` }}
         color='text.primary'

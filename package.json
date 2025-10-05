@@ -11,7 +11,9 @@
     "lint:fix": "next lint --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "build:icons": "tsx src/assets/iconify-icons/bundle-icons-css.ts",
-    "postinstall": "npm run build:icons"
+    "postinstall": "npm run build:icons",
+    "i18n:check": "node scripts/i18n-check.mjs",
+    "i18n:sync": "node scripts/i18n-sync.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "4.4.1",
@@ -26,6 +28,7 @@
     "@vercel/speed-insights": "^1.2.0",
     "classnames": "^2.5.1",
     "cloudinary": "^2.5.1",
+    "googleapis": "^155.0.1",
     "keen-slider": "^6.8.6",
     "lunar-javascript": "^1.6.13",
     "next": "^14.2.31",
@@ -51,6 +54,7 @@
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
     "autoprefixer": "^10.4.21",
+    "chalk": "^5.5.0",
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.2.31",
     "eslint-config-prettier": "^9.1.2",

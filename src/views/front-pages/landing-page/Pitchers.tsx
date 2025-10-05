@@ -1,6 +1,9 @@
 // React Imports
 import { useState } from 'react'
 
+// Next Imports
+import Image from 'next/image'
+
 // MUI Imports
 import Typography from '@mui/material/Typography'
 import MuiCard from '@mui/material/Card'
@@ -25,8 +28,6 @@ import frontCommonStyles from '@views/front-pages/styles.module.css'
 import type { ThemeColor } from '@/@core/types'
 import PitcherIcon from '@/assets/svg/front-pages/landing-page/PitcherIcon'
 
-// Data
-import { pitchers } from '@/fake-db/data'
 import { getFont } from '@/utils/getFont'
 
 const Card = styled(MuiCard)`
@@ -46,12 +47,35 @@ const Card = styled(MuiCard)`
   }
 `
 
-const Pitchers = ({ locale }: { locale: string }) => {
+interface PitchersProps {
+  locale: string
+  pitchers?: any[]
+}
+
+const Pitchers = ({ locale, pitchers = [] }: PitchersProps) => {
   // States
   const [loaded, setLoaded] = useState<boolean>(false)
   const [currentSlide, setCurrentSlide] = useState<number>(0)
   const [details, setDetails] = useState<TrackDetails>()
   const t = useTranslations('structure')
+
+  // Function to get throwing hand from B/T notation
+  const getThrowingHandPitcher = (battingThrowing: string) => {
+    if (!battingThrowing) {
+      return ''
+    }
+
+    // B/T format: "B/T: L/L" or "L/L"
+    const parts = battingThrowing.replace('B/T:', '').trim().split('/')
+
+    if (parts.length >= 2) {
+      const throwingHand = parts[1].trim().toUpperCase()
+
+      return throwingHand === 'L' ? t('Left hand Pitcher') : t('Right hand Pitcher')
+    }
+
+    return ''
+  }
 
   // Hooks
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>(
@@ -150,24 +174,28 @@ const Pitchers = ({ locale }: { locale: string }) => {
                           className='flex justify-center is-full mli-auto text-center bs-[190px] relative overflow-visible rounded-ss-md rounded-se-md'
                           style={{ backgroundColor: member.color }}
                         >
-                          <img
+                          <Image
                             src={member.image}
                             alt={member.name}
+                            width={240}
+                            height={240}
                             className='bs-[240px] absolute block-start-[-50px]'
+                            loading='lazy'
+                            sizes='(max-width: 768px) 120px, 240px'
                           />
                         </div>
                         <div className='flex flex-col gap-3 p-5 is-full'>
                           <div className='text-center'>
                             <Typography variant='h5'>{member.name}</Typography>
                             <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                              {member.position}
+                              {t(member.gen)}
                             </Typography>
                             <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                              {t('Jersey numbers')}
+                              {getThrowingHandPitcher(member.des)}
+                            </Typography>
+                            <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
+                              {t('Jersey number')}
                               {member.num}
-                            </Typography>
-                            <Typography color='text.secondary' sx={{ fontFamily: `${getFont(locale)}` }}>
-                              {t(member.des)}
                             </Typography>
                           </div>
                         </div>
